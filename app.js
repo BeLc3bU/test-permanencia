@@ -123,6 +123,11 @@ window.addEventListener('load', () => {
         // Mostrar el botón de siguiente pregunta
         siguienteBtn.innerText = (preguntaActualIndex < preguntasDelTestActual.length - 1) ? 'Siguiente Pregunta' : 'Finalizar Test';
         siguienteBtn.classList.remove('oculto');
+
+        // Si es la última pregunta, ocultamos el botón de finalizar de la cabecera para evitar redundancia
+        if (preguntaActualIndex === preguntasDelTestActual.length - 1) {
+            finalizarAhoraBtn.classList.add('oculto');
+        }
     }
 
     function finalizarTest() {
@@ -158,7 +163,8 @@ window.addEventListener('load', () => {
     }
 
     function mostrarRecord() {
-        const record = localStorage.getItem(HIGH_SCORE_KEY) || 0;
+        // Usamos parseFloat y toFixed para mostrar siempre dos decimales
+        const record = parseFloat(localStorage.getItem(HIGH_SCORE_KEY) || 0).toFixed(2);
         recordTextoEl.innerText = `Récord: ${record}`;
     }
 

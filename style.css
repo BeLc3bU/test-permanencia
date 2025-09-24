@@ -173,12 +173,16 @@ body {
     font-size: 1.2rem;
 }
 
+.footer-botones {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+}
+
 #siguiente-pregunta, #reiniciar-test {
     display: inline-block; /* Cambiado de block a inline-block */
     width: auto;           /* Ancho automático */
     padding: 1rem;
-    float: right;
-    margin-top: 1.5rem;
     font-size: 1.1rem;
     font-weight: bold;
     color: white;
@@ -196,11 +200,6 @@ body {
 #siguiente-pregunta:hover, #reiniciar-test:hover {
     background-color: var(--color-primario-hover);
     transform: translateY(-2px);
-}
-
-#reiniciar-test {
-    background-color: var(--color-secundario);
-    float: left; /* Alineado a la izquierda */
 }
 
 #reiniciar-test:hover { background-color: var(--color-secundario-hover); }
@@ -255,9 +254,13 @@ body {
         font-size: 1.25rem; /* Reducir tamaño de la fuente de la pregunta */
     }
 
+    .footer-botones {
+        flex-direction: column-reverse; /* Pone "Siguiente" debajo de "Reiniciar" */
+        gap: 0.75rem; /* Espacio entre los botones */
+    }
+
     #siguiente-pregunta, #reiniciar-test {
         width: 100%; /* Botones a ancho completo */
-        float: none; /* Quitar flotantes */
         margin-left: 0;
         margin-right: 0;
     }
