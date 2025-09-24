@@ -13,8 +13,10 @@ window.addEventListener('load', () => {
 
     // Constante para la clave en localStorage
     const HIGH_SCORE_KEY = 'testPermanenciaHighScore';
+    const TEST_STATE_KEY = 'testPermanenciaState';
     const NUMERO_PREGUNTAS_TEST = 20;
 
+    let todasLasPreguntas = [];
     let preguntasDelTestActual = [];
     let preguntasFalladas = [];
     let preguntaActualIndex = 0;
@@ -24,7 +26,25 @@ window.addEventListener('load', () => {
     let fallos = 0;
 
     // Función para iniciar o reiniciar el test
-    function iniciarTest() {
+    async function inicializarApp() {
+        // 1. Cargar las preguntas y mantener el cargador visible
+        todasLasPreguntas = await cargarPreguntas();
+
+        // 2. Una vez cargadas, decidir si restaurar o empezar de nuevo
+        if (localStorage.getItem(TEST_STATE_KEY)) {
+            if (confirm('Hemos encontrado un test sin finalizar. ¿Quieres continuar donde lo dejaste?')) {
+                restaurarSesion();
+            } else {
+                limpiarEstado(); // El usuario quiere empezar de nuevo
+                nuevoTest();
+            }
+        } else {
+            // Si no hay estado guardado, empieza un test nuevo.
+            nuevoTest();
+        }
+    }
+
+    function nuevoTest() {
         preguntaActualIndex = 0;
         puntuacion = 0;
         preguntasFalladas = [];
@@ -36,12 +56,40 @@ window.addEventListener('load', () => {
         revisionFallosEl.classList.add('oculto'); // Ocultar revisión al inicio
 
         // Barajamos todas las preguntas y seleccionamos las primeras 20
-        const preguntasBarajadas = [...preguntas];
+        const preguntasBarajadas = [...todasLasPreguntas];
         barajarArray(preguntasBarajadas);
         preguntasDelTestActual = preguntasBarajadas.slice(0, NUMERO_PREGUNTAS_TEST);
 
         mostrarRecord();
         mostrarPregunta();
+    }
+
+    function restaurarSesion() {
+        cargarEstado();
+        mostrarRecord();
+        // Si el usuario ya había respondido la pregunta antes de cerrar, mostramos la pregunta con la respuesta ya marcada.
+        // Si no, simplemente mostramos la pregunta.
+        mostrarPregunta();
+        if (haRespondido) {
+            restaurarRespuesta();
+        }
+    }
+
+    /**
+     * Carga las preguntas desde el archivo JSON.
+     * @returns {Promise<Array>} Una promesa que resuelve con el array de preguntas.
+     */
+    async function cargarPreguntas() {
+        try {
+            const response = await fetch('preguntas.json');
+            return await response.json();
+        } catch (error) {
+            console.error('Error al cargar las preguntas:', error);
+            // Si hay un error, lo mostramos en el contenedor principal y detenemos la carga.
+            preguntaEl.innerHTML = `<p style="color: var(--color-incorrecto-texto); text-align: center; font-size: 1.2rem;"><b>Error Crítico:</b> No se pudieron cargar las preguntas. Revisa la consola para más detalles (F12).</p>`;
+            // Devolvemos una promesa que nunca se resuelve para detener la ejecución.
+            return new Promise(() => {});
+        }
     }
 
     /**
@@ -66,6 +114,9 @@ window.addEventListener('load', () => {
         siguienteBtn.classList.add('oculto');
 
         if (preguntaActualIndex >= preguntasDelTestActual.length) {
+            // Asegurarse de que el foco vaya al mensaje final
+            feedbackEl.setAttribute('tabindex', '-1');
+            feedbackEl.focus();
             finalizarTest();
             return;
         }
@@ -73,6 +124,10 @@ window.addEventListener('load', () => {
         // Cargar pregunta y opciones
         const preguntaData = preguntasDelTestActual[preguntaActualIndex];
         preguntaEl.innerText = `${preguntaActualIndex + 1}. ${preguntaData.pregunta}`;
+        
+        // Hacemos la pregunta focusable y movemos el foco a ella
+        preguntaEl.setAttribute('tabindex', '-1');
+        preguntaEl.focus();
 
         // Creamos una copia de las opciones y las barajamos
         const opcionesBarajadas = [...preguntaData.opciones];
@@ -86,6 +141,18 @@ window.addEventListener('load', () => {
         });
     }
 
+    // Restaura la UI para una pregunta que ya fue respondida
+    function restaurarRespuesta() {
+        const preguntaData = preguntasDelTestActual[preguntaActualIndex];
+        const respuestaCorrecta = preguntaData.respuestaCorrecta;
+        const ultimaRespuestaFallada = preguntasFalladas.find(p => p.preguntaData.pregunta === preguntaData.pregunta);
+
+        if (ultimaRespuestaFallada) {
+            seleccionarRespuesta(null, ultimaRespuestaFallada.respuestaUsuario, respuestaCorrecta);
+        } else {
+            seleccionarRespuesta(null, respuestaCorrecta, respuestaCorrecta);
+        }
+    }
     // Función que se ejecuta al hacer clic en una opción
     function seleccionarRespuesta(botonSeleccionado, opcionSeleccionada, respuestaCorrecta) {
         if (haRespondido) return; // Evita múltiples respuestas
@@ -95,18 +162,21 @@ window.addEventListener('load', () => {
 
         // Mostrar feedback visual
         if (esCorrecto) {
-            botonSeleccionado.classList.add('correcto');
+            if (botonSeleccionado) botonSeleccionado.classList.add('correcto');
             puntuacion++;
             aciertos++;
             feedbackEl.innerHTML = `&#10003; ¡Correcto!`;
             feedbackEl.classList.add('visible', 'correcto');
         } else {
-            botonSeleccionado.classList.add('incorrecto');
+            if (botonSeleccionado) botonSeleccionado.classList.add('incorrecto');
+            // Evitar duplicados en preguntasFalladas al restaurar
+            if (!preguntasFalladas.some(p => p.preguntaData.pregunta === preguntasDelTestActual[preguntaActualIndex].pregunta)) {
+                preguntasFalladas.push({
+                    preguntaData: preguntasDelTestActual[preguntaActualIndex],
+                    respuestaUsuario: opcionSeleccionada
+                });
+            }
             fallos++;
-            preguntasFalladas.push({
-                preguntaData: preguntasDelTestActual[preguntaActualIndex],
-                respuestaUsuario: opcionSeleccionada
-            });
             puntuacion -= 0.33;
             feedbackEl.innerHTML = `&#10007; Incorrecto. La respuesta correcta es: <strong>${respuestaCorrecta}</strong>`;
             feedbackEl.classList.add('visible', 'incorrecto');
@@ -114,8 +184,19 @@ window.addEventListener('load', () => {
 
         // Marcar la respuesta correcta siempre
         Array.from(opcionesEl.children).forEach(btn => {
+            // Si estamos restaurando, el botón seleccionado puede ser null.
+            // En ese caso, lo buscamos por su texto.
+            if (!botonSeleccionado && btn.innerText === opcionSeleccionada) {
+                botonSeleccionado = btn;
+                botonSeleccionado.classList.add(esCorrecto ? 'correcto' : 'incorrecto');
+            }
             if (btn.innerText === respuestaCorrecta) {
-                btn.classList.add('correcto');
+                // Solo añade la clase si no es el que ya la tiene
+                if (!btn.classList.contains('correcto')) {
+                    btn.classList.add('correcto');
+                }
+                // Añadimos un aria-label para dar contexto al lector de pantalla
+                btn.setAttribute('aria-label', btn.innerText + '. Respuesta correcta.');
             }
             btn.disabled = true; // Deshabilitar todos los botones
         });
@@ -128,10 +209,14 @@ window.addEventListener('load', () => {
         if (preguntaActualIndex === preguntasDelTestActual.length - 1) {
             finalizarAhoraBtn.classList.add('oculto');
         }
+
+        // Guardar el estado después de cada respuesta
+        guardarEstado();
     }
 
     function finalizarTest() {
         preguntaEl.innerText = '¡Has completado el test!';
+        limpiarEstado(); // Limpiamos el estado al finalizar
         opcionesEl.innerHTML = '';
         progresoTextoEl.innerText = 'Test Finalizado';
         feedbackEl.classList.remove('correcto', 'incorrecto');
@@ -157,8 +242,8 @@ window.addEventListener('load', () => {
     }
 
     function actualizarBarraProgreso() {
-        const progreso = ((preguntaActualIndex) / preguntasDelTestActual.length) * 100;
-        barraProgresoEl.style.width = `${progreso}%`;
+        const progreso = (preguntaActualIndex) / preguntasDelTestActual.length;
+        barraProgresoEl.style.transform = `scaleX(${progreso})`;
         progresoTextoEl.innerText = `Pregunta ${preguntaActualIndex + 1} de ${preguntasDelTestActual.length}`;
     }
 
@@ -189,6 +274,39 @@ window.addEventListener('load', () => {
         });
     }
 
+    // --- Funciones para manejar el estado en localStorage ---
+
+    function guardarEstado() {
+        const estado = {
+            preguntasDelTestActual,
+            preguntaActualIndex,
+            puntuacion,
+            aciertos,
+            fallos,
+            preguntasFalladas,
+            haRespondido
+        };
+        localStorage.setItem(TEST_STATE_KEY, JSON.stringify(estado));
+    }
+
+    function cargarEstado() {
+        const estadoGuardado = localStorage.getItem(TEST_STATE_KEY);
+        if (estadoGuardado) {
+            const estado = JSON.parse(estadoGuardado);
+            preguntasDelTestActual = estado.preguntasDelTestActual;
+            preguntaActualIndex = estado.preguntaActualIndex;
+            puntuacion = estado.puntuacion;
+            aciertos = estado.aciertos;
+            fallos = estado.fallos;
+            preguntasFalladas = estado.preguntasFalladas;
+            haRespondido = estado.haRespondido;
+        }
+    }
+
+    function limpiarEstado() {
+        localStorage.removeItem(TEST_STATE_KEY);
+    }
+
     // Event listener para el botón de siguiente pregunta
     siguienteBtn.addEventListener('click', () => {
         preguntaActualIndex++;
@@ -196,11 +314,14 @@ window.addEventListener('load', () => {
     });
 
     // Event listener para el botón de reiniciar
-    reiniciarBtn.addEventListener('click', iniciarTest);
+    reiniciarBtn.addEventListener('click', () => {
+        limpiarEstado();
+        nuevoTest();
+    });
 
     // Event listener para el botón de finalizar ahora
     finalizarAhoraBtn.addEventListener('click', finalizarTest);
 
     // Iniciar el test
-    iniciarTest();
+    inicializarApp();
 });

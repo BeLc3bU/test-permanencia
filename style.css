@@ -86,10 +86,12 @@ body {
 
 #barra-progreso {
     height: 100%;
-    width: 0%; /* Empezará en 0 */
+    width: 100%; /* Ocupará siempre el 100% del contenedor */
     background-color: var(--color-primario);
     border-radius: 4px;
-    transition: width 0.4s ease-in-out; /* Animación suave */
+    transform: scaleX(0); /* Estado inicial, escalado a 0 */
+    transform-origin: left; /* La animación crece desde la izquierda */
+    transition: transform 0.4s ease-in-out; /* Animación suave de la transformación */
 }
 
 #pregunta-actual {
@@ -113,7 +115,7 @@ body {
     border: 1px solid var(--color-opcion-borde);
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
     position: relative; /* Para posicionar el pseudo-elemento */
 }
 

@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <div class="contenedor-test">
+    <div id="contenedor-test" class="contenedor-test">
         <div class="progreso-header">
             <div class="info-header">
                 <div id="progreso-texto"></div>
@@ -23,7 +23,7 @@
         <div id="opciones-respuesta" class="opciones">
             <!-- Las opciones se generarán con JavaScript -->
         </div>
-        <div id="feedback">
+        <div id="feedback" aria-live="polite">
             <!-- Aquí mostraremos si es correcto o incorrecto -->
         </div>
         <div id="revision-fallos" class="oculto">
@@ -36,7 +36,6 @@
     </div>
 
     <!-- Importante: Cargar los scripts al final y en este orden -->
-    <script src="preguntas.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
