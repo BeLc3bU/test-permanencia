@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Permanencia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="contenedor-test">
+        <div class="progreso-header">
+            <div class="info-header">
+                <div id="progreso-texto"></div>
+                <button id="finalizar-ahora-btn" class="oculto">Finalizar</button>
+                <div id="record-texto"></div>
+            </div>
+            <div class="barra-progreso-contenedor">
+                <div id="barra-progreso"></div>
+            </div>
+        </div>
+        <div id="pregunta-actual"></div>
+        <div id="opciones-respuesta" class="opciones">
+            <!-- Las opciones se generarán con JavaScript -->
+        </div>
+        <div id="feedback">
+            <!-- Aquí mostraremos si es correcto o incorrecto -->
+        </div>
+        <div id="revision-fallos" class="oculto">
+            <!-- Aquí se mostrará la revisión de las preguntas falladas -->
+        </div>
+        <button id="siguiente-pregunta" class="oculto">Siguiente Pregunta</button>
+        <button id="reiniciar-test" class="oculto">Volver a Empezar</button>
+    </div>
+
+    <!-- Importante: Cargar los scripts al final y en este orden -->
+    <script src="preguntas.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

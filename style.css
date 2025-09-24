@@ -1,0 +1,264 @@
+:root {
+    /* Paleta de colores más amigable para móvil */
+    --color-fondo-grad-start: #eef2f3; /* Un gris muy claro */
+    --color-fondo-grad-end: #e0eafc;   /* Un azul muy pálido */
+    --color-blanco: white;
+    --color-sombra: rgba(50, 50, 93, 0.1), rgba(0, 0, 0, 0.07);
+    --color-texto-principal: #1a202c; /* Más oscuro para mejor contraste */
+    --color-texto-secundario: #4a5568;
+    --color-opcion-fondo: white;
+    --color-opcion-borde: #e2e8f0;
+    --color-opcion-hover: #f7fafc;
+
+    --color-correcto-fondo: #f0fff4; /* Verde pastel */
+    --color-correcto-borde: #48bb78;
+    --color-correcto-texto: #276749;
+
+    --color-incorrecto-fondo: #fff5f5; /* Rojo pastel */
+    --color-incorrecto-borde: #f56565;
+    --color-incorrecto-texto: #9b2c2c;
+
+    --color-primario: #3182ce; /* Un azul más profundo y agradable */
+    --color-primario-hover: #2b6cb0;
+    --color-secundario: #718096;
+    --color-secundario-hover: #4a5568;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, var(--color-fondo-grad-start), var(--color-fondo-grad-end));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.contenedor-test {
+    background-color: var(--color-blanco);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px -5px var(--color-sombra), 0 8px 10px -6px var(--color-sombra);
+    width: 100%;
+    max-width: 600px;
+}
+
+.progreso-header {
+    margin-bottom: 1.5rem;
+}
+
+.info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+}
+
+#progreso-texto {
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario);
+}
+
+#record-texto {
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario);
+    text-align: right;
+}
+
+#finalizar-ahora-btn {
+    padding: 0.2rem 0.8rem;
+    font-size: 0.8rem;
+    background-color: transparent;
+    color: var(--color-secundario);
+    border: 1px solid var(--color-secundario);
+    border-radius: 6px;
+}
+
+.barra-progreso-contenedor {
+    width: 100%;
+    height: 8px;
+    background-color: #e2e8f0; /* Un gris claro de fondo */
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#barra-progreso {
+    height: 100%;
+    width: 0%; /* Empezará en 0 */
+    background-color: var(--color-primario);
+    border-radius: 4px;
+    transition: width 0.4s ease-in-out; /* Animación suave */
+}
+
+#pregunta-actual {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    line-height: 1.4;
+    color: var(--color-texto-principal);
+}
+
+/* Estilo mejorado para los botones de opción */
+.opciones button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    text-align: left;
+    color: var(--color-texto-secundario);
+    background-color: var(--color-opcion-fondo);
+    border: 1px solid var(--color-opcion-borde);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    position: relative; /* Para posicionar el pseudo-elemento */
+}
+
+.opciones button:hover:not(:disabled) {
+    border-color: var(--color-primario);
+    color: var(--color-texto-principal);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--color-sombra);
+}
+
+.opciones button:disabled {
+    cursor: not-allowed;
+}
+
+/* Clases para feedback */
+.opciones button.correcto {
+    background-color: var(--color-correcto-fondo);
+    border-color: var(--color-correcto-borde) !important;
+    color: var(--color-correcto-texto);
+    font-weight: bold;
+}
+
+.opciones button.incorrecto {
+    background-color: var(--color-incorrecto-fondo);
+    border-color: var(--color-incorrecto-borde) !important;
+    color: var(--color-incorrecto-texto);
+    font-weight: bold;
+}
+
+#feedback {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: none; /* Oculto por defecto */
+}
+
+#feedback.visible {
+    display: block;
+}
+
+#feedback.correcto {
+    color: var(--color-correcto-texto);
+    background-color: var(--color-correcto-fondo);
+}
+
+#feedback.incorrecto {
+    color: var(--color-incorrecto-texto);
+    background-color: var(--color-incorrecto-fondo);
+}
+
+#feedback.final {
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+#siguiente-pregunta, #reiniciar-test {
+    display: inline-block; /* Cambiado de block a inline-block */
+    width: auto;           /* Ancho automático */
+    padding: 1rem;
+    float: right;
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    background-color: var(--color-primario);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+#siguiente-pregunta.oculto, #reiniciar-test.oculto, #finalizar-ahora-btn.oculto {
+    display: none;
+}
+
+#siguiente-pregunta:hover, #reiniciar-test:hover {
+    background-color: var(--color-primario-hover);
+    transform: translateY(-2px);
+}
+
+#reiniciar-test {
+    background-color: var(--color-secundario);
+    float: left; /* Alineado a la izquierda */
+}
+
+#reiniciar-test:hover { background-color: var(--color-secundario-hover); }
+
+/* Estilos para la revisión de fallos */
+#revision-fallos {
+    margin-top: 2rem;
+    border-top: 1px solid var(--color-opcion-borde);
+    padding-top: 1.5rem;
+}
+
+#revision-fallos.oculto {
+    display: none;
+}
+
+#revision-fallos h2 {
+    margin-top: 0;
+    color: var(--color-texto-principal);
+}
+
+.item-revision {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-opcion-borde);
+}
+
+.item-revision:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.item-revision p {
+    margin: 0.5rem 0;
+}
+
+/* --- Media Queries para Diseño Responsive --- */
+
+@media (max-width: 600px) {
+    body {
+        padding: 0; /* Eliminar padding para que el contenedor ocupe todo */
+        align-items: flex-start; /* Alinear el test arriba en móvil */
+    }
+
+    .contenedor-test {
+        padding: 1.5rem 1rem; /* Reducir padding lateral */
+        border-radius: 0;
+        min-height: 100vh;
+        box-shadow: none;
+    }
+
+    #pregunta-actual {
+        font-size: 1.25rem; /* Reducir tamaño de la fuente de la pregunta */
+    }
+
+    #siguiente-pregunta, #reiniciar-test {
+        width: 100%; /* Botones a ancho completo */
+        float: none; /* Quitar flotantes */
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
