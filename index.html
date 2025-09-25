@@ -4,12 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test de Permanencia</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#3182ce"/>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="contenedor-test">
-        <div class="progreso-header">
+    <div id="contenedor-test" class="contenedor-test">
+        <!-- Menú de Inicio (se oculta al empezar el test) -->
+        <h1 class="sr-only">Test de Permanencia</h1>
+        <div id="inicio-menu">
+            <h1>Test de Permanencia</h1>
+            <p>Elige un modo para comenzar</p>
+            <div class="footer-botones">
+                <button id="iniciar-nuevo-test-btn">Nuevo Test</button>
+                <button id="iniciar-repaso-fallos-btn">Repasar Fallos <span id="contador-fallos"></span></button>
+            </div>
+        </div>
+
+        <!-- Contenido del Test (oculto al inicio) -->
+        <div id="test-content" class="oculto">
+            <div class="progreso-header">
             <div class="info-header">
                 <div id="progreso-texto"></div>
                 <button id="finalizar-ahora-btn" class="oculto">Finalizar</button>
@@ -18,23 +33,25 @@
             <div class="barra-progreso-contenedor">
                 <div id="barra-progreso"></div>
             </div>
+            </div>
+            <div id="pregunta-wrapper"> <!-- Contenedor para la animación -->
+                <h2 id="pregunta-actual"></h2>
+                <div id="opciones-respuesta" class="opciones"></div>
+            </div>
+            <div id="feedback" aria-live="polite"></div>
+            <div id="revision-fallos" class="oculto"></div>
+            <div class="footer-botones">
+                <button id="reiniciar-test" class="oculto">Menú Principal</button>
+                <button id="repasar-fallos-btn" class="oculto">Repasar Fallos del Test</button>
+                <button id="siguiente-pregunta" class="oculto">Siguiente Pregunta</button>
+            </div>
         </div>
-        <div id="pregunta-actual"></div>
-        <div id="opciones-respuesta" class="opciones">
-            <!-- Las opciones se generarán con JavaScript -->
-        </div>
-        <div id="feedback">
-            <!-- Aquí mostraremos si es correcto o incorrecto -->
-        </div>
-        <div id="revision-fallos" class="oculto">
-            <!-- Aquí se mostrará la revisión de las preguntas falladas -->
-        </div>
-        <button id="siguiente-pregunta" class="oculto">Siguiente Pregunta</button>
-        <button id="reiniciar-test" class="oculto">Volver a Empezar</button>
     </div>
 
     <!-- Importante: Cargar los scripts al final y en este orden -->
-    <script src="preguntas.js"></script>
+    <!-- Botón de tema fuera del flujo principal para posicionamiento fijo -->
+    <button id="theme-toggle-btn" aria-label="Cambiar tema"></button>
+
     <script src="app.js"></script>
 </body>
 </html>

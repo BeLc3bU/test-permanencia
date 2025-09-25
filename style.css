@@ -24,6 +24,32 @@
     --color-secundario-hover: #4a5568;
 }
 
+/* --- MODO OSCURO --- */
+.dark-mode {
+    --color-fondo-grad-start: #1a202c;
+    --color-fondo-grad-end: #2d3748;
+    --color-blanco: #2d3748;
+    --color-sombra: rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.15);
+    --color-texto-principal: #e2e8f0;
+    --color-texto-secundario: #a0aec0;
+    --color-opcion-fondo: #4a5568;
+    --color-opcion-borde: #718096;
+    --color-opcion-hover: #2d3748;
+
+    --color-correcto-fondo: #2f855a;
+    --color-correcto-borde: #38a169;
+    --color-correcto-texto: #f0fff4;
+
+    --color-incorrecto-fondo: #c53030;
+    --color-incorrecto-borde: #e53e3e;
+    --color-incorrecto-texto: #fff5f5;
+
+}
+
+.dark-mode #feedback.final {
+    color: var(--color-texto-principal); /* Asegura que el texto final sea claro en modo oscuro */
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background: linear-gradient(135deg, var(--color-fondo-grad-start), var(--color-fondo-grad-end));
@@ -34,6 +60,7 @@ body {
     margin: 0;
     padding: 1rem;
     box-sizing: border-box;
+    transition: background-color 0.3s ease; /* Transición suave para el fondo */
 }
 
 .contenedor-test {
@@ -43,6 +70,7 @@ body {
     box-shadow: 0 10px 25px -5px var(--color-sombra), 0 8px 10px -6px var(--color-sombra);
     width: 100%;
     max-width: 600px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .progreso-header {
@@ -67,6 +95,32 @@ body {
     text-align: right;
 }
 
+#theme-toggle-btn {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 1000;
+
+    background-color: var(--color-opcion-fondo);
+    border: 1px solid var(--color-opcion-borde);
+    color: var(--color-secundario);
+    cursor: pointer;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--color-sombra);
+    transition: all 0.3s ease;
+}
+
+#theme-toggle-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px var(--color-sombra);
+}
+
 #finalizar-ahora-btn {
     padding: 0.2rem 0.8rem;
     font-size: 0.8rem;
@@ -86,10 +140,12 @@ body {
 
 #barra-progreso {
     height: 100%;
-    width: 0%; /* Empezará en 0 */
+    width: 100%; /* Ocupará siempre el 100% del contenedor */
     background-color: var(--color-primario);
     border-radius: 4px;
-    transition: width 0.4s ease-in-out; /* Animación suave */
+    transform: scaleX(0); /* Estado inicial, escalado a 0 */
+    transform-origin: left; /* La animación crece desde la izquierda */
+    transition: transform 0.4s ease-in-out; /* Animación suave de la transformación */
 }
 
 #pregunta-actual {
@@ -99,6 +155,28 @@ body {
     line-height: 1.4;
     color: var(--color-texto-principal);
 }
+
+/* --- Animaciones de transición --- */
+@keyframes fade-out {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-10px); }
+}
+
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-out {
+    animation: fade-out 0.3s ease-out forwards;
+}
+
+.fade-in {
+    animation: fade-in 0.3s ease-in forwards;
+}
+
+/* Contenedor para aplicar la animación de forma conjunta */
+#pregunta-wrapper { will-change: transform, opacity; }
 
 /* Estilo mejorado para los botones de opción */
 .opciones button {
@@ -113,7 +191,7 @@ body {
     border: 1px solid var(--color-opcion-borde);
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
     position: relative; /* Para posicionar el pseudo-elemento */
 }
 
@@ -130,14 +208,14 @@ body {
 
 /* Clases para feedback */
 .opciones button.correcto {
-    background-color: var(--color-correcto-fondo);
+    background-color: var(--color-correcto-fondo) !important; /* !important para sobreescribir hover */
     border-color: var(--color-correcto-borde) !important;
     color: var(--color-correcto-texto);
     font-weight: bold;
 }
 
 .opciones button.incorrecto {
-    background-color: var(--color-incorrecto-fondo);
+    background-color: var(--color-incorrecto-fondo) !important; /* !important para sobreescribir hover */
     border-color: var(--color-incorrecto-borde) !important;
     color: var(--color-incorrecto-texto);
     font-weight: bold;
@@ -173,16 +251,20 @@ body {
     font-size: 1.2rem;
 }
 
-#siguiente-pregunta, #reiniciar-test {
+.footer-botones {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+}
+
+#siguiente-pregunta, #reiniciar-test, #repasar-fallos-btn, #iniciar-nuevo-test-btn, #iniciar-repaso-fallos-btn {
     display: inline-block; /* Cambiado de block a inline-block */
     width: auto;           /* Ancho automático */
     padding: 1rem;
-    float: right;
-    margin-top: 1.5rem;
     font-size: 1.1rem;
     font-weight: bold;
     color: white;
-    background-color: var(--color-primario);
+    background-color: var(--color-primario); /* Color por defecto */
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -193,17 +275,57 @@ body {
     display: none;
 }
 
-#siguiente-pregunta:hover, #reiniciar-test:hover {
+/* Ocultar botones específicos */
+#repasar-fallos-btn.oculto, #iniciar-nuevo-test-btn.oculto, #iniciar-repaso-fallos-btn.oculto {
+    display: none;
+}
+
+/* Ocultar contenedores */
+.oculto {
+    display: none !important;
+}
+
+/* Estilo para botones deshabilitados */
+#iniciar-repaso-fallos-btn:disabled {
+    background-color: var(--color-secundario-hover);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+#siguiente-pregunta:hover, #reiniciar-test:hover, #repasar-fallos-btn:hover, #iniciar-nuevo-test-btn:hover, #iniciar-repaso-fallos-btn:hover:not(:disabled) {
     background-color: var(--color-primario-hover);
     transform: translateY(-2px);
 }
 
-#reiniciar-test {
+/* Colores específicos para botones secundarios */
+#reiniciar-test, #repasar-fallos-btn, #iniciar-repaso-fallos-btn {
     background-color: var(--color-secundario);
-    float: left; /* Alineado a la izquierda */
 }
 
-#reiniciar-test:hover { background-color: var(--color-secundario-hover); }
+#reiniciar-test:hover, #repasar-fallos-btn:hover, #iniciar-repaso-fallos-btn:hover:not(:disabled) {
+    background-color: var(--color-secundario-hover);
+}
+
+/* Contador de fallos en el botón */
+#contador-fallos {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 8px;
+    padding: 2px 6px;
+    font-size: 0.9rem;
+    margin-left: 8px;
+}
+
+/* Estilos para el menú de inicio */
+#inicio-menu {
+    text-align: center;
+}
+#inicio-menu h1 {
+    color: var(--color-texto-principal);
+}
+#inicio-menu p {
+    color: var(--color-texto-secundario);
+    margin-bottom: 2rem;
+}
 
 /* Estilos para la revisión de fallos */
 #revision-fallos {
@@ -234,8 +356,21 @@ body {
 
 .item-revision p {
     margin: 0.5rem 0;
+    color: var(--color-texto-principal);
 }
 
+/* Clase para ocultar elementos visualmente pero mantenerlos accesibles para lectores de pantalla */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
 /* --- Media Queries para Diseño Responsive --- */
 
 @media (max-width: 600px) {
@@ -255,9 +390,13 @@ body {
         font-size: 1.25rem; /* Reducir tamaño de la fuente de la pregunta */
     }
 
-    #siguiente-pregunta, #reiniciar-test {
+    .footer-botones {
+        flex-direction: column-reverse; /* Pone "Siguiente" debajo de "Reiniciar" */
+        gap: 0.75rem; /* Espacio entre los botones */
+    }
+
+    #siguiente-pregunta, #reiniciar-test, #repasar-fallos-btn, #iniciar-nuevo-test-btn, #iniciar-repaso-fallos-btn {
         width: 100%; /* Botones a ancho completo */
-        float: none; /* Quitar flotantes */
         margin-left: 0;
         margin-right: 0;
     }
