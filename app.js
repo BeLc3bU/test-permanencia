@@ -162,7 +162,11 @@ window.addEventListener('load', () => {
         } catch (error) {
             console.error('Error al cargar las preguntas:', error);
             preguntaEl.innerHTML = `<p style="color: var(--color-incorrecto-texto); text-align: center; font-size: 1.2rem;"><b>Error Crítico:</b> No se pudieron cargar las preguntas. Revisa la consola para más detalles (F12).</p>`;
+<<<<<<< HEAD
             return Promise.reject('Error al cargar preguntas');
+=======
+            return new Promise(() => {});
+>>>>>>> 89ee575d86e00e87e21e27ff59535afd43f055fc
         }
     }
 
@@ -478,6 +482,7 @@ window.addEventListener('load', () => {
 
     // Iniciar la aplicación
     inicializarApp();
+<<<<<<< HEAD
 
     // --- Registro del Service Worker ---
     if ('serviceWorker' in navigator) {
@@ -491,4 +496,6 @@ window.addEventListener('load', () => {
                 });
         });
     }
+=======
+>>>>>>> 89ee575d86e00e87e21e27ff59535afd43f055fc
 });
