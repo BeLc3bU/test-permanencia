@@ -202,6 +202,11 @@ body {
     box-shadow: 0 4px 12px var(--color-sombra);
 }
 
+.opciones button:focus-visible {
+    outline: 2px solid var(--color-primario);
+    outline-offset: 2px;
+}
+
 .opciones button:disabled {
     cursor: not-allowed;
 }

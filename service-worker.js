@@ -5,7 +5,6 @@ const urlsToCache = [
   '/index.html',
   '/style.css',
   '/app.js',
-  '/preguntas.json',
   '/icons/icon-192x192.png',
   '/icons/icon-512x512.png'
 ];
@@ -39,31 +38,48 @@ self.addEventListener('activate', event => {
 
 // Evento 'fetch': se dispara cada vez que la página pide un recurso (CSS, JS, imagen, etc.).
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Si el recurso está en la caché, lo devolvemos desde ahí.
-        if (response) {
-          return response;
-        }
-        // Si no, hacemos la petición a la red, la devolvemos y la guardamos en caché para la próxima vez.
-        return fetch(event.request).then(
-          networkResponse => {
-            // Comprobamos si recibimos una respuesta válida
-            if(!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
-              return networkResponse;
-            }
+    const url = new URL(event.request.url);
 
-            const responseToCache = networkResponse.clone();
-
-            caches.open(CACHE_NAME)
-              .then(cache => {
-                cache.put(event.request, responseToCache);
-              });
-
-            return networkResponse;
-          }
+    // Estrategia "Network First" para preguntas.json
+    if (url.pathname.endsWith('/preguntas.json')) {
+        event.respondWith(
+            caches.open(CACHE_NAME).then(cache => {
+                return fetch(event.request)
+                    .then(networkResponse => {
+                        // Si la petición a la red tiene éxito, actualizamos la caché
+                        cache.put(event.request, networkResponse.clone());
+                        return networkResponse;
+                    })
+                    .catch(() => {
+                        // Si la red falla, solo intentamos devolver desde la caché si es una petición GET.
+                        if (event.request.method === 'GET') {
+                            return cache.match(event.request);
+                        }
+                        // Para otros métodos (POST, etc.), simplemente dejamos que el fallo de red ocurra.
+                    });
+            })
         );
-      })
-  );
+    } else {
+        // Estrategia "Cache First" para el resto de los archivos
+        event.respondWith(
+            caches.match(event.request).then(response => {
+                // Si está en caché, lo devolvemos. Si no, vamos a la red.
+                return response || fetch(event.request).then(networkResponse => {
+                    // Opcional: Cachear nuevos recursos que no estaban en la lista inicial
+                    // Esto es útil si añades nuevas imágenes o archivos sin actualizar el SW
+                    return caches.open(CACHE_NAME).then(cache => {
+                        // Solo cacheamos respuestas válidas
+                        if (networkResponse.status === 200) {
+                           cache.put(event.request, networkResponse.clone());
+                        }
+                        return networkResponse;
+                    });
+                });
+            }).catch(error => {
+                // En caso de que falle la red y el recurso no esté en caché,
+                // se puede devolver una página de fallback o simplemente dejar que el error ocurra.
+                console.error('Fetch fallido; ni en caché ni en red:', error);
+            })
+        );
+    }
 });

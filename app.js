@@ -121,14 +121,16 @@ window.addEventListener('load', () => {
             barajarArray(estadoTest.preguntasDelTest);
         } else {
             // Lógica mejorada para seleccionar preguntas sin repetir
-            if (preguntasNoVistasIndices.length < NUMERO_PREGUNTAS_TEST) {
+            if (preguntasNoVistasIndices.length === 0) {
                 alert('¡Enhorabuena! Has visto todas las preguntas. El ciclo de preguntas se reiniciará.');
                 preguntasNoVistasIndices = todasLasPreguntas.map((_, index) => index);
             }
 
             barajarArray(preguntasNoVistasIndices);
+            // Tomar el número de preguntas disponibles, hasta un máximo de NUMERO_PREGUNTAS_TEST
+            const numeroDePreguntasParaTest = Math.min(preguntasNoVistasIndices.length, NUMERO_PREGUNTAS_TEST);
 
-            const indicesParaElTest = preguntasNoVistasIndices.slice(0, NUMERO_PREGUNTAS_TEST);
+            const indicesParaElTest = preguntasNoVistasIndices.slice(0, numeroDePreguntasParaTest);
             estadoTest.preguntasDelTest = indicesParaElTest.map(index => todasLasPreguntas[index]);
 
             // Actualizamos el pool de preguntas no vistas SOLO para el modo normal
@@ -162,11 +164,7 @@ window.addEventListener('load', () => {
         } catch (error) {
             console.error('Error al cargar las preguntas:', error);
             preguntaEl.innerHTML = `<p style="color: var(--color-incorrecto-texto); text-align: center; font-size: 1.2rem;"><b>Error Crítico:</b> No se pudieron cargar las preguntas. Revisa la consola para más detalles (F12).</p>`;
-<<<<<<< HEAD
             return Promise.reject('Error al cargar preguntas');
-=======
-            return new Promise(() => {});
->>>>>>> 89ee575d86e00e87e21e27ff59535afd43f055fc
         }
     }
 
@@ -204,9 +202,6 @@ window.addEventListener('load', () => {
         preguntaWrapper.classList.remove('fade-out', 'fade-in');
 
         if (estadoTest.preguntaActualIndex >= estadoTest.preguntasDelTest.length) {
-            // Asegurarse de que el foco vaya al mensaje final
-            feedbackEl.setAttribute('tabindex', '-1');
-            feedbackEl.focus();
             finalizarTest();
             return;
         }
@@ -276,7 +271,7 @@ window.addEventListener('load', () => {
             guardarFalloPersistente(preguntaActual);
 
             estadoTest.fallos++;
-            estadoTest.puntuacion -= 0.33;
+            estadoTest.puntuacion = parseFloat((estadoTest.puntuacion - 0.33).toFixed(2));
             feedbackEl.innerHTML = `&#10007; Incorrecto. La respuesta correcta es: <strong>${respuestaCorrecta}</strong>`;
             feedbackEl.classList.add('visible', 'incorrecto');
         }
@@ -333,6 +328,10 @@ window.addEventListener('load', () => {
         }
         feedbackEl.innerHTML = mensajePuntuacion;
         feedbackEl.classList.add('visible', 'final');
+        // Asegurarse de que el foco vaya al mensaje final para accesibilidad
+        feedbackEl.setAttribute('tabindex', '-1');
+        feedbackEl.focus();
+
         siguienteBtn.classList.add('oculto');
         actualizarBotonRepaso();
 
@@ -482,7 +481,6 @@ window.addEventListener('load', () => {
 
     // Iniciar la aplicación
     inicializarApp();
-<<<<<<< HEAD
 
     // --- Registro del Service Worker ---
     if ('serviceWorker' in navigator) {
@@ -496,6 +494,4 @@ window.addEventListener('load', () => {
                 });
         });
     }
-=======
->>>>>>> 89ee575d86e00e87e21e27ff59535afd43f055fc
 });
