@@ -1,64 +1,141 @@
 window.addEventListener('load', () => {
     // Elementos del DOM
+    const inicioMenuEl = document.getElementById('inicio-menu');
+    const contadorFallosEl = document.getElementById('contador-fallos');
+    const testContentEl = document.getElementById('test-content');
+    const iniciarNuevoTestBtn = document.getElementById('iniciar-nuevo-test-btn');
+    const iniciarRepasoFallosBtn = document.getElementById('iniciar-repaso-fallos-btn');
     const preguntaEl = document.getElementById('pregunta-actual');
     const opcionesEl = document.getElementById('opciones-respuesta');
     const feedbackEl = document.getElementById('feedback');
     const siguienteBtn = document.getElementById('siguiente-pregunta');
     const reiniciarBtn = document.getElementById('reiniciar-test');
+    const repasarFallosBtn = document.getElementById('repasar-fallos-btn');
     const finalizarAhoraBtn = document.getElementById('finalizar-ahora-btn');
     const barraProgresoEl = document.getElementById('barra-progreso');
     const progresoTextoEl = document.getElementById('progreso-texto');
     const revisionFallosEl = document.getElementById('revision-fallos');
     const recordTextoEl = document.getElementById('record-texto');
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
 
-    // Constante para la clave en localStorage
+    // Constantes para claves en localStorage y configuración
     const HIGH_SCORE_KEY = 'testPermanenciaHighScore';
+    const UNSEEN_QUESTIONS_KEY = 'testPermanenciaUnseenQuestions';
+    const FAILED_QUESTIONS_KEY = 'testPermanenciaFailedQuestions';
     const TEST_STATE_KEY = 'testPermanenciaState';
+    const THEME_KEY = 'testPermanenciaTheme';
     const NUMERO_PREGUNTAS_TEST = 20;
 
+    // --- Estado de la aplicación ---
     let todasLasPreguntas = [];
-    let preguntasDelTestActual = [];
-    let preguntasFalladas = [];
-    let preguntaActualIndex = 0;
-    let haRespondido = false;
-    let puntuacion = 0;
-    let aciertos = 0;
-    let fallos = 0;
+    let preguntasNoVistasIndices = [];
 
-    // Función para iniciar o reiniciar el test
+    // Objeto para centralizar el estado del test actual
+    let estadoTest = {
+        preguntasDelTest: [],
+        preguntasFalladas: [],
+        preguntaActualIndex: 0,
+        puntuacion: 0,
+        aciertos: 0,
+        fallos: 0,
+        haRespondido: false,
+    };
+
+    // --- Inicialización de la aplicación ---
     async function inicializarApp() {
-        // 1. Cargar las preguntas y mantener el cargador visible
-        todasLasPreguntas = await cargarPreguntas();
+        inicializarTema();
 
-        // 2. Una vez cargadas, decidir si restaurar o empezar de nuevo
+        todasLasPreguntas = await cargarPreguntas();
+        inicializarPoolPreguntasNoVistas();
+        actualizarBotonRepaso();
+
         if (localStorage.getItem(TEST_STATE_KEY)) {
             if (confirm('Hemos encontrado un test sin finalizar. ¿Quieres continuar donde lo dejaste?')) {
+                mostrarVistaTest();
                 restaurarSesion();
             } else {
                 limpiarEstado(); // El usuario quiere empezar de nuevo
-                nuevoTest();
+                mostrarVistaInicio();
             }
         } else {
-            // Si no hay estado guardado, empieza un test nuevo.
-            nuevoTest();
+            // Si no hay estado guardado, muestra el menú de inicio.
+            mostrarVistaInicio();
         }
     }
 
-    function nuevoTest() {
-        preguntaActualIndex = 0;
-        puntuacion = 0;
-        preguntasFalladas = [];
-        aciertos = 0;
-        fallos = 0;
-        haRespondido = false;
+    // --- Control de Vistas y Tema ---
+    const mostrarVistaInicio = () => { inicioMenuEl.classList.remove('oculto'); testContentEl.classList.add('oculto'); };
+    const mostrarVistaTest = () => { inicioMenuEl.classList.add('oculto'); testContentEl.classList.remove('oculto'); };
+
+    function inicializarTema() {
+        const temaGuardado = localStorage.getItem(THEME_KEY);
+        if (temaGuardado === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggleBtn.innerHTML = '☀️'; // Icono de sol
+        } else {
+            themeToggleBtn.innerHTML = '🌙'; // Icono de luna
+        }
+    }
+
+    function cambiarTema() {
+        document.body.classList.toggle('dark-mode');
+        const esModoOscuro = document.body.classList.contains('dark-mode');
+        localStorage.setItem(THEME_KEY, esModoOscuro ? 'dark' : 'light');
+        // Actualizar icono del botón
+        themeToggleBtn.innerHTML = esModoOscuro ? '☀️' : '🌙';
+    }
+
+    // --- Lógica del Test ---
+    function inicializarPoolPreguntasNoVistas() {
+        const indicesGuardados = localStorage.getItem(UNSEEN_QUESTIONS_KEY);
+        if (indicesGuardados) {
+            preguntasNoVistasIndices = JSON.parse(indicesGuardados);
+        } else {
+            // Si no hay nada guardado, creamos el pool con todas las preguntas
+            preguntasNoVistasIndices = todasLasPreguntas.map((_, index) => index);
+            barajarArray(preguntasNoVistasIndices);
+            localStorage.setItem(UNSEEN_QUESTIONS_KEY, JSON.stringify(preguntasNoVistasIndices));
+        }
+    }
+
+    function iniciarTest(esModoRepaso = false, preguntasRepaso = []) {
+        mostrarVistaTest();
+        // Reiniciar el estado del test
+        estadoTest = {
+            preguntasDelTest: [],
+            preguntasFalladas: [],
+            preguntaActualIndex: 0,
+            puntuacion: 0,
+            aciertos: 0,
+            fallos: 0,
+            haRespondido: false,
+        };
+
         reiniciarBtn.classList.add('oculto');
         finalizarAhoraBtn.classList.remove('oculto');
-        revisionFallosEl.classList.add('oculto'); // Ocultar revisión al inicio
+        repasarFallosBtn.classList.add('oculto');
+        revisionFallosEl.classList.add('oculto');
 
-        // Barajamos todas las preguntas y seleccionamos las primeras 20
-        const preguntasBarajadas = [...todasLasPreguntas];
-        barajarArray(preguntasBarajadas);
-        preguntasDelTestActual = preguntasBarajadas.slice(0, NUMERO_PREGUNTAS_TEST);
+        if (esModoRepaso) {
+            estadoTest.preguntasDelTest = preguntasRepaso;
+            barajarArray(estadoTest.preguntasDelTest);
+        } else {
+            // Lógica mejorada para seleccionar preguntas sin repetir
+            if (preguntasNoVistasIndices.length < NUMERO_PREGUNTAS_TEST) {
+                alert('¡Enhorabuena! Has visto todas las preguntas. El ciclo de preguntas se reiniciará.');
+                preguntasNoVistasIndices = todasLasPreguntas.map((_, index) => index);
+            }
+
+            barajarArray(preguntasNoVistasIndices);
+
+            const indicesParaElTest = preguntasNoVistasIndices.slice(0, NUMERO_PREGUNTAS_TEST);
+            estadoTest.preguntasDelTest = indicesParaElTest.map(index => todasLasPreguntas[index]);
+
+            // Actualizamos el pool de preguntas no vistas SOLO para el modo normal
+            const nuevosIndicesNoVistos = preguntasNoVistasIndices.filter(index => !indicesParaElTest.includes(index));
+            localStorage.setItem(UNSEEN_QUESTIONS_KEY, JSON.stringify(nuevosIndicesNoVistos));
+            preguntasNoVistasIndices = nuevosIndicesNoVistos;
+        }
 
         mostrarRecord();
         mostrarPregunta();
@@ -67,10 +144,8 @@ window.addEventListener('load', () => {
     function restaurarSesion() {
         cargarEstado();
         mostrarRecord();
-        // Si el usuario ya había respondido la pregunta antes de cerrar, mostramos la pregunta con la respuesta ya marcada.
-        // Si no, simplemente mostramos la pregunta.
         mostrarPregunta();
-        if (haRespondido) {
+        if (estadoTest.haRespondido) {
             restaurarRespuesta();
         }
     }
@@ -82,12 +157,11 @@ window.addEventListener('load', () => {
     async function cargarPreguntas() {
         try {
             const response = await fetch('preguntas.json');
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             return await response.json();
         } catch (error) {
             console.error('Error al cargar las preguntas:', error);
-            // Si hay un error, lo mostramos en el contenedor principal y detenemos la carga.
             preguntaEl.innerHTML = `<p style="color: var(--color-incorrecto-texto); text-align: center; font-size: 1.2rem;"><b>Error Crítico:</b> No se pudieron cargar las preguntas. Revisa la consola para más detalles (F12).</p>`;
-            // Devolvemos una promesa que nunca se resuelve para detener la ejecución.
             return new Promise(() => {});
         }
     }
@@ -104,16 +178,28 @@ window.addEventListener('load', () => {
     }
 
     // Función para mostrar una pregunta
-    function mostrarPregunta() {
+    async function mostrarPregunta() {
+        // Contenedores para la animación
+        const preguntaWrapper = document.getElementById('pregunta-wrapper');
+
+        // Si no es la primera pregunta, aplica animación de salida
+        if (estadoTest.preguntaActualIndex > 0) {
+            preguntaWrapper.classList.add('fade-out');
+            await new Promise(resolve => setTimeout(resolve, 300)); // Espera a que termine la animación
+        }
+
         actualizarBarraProgreso();
-        haRespondido = false;
+        estadoTest.haRespondido = false;
         // Limpiar estado anterior
         feedbackEl.innerHTML = '';
         feedbackEl.classList.remove('visible', 'correcto', 'incorrecto');
         opcionesEl.innerHTML = '';
         siguienteBtn.classList.add('oculto');
 
-        if (preguntaActualIndex >= preguntasDelTestActual.length) {
+        // Reiniciar animación
+        preguntaWrapper.classList.remove('fade-out', 'fade-in');
+
+        if (estadoTest.preguntaActualIndex >= estadoTest.preguntasDelTest.length) {
             // Asegurarse de que el foco vaya al mensaje final
             feedbackEl.setAttribute('tabindex', '-1');
             feedbackEl.focus();
@@ -122,30 +208,31 @@ window.addEventListener('load', () => {
         }
 
         // Cargar pregunta y opciones
-        const preguntaData = preguntasDelTestActual[preguntaActualIndex];
-        preguntaEl.innerText = `${preguntaActualIndex + 1}. ${preguntaData.pregunta}`;
-        
+        const preguntaData = estadoTest.preguntasDelTest[estadoTest.preguntaActualIndex];
+        preguntaEl.innerText = `${estadoTest.preguntaActualIndex + 1}. ${preguntaData.pregunta}`;
+
         // Hacemos la pregunta focusable y movemos el foco a ella
         preguntaEl.setAttribute('tabindex', '-1');
         preguntaEl.focus();
 
-        // Creamos una copia de las opciones y las barajamos
-        const opcionesBarajadas = [...preguntaData.opciones];
-        barajarArray(opcionesBarajadas);
-
-        opcionesBarajadas.forEach(opcion => {
+        // Se eliminó el barajado de opciones para mantener la consistencia con respuestas como "A y B son correctas"
+        const prefijos = ['a) ', 'b) ', 'c) ', 'd) '];
+        preguntaData.opciones.forEach((opcion, index) => {
             const boton = document.createElement('button');
-            boton.innerText = opcion;
+            boton.innerText = prefijos[index] + opcion;
             boton.addEventListener('click', () => seleccionarRespuesta(boton, opcion, preguntaData.respuestaCorrecta));
             opcionesEl.appendChild(boton);
         });
+
+        // Aplica animación de entrada
+        preguntaWrapper.classList.add('fade-in');
     }
 
     // Restaura la UI para una pregunta que ya fue respondida
     function restaurarRespuesta() {
-        const preguntaData = preguntasDelTestActual[preguntaActualIndex];
+        const preguntaData = estadoTest.preguntasDelTest[estadoTest.preguntaActualIndex];
         const respuestaCorrecta = preguntaData.respuestaCorrecta;
-        const ultimaRespuestaFallada = preguntasFalladas.find(p => p.preguntaData.pregunta === preguntaData.pregunta);
+        const ultimaRespuestaFallada = estadoTest.preguntasFalladas.find(p => p.preguntaData.pregunta === preguntaData.pregunta);
 
         if (ultimaRespuestaFallada) {
             seleccionarRespuesta(null, ultimaRespuestaFallada.respuestaUsuario, respuestaCorrecta);
@@ -153,31 +240,39 @@ window.addEventListener('load', () => {
             seleccionarRespuesta(null, respuestaCorrecta, respuestaCorrecta);
         }
     }
+
     // Función que se ejecuta al hacer clic en una opción
     function seleccionarRespuesta(botonSeleccionado, opcionSeleccionada, respuestaCorrecta) {
-        if (haRespondido) return; // Evita múltiples respuestas
-        haRespondido = true;
+        if (estadoTest.haRespondido) return; // Evita múltiples respuestas
+        estadoTest.haRespondido = true;
 
         const esCorrecto = opcionSeleccionada === respuestaCorrecta;
+        const preguntaActual = estadoTest.preguntasDelTest[estadoTest.preguntaActualIndex];
 
         // Mostrar feedback visual
         if (esCorrecto) {
             if (botonSeleccionado) botonSeleccionado.classList.add('correcto');
-            puntuacion++;
-            aciertos++;
+            estadoTest.puntuacion++;
+            estadoTest.aciertos++;
             feedbackEl.innerHTML = `&#10003; ¡Correcto!`;
             feedbackEl.classList.add('visible', 'correcto');
+            // Si se acierta una pregunta que estaba en la lista de fallos, se elimina
+            eliminarFalloPersistente(preguntaActual);
         } else {
             if (botonSeleccionado) botonSeleccionado.classList.add('incorrecto');
             // Evitar duplicados en preguntasFalladas al restaurar
-            if (!preguntasFalladas.some(p => p.preguntaData.pregunta === preguntasDelTestActual[preguntaActualIndex].pregunta)) {
-                preguntasFalladas.push({
-                    preguntaData: preguntasDelTestActual[preguntaActualIndex],
+            if (!estadoTest.preguntasFalladas.some(p => p.preguntaData.pregunta === preguntaActual.pregunta)) {
+                estadoTest.preguntasFalladas.push({
+                    preguntaData: preguntaActual,
                     respuestaUsuario: opcionSeleccionada
                 });
             }
-            fallos++;
-            puntuacion -= 0.33;
+
+            // Guardar el fallo de forma persistente
+            guardarFalloPersistente(preguntaActual);
+
+            estadoTest.fallos++;
+            estadoTest.puntuacion -= 0.33;
             feedbackEl.innerHTML = `&#10007; Incorrecto. La respuesta correcta es: <strong>${respuestaCorrecta}</strong>`;
             feedbackEl.classList.add('visible', 'incorrecto');
         }
@@ -202,11 +297,11 @@ window.addEventListener('load', () => {
         });
 
         // Mostrar el botón de siguiente pregunta
-        siguienteBtn.innerText = (preguntaActualIndex < preguntasDelTestActual.length - 1) ? 'Siguiente Pregunta' : 'Finalizar Test';
+        siguienteBtn.innerText = (estadoTest.preguntaActualIndex < estadoTest.preguntasDelTest.length - 1) ? 'Siguiente Pregunta' : 'Finalizar Test';
         siguienteBtn.classList.remove('oculto');
 
         // Si es la última pregunta, ocultamos el botón de finalizar de la cabecera para evitar redundancia
-        if (preguntaActualIndex === preguntasDelTestActual.length - 1) {
+        if (estadoTest.preguntaActualIndex === estadoTest.preguntasDelTest.length - 1) {
             finalizarAhoraBtn.classList.add('oculto');
         }
 
@@ -222,29 +317,34 @@ window.addEventListener('load', () => {
         feedbackEl.classList.remove('correcto', 'incorrecto');
 
         // Aseguramos que la puntuación no sea negativa
-        const puntuacionFinal = Math.max(0, puntuacion).toFixed(2);
+        const puntuacionFinal = Math.max(0, estadoTest.puntuacion).toFixed(2);
 
         const recordActual = parseFloat(localStorage.getItem(HIGH_SCORE_KEY)) || 0;
-        let mensajePuntuacion = `Tu puntuación final es: <strong>${puntuacionFinal} puntos</strong>.<br>Aciertos: ${aciertos} | Fallos: ${fallos}`;
+        let mensajePuntuacion = `Tu puntuación final es: <strong>${puntuacionFinal} puntos</strong>.<br>Aciertos: ${estadoTest.aciertos} | Fallos: ${estadoTest.fallos}`;
 
-        if (puntuacion > recordActual) {
-            localStorage.setItem(HIGH_SCORE_KEY, puntuacion);
+        if (estadoTest.puntuacion > recordActual) {
+            localStorage.setItem(HIGH_SCORE_KEY, estadoTest.puntuacion);
             mensajePuntuacion += `<br>¡Nuevo récord!`;
             mostrarRecord(); // Actualiza el texto del récord visible
         }
         feedbackEl.innerHTML = mensajePuntuacion;
         feedbackEl.classList.add('visible', 'final');
         siguienteBtn.classList.add('oculto');
+        actualizarBotonRepaso();
 
-        mostrarRevision(); // Llamamos a la función para mostrar los fallos
+        // Mostrar botones finales
         reiniciarBtn.classList.remove('oculto');
+        if (estadoTest.preguntasFalladas.length > 0) {
+            repasarFallosBtn.classList.remove('oculto');
+            mostrarRevision(); // Llamamos a la función para mostrar los fallos
+        }
         finalizarAhoraBtn.classList.add('oculto');
     }
 
     function actualizarBarraProgreso() {
-        const progreso = (preguntaActualIndex) / preguntasDelTestActual.length;
+        const progreso = (estadoTest.preguntaActualIndex) / estadoTest.preguntasDelTest.length;
         barraProgresoEl.style.transform = `scaleX(${progreso})`;
-        progresoTextoEl.innerText = `Pregunta ${preguntaActualIndex + 1} de ${preguntasDelTestActual.length}`;
+        progresoTextoEl.innerText = `Pregunta ${estadoTest.preguntaActualIndex + 1} de ${estadoTest.preguntasDelTest.length}`;
     }
 
     function mostrarRecord() {
@@ -255,14 +355,14 @@ window.addEventListener('load', () => {
 
     function mostrarRevision() {
         revisionFallosEl.innerHTML = ''; // Limpiar revisión anterior
-        if (preguntasFalladas.length === 0) return;
+        if (estadoTest.preguntasFalladas.length === 0) return;
 
         revisionFallosEl.classList.remove('oculto');
         const titulo = document.createElement('h2');
         titulo.innerText = 'Revisión de fallos';
         revisionFallosEl.appendChild(titulo);
 
-        preguntasFalladas.forEach(item => {
+        estadoTest.preguntasFalladas.forEach(item => {
             const divItem = document.createElement('div');
             divItem.classList.add('item-revision');
             divItem.innerHTML = `
@@ -274,32 +374,72 @@ window.addEventListener('load', () => {
         });
     }
 
-    // --- Funciones para manejar el estado en localStorage ---
+    // --- Lógica de Repaso de Fallos ---
+    function iniciarRepasoFallos(fallosDelTest) {
+        let indicesFallos;
+        if (fallosDelTest) {
+            // Repasar solo los fallos del test actual
+            indicesFallos = fallosDelTest.map(item => todasLasPreguntas.findIndex(p => p.pregunta === item.preguntaData.pregunta));
+        } else {
+            // Repasar todos los fallos guardados
+            const fallosGuardados = JSON.parse(localStorage.getItem(FAILED_QUESTIONS_KEY) || '[]');
+            indicesFallos = [...new Set(fallosGuardados)]; // Usar Set para eliminar duplicados
+        }
+
+        if (indicesFallos.length === 0) {
+            alert('¡Felicidades! No tienes preguntas falladas para repasar.');
+            return;
+        }
+
+        const preguntasParaRepasar = indicesFallos.map(index => todasLasPreguntas[index]);
+        iniciarTest(true, preguntasParaRepasar);
+    }
+
+    function guardarFalloPersistente(preguntaFallada) {
+        const indiceGlobal = todasLasPreguntas.findIndex(p => p.pregunta === preguntaFallada.pregunta);
+        if (indiceGlobal === -1) return;
+
+        const fallosGuardados = JSON.parse(localStorage.getItem(FAILED_QUESTIONS_KEY) || '[]');
+        if (!fallosGuardados.includes(indiceGlobal)) {
+            fallosGuardados.push(indiceGlobal);
+            localStorage.setItem(FAILED_QUESTIONS_KEY, JSON.stringify(fallosGuardados));
+        }
+    }
+
+    function eliminarFalloPersistente(preguntaAcertada) {
+        const indiceGlobal = todasLasPreguntas.findIndex(p => p.pregunta === preguntaAcertada.pregunta);
+        if (indiceGlobal === -1) return;
+
+        let fallosGuardados = JSON.parse(localStorage.getItem(FAILED_QUESTIONS_KEY) || '[]');
+        if (fallosGuardados.includes(indiceGlobal)) {
+            fallosGuardados = fallosGuardados.filter(i => i !== indiceGlobal);
+            localStorage.setItem(FAILED_QUESTIONS_KEY, JSON.stringify(fallosGuardados));
+        }
+    }
+
+    function actualizarBotonRepaso() {
+        const fallosGuardados = JSON.parse(localStorage.getItem(FAILED_QUESTIONS_KEY) || '[]');
+        const numFallos = fallosGuardados.length;
+        if (numFallos > 0) {
+            contadorFallosEl.textContent = numFallos;
+            iniciarRepasoFallosBtn.disabled = false;
+        } else {
+            contadorFallosEl.textContent = '';
+            iniciarRepasoFallosBtn.disabled = true;
+        }
+    }
+
+    // --- Manejo de Estado en localStorage ---
 
     function guardarEstado() {
-        const estado = {
-            preguntasDelTestActual,
-            preguntaActualIndex,
-            puntuacion,
-            aciertos,
-            fallos,
-            preguntasFalladas,
-            haRespondido
-        };
-        localStorage.setItem(TEST_STATE_KEY, JSON.stringify(estado));
+        localStorage.setItem(TEST_STATE_KEY, JSON.stringify(estadoTest));
     }
 
     function cargarEstado() {
         const estadoGuardado = localStorage.getItem(TEST_STATE_KEY);
         if (estadoGuardado) {
             const estado = JSON.parse(estadoGuardado);
-            preguntasDelTestActual = estado.preguntasDelTestActual;
-            preguntaActualIndex = estado.preguntaActualIndex;
-            puntuacion = estado.puntuacion;
-            aciertos = estado.aciertos;
-            fallos = estado.fallos;
-            preguntasFalladas = estado.preguntasFalladas;
-            haRespondido = estado.haRespondido;
+            estadoTest = estado;
         }
     }
 
@@ -307,21 +447,35 @@ window.addEventListener('load', () => {
         localStorage.removeItem(TEST_STATE_KEY);
     }
 
+    // --- Event Listeners ---
     // Event listener para el botón de siguiente pregunta
     siguienteBtn.addEventListener('click', () => {
-        preguntaActualIndex++;
+        estadoTest.preguntaActualIndex++;
         mostrarPregunta();
     });
 
     // Event listener para el botón de reiniciar
     reiniciarBtn.addEventListener('click', () => {
-        limpiarEstado();
-        nuevoTest();
+        limpiarEstado(); // Limpia el estado del test en curso
+        mostrarVistaInicio(); // Vuelve al menú principal
     });
 
     // Event listener para el botón de finalizar ahora
     finalizarAhoraBtn.addEventListener('click', finalizarTest);
 
-    // Iniciar el test
+    // --- Event listeners del menú de inicio ---
+    iniciarNuevoTestBtn.addEventListener('click', () => iniciarTest());
+    iniciarRepasoFallosBtn.addEventListener('click', () => iniciarRepasoFallos());
+
+    // Event listener para el botón de repasar fallos del test finalizado
+    repasarFallosBtn.addEventListener('click', () => {
+        // Pasamos las preguntas falladas del test actual para repasarlas inmediatamente
+        iniciarRepasoFallos(estadoTest.preguntasFalladas);
+    });
+
+    // Event listener para el botón de cambio de tema
+    themeToggleBtn.addEventListener('click', cambiarTema);
+
+    // Iniciar la aplicación
     inicializarApp();
 });
