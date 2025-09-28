@@ -5,6 +5,7 @@ const urlsToCache = [
   'index.html',
   'style.css',
   'app.js',
+  'preguntas.json', // Añadir para asegurar que el primer test normal funcione offline
   'manifest.json',
   'preguntas_imprescindibles.json',
   'icons/icon-192x192.png',
@@ -33,7 +34,10 @@ self.addEventListener('activate', event => {
             return caches.delete(cacheName);
           }
         })
-      );
+      ).then(() => {
+        // Le decimos al service worker que tome el control de las páginas abiertas inmediatamente.
+        return self.clients.claim();
+      });
     })
   );
 });

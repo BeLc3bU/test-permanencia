@@ -28,7 +28,10 @@
             <div class="progreso-header">
             <div class="info-header">
                 <div id="progreso-texto"></div>
-                <button id="finalizar-ahora-btn" class="oculto">Finalizar</button>
+                <div class="header-botones">
+                    <button id="finalizar-ahora-btn" class="oculto">Finalizar</button>
+                    <button id="seguir-mas-tarde-btn" class="oculto">Seguir más tarde</button>
+                </div>
                 <div id="record-texto"></div>
             </div>
             <div class="barra-progreso-contenedor">
@@ -53,6 +56,6 @@
     <!-- Botón de tema fuera del flujo principal para posicionamiento fijo -->
     <button id="theme-toggle-btn" aria-label="Cambiar tema"></button>
 
-    <script src="app.js"></script>
+    <script src="app.js" defer></script>
 </body>
 </html>

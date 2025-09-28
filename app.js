@@ -6,6 +6,7 @@ window.addEventListener('load', () => {
     const iniciarNuevoTestBtn = document.getElementById('iniciar-nuevo-test-btn');
     const iniciarRepasoFallosBtn = document.getElementById('iniciar-repaso-fallos-btn');
     const iniciarTestImprescindibleBtn = document.getElementById('iniciar-test-imprescindible-btn');
+    const seguirMasTardeBtn = document.getElementById('seguir-mas-tarde-btn');
     const preguntaEl = document.getElementById('pregunta-actual');
     const opcionesEl = document.getElementById('opciones-respuesta');
     const feedbackEl = document.getElementById('feedback');
@@ -24,6 +25,7 @@ window.addEventListener('load', () => {
     const UNSEEN_QUESTIONS_KEY = 'testPermanenciaUnseenQuestions';
     const FAILED_QUESTIONS_KEY = 'testPermanenciaFailedQuestions';
     const TEST_STATE_KEY = 'testPermanenciaState';
+    const IMPRESCINDIBLE_TEST_STATE_KEY = 'testImprescindibleState';
     const THEME_KEY = 'testPermanenciaTheme';
     const NUMERO_PREGUNTAS_TEST = 20;
 
@@ -40,6 +42,7 @@ window.addEventListener('load', () => {
         aciertos: 0,
         fallos: 0,
         haRespondido: false,
+        modo: 'normal', // Añadimos el modo al estado
     };
 
     // --- Inicialización de la aplicación ---
@@ -47,8 +50,15 @@ window.addEventListener('load', () => {
         inicializarTema();
 
         try {
-            todasLasPreguntas = await cargarPreguntas();
-            if (todasLasPreguntas.length > 0) {
+            // Unificamos todas las preguntas (normales e imprescindibles) en un solo array
+            const preguntasNormales = await cargarArchivoPreguntas('preguntas.json');
+            const preguntasImprescindibles = await cargarArchivoPreguntas('preguntas_imprescindibles.json');
+            
+            // Combinamos y eliminamos duplicados, dando prioridad a las normales si hay alguna igual.
+            const preguntasUnificadas = [...preguntasNormales, ...preguntasImprescindibles];
+            todasLasPreguntas = unificarYEliminarDuplicados(preguntasUnificadas);
+
+            if (todasLasPreguntas.length > 0) { 
                 inicializarPoolPreguntasNoVistas();
             }
         } catch (error) {
@@ -61,12 +71,12 @@ window.addEventListener('load', () => {
             actualizarBotonRepaso();
             registrarEventListeners(); // Mover el registro de listeners aquí
 
-            if (localStorage.getItem(TEST_STATE_KEY)) {
+            if (localStorage.getItem(TEST_STATE_KEY) && !localStorage.getItem(IMPRESCINDIBLE_TEST_STATE_KEY)) {
                 if (confirm('Hemos encontrado un test sin finalizar. ¿Quieres continuar donde lo dejaste?')) {
                     mostrarVistaTest();
-                    restaurarSesion();
+                    restaurarSesion('normal');
                 } else {
-                    limpiarEstado();
+                    limpiarEstado('normal');
                     mostrarVistaInicio();
                 }
             } else {
@@ -121,6 +131,7 @@ window.addEventListener('load', () => {
             aciertos: 0,
             fallos: 0,
             haRespondido: false,
+            modo: modo,
         };
 
         reiniciarBtn.classList.add('oculto');
@@ -128,10 +139,18 @@ window.addEventListener('load', () => {
         repasarFallosBtn.classList.add('oculto');
         revisionFallosEl.classList.add('oculto');
 
+        if (modo === 'imprescindible') {
+            seguirMasTardeBtn.classList.remove('oculto');
+        } else {
+            seguirMasTardeBtn.classList.add('oculto');
+        }
+
         if (modo !== 'normal') {
+            if (modo === 'imprescindible') {
+                barajarArray(preguntasPersonalizadas); // Barajamos las preguntas imprescindibles
+            }
+            // Para el modo 'repaso', mantenemos el orden.
             estadoTest.preguntasDelTest = preguntasPersonalizadas;
-            // No barajamos los modos especiales (repaso, imprescindible)
-            // para mantener el orden si se desea.
         } else { // modo 'normal'
             // Lógica mejorada para seleccionar preguntas sin repetir
             if (preguntasNoVistasIndices.length === 0) {
@@ -156,8 +175,8 @@ window.addEventListener('load', () => {
         mostrarPregunta();
     }
 
-    function restaurarSesion() {
-        cargarEstado();
+    function restaurarSesion(modo) {
+        cargarEstado(modo);
         mostrarRecord();
         mostrarPregunta();
         if (estadoTest.haRespondido) {
@@ -170,25 +189,9 @@ window.addEventListener('load', () => {
      * @returns {Promise<Array>} Una promesa que resuelve con el array de preguntas.
      */
     async function cargarPreguntas() {
+        // Esta función ya no es necesaria, usamos cargarArchivoPreguntas directamente.
+        // Se mantiene por si se usa en otro lugar, pero su lógica principal está ahora en inicializarApp.
         return await cargarArchivoPreguntas('preguntas.json');
-    }
-
-    /**
-     * Carga las preguntas imprescindibles y elimina duplicados.
-     * @returns {Promise<Array>} Una promesa que resuelve con el array de preguntas únicas.
-     */
-    async function cargarPreguntasImprescindibles() {
-        const preguntas = await cargarArchivoPreguntas('preguntas_imprescindibles.json');
-        if (!preguntas) return [];
-
-        const preguntasUnicas = new Map();
-        preguntas.forEach(p => {
-            const clave = p.pregunta.trim().toLowerCase();
-            if (!preguntasUnicas.has(clave)) {
-                preguntasUnicas.set(clave, p);
-            }
-        });
-        return Array.from(preguntasUnicas.values());
     }
 
     async function cargarArchivoPreguntas(nombreArchivo) {
@@ -203,6 +206,21 @@ window.addEventListener('load', () => {
         }
     }
 
+    /**
+     * Combina un array de preguntas y elimina duplicados basándose en el texto de la pregunta.
+     * @param {Array} preguntas - Array de objetos de pregunta.
+     * @returns {Array} Un nuevo array sin preguntas duplicadas.
+     */
+    function unificarYEliminarDuplicados(preguntas) {
+        const preguntasUnicas = new Map();
+        preguntas.forEach(p => {
+            const clave = p.pregunta.trim().toLowerCase();
+            if (!preguntasUnicas.has(clave)) {
+                preguntasUnicas.set(clave, p);
+            }
+        });
+        return Array.from(preguntasUnicas.values());
+    }
     /**
      * Baraja los elementos de un array usando el algoritmo Fisher-Yates.
      * @param {Array} array El array a barajar.
@@ -346,7 +364,7 @@ window.addEventListener('load', () => {
 
     function finalizarTest() {
         preguntaEl.innerText = '¡Has completado el test!';
-        limpiarEstado(); // Limpiamos el estado al finalizar
+        limpiarEstado(estadoTest.modo); // Limpiamos el estado del modo correspondiente
         opcionesEl.innerHTML = '';
         progresoTextoEl.innerText = 'Test Finalizado';
         feedbackEl.classList.remove('correcto', 'incorrecto');
@@ -378,6 +396,7 @@ window.addEventListener('load', () => {
             mostrarRevision(); // Llamamos a la función para mostrar los fallos
         }
         finalizarAhoraBtn.classList.add('oculto');
+        seguirMasTardeBtn.classList.add('oculto');
     }
 
     function actualizarBarraProgreso() {
@@ -471,19 +490,22 @@ window.addEventListener('load', () => {
     // --- Manejo de Estado en localStorage ---
 
     function guardarEstado() {
-        localStorage.setItem(TEST_STATE_KEY, JSON.stringify(estadoTest));
+        const key = estadoTest.modo === 'imprescindible' ? IMPRESCINDIBLE_TEST_STATE_KEY : TEST_STATE_KEY;
+        localStorage.setItem(key, JSON.stringify(estadoTest));
     }
 
-    function cargarEstado() {
-        const estadoGuardado = localStorage.getItem(TEST_STATE_KEY);
+    function cargarEstado(modo) {
+        const key = modo === 'imprescindible' ? IMPRESCINDIBLE_TEST_STATE_KEY : TEST_STATE_KEY;
+        const estadoGuardado = localStorage.getItem(key);
         if (estadoGuardado) {
             const estado = JSON.parse(estadoGuardado);
             estadoTest = estado;
         }
     }
 
-    function limpiarEstado() {
-        localStorage.removeItem(TEST_STATE_KEY);
+    function limpiarEstado(modo) {
+        const key = modo === 'imprescindible' ? IMPRESCINDIBLE_TEST_STATE_KEY : TEST_STATE_KEY;
+        localStorage.removeItem(key);
     }
 
     // --- Registro de Event Listeners ---
@@ -496,7 +518,7 @@ window.addEventListener('load', () => {
 
         // Event listener para el botón de reiniciar
         reiniciarBtn.addEventListener('click', () => {
-            limpiarEstado(); // Limpia el estado del test en curso
+            // El estado ya se limpia al finalizar, aquí solo volvemos al inicio
             mostrarVistaInicio(); // Vuelve al menú principal
         });
 
@@ -508,15 +530,27 @@ window.addEventListener('load', () => {
         iniciarRepasoFallosBtn.addEventListener('click', () => iniciarRepasoFallos());
 
         iniciarTestImprescindibleBtn.addEventListener('click', async () => {
-            try {
-                const preguntasImprescindibles = await cargarPreguntasImprescindibles();
+            const estadoGuardado = localStorage.getItem(IMPRESCINDIBLE_TEST_STATE_KEY);
+            if (estadoGuardado) {
+                if (confirm('Hemos encontrado un test imprescindible sin finalizar. ¿Quieres continuar donde lo dejaste?')) {
+                    mostrarVistaTest();
+                    restaurarSesion('imprescindible');
+                } else {
+                    limpiarEstado('imprescindible');
+                    // Continuar para iniciar un nuevo test
+                    const preguntasImprescindibles = todasLasPreguntas.filter(p => p.imprescindible);
+                    if (preguntasImprescindibles.length > 0) {
+                        iniciarTest('imprescindible', preguntasImprescindibles);
+                    }
+                }
+            } else {
+                // No hay estado guardado, iniciar uno nuevo
+                const preguntasImprescindibles = todasLasPreguntas.filter(p => p.imprescindible);
                 if (preguntasImprescindibles.length > 0) {
                     iniciarTest('imprescindible', preguntasImprescindibles);
                 } else {
-                    alert('No se han podido cargar las preguntas imprescindibles. Revisa que el archivo "preguntas_imprescindibles.json" exista y no esté vacío.');
+                    alert('No se encontraron preguntas imprescindibles. Asegúrate de que estén correctamente marcadas en el archivo JSON.');
                 }
-            } catch (error) {
-                alert('Error al cargar las preguntas imprescindibles. Revisa la consola (F12) para más detalles.');
             }
         });
 
@@ -524,6 +558,12 @@ window.addEventListener('load', () => {
         repasarFallosBtn.addEventListener('click', () => {
             // Pasamos las preguntas falladas del test actual para repasarlas inmediatamente
             iniciarRepasoFallos(estadoTest.preguntasFalladas);
+        });
+
+        // Event listener para el botón de seguir más tarde
+        seguirMasTardeBtn.addEventListener('click', () => {
+            guardarEstado();
+            mostrarVistaInicio();
         });
 
         // Event listener para el botón de cambio de tema

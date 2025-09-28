@@ -7,7 +7,8 @@
       "De las Cortes.",
       "De los derechos y deberes de los ciudadanos."
     ],
-    "respuestaCorrecta": "De los derechos y deberes fundamentales."
+    "respuestaCorrecta": "De los derechos y deberes fundamentales.",
+    "imprescindible": true
   },
   {
     "pregunta": "Los Delegados de Gobierno en las Comunidades Autónomas tienen rango de:",
@@ -17,7 +18,8 @@
       "Director General.",
       "Subsecretario."
     ],
-    "respuestaCorrecta": "Subsecretario."
+    "respuestaCorrecta": "Subsecretario.",
+    "imprescindible": true
   },
   {
     "pregunta": "Señala los Órganos de Asistencia y Asesoramiento del JEMAD:",
@@ -27,7 +29,8 @@
       "La Intervención Jurídica del EMAD (INJEMAD).",
       "Todos son Órganos de Asistencia y Asesoramiento del JEMAD."
     ],
-    "respuestaCorrecta": "El Gabinete del JEMAD (GABJEMAD) y el Gabinete Técnico del JEMAD (GABTECJEMAD)."
+    "respuestaCorrecta": "El Gabinete del JEMAD (GABJEMAD) y el Gabinete Técnico del JEMAD (GABTECJEMAD).",
+    "imprescindible": true
   },
   {
     "pregunta": "La acción del Estado dirigida a proteger la libertad, los derechos y bienestar de los ciudadanos, a garantizar la defensa de España y sus principios y valores constitucionales, así como a contribuir junto a nuestros socios y aliados a la seguridad internacional en el cumplimiento de los compromisos asumidos es:",
@@ -37,7 +40,8 @@
       "Acción Exterior del Estado.",
       "Gestión de crisis."
     ],
-    "respuestaCorrecta": "Seguridad Nacional."
+    "respuestaCorrecta": "Seguridad Nacional.",
+    "imprescindible": true
   },
   {
     "pregunta": "Le corresponde la competencia de efectuar análisis y propuestas de actuación sobre el ejercicio de los derechos fundamentales y libertades públicas por los miembros de las Fuerzas Armadas:",
@@ -47,7 +51,8 @@
       "Al Observatorio de la vida militar.",
       "Al Consejo de Personal de las Fuerzas Armadas."
     ],
-    "respuestaCorrecta": "Al Observatorio de la vida militar."
+    "respuestaCorrecta": "Al Observatorio de la vida militar.",
+    "imprescindible": true
   },
   {
     "pregunta": "¿Quién no forma parte del Consejo de Seguridad Nacional?",
@@ -57,7 +62,8 @@
       "El JEMAD.",
       "Todos forman parte."
     ],
-    "respuestaCorrecta": "Los Jefes de Estado Mayor del Ejército de Tierra, de la Armada y del Ejército del Aire."
+    "respuestaCorrecta": "Los Jefes de Estado Mayor del Ejército de Tierra, de la Armada y del Ejército del Aire.",
+    "imprescindible": true
   },
   {
     "pregunta": "¿Quien forma las Fuerzas Navales de Ataque y Apoyo OTAN?",
@@ -67,7 +73,8 @@
       "AGS",
       "Todas son correctas."
     ],
-    "respuestaCorrecta": "STRIKFORNATO"
+    "respuestaCorrecta": "STRIKFORNATO",
+    "imprescindible": true
   },
   {
     "pregunta": "Las Administraciones Públicas actúan para el cumplimiento de sus fines con:",
@@ -77,7 +84,8 @@
       "Personalidad jurídica única.",
       "Personalidad jurídica propia."
     ],
-    "respuestaCorrecta": "Personalidad jurídica única."
+    "respuestaCorrecta": "Personalidad jurídica única.",
+    "imprescindible": true
   },
   {
     "pregunta": "La Fuerza del ET no está constituida por:",
@@ -87,7 +95,8 @@
       "Mando de Adiestramiento y Doctrina.",
       "Cuartel General Terrestre de Alta Disponibilidad."
     ],
-    "respuestaCorrecta": "Mando de Adiestramiento y Doctrina."
+    "respuestaCorrecta": "Mando de Adiestramiento y Doctrina.",
+    "imprescindible": true
   },
   {
     "pregunta": "¿Quién es responsable de dirigir, coordinar y evaluar las funciones de mando y control del EA relacionadas con la vigilancia y control del espacio aéreo de soberanía, responsabilidad e interés nacional, para la conducción de las operaciones aéreas?",
@@ -97,7 +106,8 @@
       "La Jefatura de Movilidad aérea.",
       "La Jefatura del Sistema de Vigilancia y Control Aéreo."
     ],
-    "respuestaCorrecta": "La Jefatura del Sistema de Vigilancia y Control Aéreo."
+    "respuestaCorrecta": "La Jefatura del Sistema de Vigilancia y Control Aéreo.",
+    "imprescindible": true
   },
   {
     "pregunta": "Según el Artículo 103 de la Constitución Española, la Administración Pública sirve con objetividad los intereses generales y actúa de acuerdo con los principios de:",
@@ -107,7 +117,8 @@
       "Competencia, legalidad, proporcionalidad, desconcentración y coordinación.",
       "Eficacia, legalidad, proporcionalidad, desconcentración y solidaridad."
     ],
-    "respuestaCorrecta": "Eficacia, jerarquía, descentralización, desconcentración y coordinación."
+    "respuestaCorrecta": "Eficacia, jerarquía, descentralización, desconcentración y coordinación.",
+    "imprescindible": true
   },
   {
     "pregunta": "Según la Constitución Española, ¿Quién dirige la política interior y exterior, la administración civil y militar y la defensa del Estado?",
@@ -117,7 +128,8 @@
       "El Gobierno.",
       "Las Fuerzas Armadas."
     ],
-    "respuestaCorrecta": "El Gobierno."
+    "respuestaCorrecta": "El Gobierno.",
+    "imprescindible": true
   },
   {
     "pregunta": "Según la Ley del Procedimiento Administrativo Común, siempre que por Ley o en el Derecho de la Unión Europea no se exprese otro cómputo, cuando los plazos se señalen por días, se entiende que éstos son:",
@@ -127,7 +139,8 @@
       "Hábiles, excluyéndose del cómputo los domingos, los declarados festivos y los inhábiles de las Comunidades Autónomas.",
       "Todas son incorrectas."
     ],
-    "respuestaCorrecta": "Hábiles, excluyéndose del cómputo los sábados, los domingos y los declarados festivos."
+    "respuestaCorrecta": "Hábiles, excluyéndose del cómputo los sábados, los domingos y los declarados festivos.",
+    "imprescindible": true
   },
   {
     "pregunta": "No son causas de inadmisión de un recurso administrativo:",
@@ -137,7 +150,8 @@
       "Tratarse de un acto no susceptible de recurso.",
       "No haber transcurrido el plazo para la interposición del recurso."
     ],
-    "respuestaCorrecta": "No haber transcurrido el plazo para la interposición del recurso."
+    "respuestaCorrecta": "No haber transcurrido el plazo para la interposición del recurso.",
+    "imprescindible": true
   },
   {
     "pregunta": "Señala la incorrecta:",
@@ -147,7 +161,8 @@
       "En el caso de que una norma reguladora del correspondiente procedimiento administrativo no fije el plazo máximo en que debe notificarse la resolución expresa, este no podrá exceder de tres meses.",
       "Los actos de las Administraciones Públicas dictados por órgano manifiestamente incompetente por razón de la materia o del territorio son anulables."
     ],
-    "respuestaCorrecta": "Los actos de las Administraciones Públicas dictados por órgano manifiestamente incompetente por razón de la materia o del territorio son anulables."
+    "respuestaCorrecta": "Los actos de las Administraciones Públicas dictados por órgano manifiestamente incompetente por razón de la materia o del territorio son anulables.",
+    "imprescindible": true
   },
   {
     "pregunta": "Señala la incorrecta sobre la Estrategia de Seguridad Nacional:",
@@ -157,7 +172,8 @@
       "Se elabora a iniciativa del Consejo de Seguridad Nacional, quien la somete a la aprobación del Consejo de Ministros.",
       "Una vez aprobada, se presenta en las Cortes Generales en los términos previstos en la Ley de Seguridad Nacional."
     ],
-    "respuestaCorrecta": "Se elabora a iniciativa del Consejo de Seguridad Nacional, quien la somete a la aprobación del Consejo de Ministros."
+    "respuestaCorrecta": "Se elabora a iniciativa del Consejo de Seguridad Nacional, quien la somete a la aprobación del Consejo de Ministros.",
+    "imprescindible": true
   },
   {
     "pregunta": "¿Quién actúa como Secretario del Consejo de Defensa Nacional?",
@@ -167,7 +183,8 @@
       "La persona titular de la Secretaría General de Política de Defensa.",
       "El Jefe de Estado Mayor de la Defensa."
     ],
-    "respuestaCorrecta": "La persona titular de la Secretaría General de Política de Defensa."
+    "respuestaCorrecta": "La persona titular de la Secretaría General de Política de Defensa.",
+    "imprescindible": true
   },
   {
     "pregunta": "¿Cuál de los siguientes órganos no es un órgano competente en materia de Seguridad Nacional?",
@@ -177,7 +194,8 @@
       "Los Ministros.",
       "El Congreso de los Diputados."
     ],
-    "respuestaCorrecta": "El Congreso de los Diputados."
+    "respuestaCorrecta": "El Congreso de los Diputados.",
+    "imprescindible": true
   },
   {
     "pregunta": "Las categorías en las que se agrupan los militares son:",
@@ -187,7 +205,8 @@
       "Oficiales, suboficiales y tropa y marinería.",
       "Oficiales, suboficiales, tropa y marinería, militares de complemento y reservistas."
     ],
-    "respuestaCorrecta": "Oficiales generales, oficiales, suboficiales y tropa y marinería."
+    "respuestaCorrecta": "Oficiales generales, oficiales, suboficiales y tropa y marinería.",
+    "imprescindible": true
   },
   {
     "pregunta": "Los sistemas de ascenso son:",
@@ -197,7 +216,8 @@
       "Por elección y antigüedad.",
       "Elección, clasificación y oposición o concurso-oposición."
     ],
-    "respuestaCorrecta": "Elección, clasificación, concurso o concurso-oposición y antigüedad."
+    "respuestaCorrecta": "Elección, clasificación, concurso o concurso-oposición y antigüedad.",
+    "imprescindible": true
   },
   {
     "pregunta": "¿Quién concede la condición de militar de tropa y marinería?",
@@ -207,7 +227,8 @@
       "El Ministro de Defensa",
       "El Subsecretario de Defensa"
     ],
-    "respuestaCorrecta": "El Jefe de Estado Mayor del Ejército correspondiente"
+    "respuestaCorrecta": "El Jefe de Estado Mayor del Ejército correspondiente",
+    "imprescindible": true
   },
   {
     "pregunta": "¿En qué norma se desarrollan reglamentariamente las reglas del comportamiento del militar?",
@@ -217,7 +238,8 @@
       "En la Ley Orgánica 9/2011, de 27 de julio, de derechos y deberes de los miembros de las Fuerzas Armadas.",
       "En la Ley 39/2007, de 19 de noviembre, de la carrera militar."
     ],
-    "respuestaCorrecta": "En el Real Decreto 96/2009, de 6 de febrero, por el que se aprueban las Reales Ordenanzas para las Fuerzas Armadas."
+    "respuestaCorrecta": "En el Real Decreto 96/2009, de 6 de febrero, por el que se aprueban las Reales Ordenanzas para las Fuerzas Armadas.",
+    "imprescindible": true
   },
   {
     "pregunta": "De conformidad con las Reales Ordenanzas para las Fuerzas Armadas, si las órdenes entrañasen la ejecución de actos constitutivos de delito, el militar:",
@@ -227,7 +249,8 @@
       "El militar estará obligado a cumplirlas.",
       "El militar no estará obligado a obedecerlas."
     ],
-    "respuestaCorrecta": "El militar no estará obligado a obedecerlas."
+    "respuestaCorrecta": "El militar no estará obligado a obedecerlas.",
+    "imprescindible": true
   },
   {
     "pregunta": "Según las Reales Ordenanzas para las Fuerzas Armadas, ¿qué factor resulta indispensable para el buen ejercicio del mando y por él se hará acreedor a la confianza de sus superiores y subordinados?",
@@ -237,7 +260,8 @@
       "El prestigio adquirido con su ejemplo.",
       "La capacidad para decidir."
     ],
-    "respuestaCorrecta": "El sentido de la responsabilidad."
+    "respuestaCorrecta": "El sentido de la responsabilidad.",
+    "imprescindible": true
   },
   {
     "pregunta": "Según la Ley Orgánica de régimen disciplinario, con respecto a la anotación de las sanciones disciplinarias, en las hojas de servicio de los alumnos de los centros docentes militares de formación, únicamente se anotarán las sanciones disciplinarias impuestas por:",
@@ -247,7 +271,8 @@
       "Faltas muy graves, graves y leves sancionadas con arresto.",
       "Faltas leves."
     ],
-    "respuestaCorrecta": "Faltas muy graves, graves y leves sancionadas con arresto."
+    "respuestaCorrecta": "Faltas muy graves, graves y leves sancionadas con arresto.",
+    "imprescindible": true
   },
   {
     "pregunta": "El plazo de prescripción de las faltas comenzará a computarse:",
@@ -257,7 +282,8 @@
       "Desde el día siguiente al que la infracción se haya cometido.",
       "Desde el día en que la autoridad con competencia sancionadora tenga conocimiento de la infracción cometida."
     ],
-    "respuestaCorrecta": "Desde el día en que la infracción se haya cometido."
+    "respuestaCorrecta": "Desde el día en que la infracción se haya cometido.",
+    "imprescindible": true
   },
   {
     "pregunta": "Las iniciativas y quejas elevadas por los militares deberán estar relacionadas con:",
@@ -267,7 +293,8 @@
       "El régimen de personal y las condiciones de vida.",
       "Todas son correctas"
     ],
-    "respuestaCorrecta": "El régimen de personal y las condiciones de vida."
+    "respuestaCorrecta": "El régimen de personal y las condiciones de vida.",
+    "imprescindible": true
   },
   {
     "pregunta": "Cualquier comportamiento, verbal o físico, de naturaleza sexual que tenga el propósito o produzca el efecto de atentar contra la dignidad de una persona, en particular cuando se crea un entorno intimidatorio, degradante u ofensivo constituye:",
@@ -277,7 +304,8 @@
       "Acoso por razón de sexo",
       "Acoso profesional"
     ],
-    "respuestaCorrecta": "Acoso sexual"
+    "respuestaCorrecta": "Acoso sexual",
+    "imprescindible": true
   },
   {
     "pregunta": "Constituye ………………………….. todo trato desfavorable a las mujeres relacionado con el embarazo o la maternidad.",
@@ -287,7 +315,8 @@
       "discriminación indirecta por razón de sexo",
       "discriminación"
     ],
-    "respuestaCorrecta": "discriminación directa por razón de sexo"
+    "respuestaCorrecta": "discriminación directa por razón de sexo",
+    "imprescindible": true
   },
   {
     "pregunta": "Son órganos y autoridades competentes en materia de acoso sexual y por razón de sexo en vía disciplinaria:",
@@ -297,7 +326,8 @@
       "Las Fiscalías Jurídico Militares",
       "El OMI"
     ],
-    "respuestaCorrecta": "La UPA, como canal de transmisión de denuncias"
+    "respuestaCorrecta": "La UPA, como canal de transmisión de denuncias",
+    "imprescindible": true
   },
   {
     "pregunta": "¿De quién es competencia la propuesta para el nombramiento del Jefe de Estado Mayor de la Defensa?",
@@ -307,7 +337,8 @@
       "Del Subsecretario de Defensa.",
       "Del Presidente del Gobierno."
     ],
-    "respuestaCorrecta": "Del Presidente del Gobierno."
+    "respuestaCorrecta": "Del Presidente del Gobierno.",
+    "imprescindible": true
   },
   {
     "pregunta": "El Gabinete del Jefe de Estado Mayor de la Defensa (GABJEMAD), como órgano de apoyo, asesoramiento y asistencia inmediata a dicha autoridad, ¿qué nivel orgánico tiene?",
@@ -317,7 +348,8 @@
       "Dirección General.",
       "Subdirección general."
     ],
-    "respuestaCorrecta": "Subdirección general."
+    "respuestaCorrecta": "Subdirección general.",
+    "imprescindible": true
   },
   {
     "pregunta": "¿Quién será responsable de ejercer la coordinación general del Planeamiento de Fuerza y de Capacidades en el EMACON del Cuartel General del EMAD?",
@@ -327,7 +359,8 @@
       "Secretaría General del Estado Mayor de la Conjunto de la Defensa (SEGEMACON).",
       "División de Planes del Estado Mayor Conjunto de la Defensa (DIVPLA)."
     ],
-    "respuestaCorrecta": "División de Planes del Estado Mayor Conjunto de la Defensa (DIVPLA)."
+    "respuestaCorrecta": "División de Planes del Estado Mayor Conjunto de la Defensa (DIVPLA).",
+    "imprescindible": true
   },
   {
     "pregunta": "¿Cual es el órgano responsable de apoyar al JEMAD en el planeamiento, conducción y seguimiento de las operaciones militares en el nivel estratégico?",
@@ -337,7 +370,8 @@
       "La DIVESTRA.",
       "La SEGEMACON."
     ],
-    "respuestaCorrecta": "La DIVESTRA."
+    "respuestaCorrecta": "La DIVESTRA.",
+    "imprescindible": true
   },
   {
     "pregunta": "La participación de fuerzas españolas en operaciones multinacionales se rige por:",
@@ -347,7 +381,8 @@
       "Un OPLAN nacional.",
       "Los planes de contingencia."
     ],
-    "respuestaCorrecta": "Un OPLAN nacional."
+    "respuestaCorrecta": "Un OPLAN nacional.",
+    "imprescindible": true
   },
   {
     "pregunta": "Según el RD 205/2024, son órganos asesores y consultivos de la persona titular del Departamento:",
@@ -357,7 +392,8 @@
       "El Consejo de Defensa Nacional.",
       "El Consejo de Jefes de Estado Mayor."
     ],
-    "respuestaCorrecta": "Todas son incorrectas."
+    "respuestaCorrecta": "Todas son incorrectas.",
+    "imprescindible": true
   },
   {
     "pregunta": "¿A qué órgano está adscrito el COPERFAS (Consejo de Personal de las Fuerzas Armadas)?",
@@ -367,7 +403,8 @@
       "A la Secretaría General de Política de Defensa.",
       "Al CGEMAD como órgano de apoyo al JEMAD."
     ],
-    "respuestaCorrecta": "A la Subsecretaría de Defensa."
+    "respuestaCorrecta": "A la Subsecretaría de Defensa.",
+    "imprescindible": true
   },
   {
     "pregunta": "¿Qué órgano directivo depende de la Subsecretaría de Defensa?",
@@ -377,7 +414,8 @@
       "Secretaría General Técnica",
       "Centro de Sistemas y Tecnologías de la Información y las Comunicaciones"
     ],
-    "respuestaCorrecta": "Secretaría General Técnica"
+    "respuestaCorrecta": "Secretaría General Técnica",
+    "imprescindible": true
   },
   {
     "pregunta": "Según la Instrucción 14/2021 por la que se desarrolla la Organización del ET, se entenderá por Unidad Independiente:",
@@ -387,7 +425,8 @@
       "Aquella que tiene composición fija, un jefe expresamente designado y capacidad para desarrollar de forma autónoma y temporal su vida y funcionamiento interno.",
       "Aquella que tiene composición fija, un jefe expresamente designado y capacidad para desarrollar de forma autónoma y permanente su vida y funcionamiento interno."
     ],
-    "respuestaCorrecta": "Aquella que tiene composición fija, un jefe expresamente designado y capacidad para desarrollar de forma autónoma y permanente su vida y funcionamiento interno."
+    "respuestaCorrecta": "Aquella que tiene composición fija, un jefe expresamente designado y capacidad para desarrollar de forma autónoma y permanente su vida y funcionamiento interno.",
+    "imprescindible": true
   },
   {
     "pregunta": "Es el órgano responsable del planeamiento de capacidades del EA a medio y largo plazo:",
@@ -397,7 +436,8 @@
       "División de Operaciones del EMA.",
       "División de Logística del EMA."
     ],
-    "respuestaCorrecta": "División de Planes del EMA."
+    "respuestaCorrecta": "División de Planes del EMA.",
+    "imprescindible": true
   },
   {
     "pregunta": "Son de su competencia los asuntos relacionados con la transformación digital del EA y la producción normativa:",
@@ -407,7 +447,8 @@
       "La DIVLOG del EMA.",
       "La Jefatura del EMA."
     ],
-    "respuestaCorrecta": "La SEGE del EMA."
+    "respuestaCorrecta": "La SEGE del EMA.",
+    "imprescindible": true
   },
   {
     "pregunta": "¿De quién depende el Puesto de Mando del JEMA?",
@@ -417,7 +458,8 @@
       "Del SEJEMA.",
       "Está adscrito a la SEGE del EMA."
     ],
-    "respuestaCorrecta": "Está adscrito a la SEGE del EMA."
+    "respuestaCorrecta": "Está adscrito a la SEGE del EMA.",
+    "imprescindible": true
   },
   {
     "pregunta": "Es el órgano del Apoyo a la Fuerza, en el ámbito de los recursos humanos, responsable principal de la dirección, gestión, administración y control en materia de personal, de asistencia al personal, de sanidad y de enseñanza en el EA:",
@@ -427,7 +469,8 @@
       "Dirección de Personal.",
       "Ninguna es correcta."
     ],
-    "respuestaCorrecta": "Mando de Personal."
+    "respuestaCorrecta": "Mando de Personal.",
+    "imprescindible": true
   },
   {
     "pregunta": "El Mando de Personal del EA se articula en:",
@@ -437,7 +480,8 @@
       "Jefatura, Órgano Auxiliar de Jefatura, Sección de Apoyo y Gestión Económica, Dirección de Sanidad, Dirección de Sostenimiento y Apoyo Logístico Operativo, Dirección de Personal y Centro de Guerra Aeroespacial.",
       "Jefatura, Órgano Auxiliar de Jefatura, Sección de Apoyo y Gestión Económica, Dirección de Sanidad, Dirección de adquisiciones, Dirección de Personal y Centro de Guerra Aeroespacial."
     ],
-    "respuestaCorrecta": "Jefatura, Órgano Auxiliar de Jefatura, Sección de Apoyo y Gestión Económica, Dirección de Enseñanza, Dirección de Sanidad, Dirección de Personal y Centro de Guerra Aeroespacial."
+    "respuestaCorrecta": "Jefatura, Órgano Auxiliar de Jefatura, Sección de Apoyo y Gestión Económica, Dirección de Enseñanza, Dirección de Sanidad, Dirección de Personal y Centro de Guerra Aeroespacial.",
+    "imprescindible": true
   },
   {
     "pregunta": "Según la Instrucción 6/2025 por la que se desarrolla la Organización del EA, ¿Cuál de los siguientes órganos no componen la Fuerza Aeroespacial del EA?",
@@ -447,7 +491,8 @@
       "Mando Aéreo General.",
       "Mando Aéreo de Combate."
     ],
-    "respuestaCorrecta": "Mando Aeroespacial."
+    "respuestaCorrecta": "Mando Aeroespacial.",
+    "imprescindible": true
   },
   {
     "pregunta": "La Comisión para la Investigación Técnica de Accidentes de Aeronaves Militares (CITAAM) está adscrita:",
@@ -457,7 +502,8 @@
       "A la División de Logística del EMA.",
       "A la SEGE del EMA."
     ],
-    "respuestaCorrecta": "Al Mando de Apoyo Logístico."
+    "respuestaCorrecta": "Al Mando de Apoyo Logístico.",
+    "imprescindible": true
   },
   {
     "pregunta": "¿Cuántos países son miembros de la ONU actualmente?",
@@ -467,7 +513,8 @@
       "195",
       "193"
     ],
-    "respuestaCorrecta": "193"
+    "respuestaCorrecta": "193",
+    "imprescindible": true
   },
   {
     "pregunta": "Es un órgano principal de la ONU:",
@@ -477,7 +524,8 @@
       "Asamblea General y Consejo de Seguridad",
       "Ambas son incorrectas."
     ],
-    "respuestaCorrecta": "Ambas son correctas."
+    "respuestaCorrecta": "Ambas son correctas.",
+    "imprescindible": true
   },
   {
     "pregunta": "La OTAN se crea:",
@@ -487,7 +535,8 @@
       "14 de diciembre de 1949.",
       "24 de octubre de 1945."
     ],
-    "respuestaCorrecta": "4 de abril de 1949."
+    "respuestaCorrecta": "4 de abril de 1949.",
+    "imprescindible": true
   },
   {
     "pregunta": "¿Quienes forman parte de la Capacidad de Respuesta Inmediata de la OTAN?",
@@ -497,7 +546,8 @@
       "Todas son correctas.",
       "La Fuerza Antiaérea de Alerta y Control de la OTAN (NAEW & CF)"
     ],
-    "respuestaCorrecta": "Todas son correctas."
+    "respuestaCorrecta": "Todas son correctas.",
+    "imprescindible": true
   },
   {
     "pregunta": "La OTAN lidera operación ISAF (Fuerza Internacional de Asistencia a la Seguridad) en Afganistán desde:",
@@ -507,7 +557,8 @@
       "2003 a 2015",
       "2001 a 2015"
     ],
-    "respuestaCorrecta": "2003 a 2014"
+    "respuestaCorrecta": "2003 a 2014",
+    "imprescindible": true
   },
   {
     "pregunta": "La Operación en la que España realiza tareas de adiestramiento, asesoramiento y asistencia a los órganos nacionales afganos se denomina:",
@@ -517,7 +568,8 @@
       "Resolute Support Mission (RSM)",
       "Provide Confort."
     ],
-    "respuestaCorrecta": "Resolute Support Mission (RSM)"
+    "respuestaCorrecta": "Resolute Support Mission (RSM)",
+    "imprescindible": true
   },
   {
     "pregunta": "El militar español desplegado en ZO que ha sido designado para ejercer cometidos institucionales y de representación, gestión administrativa y logística es:",
@@ -527,7 +579,8 @@
       "el jefe de contingente",
       "el jefe de la fuerza"
     ],
-    "respuestaCorrecta": "el jefe de contingente"
+    "respuestaCorrecta": "el jefe de contingente",
+    "imprescindible": true
   },
   {
     "pregunta": "En beneficio del mando y control durante las operaciones multinacionales, es necesario atender, al menos, a las siguientes necesidades:",
@@ -537,7 +590,8 @@
       "Afianzar la cohesión y reducir el tiempo en la toma de decisiones",
       "Proteger a la Fuerza y lograr una percepción compartida de la situación"
     ],
-    "respuestaCorrecta": "Todas son correctas"
+    "respuestaCorrecta": "Todas son correctas",
+    "imprescindible": true
   },
   {
     "pregunta": "La adhesión de España a la CEE se produce en:",
@@ -547,7 +601,8 @@
       "1986",
       "1992"
     ],
-    "respuestaCorrecta": "1986"
+    "respuestaCorrecta": "1986",
+    "imprescindible": true
   },
   {
     "pregunta": "¿Qué Tratado supuso la articulación de la Comunidad Europea?",
@@ -557,7 +612,8 @@
       "El Tratado de Roma.",
       "Ninguna es correcta."
     ],
-    "respuestaCorrecta": "El Tratado de Maastricht o Tratado de la Unión Europea (TUE)."
+    "respuestaCorrecta": "El Tratado de Maastricht o Tratado de la Unión Europea (TUE).",
+    "imprescindible": true
   },
   {
     "pregunta": "Señala la incorrecta. Los tres pilares del Tratado de Maastricht o tratado de la UE (TUE 1992) son:",
@@ -567,7 +623,8 @@
       "el comunitario (Político, Económico y Monetario preexistente).",
       "justicia e Interior."
     ],
-    "respuestaCorrecta": "la cooperación en Política Común de Seguridad y Defensa (PCSD)."
+    "respuestaCorrecta": "la cooperación en Política Común de Seguridad y Defensa (PCSD).",
+    "imprescindible": true
   },
   {
     "pregunta": "¿Desde cuándo es miembro España de la OSCE?",
@@ -577,7 +634,8 @@
       "Desde el Acta Final de Helsinki en julio 1975, como CSCE.",
       "Todas son incorrectas."
     ],
-    "respuestaCorrecta": "Desde junio de 1973, como CSCE."
+    "respuestaCorrecta": "Desde junio de 1973, como CSCE.",
+    "imprescindible": true
   },
   {
     "pregunta": "¿Cuál es la primera operación en la que participó España con la OSCE?",
@@ -587,7 +645,8 @@
       "Nagorno-Karabaj, Albania (Operación Alba, 1997)",
       "Kosovo (Misión Diplomática de Observación en Kosovo, 1998)."
     ],
-    "respuestaCorrecta": "Chechenia (Federación Rusa), en 1995."
+    "respuestaCorrecta": "Chechenia (Federación Rusa), en 1995.",
+    "imprescindible": true
   },
   {
     "pregunta": "Para vetar o introducir enmiendas a un proyecto de ley ordinaria u orgánica por el Gobierno o por el Congreso de los Diputados, ¿de qué plazo dispone el Senado?",
@@ -597,6 +656,7 @@
       "15 días",
       "2 meses"
     ],
-    "respuestaCorrecta": "2 meses"
+    "respuestaCorrecta": "2 meses",
+    "imprescindible": true
   }
 ]
