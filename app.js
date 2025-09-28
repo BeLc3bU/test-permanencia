@@ -139,11 +139,7 @@ window.addEventListener('load', () => {
         repasarFallosBtn.classList.add('oculto');
         revisionFallosEl.classList.add('oculto');
 
-        if (modo === 'imprescindible') {
-            seguirMasTardeBtn.classList.remove('oculto');
-        } else {
-            seguirMasTardeBtn.classList.add('oculto');
-        }
+        seguirMasTardeBtn.classList.remove('oculto'); // Habilitado para todos los modos
 
         if (modo !== 'normal') {
             if (modo === 'imprescindible') {
@@ -240,6 +236,11 @@ window.addEventListener('load', () => {
         // Si no es la primera pregunta, aplica animación de salida
         if (estadoTest.preguntaActualIndex > 0) {
             preguntaWrapper.classList.add('fade-out');
+            // Quitar la animación de "shake" si existiera de la pregunta anterior
+            const contenedorTestEl = document.getElementById('contenedor-test');
+            if (contenedorTestEl.classList.contains('shake')) {
+                contenedorTestEl.classList.remove('shake');
+            }
             await new Promise(resolve => setTimeout(resolve, 300)); // Espera a que termine la animación
         }
 
@@ -272,7 +273,7 @@ window.addEventListener('load', () => {
         preguntaData.opciones.forEach((opcion, index) => {
             const boton = document.createElement('button');
             boton.innerText = prefijos[index] + opcion;
-            boton.addEventListener('click', () => seleccionarRespuesta(boton, opcion, preguntaData.respuestaCorrecta));
+            boton.addEventListener('click', () => seleccionarRespuesta(opcion, preguntaData.respuestaCorrecta));
             opcionesEl.appendChild(boton);
         });
 
@@ -287,19 +288,23 @@ window.addEventListener('load', () => {
         const ultimaRespuestaFallada = estadoTest.preguntasFalladas.find(p => p.preguntaData.pregunta === preguntaData.pregunta);
 
         if (ultimaRespuestaFallada) {
-            seleccionarRespuesta(null, ultimaRespuestaFallada.respuestaUsuario, respuestaCorrecta);
+            seleccionarRespuesta(ultimaRespuestaFallada.respuestaUsuario, respuestaCorrecta, false); // No auto-avanzar al restaurar
         } else {
-            seleccionarRespuesta(null, respuestaCorrecta, respuestaCorrecta);
+            seleccionarRespuesta(respuestaCorrecta, respuestaCorrecta, false); // No auto-avanzar al restaurar
         }
     }
 
     // Función que se ejecuta al hacer clic en una opción
-    function seleccionarRespuesta(botonSeleccionado, opcionSeleccionada, respuestaCorrecta) {
+    function seleccionarRespuesta(opcionSeleccionada, respuestaCorrecta, autoAvanzar = true) {
         if (estadoTest.haRespondido) return; // Evita múltiples respuestas
         estadoTest.haRespondido = true;
 
         const esCorrecto = opcionSeleccionada === respuestaCorrecta;
         const preguntaActual = estadoTest.preguntasDelTest[estadoTest.preguntaActualIndex];
+
+        // Encontrar el botón que el usuario ha seleccionado (o que corresponde a la opción)
+        const botonSeleccionado = Array.from(opcionesEl.children).find(btn => btn.innerText.endsWith(opcionSeleccionada));
+
 
         // Mostrar feedback visual
         if (esCorrecto) {
@@ -311,6 +316,8 @@ window.addEventListener('load', () => {
             // Si se acierta una pregunta que estaba en la lista de fallos, se elimina
             eliminarFalloPersistente(preguntaActual);
         } else {
+            // Animación de "shake" para el error
+            document.getElementById('contenedor-test').classList.add('shake');
             if (botonSeleccionado) botonSeleccionado.classList.add('incorrecto');
             // Evitar duplicados en preguntasFalladas al restaurar
             if (!estadoTest.preguntasFalladas.some(p => p.preguntaData.pregunta === preguntaActual.pregunta)) {
@@ -331,13 +338,7 @@ window.addEventListener('load', () => {
 
         // Marcar la respuesta correcta siempre
         Array.from(opcionesEl.children).forEach(btn => {
-            // Si estamos restaurando, el botón seleccionado puede ser null.
-            // En ese caso, lo buscamos por su texto.
-            if (!botonSeleccionado && btn.innerText === opcionSeleccionada) {
-                botonSeleccionado = btn;
-                botonSeleccionado.classList.add(esCorrecto ? 'correcto' : 'incorrecto');
-            }
-            if (btn.innerText === respuestaCorrecta) {
+            if (btn.innerText.endsWith(respuestaCorrecta)) {
                 // Solo añade la clase si no es el que ya la tiene
                 if (!btn.classList.contains('correcto')) {
                     btn.classList.add('correcto');
@@ -348,18 +349,25 @@ window.addEventListener('load', () => {
             btn.disabled = true; // Deshabilitar todos los botones
         });
 
-        // Mostrar el botón de siguiente pregunta
-        siguienteBtn.innerText = (estadoTest.preguntaActualIndex < estadoTest.preguntasDelTest.length - 1) ? 'Siguiente Pregunta' : 'Finalizar Test';
-        siguienteBtn.classList.remove('oculto');
-        siguienteBtn.setAttribute('aria-label', siguienteBtn.innerText); // Mejora de accesibilidad
-
-        // Si es la última pregunta, ocultamos el botón de finalizar de la cabecera para evitar redundancia
-        if (estadoTest.preguntaActualIndex === estadoTest.preguntasDelTest.length - 1) {
-            finalizarAhoraBtn.classList.add('oculto');
-        }
-
         // Guardar el estado después de cada respuesta
         guardarEstado();
+
+        // Avance automático
+        if (autoAvanzar) {
+            setTimeout(() => {
+                estadoTest.preguntaActualIndex++;
+                mostrarPregunta();
+            }, esCorrecto ? 1000 : 2000); // Más tiempo para leer la corrección si se falla
+        } else {
+            // Si no hay auto-avance (al restaurar), mostramos el botón de siguiente
+            siguienteBtn.innerText = (estadoTest.preguntaActualIndex < estadoTest.preguntasDelTest.length - 1) ? 'Siguiente Pregunta' : 'Finalizar Test';
+            siguienteBtn.classList.remove('oculto');
+            siguienteBtn.setAttribute('aria-label', siguienteBtn.innerText);
+
+            if (estadoTest.preguntaActualIndex === estadoTest.preguntasDelTest.length - 1) {
+                finalizarAhoraBtn.classList.add('oculto');
+            }
+        }
     }
 
     function finalizarTest() {
@@ -568,21 +576,92 @@ window.addEventListener('load', () => {
 
         // Event listener para el botón de cambio de tema
         themeToggleBtn.addEventListener('click', cambiarTema);
+
+        // Event listener para atajos de teclado
+        document.addEventListener('keydown', (e) => {
+            // Solo actuar si el test está visible
+            if (testContentEl.classList.contains('oculto') || estadoTest.haRespondido) {
+                return;
+            }
+
+            const preguntaActual = estadoTest.preguntasDelTest[estadoTest.preguntaActualIndex];
+            let opcionSeleccionada = null;
+
+            switch (e.key.toLowerCase()) {
+                case 'a':
+                case '1':
+                    opcionSeleccionada = preguntaActual.opciones[0];
+                    break;
+                case 'b':
+                case '2':
+                    opcionSeleccionada = preguntaActual.opciones[1];
+                    break;
+                case 'c':
+                case '3':
+                    opcionSeleccionada = preguntaActual.opciones[2];
+                    break;
+                case 'd':
+                case '4':
+                    opcionSeleccionada = preguntaActual.opciones[3];
+                    break;
+            }
+
+            if (opcionSeleccionada) {
+                seleccionarRespuesta(opcionSeleccionada, preguntaActual.respuestaCorrecta);
+            }
+        });
     }
 
     // Iniciar la aplicación
     inicializarApp();
 
     // --- Registro del Service Worker ---
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('service-worker.js') // Ruta relativa
-                .then(registration => {
-                    console.log('Service Worker registrado con éxito:', registration);
-                })
-                .catch(error => {
-                    console.log('Error en el registro del Service Worker:', error);
+    function registrarServiceWorker() {
+        if (!('serviceWorker' in navigator)) {
+            console.log('Service Worker no es soportado por este navegador.');
+            return;
+        }
+
+        navigator.serviceWorker.register('service-worker.js')
+            .then(registration => {
+                console.log('Service Worker registrado con éxito:', registration);
+
+                // Esta lógica se encarga de detectar si hay un nuevo SW esperando.
+                registration.addEventListener('updatefound', () => {
+                    const newWorker = registration.installing;
+                    console.log('Nueva versión del Service Worker encontrada, instalando...', newWorker);
+
+                    newWorker.addEventListener('statechange', () => {
+                        // Si el estado es 'installed', el nuevo SW está listo y esperando para activarse.
+                        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                            console.log('Nueva versión lista para ser activada.');
+                            mostrarBannerActualizacion(newWorker);
+                        }
+                    });
                 });
+            })
+            .catch(error => {
+                console.error('Error en el registro del Service Worker:', error);
+            });
+    }
+
+    function mostrarBannerActualizacion(worker) {
+        const banner = document.createElement('div');
+        banner.id = 'update-banner';
+        banner.innerHTML = `
+            <span>Hay una nueva versión disponible.</span>
+            <button id="update-now-btn">Actualizar</button>
+        `;
+        document.body.appendChild(banner);
+
+        document.getElementById('update-now-btn').addEventListener('click', () => {
+            // Enviamos un mensaje al nuevo SW para que se active.
+            worker.postMessage({ type: 'SKIP_WAITING' });
+            // Ocultamos el banner y recargamos la página para que el nuevo SW tome el control.
+            banner.style.display = 'none';
+            window.location.reload();
         });
     }
+
+    registrarServiceWorker();
 });

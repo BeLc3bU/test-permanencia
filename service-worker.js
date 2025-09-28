@@ -17,7 +17,7 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => cache.addAll(urlsToCache))
-      .then(() => self.skipWaiting()) // Fuerza al nuevo SW a activarse inmediatamente
+      // Ya no llamamos a self.skipWaiting() aquí para dar control al usuario.
   );
 });
 
@@ -34,10 +34,9 @@ self.addEventListener('activate', event => {
             return caches.delete(cacheName);
           }
         })
-      ).then(() => {
-        // Le decimos al service worker que tome el control de las páginas abiertas inmediatamente.
-        return self.clients.claim();
-      });
+      )
+      // Tomar control de los clientes (páginas) abiertos inmediatamente.
+      .then(() => self.clients.claim())
     })
   );
 });
