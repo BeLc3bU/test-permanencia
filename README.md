@@ -4,6 +4,7 @@ Una aplicación web progresiva (PWA) diseñada para ayudar a los usuarios a prep
 
 ## ✨ Características Principales
 
+- **3 Modos de Test**: Normal (aleatorio), Repaso de Fallos (persistente) y Test Imprescindible (con preguntas clave).
 - **Modo Test Normal**: Cuestionarios de 20 preguntas seleccionadas aleatoriamente de un pool que no se repite hasta haber visto todas las preguntas.
 - **Modo Repaso de Fallos**: Permite realizar un test exclusivamente con las preguntas que se han fallado históricamente, reforzando el aprendizaje.
 - **Revisión Post-Test**: Al finalizar un test, se muestra un resumen detallado de las preguntas falladas en esa sesión específica.
@@ -35,17 +36,27 @@ Una aplicación web progresiva (PWA) diseñada para ayudar a los usuarios a prep
     cd <nombre-del-directorio>
     ```
 
-2.  **Ejecutar la aplicación**:
-    - La forma más sencilla es abrir el archivo `index.html` en un navegador web.
-    - Para un correcto funcionamiento del Service Worker, se recomienda servir los archivos a través de un servidor local. Una extensión popular para Visual Studio Code es Live Server.
+2.  **Ejecutar la aplicación (¡Importante!)**:
+    - **No abras el archivo `index.html` directamente en el navegador.** Debido a las políticas de seguridad (CORS) de los navegadores modernos, la aplicación debe ser servida a través de un servidor web local para que pueda cargar los archivos de preguntas (`.json`).
+    - **La forma más sencilla es usar la extensión `Live Server` en Visual Studio Code:**
+        1. Instala la extensión "Live Server" de Ritwick Dey desde el marketplace de VS Code.
+        2. Haz clic derecho sobre el archivo `index.html`.
+        3. Selecciona "Open with Live Server".
+    - Esto abrirá la aplicación en tu navegador en una dirección como `http://127.0.0.1:5500`, lo que permitirá que todo funcione correctamente.
 
 3.  **Validar las preguntas (Opcional)**:
-    - Si realizas cambios en `preguntas.json`, puedes verificar su integridad. Asegúrate de tener Node.js instalado.
+    - Si realizas cambios en `preguntas.json` o `preguntas_imprescindibles.json`, puedes verificar su integridad. Asegúrate de tener Node.js instalado.
     - Ejecuta el siguiente comando en la terminal desde la raíz del proyecto:
+    
+    ```bash
+    # Para validar el archivo principal
     ```bash
     node validar_preguntas.js
     ```
-    - El script te informará si hay errores de sintaxis, preguntas duplicadas, o si alguna respuesta correcta no coincide con sus opciones.
+    # Para validar las preguntas imprescindibles
+    node validar_preguntas.js --imprescindibles
+    ```
+    - El script te informará si hay errores, eliminará duplicados y creará un archivo `depurado_...json` limpio.
 
 ## 📂 Estructura de Archivos
 
@@ -56,6 +67,7 @@ Una aplicación web progresiva (PWA) diseñada para ayudar a los usuarios a prep
 ├── 📜 app.js                # Lógica principal de la aplicación
 ├── 📜 index.html             # Estructura HTML
 ├── 📜 manifest.json         # Configuración de la PWA
+├── 📜 preguntas_imprescindibles.json # Banco de preguntas clave
 ├── 📜 preguntas.json         # Banco de datos con todas las preguntas del test
 ├── 📜 README.md               # Este archivo
 ├── 📜 service-worker.js     # Lógica para la funcionalidad offline y caché
@@ -65,7 +77,8 @@ Una aplicación web progresiva (PWA) diseñada para ayudar a los usuarios a prep
 
 ## 📖 Cómo Usar la Aplicación
 
-1.  **Menú de Inicio**: Al abrir la aplicación, se presentan dos opciones:
+1.  **Menú de Inicio**: Al abrir la aplicación, se presentan tres opciones:
+    - **Test Imprescindible**: Comienza un test con una selección de preguntas clave.
     - **Nuevo Test**: Comienza un cuestionario con preguntas que no has visto antes.
     - **Repasar Fallos**: Inicia un test con todas las preguntas que has fallado en sesiones anteriores. El contador muestra cuántas tienes pendientes.
 

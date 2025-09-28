@@ -262,7 +262,12 @@ body {
     margin-top: 1.5rem;
 }
 
-#siguiente-pregunta, #reiniciar-test, #repasar-fallos-btn, #iniciar-nuevo-test-btn, #iniciar-repaso-fallos-btn {
+#siguiente-pregunta {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.menu-btn, #siguiente-pregunta, #reiniciar-test, #repasar-fallos-btn {
     display: inline-block; /* Cambiado de block a inline-block */
     width: auto;           /* Ancho automático */
     padding: 1rem;
@@ -281,7 +286,7 @@ body {
 }
 
 /* Ocultar botones específicos */
-#repasar-fallos-btn.oculto, #iniciar-nuevo-test-btn.oculto, #iniciar-repaso-fallos-btn.oculto {
+.menu-btn.oculto, #repasar-fallos-btn.oculto {
     display: none;
 }
 
@@ -291,23 +296,23 @@ body {
 }
 
 /* Estilo para botones deshabilitados */
-#iniciar-repaso-fallos-btn:disabled {
+.menu-btn:disabled {
     background-color: var(--color-secundario-hover);
     cursor: not-allowed;
     opacity: 0.6;
 }
 
-#siguiente-pregunta:hover, #reiniciar-test:hover, #repasar-fallos-btn:hover, #iniciar-nuevo-test-btn:hover, #iniciar-repaso-fallos-btn:hover:not(:disabled) {
+#siguiente-pregunta:hover, #reiniciar-test:hover, #repasar-fallos-btn:hover, .menu-btn:hover:not(:disabled) {
     background-color: var(--color-primario-hover);
     transform: translateY(-2px);
 }
 
 /* Colores específicos para botones secundarios */
-#reiniciar-test, #repasar-fallos-btn, #iniciar-repaso-fallos-btn {
+.btn-secundario {
     background-color: var(--color-secundario);
 }
 
-#reiniciar-test:hover, #repasar-fallos-btn:hover, #iniciar-repaso-fallos-btn:hover:not(:disabled) {
+.btn-secundario:hover:not(:disabled) {
     background-color: var(--color-secundario-hover);
 }
 

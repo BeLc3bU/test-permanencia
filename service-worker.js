@@ -1,12 +1,14 @@
-const CACHE_NAME = 'test-permanencia-v2'; // Cambia la versión si actualizas los archivos
+const CACHE_NAME = 'test-permanencia-v5'; // Cambia la versión si actualizas los archivos
 // Lista de archivos para cachear en la instalación.
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/style.css',
-  '/app.js',
-  '/icons/icon-192x192.png',
-  '/icons/icon-512x512.png'
+  '.', // Representa la raíz del directorio actual
+  'index.html',
+  'style.css',
+  'app.js',
+  'manifest.json',
+  'preguntas_imprescindibles.json',
+  'icons/icon-192x192.png',
+  'icons/icon-512x512.png'
 ];
 
 // Evento 'install': se dispara cuando el service worker se instala.
@@ -41,7 +43,7 @@ self.addEventListener('fetch', event => {
     const url = new URL(event.request.url);
 
     // Estrategia "Network First" para preguntas.json
-    if (url.pathname.endsWith('/preguntas.json')) {
+    if (url.pathname.endsWith('.json')) {
         event.respondWith(
             caches.open(CACHE_NAME).then(cache => {
                 return fetch(event.request)
@@ -68,8 +70,8 @@ self.addEventListener('fetch', event => {
                     // Opcional: Cachear nuevos recursos que no estaban en la lista inicial
                     // Esto es útil si añades nuevas imágenes o archivos sin actualizar el SW
                     return caches.open(CACHE_NAME).then(cache => {
-                        // Solo cacheamos respuestas válidas
-                        if (networkResponse.status === 200) {
+                    // Solo cacheamos peticiones GET exitosas y válidas
+                    if (event.request.method === 'GET' && networkResponse.status === 200) {
                            cache.put(event.request, networkResponse.clone());
                         }
                         return networkResponse;

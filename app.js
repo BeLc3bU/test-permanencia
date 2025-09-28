@@ -5,6 +5,7 @@ window.addEventListener('load', () => {
     const testContentEl = document.getElementById('test-content');
     const iniciarNuevoTestBtn = document.getElementById('iniciar-nuevo-test-btn');
     const iniciarRepasoFallosBtn = document.getElementById('iniciar-repaso-fallos-btn');
+    const iniciarTestImprescindibleBtn = document.getElementById('iniciar-test-imprescindible-btn');
     const preguntaEl = document.getElementById('pregunta-actual');
     const opcionesEl = document.getElementById('opciones-respuesta');
     const feedbackEl = document.getElementById('feedback');
@@ -45,21 +46,32 @@ window.addEventListener('load', () => {
     async function inicializarApp() {
         inicializarTema();
 
-        todasLasPreguntas = await cargarPreguntas();
-        inicializarPoolPreguntasNoVistas();
-        actualizarBotonRepaso();
+        try {
+            todasLasPreguntas = await cargarPreguntas();
+            if (todasLasPreguntas.length > 0) {
+                inicializarPoolPreguntasNoVistas();
+            }
+        } catch (error) {
+            console.error("Fallo crítico al cargar las preguntas principales. Algunas funciones pueden no estar disponibles.", error);
+            // Deshabilitar botones que dependen de `todasLasPreguntas`
+            iniciarNuevoTestBtn.disabled = true;
+            iniciarNuevoTestBtn.title = "No se pudieron cargar las preguntas principales.";
+        } finally {
+            // Estos se ejecutan siempre, para que el resto de la UI funcione
+            actualizarBotonRepaso();
+            registrarEventListeners(); // Mover el registro de listeners aquí
 
-        if (localStorage.getItem(TEST_STATE_KEY)) {
-            if (confirm('Hemos encontrado un test sin finalizar. ¿Quieres continuar donde lo dejaste?')) {
-                mostrarVistaTest();
-                restaurarSesion();
+            if (localStorage.getItem(TEST_STATE_KEY)) {
+                if (confirm('Hemos encontrado un test sin finalizar. ¿Quieres continuar donde lo dejaste?')) {
+                    mostrarVistaTest();
+                    restaurarSesion();
+                } else {
+                    limpiarEstado();
+                    mostrarVistaInicio();
+                }
             } else {
-                limpiarEstado(); // El usuario quiere empezar de nuevo
                 mostrarVistaInicio();
             }
-        } else {
-            // Si no hay estado guardado, muestra el menú de inicio.
-            mostrarVistaInicio();
         }
     }
 
@@ -98,7 +110,7 @@ window.addEventListener('load', () => {
         }
     }
 
-    function iniciarTest(esModoRepaso = false, preguntasRepaso = []) {
+    function iniciarTest(modo = 'normal', preguntasPersonalizadas = []) {
         mostrarVistaTest();
         // Reiniciar el estado del test
         estadoTest = {
@@ -116,10 +128,11 @@ window.addEventListener('load', () => {
         repasarFallosBtn.classList.add('oculto');
         revisionFallosEl.classList.add('oculto');
 
-        if (esModoRepaso) {
-            estadoTest.preguntasDelTest = preguntasRepaso;
-            barajarArray(estadoTest.preguntasDelTest);
-        } else {
+        if (modo !== 'normal') {
+            estadoTest.preguntasDelTest = preguntasPersonalizadas;
+            // No barajamos los modos especiales (repaso, imprescindible)
+            // para mantener el orden si se desea.
+        } else { // modo 'normal'
             // Lógica mejorada para seleccionar preguntas sin repetir
             if (preguntasNoVistasIndices.length === 0) {
                 alert('¡Enhorabuena! Has visto todas las preguntas. El ciclo de preguntas se reiniciará.');
@@ -157,13 +170,35 @@ window.addEventListener('load', () => {
      * @returns {Promise<Array>} Una promesa que resuelve con el array de preguntas.
      */
     async function cargarPreguntas() {
+        return await cargarArchivoPreguntas('preguntas.json');
+    }
+
+    /**
+     * Carga las preguntas imprescindibles y elimina duplicados.
+     * @returns {Promise<Array>} Una promesa que resuelve con el array de preguntas únicas.
+     */
+    async function cargarPreguntasImprescindibles() {
+        const preguntas = await cargarArchivoPreguntas('preguntas_imprescindibles.json');
+        if (!preguntas) return [];
+
+        const preguntasUnicas = new Map();
+        preguntas.forEach(p => {
+            const clave = p.pregunta.trim().toLowerCase();
+            if (!preguntasUnicas.has(clave)) {
+                preguntasUnicas.set(clave, p);
+            }
+        });
+        return Array.from(preguntasUnicas.values());
+    }
+
+    async function cargarArchivoPreguntas(nombreArchivo) {
         try {
-            const response = await fetch('preguntas.json');
+            const response = await fetch(nombreArchivo);
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             return await response.json();
         } catch (error) {
-            console.error('Error al cargar las preguntas:', error);
-            preguntaEl.innerHTML = `<p style="color: var(--color-incorrecto-texto); text-align: center; font-size: 1.2rem;"><b>Error Crítico:</b> No se pudieron cargar las preguntas. Revisa la consola para más detalles (F12).</p>`;
+            console.error(`Error al cargar el archivo ${nombreArchivo}:`, error);
+            // Ya no mostramos el error en la UI aquí, lo propagamos para que sea manejado por quien llama a la función.
             return Promise.reject('Error al cargar preguntas');
         }
     }
@@ -298,6 +333,7 @@ window.addEventListener('load', () => {
         // Mostrar el botón de siguiente pregunta
         siguienteBtn.innerText = (estadoTest.preguntaActualIndex < estadoTest.preguntasDelTest.length - 1) ? 'Siguiente Pregunta' : 'Finalizar Test';
         siguienteBtn.classList.remove('oculto');
+        siguienteBtn.setAttribute('aria-label', siguienteBtn.innerText); // Mejora de accesibilidad
 
         // Si es la última pregunta, ocultamos el botón de finalizar de la cabecera para evitar redundancia
         if (estadoTest.preguntaActualIndex === estadoTest.preguntasDelTest.length - 1) {
@@ -395,7 +431,7 @@ window.addEventListener('load', () => {
         }
 
         const preguntasParaRepasar = indicesFallos.map(index => todasLasPreguntas[index]);
-        iniciarTest(true, preguntasParaRepasar);
+        iniciarTest('repaso', preguntasParaRepasar);
     }
 
     function guardarFalloPersistente(preguntaFallada) {
@@ -450,34 +486,49 @@ window.addEventListener('load', () => {
         localStorage.removeItem(TEST_STATE_KEY);
     }
 
-    // --- Event Listeners ---
-    // Event listener para el botón de siguiente pregunta
-    siguienteBtn.addEventListener('click', () => {
-        estadoTest.preguntaActualIndex++;
-        mostrarPregunta();
-    });
+    // --- Registro de Event Listeners ---
+    function registrarEventListeners() {
+        // Event listener para el botón de siguiente pregunta
+        siguienteBtn.addEventListener('click', () => {
+            estadoTest.preguntaActualIndex++;
+            mostrarPregunta();
+        });
 
-    // Event listener para el botón de reiniciar
-    reiniciarBtn.addEventListener('click', () => {
-        limpiarEstado(); // Limpia el estado del test en curso
-        mostrarVistaInicio(); // Vuelve al menú principal
-    });
+        // Event listener para el botón de reiniciar
+        reiniciarBtn.addEventListener('click', () => {
+            limpiarEstado(); // Limpia el estado del test en curso
+            mostrarVistaInicio(); // Vuelve al menú principal
+        });
 
-    // Event listener para el botón de finalizar ahora
-    finalizarAhoraBtn.addEventListener('click', finalizarTest);
+        // Event listener para el botón de finalizar ahora
+        finalizarAhoraBtn.addEventListener('click', finalizarTest);
 
-    // --- Event listeners del menú de inicio ---
-    iniciarNuevoTestBtn.addEventListener('click', () => iniciarTest());
-    iniciarRepasoFallosBtn.addEventListener('click', () => iniciarRepasoFallos());
+        // --- Event listeners del menú de inicio ---
+        iniciarNuevoTestBtn.addEventListener('click', () => iniciarTest());
+        iniciarRepasoFallosBtn.addEventListener('click', () => iniciarRepasoFallos());
 
-    // Event listener para el botón de repasar fallos del test finalizado
-    repasarFallosBtn.addEventListener('click', () => {
-        // Pasamos las preguntas falladas del test actual para repasarlas inmediatamente
-        iniciarRepasoFallos(estadoTest.preguntasFalladas);
-    });
+        iniciarTestImprescindibleBtn.addEventListener('click', async () => {
+            try {
+                const preguntasImprescindibles = await cargarPreguntasImprescindibles();
+                if (preguntasImprescindibles.length > 0) {
+                    iniciarTest('imprescindible', preguntasImprescindibles);
+                } else {
+                    alert('No se han podido cargar las preguntas imprescindibles. Revisa que el archivo "preguntas_imprescindibles.json" exista y no esté vacío.');
+                }
+            } catch (error) {
+                alert('Error al cargar las preguntas imprescindibles. Revisa la consola (F12) para más detalles.');
+            }
+        });
 
-    // Event listener para el botón de cambio de tema
-    themeToggleBtn.addEventListener('click', cambiarTema);
+        // Event listener para el botón de repasar fallos del test finalizado
+        repasarFallosBtn.addEventListener('click', () => {
+            // Pasamos las preguntas falladas del test actual para repasarlas inmediatamente
+            iniciarRepasoFallos(estadoTest.preguntasFalladas);
+        });
+
+        // Event listener para el botón de cambio de tema
+        themeToggleBtn.addEventListener('click', cambiarTema);
+    }
 
     // Iniciar la aplicación
     inicializarApp();
@@ -485,7 +536,7 @@ window.addEventListener('load', () => {
     // --- Registro del Service Worker ---
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/service-worker.js')
+            navigator.serviceWorker.register('service-worker.js') // Ruta relativa
                 .then(registration => {
                     console.log('Service Worker registrado con éxito:', registration);
                 })

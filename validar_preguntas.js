@@ -1,26 +1,55 @@
 const fs = require('fs');
 const path = require('path');
 
-const RUTA_PREGUNTAS = path.join(__dirname, 'preguntas.json');
+// Determinar qué archivo validar basado en los argumentos de la línea de comandos
+const args = process.argv.slice(2);
+let nombreArchivo = 'preguntas.json'; // Archivo por defecto
+if (args.includes('--imprescindibles')) {
+    nombreArchivo = 'preguntas_imprescindibles.json';
+}
 
-console.log('--- Iniciando validación de preguntas.json ---');
+const RUTA_PREGUNTAS = path.join(__dirname, nombreArchivo);
+const RUTA_SALIDA = path.join(__dirname, `depurado_${nombreArchivo}`);
 
+console.log(`--- Iniciando validación y depuración de ${nombreArchivo} ---`);
+
+if (!fs.existsSync(RUTA_PREGUNTAS)) {
+    console.error(`\x1b[31mError: El archivo ${nombreArchivo} no existe.\x1b[0m`);
+    process.exit(1);
+}
 let errores = [];
 let preguntasVistas = new Set();
+let preguntasDepuradas = [];
+let totalPreguntasOriginal = 0;
+let totalPreguntasUnicas = 0;
 
 try {
     // 1. Leer y parsear el archivo JSON
     const contenido = fs.readFileSync(RUTA_PREGUNTAS, 'utf8');
     const preguntas = JSON.parse(contenido);
+    totalPreguntasOriginal = preguntas.length;
 
     if (!Array.isArray(preguntas)) {
         throw new Error('El archivo JSON no contiene un array de preguntas en la raíz.');
     }
 
-    console.log(`Se han encontrado ${preguntas.length} preguntas. Analizando...`);
+    console.log(`Se han encontrado ${totalPreguntasOriginal} preguntas en el archivo. Analizando...`);
 
+    // Depuración: Eliminar duplicados
+    const preguntasUnicasMap = new Map();
+    preguntas.forEach(p => {
+        if (p && p.pregunta) {
+            const clave = p.pregunta.trim().toLowerCase();
+            if (!preguntasUnicasMap.has(clave)) {
+                preguntasUnicasMap.set(clave, p);
+            }
+        }
+    });
+    preguntasDepuradas = Array.from(preguntasUnicasMap.values());
+    totalPreguntasUnicas = preguntasDepuradas.length;
+    
     // 2. Iterar y validar cada pregunta
-    preguntas.forEach((pregunta, index) => {
+    preguntasDepuradas.forEach((pregunta, index) => {
         const numeroPregunta = index + 1;
 
         // 2.1. Validar campos requeridos
@@ -74,11 +103,20 @@ try {
 console.log('--- Validación finalizada ---');
 
 if (errores.length > 0) {
-    console.error(`\x1b[31mSe han encontrado ${errores.length} errores:\x1b[0m`); // Color rojo para errores
+    console.error(`\x1b[31mSe han encontrado ${errores.length} errores en el archivo depurado:\x1b[0m`); // Color rojo para errores
     errores.forEach(e => console.error(`- ${e}`));
     
     // Salir con un código de error para poder usarlo en scripts automáticos (CI/CD)
     process.exit(1); 
 } else {
-    console.log('\x1b[32m¡Felicidades! El archivo preguntas.json es válido y no contiene errores.\x1b[0m'); // Color verde para éxito
+    console.log('\x1b[32m¡Felicidades! El archivo es válido y no contiene errores.\x1b[0m'); // Color verde para éxito
+    
+    // Guardar el archivo depurado
+    fs.writeFileSync(RUTA_SALIDA, JSON.stringify(preguntasDepuradas, null, 2), 'utf8');
+    console.log(`\n--- Resumen de la Depuración ---`);
+    console.log(`Total de preguntas originales: ${totalPreguntasOriginal}`);
+    console.log(`Total de preguntas duplicadas eliminadas: ${totalPreguntasOriginal - totalPreguntasUnicas}`);
+    console.log(`\x1b[36mTotal de preguntas únicas: ${totalPreguntasUnicas}\x1b[0m`); // Color cian
+    console.log(`\nSe ha creado un archivo limpio llamado \x1b[33m'${path.basename(RUTA_SALIDA)}'\x1b[0m con las preguntas únicas.`);
+    console.log(`Puedes usarlo para reemplazar el archivo original si lo deseas.`);
 }
