@@ -29,21 +29,21 @@
       "name": "Nuevo Test",
       "short_name": "Nuevo",
       "description": "Iniciar un nuevo test con preguntas aleatorias",
-      "url": "/index.html?action=nuevo-test",
+      "url": "index.html?action=nuevo-test",
       "icons": [{ "src": "icons/icon-192x192.png", "sizes": "192x192" }]
     },
     {
       "name": "Repasar Fallos",
       "short_name": "Repaso",
       "description": "Iniciar un test con las preguntas falladas anteriormente",
-      "url": "/index.html?action=repasar-fallos",
+      "url": "index.html?action=repasar-fallos",
       "icons": [{ "src": "icons/icon-192x192.png", "sizes": "192x192" }]
     },
     {
       "name": "Test Imprescindible",
       "short_name": "Imprescindible",
       "description": "Iniciar un test con las preguntas más importantes",
-      "url": "/index.html?action=test-imprescindible",
+      "url": "index.html?action=test-imprescindible",
       "icons": [{ "src": "icons/icon-192x192.png", "sizes": "192x192" }]
     }
   ],
