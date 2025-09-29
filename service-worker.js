@@ -96,3 +96,22 @@ self.addEventListener('message', event => {
     self.skipWaiting();
   }
 });
+
+// Evento 'periodicsync': para actualizaciones periódicas en segundo plano.
+self.addEventListener('periodicsync', event => {
+  // Comprueba si la etiqueta de sincronización es la que nos interesa.
+  if (event.tag === 'get-latest-questions') {
+    console.log('Ejecutando sincronización periódica de preguntas...');
+    // waitUntil para asegurar que el SW no se termine antes de que acabe el fetch.
+    event.waitUntil(
+      caches.open(CACHE_NAME).then(cache => {
+        // Intentamos descargar los archivos de preguntas más recientes.
+        // La estrategia Network-First de nuestro 'fetch' se encargará de actualizar la caché.
+        return Promise.all([
+          fetch('preguntas.json'),
+          fetch('preguntas_imprescindibles.json')
+        ]);
+      })
+    );
+  }
+});

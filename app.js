@@ -652,6 +652,26 @@ window.addEventListener('load', () => {
             .catch(error => {
                 console.error('Error en el registro del Service Worker:', error);
             });
+
+        // Lógica para la sincronización periódica en segundo plano
+        async function registrarSincronizacionPeriodica() {
+            if ('periodicSync' in registration) {
+                try {
+                    // Pedir permiso al usuario
+                    const status = await navigator.permissions.query({ name: 'periodic-background-sync' });
+                    if (status.state === 'granted') {
+                        // Si el permiso está concedido, registramos la sincronización.
+                        await registration.periodicSync.register('get-latest-questions', {
+                            minInterval: 24 * 60 * 60 * 1000, // Mínimo 1 día
+                        });
+                        console.log('Sincronización periódica registrada.');
+                    }
+                } catch (error) {
+                    console.error('No se pudo registrar la sincronización periódica:', error);
+                }
+            }
+        }
+        registrarSincronizacionPeriodica();
     }
 
     function mostrarBannerActualizacion(worker) {

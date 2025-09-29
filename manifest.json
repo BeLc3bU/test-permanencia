@@ -6,12 +6,16 @@
   "scope": ".",
   "display": "standalone",
   "start_url": "index.html",
+  "display_override": [
+    "standalone"
+  ],
   "orientation": "portrait",
   "background_color": "#e0eafc",
   "theme_color": "#3182ce",
   "lang": "es-ES",
   "dir": "ltr",
   "categories": ["education", "productivity"],
+  "launch_handler": { "client_mode": "focus-existing" },
   "icons": [
     {
       "src": "icons/icon-192x192.png",
@@ -61,6 +65,26 @@
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Ejemplo de una pregunta del test"
+    },
+    {
+      "src": "screenshots/screenshot-inicio-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Menú principal en formato apaisado"
+    },
+    {
+      "src": "screenshots/screenshot-pregunta-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Ejemplo de una pregunta del test en formato apaisado"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "io.github.belcebu.test-permanencia"
     }
   ]
 }
