@@ -88,3 +88,11 @@ self.addEventListener('fetch', event => {
         );
     }
 });
+
+// Evento 'message': escucha mensajes desde el cliente (la página web).
+self.addEventListener('message', event => {
+  // Si el mensaje es para saltar la espera, el nuevo SW se activa inmediatamente.
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});

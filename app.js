@@ -48,6 +48,8 @@ window.addEventListener('load', () => {
     // --- Inicialización de la aplicación ---
     async function inicializarApp() {
         inicializarTema();
+        // Manejar acciones de atajos (shortcuts)
+        manejarAccionesDeAtajos();
 
         try {
             // Unificamos todas las preguntas (normales e imprescindibles) en un solo array
@@ -65,24 +67,56 @@ window.addEventListener('load', () => {
             console.error("Fallo crítico al cargar las preguntas principales. Algunas funciones pueden no estar disponibles.", error);
             // Deshabilitar botones que dependen de `todasLasPreguntas`
             iniciarNuevoTestBtn.disabled = true;
-            iniciarNuevoTestBtn.title = "No se pudieron cargar las preguntas principales.";
+            iniciarTestImprescindibleBtn.disabled = true;
+            iniciarRepasoFallosBtn.disabled = true;
+            iniciarNuevoTestBtn.title = "Error al cargar preguntas.";
+            iniciarTestImprescindibleBtn.title = "Error al cargar preguntas.";
+            iniciarRepasoFallosBtn.title = "Error al cargar preguntas.";
         } finally {
             // Estos se ejecutan siempre, para que el resto de la UI funcione
             actualizarBotonRepaso();
             registrarEventListeners(); // Mover el registro de listeners aquí
+            
+            // Lógica unificada para restaurar sesión
+            const sesionNormalGuardada = localStorage.getItem(TEST_STATE_KEY);
+            const sesionImprescindibleGuardada = localStorage.getItem(IMPRESCINDIBLE_TEST_STATE_KEY);
 
-            if (localStorage.getItem(TEST_STATE_KEY) && !localStorage.getItem(IMPRESCINDIBLE_TEST_STATE_KEY)) {
-                if (confirm('Hemos encontrado un test sin finalizar. ¿Quieres continuar donde lo dejaste?')) {
+            if (sesionNormalGuardada) {
+                if (confirm('Hemos encontrado un test normal sin finalizar. ¿Quieres continuar donde lo dejaste?')) {
                     mostrarVistaTest();
                     restaurarSesion('normal');
                 } else {
                     limpiarEstado('normal');
                     mostrarVistaInicio();
                 }
+            } else if (sesionImprescindibleGuardada) {
+                if (confirm('Hemos encontrado un test imprescindible sin finalizar. ¿Quieres continuar donde lo dejaste?')) {
+                    mostrarVistaTest();
+                    restaurarSesion('imprescindible');
+                } else {
+                    limpiarEstado('imprescindible');
+                    mostrarVistaInicio();
+                }
             } else {
                 mostrarVistaInicio();
             }
         }
+    }
+
+    /**
+     * Comprueba si la app se ha abierto desde un atajo y ejecuta la acción correspondiente.
+     */
+    async function manejarAccionesDeAtajos() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const action = urlParams.get('action');
+
+        if (!action) return;
+
+        // Espera a que la inicialización principal termine
+        await new Promise(resolve => document.addEventListener('DOMContentLoaded', resolve));
+
+        // Simula el clic en el botón correspondiente
+        document.querySelector(`[data-action="${action}"]`)?.click();
     }
 
     // --- Control de Vistas y Tema ---
@@ -178,16 +212,6 @@ window.addEventListener('load', () => {
         if (estadoTest.haRespondido) {
             restaurarRespuesta();
         }
-    }
-
-    /**
-     * Carga las preguntas desde el archivo JSON.
-     * @returns {Promise<Array>} Una promesa que resuelve con el array de preguntas.
-     */
-    async function cargarPreguntas() {
-        // Esta función ya no es necesaria, usamos cargarArchivoPreguntas directamente.
-        // Se mantiene por si se usa en otro lugar, pero su lógica principal está ahora en inicializarApp.
-        return await cargarArchivoPreguntas('preguntas.json');
     }
 
     async function cargarArchivoPreguntas(nombreArchivo) {
@@ -538,27 +562,12 @@ window.addEventListener('load', () => {
         iniciarRepasoFallosBtn.addEventListener('click', () => iniciarRepasoFallos());
 
         iniciarTestImprescindibleBtn.addEventListener('click', async () => {
-            const estadoGuardado = localStorage.getItem(IMPRESCINDIBLE_TEST_STATE_KEY);
-            if (estadoGuardado) {
-                if (confirm('Hemos encontrado un test imprescindible sin finalizar. ¿Quieres continuar donde lo dejaste?')) {
-                    mostrarVistaTest();
-                    restaurarSesion('imprescindible');
-                } else {
-                    limpiarEstado('imprescindible');
-                    // Continuar para iniciar un nuevo test
-                    const preguntasImprescindibles = todasLasPreguntas.filter(p => p.imprescindible);
-                    if (preguntasImprescindibles.length > 0) {
-                        iniciarTest('imprescindible', preguntasImprescindibles);
-                    }
-                }
+            // La lógica de restauración ya se maneja al inicio. Este botón ahora siempre inicia un nuevo test.
+            const preguntasImprescindibles = todasLasPreguntas.filter(p => p.imprescindible);
+            if (preguntasImprescindibles.length > 0) {
+                iniciarTest('imprescindible', preguntasImprescindibles);
             } else {
-                // No hay estado guardado, iniciar uno nuevo
-                const preguntasImprescindibles = todasLasPreguntas.filter(p => p.imprescindible);
-                if (preguntasImprescindibles.length > 0) {
-                    iniciarTest('imprescindible', preguntasImprescindibles);
-                } else {
-                    alert('No se encontraron preguntas imprescindibles. Asegúrate de que estén correctamente marcadas en el archivo JSON.');
-                }
+                alert('No se encontraron preguntas imprescindibles. Asegúrate de que estén correctamente marcadas en el archivo JSON.');
             }
         });
 

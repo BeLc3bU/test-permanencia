@@ -2,10 +2,16 @@
   "name": "Test de Permanencia",
   "short_name": "TestPermanencia",
   "description": "Aplicación de tests para la preparación de la permanencia.",
+  "id": ".",
+  "scope": ".",
   "start_url": ".",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#e0eafc",
   "theme_color": "#3182ce",
+  "lang": "es-ES",
+  "dir": "ltr",
+  "categories": ["education", "productivity"],
   "icons": [
     {
       "src": "icons/icon-192x192.png",
@@ -16,6 +22,45 @@
       "src": "icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Nuevo Test",
+      "short_name": "Nuevo",
+      "description": "Iniciar un nuevo test con preguntas aleatorias",
+      "url": "/index.html?action=nuevo-test",
+      "icons": [{ "src": "icons/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Repasar Fallos",
+      "short_name": "Repaso",
+      "description": "Iniciar un test con las preguntas falladas anteriormente",
+      "url": "/index.html?action=repasar-fallos",
+      "icons": [{ "src": "icons/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Test Imprescindible",
+      "short_name": "Imprescindible",
+      "description": "Iniciar un test con las preguntas más importantes",
+      "url": "/index.html?action=test-imprescindible",
+      "icons": [{ "src": "icons/icon-192x192.png", "sizes": "192x192" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/screenshot-inicio.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Menú principal de la aplicación"
+    },
+    {
+      "src": "screenshots/screenshot-pregunta.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Ejemplo de una pregunta del test"
     }
   ]
 }
