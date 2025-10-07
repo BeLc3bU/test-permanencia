@@ -45,62 +45,67 @@ window.addEventListener('load', () => {
         modo: 'normal', // Añadimos el modo al estado
     };
 
-    // --- Inicialización de la aplicación ---
-    async function inicializarApp() {
-        inicializarTema();
-        // Manejar acciones de atajos (shortcuts)
-        manejarAccionesDeAtajos();
+    // --- Funciones de Inicialización Modulares ---
 
+    /**
+     * Carga los archivos de preguntas, los unifica y prepara los pools de preguntas.
+     * Maneja los errores de carga deshabilitando los botones correspondientes.
+     */
+    async function cargarYProcesarPreguntas() {
         try {
-            // Unificamos todas las preguntas (normales e imprescindibles) en un solo array
             const preguntasNormales = await cargarArchivoPreguntas('preguntas.json');
             const preguntasImprescindibles = await cargarArchivoPreguntas('preguntas_imprescindibles.json');
             
-            // Combinamos y eliminamos duplicados, dando prioridad a las normales si hay alguna igual.
             const preguntasUnificadas = [...preguntasNormales, ...preguntasImprescindibles];
             todasLasPreguntas = unificarYEliminarDuplicados(preguntasUnificadas);
 
             if (todasLasPreguntas.length > 0) { 
                 inicializarPoolPreguntasNoVistas();
+            } else {
+                throw new Error("No se cargaron preguntas.");
             }
         } catch (error) {
-            console.error("Fallo crítico al cargar las preguntas principales. Algunas funciones pueden no estar disponibles.", error);
-            // Deshabilitar botones que dependen de `todasLasPreguntas`
-            iniciarNuevoTestBtn.disabled = true;
-            iniciarTestImprescindibleBtn.disabled = true;
-            iniciarRepasoFallosBtn.disabled = true;
-            iniciarNuevoTestBtn.title = "Error al cargar preguntas.";
-            iniciarTestImprescindibleBtn.title = "Error al cargar preguntas.";
-            iniciarRepasoFallosBtn.title = "Error al cargar preguntas.";
-        } finally {
-            // Estos se ejecutan siempre, para que el resto de la UI funcione
-            actualizarBotonRepaso();
-            registrarEventListeners(); // Mover el registro de listeners aquí
-            
-            // Lógica unificada para restaurar sesión
-            const sesionNormalGuardada = localStorage.getItem(TEST_STATE_KEY);
-            const sesionImprescindibleGuardada = localStorage.getItem(IMPRESCINDIBLE_TEST_STATE_KEY);
-
-            if (sesionNormalGuardada) {
-                if (confirm('Hemos encontrado un test normal sin finalizar. ¿Quieres continuar donde lo dejaste?')) {
-                    mostrarVistaTest();
-                    restaurarSesion('normal');
-                } else {
-                    limpiarEstado('normal');
-                    mostrarVistaInicio();
-                }
-            } else if (sesionImprescindibleGuardada) {
-                if (confirm('Hemos encontrado un test imprescindible sin finalizar. ¿Quieres continuar donde lo dejaste?')) {
-                    mostrarVistaTest();
-                    restaurarSesion('imprescindible');
-                } else {
-                    limpiarEstado('imprescindible');
-                    mostrarVistaInicio();
-                }
-            } else {
-                mostrarVistaInicio();
-            }
+            console.error("Fallo crítico al cargar las preguntas. Los tests no estarán disponibles.", error);
+            [iniciarNuevoTestBtn, iniciarTestImprescindibleBtn, iniciarRepasoFallosBtn].forEach(btn => {
+                btn.disabled = true;
+                btn.title = "Error al cargar preguntas.";
+            });
         }
+    }
+
+    /**
+     * Comprueba si hay sesiones de test guardadas y pregunta al usuario si desea continuar.
+     */
+    function intentarRestaurarSesion() {
+        const sesionNormalGuardada = localStorage.getItem(TEST_STATE_KEY);
+        const sesionImprescindibleGuardada = localStorage.getItem(IMPRESCINDIBLE_TEST_STATE_KEY);
+
+        const restaurar = (modo, sesionGuardada) => {
+            if (confirm(`Hemos encontrado un test ${modo} sin finalizar. ¿Quieres continuar donde lo dejaste?`)) {
+                mostrarVistaTest();
+                restaurarSesion(modo);
+                return true; // Sesión restaurada
+            } else {
+                limpiarEstado(modo);
+                return false; // Sesión descartada
+            }
+        };
+
+        if (sesionNormalGuardada && restaurar('normal', sesionNormalGuardada)) return;
+        if (sesionImprescindibleGuardada && restaurar('imprescindible', sesionImprescindibleGuardada)) return;
+
+        // Si no hay sesiones que restaurar o el usuario las descarta
+        mostrarVistaInicio();
+    }
+
+    // --- Inicialización de la aplicación ---
+    async function inicializarApp() {
+        inicializarTema();
+        registrarEventListeners();
+        manejarAccionesDeAtajos();
+        await cargarYProcesarPreguntas();
+        actualizarBotonRepaso();
+        intentarRestaurarSesion();
     }
 
     /**

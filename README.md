@@ -100,3 +100,67 @@ Una aplicación web progresiva (PWA) diseñada para ayudar a los usuarios a prep
 ---
 
 *Proyecto desarrollado con el objetivo de facilitar el estudio y la preparación para el examen de permanencia.*
+
+---
+
+## 🗺️ Hoja de Ruta (Roadmap) Futuro
+
+Esta sección describe la visión a futuro para la aplicación, transformándola de una herramienta de estudio personal a una plataforma de aprendizaje completa y profesional.
+
+### Corto Plazo (Próximas Mejoras)
+
+-   **📚 Tests por Temas:**
+    -   Añadir una propiedad `"tema"` a cada pregunta en los archivos JSON.
+    -   Modificar la interfaz de inicio para permitir al usuario seleccionar uno o varios temas específicos para su test.
+    -   Crear una vista de estadísticas que muestre el rendimiento por tema.
+
+-   **📊 Estadísticas Avanzadas:**
+    -   Crear un perfil de usuario (local) donde se visualicen gráficos de progreso.
+    -   Mostrar estadísticas como: porcentaje de aciertos por tema, tiempo medio de respuesta, y evolución del récord.
+
+-   **✨ Mejoras de UX/UI:**
+    -   Implementar un modo "Flashcards" para un repaso rápido de preguntas y respuestas.
+    -   Añadir más animaciones y micro-interacciones para una experiencia más fluida.
+
+### Medio Plazo (Profesionalización)
+
+-   **🔑 Sistema de Cuentas de Usuario (Backend):**
+    -   Desarrollar un backend (usando Node.js, Python, etc.) con una base de datos (PostgreSQL, MongoDB).
+    -   Implementar registro de usuarios, inicio de sesión (con email/contraseña y proveedores como Google).
+    -   Sincronizar todo el progreso (fallos, récord, tests a medias) en la nube, permitiendo una experiencia multidispositivo.
+
+-   **💰 Modelo de Suscripción (Freemium):**
+    -   **Modo Prueba:** Los usuarios no registrados o gratuitos tendrán acceso a un número limitado de preguntas o a un "Test de Diagnóstico".
+    -   **Modo Premium:** Los usuarios de pago tendrán acceso ilimitado a todo el banco de preguntas, tests por temas, estadísticas avanzadas y futuras funcionalidades exclusivas.
+
+-   **📱 Publicación en Google Play Store:**
+    -   Utilizar **TWA (Trusted Web Activity)** para empaquetar la PWA y publicarla en la Google Play Store, aprovechando el código existente.
+    -   Integrar APIs nativas si es necesario (ej. compras dentro de la app para la suscripción).
+
+-   **📝 Sistema de Reporte de Preguntas:**
+    -   Añadir un botón en cada pregunta para que los usuarios puedan reportar errores.
+    -   Implementar un formulario sencillo donde el usuario pueda categorizar el error (ej. "Respuesta incorrecta", "Error de tipeo") y añadir un comentario.
+    -   Los reportes se enviarán al backend para que un administrador pueda revisarlos y corregir el banco de preguntas, mejorando la calidad del contenido de forma colaborativa.
+
+### Largo Plazo (Expansión y Automatización)
+
+-   **🤖 Panel de Administración con IA:**
+    -   Crear una aplicación web interna (panel de administrador) para gestionar la plataforma.
+    -   **Asistente de IA para Contenido:** Integrar un modelo de lenguaje (como la API de Gemini) para:
+        -   **Generar nuevas preguntas:** Un administrador podría pegar texto de un temario y la IA generaría preguntas en el formato JSON correcto.
+        -   **Clasificar temas:** La IA podría sugerir automáticamente el tema de nuevas preguntas.
+        -   **Validar y corregir:** La IA podría revisar la gramática y coherencia de las preguntas existentes.
+
+-   **🏆 Gamificación y Comunidad:**
+    -   **Rankings y Ligas:** Tablas de clasificación semanales/mensuales para fomentar la competitividad sana.
+    -   **Logros y Medallas:** Desbloquear logros por hitos (ej. "100 preguntas correctas seguidas", "Experto en Tema X").
+    -   **Foro de Discusión:** Integrar un pequeño foro o sección de comentarios por pregunta para que los usuarios puedan discutir y ayudarse mutuamente.
+
+-   **🎯 Simulacros de Examen Reales:**
+    -   Crear un modo "Simulacro Oficial" que imite fielmente las condiciones del examen real: número exacto de preguntas, distribución de temas y límite de tiempo estricto.
+
+-   **🔔 Notificaciones Push Inteligentes:**
+    -   Enviar recordatorios de estudio personalizados ("¡Hace 3 días que no repasas tus fallos!").
+    -   Notificar sobre la adición de nuevo contenido o el inicio de una nueva "liga" semanal.
+
+---
