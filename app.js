@@ -6,6 +6,8 @@ window.addEventListener('load', () => {
     const iniciarNuevoTestBtn = document.getElementById('iniciar-nuevo-test-btn');
     const iniciarRepasoFallosBtn = document.getElementById('iniciar-repaso-fallos-btn');
     const iniciarTestImprescindibleBtn = document.getElementById('iniciar-test-imprescindible-btn');
+    const iniciarExamen2024Btn = document.getElementById('iniciar-examen-2024-btn');
+    const iniciarExamen2022Btn = document.getElementById('iniciar-examen-2022-btn');
     const seguirMasTardeBtn = document.getElementById('seguir-mas-tarde-btn');
     const preguntaEl = document.getElementById('pregunta-actual');
     const opcionesEl = document.getElementById('opciones-respuesta');
@@ -25,6 +27,8 @@ window.addEventListener('load', () => {
     const UNSEEN_QUESTIONS_KEY = 'testPermanenciaUnseenQuestions';
     const FAILED_QUESTIONS_KEY = 'testPermanenciaFailedQuestions';
     const TEST_STATE_KEY = 'testPermanenciaState';
+    const EXAMEN_2022_STATE_KEY = 'testExamen2022State';
+    const EXAMEN_2024_STATE_KEY = 'testExamen2024State';
     const IMPRESCINDIBLE_TEST_STATE_KEY = 'testImprescindibleState';
     const THEME_KEY = 'testPermanenciaTheme';
     const NUMERO_PREGUNTAS_TEST = 20;
@@ -79,6 +83,8 @@ window.addEventListener('load', () => {
     function intentarRestaurarSesion() {
         const sesionNormalGuardada = localStorage.getItem(TEST_STATE_KEY);
         const sesionImprescindibleGuardada = localStorage.getItem(IMPRESCINDIBLE_TEST_STATE_KEY);
+        const sesionExamen2024Guardada = localStorage.getItem(EXAMEN_2024_STATE_KEY);
+        const sesionExamen2022Guardada = localStorage.getItem(EXAMEN_2022_STATE_KEY);
 
         const restaurar = (modo, sesionGuardada) => {
             if (confirm(`Hemos encontrado un test ${modo} sin finalizar. ¿Quieres continuar donde lo dejaste?`)) {
@@ -93,6 +99,8 @@ window.addEventListener('load', () => {
 
         if (sesionNormalGuardada && restaurar('normal', sesionNormalGuardada)) return;
         if (sesionImprescindibleGuardada && restaurar('imprescindible', sesionImprescindibleGuardada)) return;
+        if (sesionExamen2024Guardada && restaurar('examen 2024', sesionExamen2024Guardada)) return;
+        if (sesionExamen2022Guardada && restaurar('examen 2022', sesionExamen2022Guardada)) return;
 
         // Si no hay sesiones que restaurar o el usuario las descarta
         mostrarVistaInicio();
@@ -180,7 +188,7 @@ window.addEventListener('load', () => {
 
         seguirMasTardeBtn.classList.remove('oculto'); // Habilitado para todos los modos
 
-        if (modo !== 'normal') {
+        if (modo === 'repaso' || modo === 'imprescindible' || modo === 'examen2024' || modo === 'examen2022') {
             if (modo === 'imprescindible') {
                 barajarArray(preguntasPersonalizadas); // Barajamos las preguntas imprescindibles
             }
@@ -527,12 +535,30 @@ window.addEventListener('load', () => {
     // --- Manejo de Estado en localStorage ---
 
     function guardarEstado() {
-        const key = estadoTest.modo === 'imprescindible' ? IMPRESCINDIBLE_TEST_STATE_KEY : TEST_STATE_KEY;
+        let key;
+        if (estadoTest.modo === 'imprescindible') {
+            key = IMPRESCINDIBLE_TEST_STATE_KEY;
+        } else if (estadoTest.modo === 'examen2024') {
+            key = EXAMEN_2024_STATE_KEY;
+        } else if (estadoTest.modo === 'examen2022') {
+            key = EXAMEN_2022_STATE_KEY;
+        } else {
+            key = TEST_STATE_KEY;
+        }
         localStorage.setItem(key, JSON.stringify(estadoTest));
     }
 
     function cargarEstado(modo) {
-        const key = modo === 'imprescindible' ? IMPRESCINDIBLE_TEST_STATE_KEY : TEST_STATE_KEY;
+        let key;
+        if (modo === 'imprescindible') {
+            key = IMPRESCINDIBLE_TEST_STATE_KEY;
+        } else if (modo === 'examen2024') {
+            key = EXAMEN_2024_STATE_KEY;
+        } else if (modo === 'examen2022') {
+            key = EXAMEN_2022_STATE_KEY;
+        } else {
+            key = TEST_STATE_KEY;
+        }
         const estadoGuardado = localStorage.getItem(key);
         if (estadoGuardado) {
             const estado = JSON.parse(estadoGuardado);
@@ -541,7 +567,16 @@ window.addEventListener('load', () => {
     }
 
     function limpiarEstado(modo) {
-        const key = modo === 'imprescindible' ? IMPRESCINDIBLE_TEST_STATE_KEY : TEST_STATE_KEY;
+        let key;
+        if (modo === 'imprescindible') {
+            key = IMPRESCINDIBLE_TEST_STATE_KEY;
+        } else if (modo.includes('2024')) { // Más robusto para 'examen 2024'
+            key = EXAMEN_2024_STATE_KEY;
+        } else if (modo.includes('2022')) { // Más robusto para 'examen 2022'
+            key = EXAMEN_2022_STATE_KEY;
+        } else {
+            key = TEST_STATE_KEY;
+        }
         localStorage.removeItem(key);
     }
 
@@ -573,6 +608,24 @@ window.addEventListener('load', () => {
                 iniciarTest('imprescindible', preguntasImprescindibles);
             } else {
                 alert('No se encontraron preguntas imprescindibles. Asegúrate de que estén correctamente marcadas en el archivo JSON.');
+            }
+        });
+
+        iniciarExamen2024Btn.addEventListener('click', async () => {
+            try {
+                const preguntasExamen = await cargarArchivoPreguntas('examen_2024.json');
+                iniciarTest('examen2024', preguntasExamen);
+            } catch (error) {
+                alert('No se pudo cargar el examen de 2024. Revisa la consola para más detalles.');
+            }
+        });
+
+        iniciarExamen2022Btn.addEventListener('click', async () => {
+            try {
+                const preguntasExamen = await cargarArchivoPreguntas('examen_2022.json');
+                iniciarTest('examen2022', preguntasExamen);
+            } catch (error) {
+                alert('No se pudo cargar el examen de 2022. Revisa la consola para más detalles.');
             }
         });
 
@@ -653,6 +706,7 @@ window.addEventListener('load', () => {
                         }
                     });
                 });
+                registrarSincronizacionPeriodica(registration);
             })
             .catch(error => {
                 console.error('Error en el registro del Service Worker:', error);
@@ -660,7 +714,7 @@ window.addEventListener('load', () => {
 
         // Lógica para la sincronización periódica en segundo plano
         async function registrarSincronizacionPeriodica() {
-            if ('periodicSync' in registration) {
+            if (registration && 'periodicSync' in registration) {
                 try {
                     // Pedir permiso al usuario
                     const status = await navigator.permissions.query({ name: 'periodic-background-sync' });
@@ -676,7 +730,6 @@ window.addEventListener('load', () => {
                 }
             }
         }
-        registrarSincronizacionPeriodica();
     }
 
     function mostrarBannerActualizacion(worker) {

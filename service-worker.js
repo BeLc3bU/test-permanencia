@@ -1,4 +1,4 @@
-const CACHE_NAME = 'test-permanencia-v5'; // Cambia la versión si actualizas los archivos
+const CACHE_NAME = 'test-permanencia-v8'; // Cambia la versión si actualizas los archivos
 // Lista de archivos para cachear en la instalación.
 const urlsToCache = [
   '.', // Representa la raíz del directorio actual
@@ -6,6 +6,7 @@ const urlsToCache = [
   'style.css',
   'app.js',
   'preguntas.json', // Añadir para asegurar que el primer test normal funcione offline
+  'examen_2024.json',
   'manifest.json',
   'preguntas_imprescindibles.json',
   'icons/icon-192x192.png',
@@ -52,7 +53,10 @@ self.addEventListener('fetch', event => {
                 return fetch(event.request)
                     .then(networkResponse => {
                         // Si la petición a la red tiene éxito, actualizamos la caché
-                        cache.put(event.request, networkResponse.clone());
+                        // Solo cacheamos peticiones GET válidas con protocolo http/https
+                        if (event.request.method === 'GET' && networkResponse.status === 200 && url.protocol.startsWith('http')) {
+                            cache.put(event.request, networkResponse.clone());
+                        }
                         return networkResponse;
                     })
                     .catch(() => {
@@ -73,8 +77,8 @@ self.addEventListener('fetch', event => {
                     // Opcional: Cachear nuevos recursos que no estaban en la lista inicial
                     // Esto es útil si añades nuevas imágenes o archivos sin actualizar el SW
                     return caches.open(CACHE_NAME).then(cache => {
-                    // Solo cacheamos peticiones GET exitosas y válidas
-                    if (event.request.method === 'GET' && networkResponse.status === 200) {
+                    // Solo cacheamos peticiones GET exitosas y válidas con protocolo http/https
+                    if (event.request.method === 'GET' && networkResponse.status === 200 && url.protocol.startsWith('http')) {
                            cache.put(event.request, networkResponse.clone());
                         }
                         return networkResponse;
