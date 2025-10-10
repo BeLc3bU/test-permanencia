@@ -1,0 +1,108 @@
+project_name: "Test de Permanencia PWA - Roadmap"
+sprints:
+  - sprint: 1
+    name: "Mejoras de Contenido y UX"
+    goal: "Ampliar las opciones de estudio del usuario y mejorar la visualización de su progreso."
+    epics:
+      - epic: "Tests por Temas"
+        description: "Permitir a los usuarios filtrar preguntas por tema para un estudio más enfocado."
+        user_stories:
+          - story: "Como usuario, quiero poder elegir un tema específico para mi test y así poder reforzar áreas concretas."
+            tasks:
+              - "Modificar la estructura de `preguntas.json` para añadir un campo `tema` a cada pregunta."
+              - "Actualizar el script `validar_preguntas.js` para que verifique la existencia del campo `tema`."
+              - "Diseñar y desarrollar una nueva pantalla o modal en el menú de inicio para la selección de temas."
+              - "Modificar la lógica de `iniciarTest` en `app.js` para filtrar las preguntas según el tema seleccionado."
+      - epic: "Estadísticas Avanzadas"
+        description: "Proporcionar al usuario un panel con estadísticas detalladas sobre su rendimiento."
+        user_stories:
+          - story: "Como usuario, quiero ver un resumen de mi rendimiento por tema para saber dónde necesito mejorar."
+            tasks:
+              - "Diseñar una nueva vista de 'Estadísticas' accesible desde el menú principal."
+              - "Implementar la lógica para registrar aciertos y fallos por tema en `localStorage`."
+              - "Crear componentes visuales (ej. barras de progreso) para mostrar el porcentaje de aciertos por tema."
+
+  - sprint: 2
+    name: "Mejoras de Interfaz y Experiencia"
+    goal: "Introducir nuevos modos de estudio y pulir la experiencia de usuario con interacciones más fluidas."
+    epics:
+      - epic: "Mejoras de UX/UI"
+        description: "Añadir un modo de estudio tipo 'Flashcards' y mejorar las animaciones."
+        user_stories:
+          - story: "Como usuario, quiero un modo 'Flashcards' para repasar rápidamente las preguntas y sus respuestas correctas sin tener que hacer un test completo."
+            tasks:
+              - "Diseñar la interfaz del modo Flashcard (pregunta en un lado, respuesta en el otro)."
+              - "Añadir un botón en el menú principal para acceder al modo Flashcards."
+              - "Implementar la lógica para recorrer las preguntas en modo flashcard."
+          - story: "Como usuario, quiero que la aplicación se sienta más moderna y reactiva a mis acciones."
+            tasks:
+              - "Investigar e implementar micro-interacciones en botones y transiciones de pantalla."
+              - "Añadir una animación de 'flip' para las flashcards."
+
+  - sprint: 3
+    name: "Profesionalización - Backend y Cuentas de Usuario"
+    goal: "Sentar las bases para una plataforma multidispositivo y colaborativa mediante la creación de un backend y un sistema de autenticación."
+    epics:
+      - epic: "Sistema de Cuentas de Usuario (Backend)"
+        description: "Desarrollar un backend para gestionar usuarios y sincronizar su progreso en la nube."
+        user_stories:
+          - story: "Como usuario, quiero poder crear una cuenta para guardar mi progreso y acceder a él desde cualquier dispositivo."
+            tasks:
+              - "Definir la arquitectura del backend (Node.js/Express, por ejemplo)."
+              - "Diseñar el esquema de la base de datos (PostgreSQL/MongoDB) para usuarios, preguntas, fallos, etc."
+              - "Implementar endpoints para registro, inicio de sesión (email/contraseña) y logout."
+              - "Modificar el frontend para incluir vistas de registro/login."
+              - "Crear servicios en el frontend para comunicarse con la API del backend."
+              - "Implementar la sincronización del estado local (fallos, récord) con la base de datos del backend al iniciar sesión."
+
+  - sprint: 4
+    name: "Monetización y Calidad del Contenido"
+    goal: "Introducir un modelo de negocio y un sistema para que la comunidad ayude a mejorar la calidad de las preguntas."
+    epics:
+      - epic: "Modelo de Suscripción (Freemium)"
+        description: "Limitar el acceso para usuarios gratuitos y ofrecer funcionalidades completas a usuarios premium."
+        user_stories:
+          - story: "Como usuario nuevo, quiero poder probar la aplicación con un test de diagnóstico antes de decidir si quiero pagar."
+            tasks:
+              - "Modificar la lógica de carga de preguntas para servir un conjunto limitado a usuarios no autenticados o gratuitos."
+              - "Implementar un 'paywall' o banner que invite a suscribirse para desbloquear todo el contenido."
+              - "Integrar una pasarela de pago (Stripe, etc.) en el backend para gestionar las suscripciones."
+      - epic: "Sistema de Reporte de Preguntas"
+        description: "Permitir a los usuarios reportar errores en las preguntas para mejorar la calidad del banco de preguntas."
+        user_stories:
+          - story: "Como usuario, si encuentro un error en una pregunta, quiero poder reportarlo fácilmente para que sea corregido."
+            tasks:
+              - "Añadir un botón/icono de 'Reportar error' en la vista de cada pregunta."
+              - "Crear un modal o formulario simple para que el usuario describa el error."
+              - "Crear un endpoint en el backend para recibir y almacenar los reportes de error."
+              - "Diseñar una vista simple en un futuro panel de administración para revisar los reportes."
+
+  - sprint: 5
+    name: "Expansión y Gamificación"
+    goal: "Aumentar el engagement del usuario a través de la competencia y la sensación de logro."
+    epics:
+      - epic: "Gamificación y Comunidad"
+        description: "Introducir elementos de juego como rankings y logros para motivar a los usuarios."
+        user_stories:
+          - story: "Como usuario competitivo, quiero ver mi posición en un ranking semanal para compararme con otros usuarios."
+            tasks:
+              - "Diseñar y desarrollar una vista de 'Ranking' en la aplicación."
+              - "Crear la lógica en el backend para calcular y actualizar los rankings periódicamente."
+          - story: "Como usuario, quiero recibir medallas o logros al alcanzar ciertos hitos para sentir que progreso."
+            tasks:
+              - "Definir una lista de logros (ej. '100 aciertos seguidos', 'Maestro del Tema X')."
+              - "Implementar la lógica en el backend para detectar y asignar logros a los usuarios."
+              - "Diseñar una sección en el perfil del usuario para mostrar los logros desbloqueados."
+
+  - sprint: 6
+    name: "Contenido Avanzado y Automatización"
+    goal: "Crear un modo de examen realista y empezar a explorar la automatización de la gestión de contenido."
+    epics:
+      - epic: "Simulacros de Examen Reales"
+        description: "Crear un modo que imite las condiciones de un examen oficial."
+        user_stories:
+          - story: "Como usuario, quiero hacer un simulacro de examen con tiempo limitado y la misma estructura que el examen real para prepararme mejor."
+            tasks:
+              - "Añadir un modo 'Simulacro Oficial' en el menú."
+              - "Implementar un temporizador en la vista del test."
+              - "Modificar la lógica de selección de preguntas para que coincida con la distribución de temas y número de preguntas del examen real."

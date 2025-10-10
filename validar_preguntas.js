@@ -6,6 +6,12 @@ const args = process.argv.slice(2);
 let nombreArchivo = 'preguntas.json'; // Archivo por defecto
 if (args.includes('--imprescindibles')) {
     nombreArchivo = 'preguntas_imprescindibles.json';
+} else if (args.includes('--examen2022')) {
+    nombreArchivo = 'examen_2022.json';
+} else if (args.includes('--examen2024')) {
+    nombreArchivo = 'examen_2024.json';
+} else if (args.length > 0 && !args[0].startsWith('--')) {
+    nombreArchivo = args[0];
 }
 
 const RUTA_PREGUNTAS = path.join(__dirname, nombreArchivo);
@@ -79,6 +85,16 @@ try {
                 errores.push(`[Pregunta #${numeroPregunta}] La "respuestaCorrecta" no se encuentra en las "opciones".\n   Respuesta: "${pregunta.respuestaCorrecta}"`);
             }
         }
+
+        // 2.4. Validar campos opcionales
+        if (pregunta.hasOwnProperty('imprescindible') && typeof pregunta.imprescindible !== 'boolean') {
+            errores.push(`[Pregunta #${numeroPregunta}] El campo "imprescindible" debe ser un booleano (true/false).`);
+        }
+
+        if (pregunta.hasOwnProperty('examen') && typeof pregunta.examen !== 'string') {
+            errores.push(`[Pregunta #${numeroPregunta}] El campo "examen" debe ser un string (ej: "2024").`);
+        }
+
 
         // 2.4. Validar preguntas duplicadas
         if (pregunta.pregunta) {

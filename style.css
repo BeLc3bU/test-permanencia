@@ -21,6 +21,10 @@
     --color-primario: #3182ce; /* Un azul más profundo y agradable */
     --color-primario-hover: #2b6cb0;
     --color-secundario: #718096;
+    --color-secundario-fondo: #E2E8F0;
+    --color-secundario-texto: #4A5568;
+    --color-secundario-hover-fondo: #CBD5E0;
+    --color-secundario-hover-texto: #2D3748;
     --color-secundario-hover: #4a5568;
 }
 
@@ -43,6 +47,11 @@
     --color-incorrecto-fondo: #c53030;
     --color-incorrecto-borde: #e53e3e;
     --color-incorrecto-texto: #fff5f5;
+
+    --color-secundario-fondo: #4A5568;
+    --color-secundario-texto: #E2E8F0;
+    --color-secundario-hover-fondo: #2D3748;
+    --color-secundario-hover-texto: #F7FAFC;
 
 }
 
@@ -282,7 +291,7 @@ body {
     text-align: center;
 }
 
-.menu-btn, #siguiente-pregunta, #reiniciar-test, #repasar-fallos-btn {
+.menu-btn, #reiniciar-test {
     display: inline-block; /* Cambiado de block a inline-block */
     width: auto;           /* Ancho automático */
     padding: 1rem;
@@ -296,12 +305,8 @@ body {
     transition: background-color 0.2s, transform 0.2s;
 }
 
-#siguiente-pregunta.oculto, #reiniciar-test.oculto, #finalizar-ahora-btn.oculto {
-    display: none;
-}
-
 /* Ocultar botones específicos */
-.menu-btn.oculto, #repasar-fallos-btn.oculto, #seguir-mas-tarde-btn.oculto {
+.menu-btn.oculto, #seguir-mas-tarde-btn.oculto, #reiniciar-test.oculto, #finalizar-ahora-btn.oculto {
     display: none;
 }
 
@@ -317,19 +322,42 @@ body {
     opacity: 0.6;
 }
 
-#siguiente-pregunta:hover, #reiniciar-test:hover, #repasar-fallos-btn:hover, .menu-btn:hover:not(:disabled) {
+.menu-btn:active:not(:disabled), #reiniciar-test:active:not(:disabled) {
+    transform: translateY(1px) scale(0.98);
+}
+
+#reiniciar-test:hover, .menu-btn:hover:not(:disabled) {
     background-color: var(--color-primario-hover);
     transform: translateY(-2px);
 }
 
-/* Colores específicos para botones secundarios */
-.btn-secundario {
-    background-color: var(--color-secundario);
+/* Estilos jerárquicos para los botones del menú */
+.btn-primario {
+    background-color: var(--color-primario);
+    color: white;
+}
+.btn-primario:hover:not(:disabled) {
+    background-color: var(--color-primario-hover);
 }
 
-.btn-secundario:hover:not(:disabled) {
-    background-color: var(--color-secundario-hover);
+.btn-secundario {
+    background-color: var(--color-secundario-fondo);
+    color: var(--color-secundario-texto);
+    border: 1px solid var(--color-secundario-fondo);
 }
+.btn-secundario:hover:not(:disabled) {
+    background-color: var(--color-secundario-hover-fondo);
+    color: var(--color-secundario-hover-texto);
+}
+
+/* Botones terciarios (outline) */
+#iniciar-examen-2024-btn, #iniciar-examen-2022-btn, #iniciar-test-imprescindible-btn {
+    background-color: transparent;
+    color: var(--color-primario);
+    border: 1px solid var(--color-primario);
+}
+
+
 
 /* Contador de fallos en el botón */
 #contador-fallos {
@@ -346,6 +374,12 @@ body {
 }
 #inicio-menu h1 {
     color: var(--color-texto-principal);
+}
+
+#inicio-menu .footer-botones {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 #inicio-menu p {
     color: var(--color-texto-secundario);
@@ -444,12 +478,7 @@ body {
         box-shadow: none;
     }
 
-    .footer-botones {
-        flex-direction: column-reverse; /* Pone "Siguiente" debajo de "Reiniciar" */
-        gap: 0.75rem; /* Espacio entre los botones */
-    }
-
-    #siguiente-pregunta, #reiniciar-test, #repasar-fallos-btn, #iniciar-nuevo-test-btn, #iniciar-repaso-fallos-btn {
+    #reiniciar-test, .menu-btn {
         width: 100%; /* Botones a ancho completo */
         margin-left: 0;
         margin-right: 0;

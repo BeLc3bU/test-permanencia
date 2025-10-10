@@ -1,12 +1,15 @@
-const CACHE_NAME = 'test-permanencia-v8'; // Cambia la versión si actualizas los archivos
+const CACHE_NAME = 'test-permanencia-v9'; // Versión actualizada para reflejar los nuevos archivos cacheados.
 // Lista de archivos para cachear en la instalación.
 const urlsToCache = [
   '.', // Representa la raíz del directorio actual
   'index.html',
   'style.css',
   'app.js',
+  'state.js', // Añadido tras la refactorización
+  'ui.js',    // Añadido tras la refactorización
   'preguntas.json', // Añadir para asegurar que el primer test normal funcione offline
   'examen_2024.json',
+  'examen_2022.json',
   'manifest.json',
   'preguntas_imprescindibles.json',
   'icons/icon-192x192.png',
@@ -113,7 +116,9 @@ self.addEventListener('periodicsync', event => {
         // La estrategia Network-First de nuestro 'fetch' se encargará de actualizar la caché.
         return Promise.all([
           fetch('preguntas.json'),
-          fetch('preguntas_imprescindibles.json')
+          fetch('preguntas_imprescindibles.json'),
+          fetch('examen_2022.json'),
+          fetch('examen_2024.json')
         ]);
       })
     );

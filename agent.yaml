@@ -1,0 +1,130 @@
+agent_development_plan:
+  mission_statement: >
+    Crear una Progressive Web App (PWA) robusta, intuitiva y funcional para ayudar a los usuarios a prepararse para el "test de permanencia".
+    La aplicación debe ser instalable, funcionar offline, persistir el progreso del usuario y ofrecer diferentes modos de estudio para maximizar la eficacia del aprendizaje.
+    La calidad del código, la mantenibilidad y una excelente experiencia de usuario son prioridades clave.
+  agent_persona:
+    name: Gemini Code Assist
+    description: >
+      Un asistente de ingeniería de software de clase mundial con amplia experiencia en desarrollo web front-end, PWAs, JavaScript moderno (ES6+),
+      y diseño de arquitecturas de software limpias y escalables. El enfoque se centra en la claridad, la eficiencia y las mejores prácticas.
+  feature_analysis:
+    - feature: "PWA & Offline"
+      development_tasks:
+        - "Crear manifest.json con metadatos, iconos y atajos."
+        - "Implementar service-worker.js."
+        - "Definir estrategias de caché: Cache First para assets estáticos y Network First para los JSON de preguntas."
+        - "Gestionar el ciclo de vida del SW (instalación, activación, limpieza de caché antigua, actualización con prompt)."
+      involved_files:
+        - "manifest.json"
+        - "service-worker.js"
+        - "app.js"
+    - feature: "Examen 2024"
+      development_tasks:
+        - "Crear un archivo examen_2024.json con las preguntas específicas de ese año."
+        - "Añadir un botón en index.html para iniciar este modo."
+        - "Implementar la lógica en app.js para cargar y ejecutar el test con estas preguntas."
+        - "Añadir una clave de localStorage (EXAMEN_2024_STATE_KEY) para persistir la sesión de este modo."
+        - "Actualizar el service-worker.js para cachear el nuevo archivo JSON."
+      involved_files:
+        - "examen_2024.json"
+        - "index.html"
+        - "app.js"
+        - "service-worker.js"
+    - feature: "Examen 2022"
+      development_tasks:
+        - "Crear un archivo examen_2022.json con las preguntas específicas de ese año."
+        - "Añadir un botón en index.html para iniciar este modo."
+        - "Implementar la lógica en app.js para cargar y ejecutar el test con estas preguntas."
+        - "Añadir una clave de localStorage (EXAMEN_2022_STATE_KEY) para persistir la sesión de este modo."
+        - "Actualizar el service-worker.js para cachear el nuevo archivo JSON."
+      involved_files:
+        - "examen_2022.json"
+        - "index.html"
+        - "app.js"
+        - "service-worker.js"
+    - feature: "Lógica del Test"
+      development_tasks:
+        - "Cargar y parsear los archivos JSON de forma asíncrona."
+        - "Implementar la lógica para los 3 modos: Normal (aleatorio sin repetición), Repaso de Fallos y Test Imprescindible."
+        - "Gestionar el estado del test: pregunta actual, puntuación, aciertos, fallos."
+        - "Implementar el sistema de puntuación (+1 acierto, -0.33 fallo)."
+      involved_files:
+        - "app.js"
+    - feature: "Persistencia de Datos"
+      development_tasks:
+        - "Usar localStorage para almacenar: Récord, preguntas no vistas, preguntas falladas, estado de test en curso, preferencia de tema."
+      involved_files:
+        - "app.js"
+    - feature: "Interfaz y Experiencia de Usuario (UI/UX)"
+      development_tasks:
+        - "Diseñar una estructura HTML semántica y dos vistas principales (menú, test)."
+        - "Implementar barra de progreso y feedback visual."
+        - "Mostrar resumen y revisión de fallos al finalizar."
+        - "Implementar tema claro/oscuro con persistencia."
+        - "Asegurar diseño responsive (mobile-first)."
+        - "Añadir animaciones y atajos de teclado."
+      involved_files:
+        - "index.html"
+        - "style.css"
+        - "app.js"
+    - feature: "Herramientas de Desarrollo"
+      development_tasks:
+        - "Crear un script en Node.js (validar_preguntas.js) para validar la estructura del JSON, comprobar respuestas y eliminar duplicados."
+      involved_files:
+        - "validar_preguntas.js"
+  execution_plan:
+    - phase: 1
+      title: "El Esqueleto Funcional (MVP)"
+      steps:
+        - title: "Estructura Base"
+          sub_steps:
+            - "Crear index.html con contenedores para menú y test."
+            - "Crear style.css con variables y layout básico."
+            - "Crear y enlazar app.js."
+        - title: "Carga de Datos y Test Normal"
+          sub_steps:
+            - "Implementar carga asíncrona de preguntas.json."
+            - "Desarrollar lógica para 'Nuevo Test' con preguntas aleatorias."
+            - "Crear funciones para mostrar pregunta y gestionar respuestas (acierto/fallo)."
+    - phase: 2
+      title: "Persistencia y Modos Adicionales"
+      steps:
+        - title: "Gestión de Preguntas Vistas y Falladas"
+          sub_steps:
+            - "Usar localStorage para el pool de preguntas no vistas."
+            - "Implementar guardado y eliminación de fallos persistentes."
+        - title: "Implementar Modos de Repaso e Imprescindible"
+          sub_steps:
+            - "Crear lógica para 'Repaso de Fallos' usando los índices guardados."
+            - "Crear lógica para 'Test Imprescindible' filtrando por la propiedad 'imprescindible'."
+        - title: "Persistencia de Sesión y Récord"
+          sub_steps:
+            - "Guardar el estado del test en curso en localStorage."
+            - "Implementar la funcionalidad de 'Continuar test' al iniciar la app."
+            - "Guardar y mostrar el récord de puntuación."
+    - phase: 3
+      title: "PWA y Experiencia de Usuario"
+      steps:
+        - title: "Implementación del Service Worker"
+          sub_steps:
+            - "Crear y registrar service-worker.js."
+            - "Definir assets para cachear y estrategias de caché (Cache First, Network First)."
+        - title: "Manifiesto y Mejoras PWA"
+          sub_steps:
+            - "Crear un manifest.json detallado con iconos, atajos y capturas de pantalla."
+        - title: "Mejoras de UI/UX"
+          sub_steps:
+            - "Implementar tema claro/oscuro con persistencia."
+            - "Refinar CSS para un diseño completamente responsive."
+            - "Añadir animaciones y atajos de teclado (a, b, c, d)."
+    - phase: 4
+      title: "Robustez y Mantenimiento"
+      steps:
+        - title: "Script de Validación"
+          sub_steps:
+            - "Desarrollar el script validar_preguntas.js para asegurar la integridad de los datos JSON."
+        - title: "Revisión Final y Refactorización"
+          sub_steps:
+            - "Revisar y refactorizar app.js para mejorar claridad y modularidad."
+            - "Añadir comentarios y verificar accesibilidad (ARIA)."
