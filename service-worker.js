@@ -1,4 +1,4 @@
-const CACHE_NAME = 'test-permanencia-v10'; // Nueva versión para forzar la actualización.
+const CACHE_NAME = 'test-permanencia-v12'; // Nueva versión para forzar la actualización.
 // Lista de archivos para cachear en la instalación.
 const urlsToCache = [
   '.', // Representa la raíz del directorio actual
@@ -7,13 +7,12 @@ const urlsToCache = [
   'app.js',
   'state.js', // Añadido tras la refactorización
   'ui.js',    // Añadido tras la refactorización
-  'preguntas.json', // Añadir para asegurar que el primer test normal funcione offline
-  'examen_2024.json',
-  'examen_2022.json',
   'manifest.json',
   'preguntas_imprescindibles.json',
   'icons/icon-192x192.png',
-  'icons/icon-512x512.png'
+  'icons/icon-512x512.png',
+  'sounds/correct.mp3',
+  'sounds/incorrect.mp3'
 ];
 
 // Evento 'install': se dispara cuando el service worker se instala.
@@ -23,15 +22,7 @@ self.addEventListener('install', event => {
     caches.open(CACHE_NAME)
       .then(cache => {
         console.log('Caché abierta. Cacheando archivos de la aplicación...');
-        // Estrategia de actualización proactiva para los archivos de preguntas.
-        // Se intentan obtener de la red y si falla, no se cachean en la instalación.
-        const questionFiles = [
-          'preguntas.json',
-          'preguntas_imprescindibles.json',
-          'examen_2022.json',
-          'examen_2024.json'
-        ].map(url => fetch(new Request(url, { cache: 'reload' }))); // 'reload' para asegurar que se va a la red.
-        return Promise.all([...urlsToCache.map(url => cache.add(url)), ...questionFiles.map(req => req.then(res => cache.put(res.url, res)))]);
+        return cache.addAll(urlsToCache);
       })
   );
 });
@@ -58,28 +49,44 @@ self.addEventListener('activate', event => {
 
 // Evento 'fetch': se dispara cada vez que la página pide un recurso (CSS, JS, imagen, etc.).
 self.addEventListener('fetch', event => {
-  // Estrategia "Cache First" para todos los recursos.
-  // La actualización de los archivos de preguntas se maneja en 'install' y 'periodicsync'.
-  // Esto hace que la carga de la app sea instantánea cuando está offline.
-  event.respondWith(
-    caches.match(event.request).then(response => {
-      // Si está en caché, lo devolvemos. Si no, vamos a la red.
-      return response || fetch(event.request).then(networkResponse => {
-        // Opcional: Cachear nuevos recursos que no estaban en la lista inicial
-        return caches.open(CACHE_NAME).then(cache => {
-          const url = new URL(event.request.url);
-          // Solo cacheamos peticiones GET exitosas y válidas con protocolo http/https
-          if (event.request.method === 'GET' && networkResponse.status === 200 && url.protocol.startsWith('http')) {
-            cache.put(event.request, networkResponse.clone());
-          }
-          return networkResponse;
+  const { request } = event;
+  const url = new URL(request.url);
+
+  // Estrategia "Stale-While-Revalidate" para el HTML, CSS, JS y los JSON de preguntas.
+  // Sirve desde la caché para velocidad, pero actualiza en segundo plano.
+  if (url.origin === self.location.origin && (url.pathname === '/' || url.pathname.endsWith('.html') || url.pathname.endsWith('.css') || url.pathname.endsWith('.js') || url.pathname.endsWith('.json'))) {
+    event.respondWith(
+      caches.open(CACHE_NAME).then(cache => {
+        return cache.match(request).then(cachedResponse => {
+          const fetchPromise = fetch(request).then(networkResponse => {
+            // Si la petición a la red tiene éxito, actualizamos la caché.
+            if (networkResponse.ok) {
+              cache.put(request, networkResponse.clone());
+            }
+            return networkResponse;
+          });
+
+          // Devolvemos la respuesta de la caché si existe, si no, esperamos a la red.
+          return cachedResponse || fetchPromise;
         });
-      });
-    }).catch(error => {
-      console.error('Fetch fallido; ni en caché ni en red:', error);
-      // Aquí se podría devolver una página de fallback si se desea.
-    })
-  );
+      })
+    );
+  } else {
+    // Estrategia "Cache First" para otros recursos (imágenes, fuentes, etc.).
+    // Si está en caché, se sirve. Si no, se busca en la red y se cachea para la próxima vez.
+    event.respondWith(
+      caches.match(request).then(response => {
+        return response || fetch(request).then(networkResponse => {
+          return caches.open(CACHE_NAME).then(cache => {
+            if (networkResponse.ok) {
+              cache.put(request, networkResponse.clone());
+            }
+            return networkResponse;
+          });
+        });
+      })
+    );
+  }
 });
 
 // Evento 'message': escucha mensajes desde el cliente (la página web).
@@ -98,13 +105,13 @@ self.addEventListener('periodicsync', event => {
     // waitUntil para asegurar que el SW no se termine antes de que acabe el fetch.
     event.waitUntil(
       caches.open(CACHE_NAME).then(cache => {
-        // Intentamos descargar los archivos de preguntas más recientes.
-        // La estrategia Network-First de nuestro 'fetch' se encargará de actualizar la caché.
+        // La estrategia Stale-While-Revalidate se encargará de actualizar la caché
+        // si hay una nueva versión disponible en la red.
         return Promise.all([
-          fetch('preguntas.json'),
-          fetch('preguntas_imprescindibles.json'),
-          fetch('examen_2022.json'),
-          fetch('examen_2024.json')
+          fetch(new Request('preguntas.json', { cache: 'no-store' })),
+          fetch(new Request('preguntas_imprescindibles.json', { cache: 'no-store' })),
+          fetch(new Request('examen_2022.json', { cache: 'no-store' })),
+          fetch(new Request('examen_2024.json', { cache: 'no-store' }))
         ]);
       })
     );

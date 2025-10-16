@@ -1,16 +1,19 @@
-import * as state from './state.js';
-import * as ui from './ui.js';
+import { storage, questionBank, cargarTodasLasPreguntas, prepararTest, procesarRespuesta, avanzarPregunta, finalizarTestForzado, guardarEstado, cargarEstado, limpiarEstado, getTestState } from './state.js';
+import { UI } from './ui.js';
 
 let isProcessing = false; // Variable de bloqueo para evitar dobles clics y race conditions
+const ui = new UI(); // Instancia única de la clase UI
 
 window.addEventListener('load', () => {
     // --- Inicialización de la aplicación ---
     async function inicializarApp() {
-        ui.initializeTheme(state.storage.getTheme());
+        ui.initializeTheme(storage.getTheme());
+        ui.initializeMuteState(storage.getMuteState());
+        ui.initializeNumPreguntas(storage.getNumPreguntas());
         registrarEventListeners();
         
         try {
-            await state.cargarTodasLasPreguntas();
+            await cargarTodasLasPreguntas();
             actualizarContadoresUI();
             await manejarAccionesDeAtajos();
             intentarRestaurarSesion();
@@ -32,12 +35,12 @@ window.addEventListener('load', () => {
         ];
 
         for (const modo of modosPosibles) {
-            if (state.storage.getSavedSession(modo.clave)) {
+            if (storage.getSession(modo.clave)) {
                 if (confirm(`Hemos encontrado un test ${modo.nombre} sin finalizar. ¿Quieres continuar donde lo dejaste?`)) {
-                    restaurarSesion(modo.clave);
+                    restaurarSesion(modo.clave); // La clave coincide con el 'modo'
                     return;
                 } else {
-                    state.limpiarEstado(modo.clave);
+                    limpiarEstado(modo.clave);
                 }
             }
         }
@@ -45,11 +48,11 @@ window.addEventListener('load', () => {
     }
 
     function restaurarSesion(modo) {
-        const estadoGuardado = state.cargarEstado(modo);
+        const estadoGuardado = cargarEstado(modo);
         if (estadoGuardado) {
             ui.showTestView();
             ui.resetTestUI();
-            ui.updateRecord(state.storage.getHighScore());
+            ui.updateRecord(storage.getHighScore());
             mostrarPreguntaActual();
             if (estadoGuardado.haRespondido) {
                 const preguntaData = estadoGuardado.preguntasDelTest[estadoGuardado.preguntaActualIndex];
@@ -69,32 +72,55 @@ window.addEventListener('load', () => {
     }
 
     function actualizarContadoresUI() {
-        ui.updateFailedQuestionsButton(state.storage.getFailedQuestionsIndices().length);
-        ui.updateRecord(state.storage.getHighScore());
+        ui.updateFailedQuestionsButton(storage.getFailedQuestionsIndices().length);
+        ui.updateRecord(storage.getHighScore());
     }
 
     // --- Lógica del Flujo del Test ---
-    function iniciarNuevoTest(modo, preguntasPersonalizadas = []) {
-        const estadoActual = state.prepararTest(modo, preguntasPersonalizadas);
+    function iniciarNuevoTest(modo, opciones) {
+        const estadoActual = prepararTest(modo, opciones);
         ui.showTestView();
         ui.resetTestUI();
-        ui.updateRecord(state.storage.getHighScore());
+        ui.updateRecord(storage.getHighScore());
         mostrarPreguntaActual(estadoActual);
     }
 
     function mostrarPreguntaActual() {
-        const estadoActual = state.storage.getTestState();
+        const estadoActual = getTestState(); // Corregido: Usar la función importada
         if (!estadoActual) return;
 
         const preguntaData = estadoActual.preguntasDelTest[estadoActual.preguntaActualIndex];
         ui.renderQuestion(preguntaData, estadoActual.preguntaActualIndex, estadoActual.preguntasDelTest.length, manejarSeleccionRespuesta);
     }
 
+    function iniciarTestNormal() {
+        const numPreguntas = ui.elements.numPreguntasSelect.value === 'Infinity' ? Infinity : parseInt(ui.elements.numPreguntasSelect.value, 10);
+        iniciarNuevoTest('normal', { numPreguntas });
+    }
+
+    function iniciarTestImprescindible() {
+        const preguntasImprescindibles = questionBank.getAll().filter(p => p.imprescindible);
+        if (preguntasImprescindibles.length > 0) {
+            iniciarNuevoTest('imprescindible', { preguntasPersonalizadas: preguntasImprescindibles });
+        } else {
+            alert('No se encontraron preguntas imprescindibles. Asegúrate de que estén correctamente marcadas en el archivo JSON.');
+        }
+    }
+
+    function iniciarTestExamen(anio) {
+        const preguntasExamen = questionBank.getAll().filter(p => p.examen === anio.toString());
+        if (preguntasExamen.length > 0) {
+            iniciarNuevoTest(`examen${anio}`, { preguntasPersonalizadas: preguntasExamen });
+        } else {
+            alert(`No se encontraron preguntas para el Examen ${anio}. El archivo podría estar vacío o mal configurado.`);
+        }
+    }
+
     async function manejarSeleccionRespuesta(opcionSeleccionada) {
         if (isProcessing) return; // Evitar procesamiento múltiple
         isProcessing = true;
 
-        const resultadoRespuesta = state.procesarRespuesta(opcionSeleccionada);
+        const resultadoRespuesta = procesarRespuesta(opcionSeleccionada);
         if (!resultadoRespuesta) {
             isProcessing = false;
             return;
@@ -105,7 +131,7 @@ window.addEventListener('load', () => {
 
         const delay = resultadoRespuesta.esCorrecto ? 1000 : 2000;
         setTimeout(() => {
-            const resultadoAvance = state.avanzarPregunta();
+            const resultadoAvance = avanzarPregunta();
             if (resultadoAvance.finalizado) {
                 ui.showTestResults(resultadoAvance, iniciarRepasoFallos, () => { ui.showStartView(); isProcessing = false; });
                 actualizarContadoresUI();
@@ -119,9 +145,9 @@ window.addEventListener('load', () => {
     function iniciarRepasoFallos(preguntasFalladasTest) {
         let indicesFallos;
         if (preguntasFalladasTest) {
-            indicesFallos = preguntasFalladasTest.map(item => state.storage.getAllQuestions().findIndex(p => p.pregunta === item.preguntaData.pregunta));
+            indicesFallos = preguntasFalladasTest.map(item => questionBank.getAll().findIndex(p => p.pregunta === item.preguntaData.pregunta));
         } else {
-            indicesFallos = state.storage.getFailedQuestionsIndices();
+            indicesFallos = storage.getFailedQuestionsIndices();
         }
 
         if (indicesFallos.length === 0) {
@@ -129,64 +155,72 @@ window.addEventListener('load', () => {
             return;
         }
 
-        const preguntasParaRepasar = indicesFallos.map(index => state.storage.getAllQuestions()[index]).filter(Boolean);
-        iniciarNuevoTest('repaso', preguntasParaRepasar);
+        const preguntasParaRepasar = indicesFallos.map(index => questionBank.getAll()[index]).filter(Boolean);
+        iniciarNuevoTest('repaso', { preguntasPersonalizadas: preguntasParaRepasar });
     }
 
+    function reiniciarProgresoCompleto() {
+        questionBank.resetUnseen();
+        storage.setFailedQuestionsIndices([]); // También limpiamos los fallos
+        actualizarContadoresUI();
+        alert('Tu progreso ha sido reiniciado.');
+    }
     // --- Registro de Event Listeners ---
     function registrarEventListeners() {
-        ui.elements.iniciarNuevoTestBtn.addEventListener('click', () => iniciarNuevoTest('normal'));
+        ui.elements.iniciarNuevoTestBtn.addEventListener('click', iniciarTestNormal);
         ui.elements.iniciarRepasoFallosBtn.addEventListener('click', () => iniciarRepasoFallos());
-        ui.elements.iniciarTestImprescindibleBtn.addEventListener('click', () => {
-            const preguntasImprescindibles = state.storage.getAllQuestions().filter(p => p.imprescindible);
-            if (preguntasImprescindibles.length > 0) {
-                iniciarNuevoTest('imprescindible', preguntasImprescindibles);
-            } else {
-                alert('No se encontraron preguntas imprescindibles. Asegúrate de que estén correctamente marcadas en el archivo JSON.');
-            }
+        ui.elements.iniciarTestImprescindibleBtn.addEventListener('click', iniciarTestImprescindible);
+        ui.elements.iniciarExamen2024Btn.addEventListener('click', () => iniciarTestExamen(2024));
+        ui.elements.iniciarExamen2022Btn.addEventListener('click', () => iniciarTestExamen(2022));
+
+        ui.elements.numPreguntasSelect.addEventListener('change', (e) => {
+            const num = e.target.value === 'Infinity' ? Infinity : parseInt(e.target.value, 10);
+            storage.setNumPreguntas(num);
         });
 
-        ui.elements.iniciarExamen2024Btn.addEventListener('click', () => {
-            const preguntasExamen = state.storage.getAllQuestions().filter(p => p.examen === '2024');
-            if (preguntasExamen.length > 0) {
-                iniciarNuevoTest('examen2024', preguntasExamen);
-            } else {
-                alert('No se encontraron preguntas para el Examen 2024. El archivo podría estar vacío o mal configurado.');
-            }
-        });
-
-        ui.elements.iniciarExamen2022Btn.addEventListener('click', () => {
-            const preguntasExamen = state.storage.getAllQuestions().filter(p => p.examen === '2022');
-            if (preguntasExamen.length > 0) {
-                iniciarNuevoTest('examen2022', preguntasExamen);
-            } else {
-                alert('No se encontraron preguntas para el Examen 2022. El archivo podría estar vacío o mal configurado.');
-            }
+        ui.elements.reiniciarProgresoBtn.addEventListener('click', () => {
+            ui.showConfirmationModal({
+                title: '¿Reiniciar Progreso?',
+                message: 'Esta acción borrará tu historial de preguntas falladas y reiniciará el ciclo de preguntas no vistas. ¿Estás seguro?',
+                onConfirm: () => {
+                    reiniciarProgresoCompleto();
+                }
+            });
         });
 
         ui.elements.seguirMasTardeBtn.addEventListener('click', () => {
-            state.guardarEstado();
+            guardarEstado();
             ui.showStartView();
         });
 
         ui.elements.finalizarAhoraBtn.addEventListener('click', () => {
-            if (isProcessing) return; // Evitar finalización múltiple
-            isProcessing = true;
-
-            const resultadoAvance = state.finalizarTestForzado();
-            if (resultadoAvance && resultadoAvance.finalizado) {
-                ui.showTestResults(resultadoAvance, iniciarRepasoFallos, () => { ui.showStartView(); isProcessing = false; });
-                actualizarContadoresUI();
-            }
+            ui.showConfirmationModal({
+                title: '¿Finalizar Test?',
+                message: 'Tu progreso en este test se perderá. ¿Estás seguro de que quieres finalizar ahora?',
+                onConfirm: () => {
+                    if (isProcessing) return;
+                    isProcessing = true;
+                    const resultadoAvance = finalizarTestForzado();
+                    if (resultadoAvance && resultadoAvance.finalizado) {
+                        ui.showTestResults(resultadoAvance, iniciarRepasoFallos, () => { ui.showStartView(); isProcessing = false; });
+                        actualizarContadoresUI();
+                    }
+                }
+            });
         });
 
         ui.elements.themeToggleBtn.addEventListener('click', () => {
             const nuevoTema = ui.toggleTheme();
-            state.storage.setTheme(nuevoTema);
+            storage.setTheme(nuevoTema);
+        });
+
+        ui.elements.soundToggleBtn.addEventListener('click', () => {
+            const isMuted = ui.toggleMute();
+            storage.setMuteState(isMuted);
         });
 
         document.addEventListener('keydown', (e) => {
-            const estadoActual = state.storage.getTestState();
+            const estadoActual = getTestState();
             if (!estadoActual || estadoActual.haRespondido) return;
 
             const preguntaActual = estadoActual.preguntasDelTest[estadoActual.preguntaActualIndex];
@@ -236,17 +270,14 @@ function registrarServiceWorker() {
 }
 
 function mostrarBannerActualizacion(worker) {
-    const banner = document.createElement('div');
-    banner.id = 'update-banner';
-    banner.innerHTML = `
-        <span>Hay una nueva versión disponible.</span>
-        <button id="update-now-btn">Actualizar</button>
-    `;
-    document.body.appendChild(banner);
+    const banner = document.getElementById('update-banner');
+    if (!banner) return;
+
+    banner.classList.remove('oculto');
 
     document.getElementById('update-now-btn').addEventListener('click', () => {
         worker.postMessage({ type: 'SKIP_WAITING' });
-        banner.style.display = 'none';
+        banner.classList.add('oculto');
         window.location.reload();
     });
 }

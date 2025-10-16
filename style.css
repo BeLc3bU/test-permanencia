@@ -136,7 +136,8 @@ body {
 }
 
 #finalizar-ahora-btn,
-#seguir-mas-tarde-btn {
+#seguir-mas-tarde-btn,
+#sound-toggle-btn {
     padding: 0.4rem 0.8rem;
     font-size: 0.8rem;
     background-color: transparent;
@@ -147,6 +148,16 @@ body {
     transition: all 0.2s ease;
 }
 
+/* Estilo específico para el botón de sonido */
+#sound-toggle-btn {
+    padding: 0.4rem;
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .barra-progreso-contenedor {
     width: 100%;
     height: 8px;
@@ -306,7 +317,7 @@ body {
 }
 
 /* Ocultar botones específicos */
-.menu-btn.oculto, #seguir-mas-tarde-btn.oculto, #reiniciar-test.oculto, #finalizar-ahora-btn.oculto {
+.menu-btn.oculto, #seguir-mas-tarde-btn.oculto, #reiniciar-test.oculto, #finalizar-ahora-btn.oculto, #sound-toggle-btn.oculto {
     display: none;
 }
 
@@ -350,6 +361,15 @@ body {
     color: var(--color-secundario-hover-texto);
 }
 
+/* Botón terciario para acciones de configuración/peligro */
+.btn-terciario {
+    background-color: transparent;
+    color: var(--color-secundario);
+    border: 1px solid var(--color-secundario-fondo);
+    font-weight: normal;
+    font-size: 1rem;
+}
+
 /* Botones terciarios (outline) */
 #iniciar-examen-2024-btn, #iniciar-examen-2022-btn, #iniciar-test-imprescindible-btn {
     background-color: transparent;
@@ -357,6 +377,71 @@ body {
     border: 1px solid var(--color-primario);
 }
 
+/* --- Modal de Confirmación --- */
+#modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+    opacity: 0;
+    visibility: hidden; /* Ocultar completamente cuando no está activo */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#modal-overlay:not(.oculto) {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background-color: var(--color-blanco);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    transform: translateY(20px); /* Posición inicial para la animación */
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#modal-overlay:not(.oculto) .modal {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Opcional: Animación de salida más controlada */
+#modal-overlay.oculto .modal {
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+#modal-overlay:not(.oculto) .modal {
+    transform: scale(1);
+}
+
+.modal h3 {
+    margin-top: 0;
+    color: var(--color-texto-principal);
+}
+
+.modal p {
+    color: var(--color-texto-secundario);
+    margin-bottom: 1.5rem;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+}
 
 
 /* Contador de fallos en el botón */
@@ -429,6 +514,25 @@ body {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border-width: 0;
+}
+
+/* --- Configuración Test Normal --- */
+.config-test-normal {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-texto-secundario);
+}
+
+#num-preguntas-select {
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid var(--color-opcion-borde);
+    background-color: var(--color-opcion-fondo);
+    color: var(--color-texto-principal);
+    font-size: 1rem;
 }
 
 /* --- Banner de Actualización --- */

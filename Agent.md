@@ -17,13 +17,13 @@ A partir del `README.md` y la estructura del proyecto, se identifican las siguie
 | Característica Clave | Tareas de Desarrollo | Archivos Implicados |
 | :--- | :--- | :--- |
 | **PWA & Offline** | 1. Crear `manifest.json` con metadatos, iconos y atajos. <br> 2. Implementar `service-worker.js`. <br> 3. Definir estrategias de caché: `Cache First` para assets estáticos y `Network First` para los JSON de preguntas. <br> 4. Gestionar el ciclo de vida del SW (instalación, activación, limpieza de caché antigua, actualización con prompt). | `manifest.json`, `service-worker.js`, `app.js` |
-| **Examen 2024** | 1. Crear un archivo `examen_2024.json` con las preguntas específicas de ese año. <br> 2. Añadir un botón en `index.html` para iniciar este modo. <br> 3. Implementar la lógica en `app.js` para cargar y ejecutar el test con estas preguntas. <br> 4. Añadir una clave de `localStorage` (`EXAMEN_2024_STATE_KEY`) para persistir la sesión de este modo. <br> 5. Actualizar el `service-worker.js` para cachear el nuevo archivo JSON. | `examen_2024.json`, `index.html`, `app.js`, `service-worker.js` |
-| **Examen 2022** | 1. Crear un archivo `examen_2022.json` con las preguntas específicas de ese año. <br> 2. Añadir un botón en `index.html` para iniciar este modo. <br> 3. Implementar la lógica en `app.js` para cargar y ejecutar el test con estas preguntas. <br> 4. Añadir una clave de `localStorage` (`EXAMEN_2022_STATE_KEY`) para persistir la sesión de este modo. <br> 5. Actualizar el `service-worker.js` para cachear el nuevo archivo JSON. | `examen_2022.json`, `index.html`, `app.js`, `service-worker.js` |
+| **Modos de Test** | 1. Implementar modo **Normal** (aleatorio, configurable), **Repaso de Fallos** y **Test Imprescindible**. <br> 2. Añadir modos de **Examen 2022** y **Examen 2024**. <br> 3. Permitir al usuario seleccionar el número de preguntas para el test normal. | `index.html`, `app.js`, `state.js`, `ui.js` |
 | **Estructura de Datos** | 1. Definir un formato JSON estándar para las preguntas (`pregunta`, `opciones`, `respuestaCorrecta`). <br> 2. Separar las preguntas en `preguntas.json` (banco general) y `preguntas_imprescindibles.json` (subconjunto clave). | `preguntas.json`, `preguntas_imprescindibles.json` |
-| **Lógica del Test** | 1. Cargar y parsear los archivos JSON de forma asíncrona. <br> 2. Implementar la lógica para los 3 modos: **Normal** (aleatorio sin repetición), **Repaso de Fallos** y **Test Imprescindible**. <br> 3. Gestionar el estado del test: pregunta actual, puntuación, aciertos, fallos. <br> 4. Implementar el sistema de puntuación (+1 acierto, -0.33 fallo). | `app.js` |
-| **Persistencia de Datos** | 1. Usar `localStorage` para almacenar: <br>   - Récord de puntuación (`HIGH_SCORE_KEY`). <br>   - Índices de preguntas no vistas (`UNSEEN_QUESTIONS_KEY`). <br>   - Índices de preguntas falladas (`FAILED_QUESTIONS_KEY`). <br>   - Estado de un test en curso para poder continuarlo (`TEST_STATE_KEY`). <br>   - Preferencia de tema (`THEME_KEY`). | `app.js` |
-| **Interfaz de Usuario (UI)** | 1. Diseñar una estructura HTML semántica (`index.html`). <br> 2. Crear dos vistas principales: menú de inicio y vista de test. <br> 3. Implementar una barra de progreso. <br> 4. Mostrar feedback visual inmediato (correcto/incorrecto). <br> 5. Al finalizar, mostrar un resumen y una revisión detallada de los fallos. | `index.html`, `style.css`, `app.js` |
-| **Experiencia de Usuario (UX)** | 1. Implementar un tema claro/oscuro con persistencia. <br> 2. Asegurar un diseño responsive (`mobile-first`). <br> 3. Añadir transiciones y animaciones sutiles para una experiencia fluida. <br> 4. Implementar atajos de teclado (a, b, c, d) para responder. <br> 5. Gestionar la restauración de sesiones no finalizadas. | `style.css`, `app.js` |
+| **Lógica del Test** | 1. Cargar y unificar los archivos JSON de forma asíncrona. <br> 2. Gestionar el estado del test: pregunta actual, puntuación, aciertos, fallos. <br> 3. Implementar el sistema de puntuación (+1 acierto, -0.33 fallo). | `app.js`, `state.js`, `questionManager.js` |
+| **Persistencia de Datos** | 1. Usar `localStorage` para almacenar: Récord, preguntas no vistas, fallos, estado de sesión, tema, y preferencias de usuario (nº preguntas, silencio). | `storage.js` |
+| **Interfaz de Usuario (UI)** | 1. Diseñar una estructura HTML semántica. <br> 2. Crear vistas para menú, test y resultados. <br> 3. Implementar barra de progreso y feedback visual inmediato. <br> 4. Mostrar resumen y revisión de fallos. <br> 5. Implementar un modal de confirmación reutilizable. | `index.html`, `style.css`, `ui.js` |
+| **Experiencia de Usuario (UX)** | 1. Implementar tema claro/oscuro con persistencia. <br> 2. Asegurar diseño responsive (`mobile-first`). <br> 3. Añadir animaciones y transiciones suaves. <br> 4. Implementar atajos de teclado. <br> 5. Gestionar la restauración de sesiones. <br> 6. Añadir feedback auditivo (sonidos) y háptico (vibración) con control de silencio. | `style.css`, `app.js`, `ui.js` |
+| **Arquitectura y Refactorización** | 1. Modularizar el código JavaScript. <br> 2. Separar la lógica de estado (`state.js`), almacenamiento (`storage.js`), gestión de preguntas (`questionManager.js`) y UI (`ui.js`). <br> 3. Convertir la lógica de UI en una clase para una mejor encapsulación. | `app.js`, `ui.js`, `state.js`, `storage.js`, `questionManager.js` |
 | **Herramientas de Desarrollo** | 1. Crear un script en Node.js (`validar_preguntas.js`) para: <br>   - Validar la estructura del JSON. <br>   - Comprobar que la respuesta correcta existe en las opciones. <br>   - Detectar y eliminar preguntas duplicadas, generando un archivo limpio. | `validar_preguntas.js` |
 
 ## 4. Plan de Ejecución Secuencial (Paso a Paso)
@@ -78,15 +78,25 @@ El desarrollo se abordaría de forma incremental, construyendo sobre una base s�
     *   Añadir animaciones (`fade-in`/`fade-out` para preguntas, `shake` para error) para una navegación más agradable.
     *   Implementar atajos de teclado para una mayor accesibilidad y rapidez.
 
-### Fase 4: Robustez y Mantenimiento
+### Fase 4: Refactorización y Mejoras de UX
 
-9.  **Script de Validación**:
+9.  **Modularización del Código**:
+    *   Refactorizar la lógica de `localStorage` a un módulo `storage.js`.
+    *   Refactorizar la carga y gestión de preguntas a un módulo `questionManager.js`.
+    *   Convertir la lógica de la UI en una clase `UI` en `ui.js` para encapsular estado y comportamiento.
+10. **Mejoras de Interfaz y Experiencia**:
+    *   Implementar un modal de confirmación reutilizable para acciones críticas.
+    *   Añadir feedback auditivo (sonidos) y háptico (vibración) con un control de silencio persistente.
+    *   Permitir al usuario seleccionar el número de preguntas para los tests normales.
+
+### Fase 5: Robustez y Mantenimiento
+11. **Script de Validación**:
     *   Desarrollar el script `validar_preguntas.js` con Node.js y el módulo `fs`.
     *   El script debe leer el archivo, parsearlo, y sistemáticamente comprobar cada regla de validación.
     *   Debe eliminar duplicados (basado en el texto de la pregunta) y escribir un archivo `depurado_*.json`.
     *   El script debe finalizar con un código de salida `1` si hay errores, para facilitar su integración en flujos de CI/CD.
 
-10. **Revisión Final y Refactorización**:
+12. **Revisión Final y Depuración**:
     *   Revisar todo el código en `app.js` para asegurar que la lógica es clara y las funciones tienen una única responsabilidad.
     *   Centralizar el estado del test en un único objeto (`estadoTest`) para facilitar su gestión y persistencia.
     *   Añadir comentarios donde la lógica sea compleja.

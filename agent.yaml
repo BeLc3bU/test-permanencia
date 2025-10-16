@@ -16,58 +16,56 @@ agent_development_plan:
         - "Definir estrategias de caché: Cache First para assets estáticos y Network First para los JSON de preguntas."
         - "Gestionar el ciclo de vida del SW (instalación, activación, limpieza de caché antigua, actualización con prompt)."
       involved_files:
-        - "manifest.json"
-        - "service-worker.js"
-        - "app.js"
-    - feature: "Examen 2024"
+        - manifest.json
+        - service-worker.js
+        - app.js
+    - feature: "Modos de Test"
       development_tasks:
-        - "Crear un archivo examen_2024.json con las preguntas específicas de ese año."
-        - "Añadir un botón en index.html para iniciar este modo."
-        - "Implementar la lógica en app.js para cargar y ejecutar el test con estas preguntas."
-        - "Añadir una clave de localStorage (EXAMEN_2024_STATE_KEY) para persistir la sesión de este modo."
-        - "Actualizar el service-worker.js para cachear el nuevo archivo JSON."
+        - "Implementar modo Normal (aleatorio, configurable), Repaso de Fallos y Test Imprescindible."
+        - "Añadir modos de Examen 2022 y Examen 2024."
+        - "Permitir al usuario seleccionar el número de preguntas para el test normal."
       involved_files:
-        - "examen_2024.json"
-        - "index.html"
-        - "app.js"
-        - "service-worker.js"
-    - feature: "Examen 2022"
-      development_tasks:
-        - "Crear un archivo examen_2022.json con las preguntas específicas de ese año."
-        - "Añadir un botón en index.html para iniciar este modo."
-        - "Implementar la lógica en app.js para cargar y ejecutar el test con estas preguntas."
-        - "Añadir una clave de localStorage (EXAMEN_2022_STATE_KEY) para persistir la sesión de este modo."
-        - "Actualizar el service-worker.js para cachear el nuevo archivo JSON."
-      involved_files:
-        - "examen_2022.json"
-        - "index.html"
-        - "app.js"
-        - "service-worker.js"
+        - index.html
+        - app.js
+        - state.js
+        - ui.js
     - feature: "Lógica del Test"
       development_tasks:
-        - "Cargar y parsear los archivos JSON de forma asíncrona."
-        - "Implementar la lógica para los 3 modos: Normal (aleatorio sin repetición), Repaso de Fallos y Test Imprescindible."
+        - "Cargar y unificar los archivos JSON de forma asíncrona."
         - "Gestionar el estado del test: pregunta actual, puntuación, aciertos, fallos."
         - "Implementar el sistema de puntuación (+1 acierto, -0.33 fallo)."
       involved_files:
-        - "app.js"
+        - app.js
+        - state.js
+        - questionManager.js
     - feature: "Persistencia de Datos"
       development_tasks:
-        - "Usar localStorage para almacenar: Récord, preguntas no vistas, preguntas falladas, estado de test en curso, preferencia de tema."
+        - "Usar localStorage para almacenar: Récord, preguntas no vistas, fallos, estado de sesión, tema, y preferencias de usuario (nº preguntas, silencio)."
       involved_files:
-        - "app.js"
+        - storage.js
     - feature: "Interfaz y Experiencia de Usuario (UI/UX)"
       development_tasks:
-        - "Diseñar una estructura HTML semántica y dos vistas principales (menú, test)."
-        - "Implementar barra de progreso y feedback visual."
+        - "Diseñar una estructura HTML semántica y vistas principales (menú, test)."
+        - "Implementar barra de progreso, feedback visual y modal de confirmación."
         - "Mostrar resumen y revisión de fallos al finalizar."
         - "Implementar tema claro/oscuro con persistencia."
         - "Asegurar diseño responsive (mobile-first)."
-        - "Añadir animaciones y atajos de teclado."
+        - "Añadir animaciones, atajos de teclado, sonidos y feedback háptico."
       involved_files:
-        - "index.html"
-        - "style.css"
-        - "app.js"
+        - index.html
+        - style.css
+        - app.js
+        - ui.js
+    - feature: "Arquitectura y Refactorización"
+      development_tasks:
+        - "Modularizar el código JavaScript separando la lógica de estado, almacenamiento, gestión de preguntas y UI."
+        - "Convertir la lógica de UI en una clase para una mejor encapsulación."
+      involved_files:
+        - app.js
+        - ui.js
+        - state.js
+        - storage.js
+        - questionManager.js
     - feature: "Herramientas de Desarrollo"
       development_tasks:
         - "Crear un script en Node.js (validar_preguntas.js) para validar la estructura del JSON, comprobar respuestas y eliminar duplicados."
@@ -116,15 +114,26 @@ agent_development_plan:
         - title: "Mejoras de UI/UX"
           sub_steps:
             - "Implementar tema claro/oscuro con persistencia."
-            - "Refinar CSS para un diseño completamente responsive."
-            - "Añadir animaciones y atajos de teclado (a, b, c, d)."
+            - "Refinar CSS para un diseño responsive."
+            - "Añadir animaciones y atajos de teclado."
     - phase: 4
+      title: "Refactorización y Mejoras de UX"
+      steps:
+        - title: "Modularización del Código"
+          sub_steps:
+            - "Refactorizar la lógica de localStorage a un módulo `storage.js`."
+            - "Refactorizar la carga y gestión de preguntas a un módulo `questionManager.js`."
+            - "Convertir la lógica de la UI en una clase `UI` en `ui.js`."
+        - title: "Mejoras de Interfaz y Experiencia"
+          sub_steps:
+            - "Implementar un modal de confirmación reutilizable."
+            - "Añadir feedback auditivo (sonidos) y háptico (vibración) con control de silencio."
+            - "Permitir al usuario seleccionar el número de preguntas."
+    - phase: 5
       title: "Robustez y Mantenimiento"
       steps:
-        - title: "Script de Validación"
+        - title: "Script de Validación y Depuración"
           sub_steps:
             - "Desarrollar el script validar_preguntas.js para asegurar la integridad de los datos JSON."
-        - title: "Revisión Final y Refactorización"
-          sub_steps:
-            - "Revisar y refactorizar app.js para mejorar claridad y modularidad."
+            - "Realizar una depuración completa del flujo de la aplicación."
             - "Añadir comentarios y verificar accesibilidad (ARIA)."

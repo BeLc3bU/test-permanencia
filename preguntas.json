@@ -4648,8 +4648,19 @@
       "Taji."
     ],
     "respuestaCorrecta": "Taji."
-  }
+  },
+  {
+  "pregunta": "Qué destacamento aéreo apoya a la misión ATALANTA:",
+  "opciones": [
+    "Mamba",
+    "Marfil",
+    "Orión",
+    "Grappa"
+  ],
+  "respuestaCorrecta": "Orión"
+}
 ]
+
 
 
 

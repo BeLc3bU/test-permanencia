@@ -1,12 +1,16 @@
 # Test de Permanencia - Aplicación de Cuestionarios PWA
 
-Una aplicación web progresiva (PWA) diseñada para ayudar a los usuarios a prepararse para el test de permanencia a través de cuestionarios interactivos. La aplicación es instalable, funciona sin conexión a internet y guarda el progreso del usuario para una experiencia de estudio fluida y continua.
+Una aplicación web progresiva (PWA) diseñada para ayudar a los usuarios a prepararse para el test de permanencia a través de cuestionarios interactivos. La aplicación es instalable, funciona offline y guarda el progreso del usuario para una experiencia de estudio fluida y continua.
 
 ## ✨ Características Principales
 
 - **3 Modos de Test**: Normal (aleatorio), Repaso de Fallos (persistente) y Test Imprescindible (con preguntas clave).
-- **Modo Test Normal**: Cuestionarios de 20 preguntas seleccionadas aleatoriamente de un pool que no se repite hasta haber visto todas las preguntas.
+- **Modo Test Normal Configurable**: Cuestionarios con un número de preguntas seleccionable por el usuario (10, 20, 30, 50) de un pool que no se repite hasta haber visto todas las preguntas.
 - **Modo Repaso de Fallos**: Permite realizar un test exclusivamente con las preguntas que se han fallado históricamente, reforzando el aprendizaje.
+- **Feedback Interactivo**:
+  - **Sonidos y Vibración**: Efectos de sonido y feedback háptico (vibración en móviles) para respuestas correctas e incorrectas.
+  - **Control de Silencio**: Un botón permite al usuario silenciar tanto los sonidos como la vibración, guardando su preferencia.
+- **Modales de Confirmación**: Diálogos de confirmación para acciones críticas como finalizar un test o reiniciar el progreso, previniendo acciones accidentales.
 - **Revisión Post-Test**: Al finalizar un test, se muestra un resumen detallado de las preguntas falladas en esa sesión específica.
 - **Puntuación y Récord**: Sistema de puntuación (+1 por acierto, -0.33 por fallo) y guardado del récord personal en el dispositivo del usuario.
 - **Funcionalidad Offline**: Gracias al uso de un **Service Worker**, la aplicación puede ser utilizada sin conexión a internet una vez que ha sido cargada por primera vez.
@@ -22,9 +26,9 @@ Una aplicación web progresiva (PWA) diseñada para ayudar a los usuarios a prep
 
 - **HTML5**: Estructura semántica y accesible.
 - **CSS3**: Estilos modernos con variables (para theming), Flexbox, animaciones y diseño responsivo (media queries).
-- **JavaScript (ES6+)**: Lógica de la aplicación, manipulación del DOM, asincronía (`async/await`) y manejo del estado.
+- **JavaScript (ES6+ Modules)**: Lógica de la aplicación modularizada, asincronía (`async/await`), clases y manejo del estado.
 - **Progressive Web App (PWA)**:
-  - **Service Worker**: Para la gestión de la caché, funcionalidad offline y estrategias de actualización de contenido (`Network First` para las preguntas, `Cache First` para el resto de assets).
+  - **Service Worker**: Para la gestión de la caché, funcionalidad offline y estrategia de actualización `Stale-While-Revalidate`.
   - **Web App Manifest (`manifest.json`)**: Para definir los metadatos de la aplicación y permitir su instalación.
 - **Node.js**: Utilizado en el entorno de desarrollo para un script de validación (`validar_preguntas.js`) que asegura la integridad y corrección del archivo `preguntas.json`.
 
