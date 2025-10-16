@@ -3708,6 +3708,948 @@
       "Marfil / Senegal"
     ],
     "respuestaCorrecta": "Mamba / República Centro Africana"
+  },
+    {
+    "pregunta": "Sobre Juzgados y Tribunales del CGPJ: Señala la incorrecta",
+    "opciones": [
+      "Estará integrado por el Presidente del TS, que lo presidirá, y por 20 miembros nombrados por el Rey por un periodo de 5 años",
+      "El CGPJ es el órgano de gobierno del Poder Judicial.",
+      "Los miembros nombrados han de ser de reconocida competencia y con más de 15 años de ejercicio en su profesión.",
+      "De los 20 miembros nombrados 10 serán a propuesta del Congreso y 10 a propuesta del Senado, elegidos en ambos casos por mayoría de 3/5 de sus miembros"
+    ],
+    "respuestaCorrecta": "De los 20 miembros nombrados 10 serán a propuesta del Congreso y 10 a propuesta del Senado, elegidos en ambos casos por mayoría de 3/5 de sus miembros"
+  },
+  {
+    "pregunta": "(Señale la respuesta correcta). De acuerdo con la Constitución Española y en relación con las Cortes Generales…",
+    "opciones": [
+      "No es posible acumular el acta de la Asamblea de Comunidad Autónoma con la de Diputado al Congreso.",
+      "Los miembros de las Cortes Generales estarán ligados por mandato imperativo.",
+      "Todas las respuestas son correctas.",
+      "Las poblaciones de Ceuta y Melilla estarán representadas cada una de ellas por dos Diputados en el Congreso."
+    ],
+    "respuestaCorrecta": "No es posible acumular el acta de la Asamblea de Comunidad Autónoma con la de Diputado al Congreso."
+  },
+  {
+    "pregunta": "De acuerdo con los principios de la Constitución, la jurisdicción militar se ejercerá… (Señale la respuesta correcta).",
+    "opciones": [
+      "En el ámbito estrictamente castrense y en los supuestos de estado de sitio.",
+      "En el ámbito estrictamente castrense y en los supuestos de estado de excepción y sitio.",
+      "En el ámbito estrictamente castrense y en los supuestos de estado de alarma, excepción y sitio.",
+      "En el ámbito estrictamente castrense y en los supuestos de estado de excepción."
+    ],
+    "respuestaCorrecta": "En el ámbito estrictamente castrense y en los supuestos de estado de sitio."
+  },
+  {
+    "pregunta": "Según lo dispuesto en el artículo 137 de la Constitución Española de 1978, el Estado se organiza territorialmente…",
+    "opciones": [
+      "En municipios, en provincias, en corporaciones y en las Comunidades Autónomas que se constituyan.",
+      "En Administración central y periférica.",
+      "En municipios, en provincias y en las Comunidades Autónomas que se constituyan.",
+      "En administración local, provincial y autonómica."
+    ],
+    "respuestaCorrecta": "En municipios, en provincias y en las Comunidades Autónomas que se constituyan."
+  },
+  {
+    "pregunta": "Según lo dispuesto en el artículo 141 de la Constitución Española de 1978, la provincia es una entidad local con personalidad jurídica propia, y cualquier alteración de los límites provinciales…",
+    "opciones": [
+      "Habrá de ser aprobada por las Cortes Generales mediante ley orgánica.",
+      "Habrá de ser aprobada por el Parlamento Autonómico mediante ley orgánica.",
+      "Habrá de ser aprobada por la Diputación Provincial competente mediante resolución motivado y dirigida a las Cortes Generales.",
+      "Habrá de ser aprobada por el Parlamento Autonómico mediante ley ordinaria."
+    ],
+    "respuestaCorrecta": "Habrá de ser aprobada por las Cortes Generales mediante ley orgánica."
+  },
+  {
+    "pregunta": "De las siguientes opciones, señale la correcta: En el marco de la Ley de Defensa Nacional, corresponde al Presidente del Gobierno...",
+    "opciones": [
+      "Formular la Directiva de Planeamiento Militar.",
+      "Formular la Directiva de Planeamiento de Recursos Humanos.",
+      "Formular la Directiva de Política de Defensa.",
+      "Formular la Directiva de Defensa Nacional."
+    ],
+    "respuestaCorrecta": "Formular la Directiva de Defensa Nacional."
+  },
+  {
+    "pregunta": "A quién corresponde la dirección de la política de defensa y la determinación de sus objetivos, la gestión de las situaciones de crisis que afectan a la defensa y la dirección estratégica delas operaciones militares en caso de usar la fuerza:",
+    "opciones": [
+      "Al Presidente del Gobierno",
+      "Al Rey",
+      "A la persona titular del Ministerio de Defensa",
+      "Al Jefe del Estado Mayor de la Defensa"
+    ],
+    "respuestaCorrecta": "Al Presidente del Gobierno"
+  },
+  {
+    "pregunta": "¿Cuál es la finalidad de la política de Defensa?",
+    "opciones": [
+      "Proteccion del Estado Social y democrático de derecho",
+      "Todas las opciones son correctas",
+      "Proteccion de la Constitucion",
+      "Proteccion del conjunto de la sociedad española"
+    ],
+    "respuestaCorrecta": "Todas las opciones son correctas"
+  },
+  {
+    "pregunta": "Entre las atribuciones conferidas a los Poderes del Estado, corresponde al Rey… Señale la opción incorrecta",
+    "opciones": [
+      "Ejercer el Mando Supremo de las Fuerzas Armadas.",
+      "Dirigir la Administración militar.",
+      "Declarar la guerra y establecer la paz, previa autorización de las Cortes Generales.",
+      "Es el Jefe del Estado, símbolo de su unidad y permanencia."
+    ],
+    "respuestaCorrecta": "Dirigir la Administración militar."
+  },
+  {
+    "pregunta": "Respecto a la delegación de firma",
+    "opciones": [
+      "Para su validez, es necesaria su publicación",
+      "Para su validez, no es necesaria su publicacion",
+      "No será válida si no está aprobada",
+      "A y C son correctas"
+    ],
+    "respuestaCorrecta": "Para su validez, no es necesaria su publicacion"
+  },
+  {
+    "pregunta": "Dónde está adscrito el Instituto Social de las Fuerzas Armadas:",
+    "opciones": [
+      "Dirección General de Infraestructura",
+      "Subsecretaría de Defensa",
+      "Secretaría de Estado de Defensa",
+      "Subdirección General de Régimen Interior"
+    ],
+    "respuestaCorrecta": "Subsecretaría de Defensa"
+  },
+  {
+    "pregunta": "Dónde está adscrito el Arzobispado General Castrense :",
+    "opciones": [
+      "Subsecretaría de Defensa",
+      "Dirección General de Reclutamiento y Enseñanza",
+      "División de Igualdad y Apoyo Social al Personal",
+      "Dirección General de Personal"
+    ],
+    "respuestaCorrecta": "Subsecretaría de Defensa"
+  },
+  {
+    "pregunta": "Son órganos asesores y consultivos del Ministro de Defensa:",
+    "opciones": [
+      "La Junta Superior del Cuerpo Jurídico Militar y la Junta Superior del Cuerpo Militar de Intervención",
+      "El Consejo Superior del Ejército de Tierra, El Consejo Superior de la Armada y El Consejo Superior del Ejército del Aire.",
+      "La Junta Superior del Cuerpo Militar de Sanidad y La Junta Superior del Cuerpo de Músicas Militares.",
+      "Todas las anteriores"
+    ],
+    "respuestaCorrecta": "Todas las anteriores"
+  },
+  {
+    "pregunta": "De la Dirección General de Infraestructura dependen los siguientes órganos directivos:",
+    "opciones": [
+      "Subdirección General de Planificación y Medio Ambiente",
+      "Subdirección General de Planificación, Tecnología e Innovación",
+      "Todas son correctas",
+      "Subdirección General de Contratación"
+    ],
+    "respuestaCorrecta": "Subdirección General de Planificación y Medio Ambiente"
+  },
+  {
+    "pregunta": "Señalar la falsa. Cuál de los siguientes son órganos asesores y consultivos del titular del Ministerio de Defensa:",
+    "opciones": [
+      "Consejo Superior de la Armada",
+      "Consejo Superior del Cuerpo Jurídico Militar",
+      "Consejo superior del ET",
+      "Consejo Superior del Ejército del Aire y del Espacio."
+    ],
+    "respuestaCorrecta": "Consejo Superior del Cuerpo Jurídico Militar"
+  },
+  {
+    "pregunta": "¿A qué órgano le corresponde coordinar las oficinas de comunicación de los cuarteles generales, mandos y unidades de las Fuerzas Armadas?:",
+    "opciones": [
+      "Oficina de Comunicación Institucional y Prensa del Ministerio de Defensa.",
+      "Instituto de Historia y Cultura de las FAS",
+      "Escuela Superior de las FAS",
+      "Instituto Español de Estudios Estratégicos"
+    ],
+    "respuestaCorrecta": "Oficina de Comunicación Institucional y Prensa del Ministerio de Defensa."
+  },
+  {
+    "pregunta": "A propuesta de quién, creará la persona titular del Ministerio de Defensa, las organizaciones operativas permanentes y desarrollará su composición, y funciones y adaptará su misión, dependencia y ámbitos de operación a los cambios del entorno operativo:",
+    "opciones": [
+      "Consejo de Ministros",
+      "JEMAD",
+      "Gobierno",
+      "Comandante del Mando de Operaciones"
+    ],
+    "respuestaCorrecta": "JEMAD"
+  },
+  {
+    "pregunta": "Desde el momento de su nombramiento, corresponde a los Comandantes de las organizaciones operativas en particular:",
+    "opciones": [
+      "Tomar parte a su nivel, en el planeamiento y ejecución de aquellas operaciones en las que participe",
+      "Ejercer el mando de las fuerzas puestas bajo su autoridad de acuerdo con lo establecido en los planes en vigor",
+      "Ostentar en su caso la representación nacional e internacional ante los mandos aliados o multinacionales",
+      "Llevar a cabo la integración de todas las fuerzas estén o no bajo su mando"
+    ],
+    "respuestaCorrecta": "Ejercer el mando de las fuerzas puestas bajo su autoridad de acuerdo con lo establecido en los planes en vigor"
+  },
+  {
+    "pregunta": "El Estado Mayor de la Defensa se articula en un Cuartel General y uno de los siguientes órganos cuál:",
+    "opciones": [
+      "Mando Conjunto de Ciberdefensa",
+      "Centro Superior de Estudios de las FAS",
+      "Centro de Inteligencia de las FAS",
+      "Mando de Operaciones Especiales"
+    ],
+    "respuestaCorrecta": "Centro de Inteligencia de las FAS"
+  },
+  {
+    "pregunta": "Dónde se integrarán los Órganos Nacionales Militares relacionados con Organizaciones Internacionales o Multinacionales:",
+    "opciones": [
+      "Gabinete Técnico del Jefe de Estado Mayor de la Defensa",
+      "Estado Mayor de la Defensa",
+      "Cuartel General del Estado Mayor de la Defensa",
+      "En el Ministerio de Defensa"
+    ],
+    "respuestaCorrecta": "Estado Mayor de la Defensa"
+  },
+  {
+    "pregunta": "El jefe de DIVDEF también actuará como jefe de qué órgano:",
+    "opciones": [
+      "CCDC",
+      "SEAYP",
+      "SECOE",
+      "SCDF"
+    ],
+    "respuestaCorrecta": "CCDC"
+  },
+  {
+    "pregunta": "Señalar la opción falsa respecto del Estado Mayor Conjunto de la Defensa:",
+    "opciones": [
+      "Se estructura en SEGEMACON, DIVPLA, DIVESTRA, DIVDEF, DICOSAN, CENCIED, UVE, SGIC,JESES-CGEMAD",
+      "Apoyará al Jemad en la realización de las acciones necesarias para asegurar la eficacia operativa de las FAS",
+      "Actuará como principal coordinador de las actividades generales del EMAD",
+      "Apoyará y asesorará al Jemad en la definición de la estrategia militar, el planeamiento militar, el desarrollo de la fuerza y la conducción estratégica de las operaciones"
+    ],
+    "respuestaCorrecta": "Se estructura en SEGEMACON, DIVPLA, DIVESTRA, DIVDEF, DICOSAN, CENCIED, UVE, SGIC,JESES-CGEMAD"
+  },
+  {
+    "pregunta": "A quién están directamente subordinados los órganos nacionales militares relacionados con organizaciones internacionales o multinacionales:",
+    "opciones": [
+      "Jemad",
+      "Persona titular de la Subsecretaría de Defensa",
+      "Jeme respectivo",
+      "Persona titular del Ministerio de Defensa"
+    ],
+    "respuestaCorrecta": "Jemad"
+  },
+  {
+    "pregunta": "Respecto de DIVESTRA señalar la falsa:",
+    "opciones": [
+      "Será responsable de los asuntos derivados de la participación del Jemad en el Sistema de Seguridad Nacional",
+      "Planificará la participación española en unidades en el extranjero dependientes del JEMACON",
+      "Será responsable de elaborar, desarrollar y actualizar la estrategia militar y sus planes derivados",
+      "Dirigirá el planeamiento de operativo y su integración en el planeamiento de la defensa dando directrices para la elaboración de los planes operativos"
+    ],
+    "respuestaCorrecta": "Planificará la participación española en unidades en el extranjero dependientes del JEMACON"
+  },
+  {
+    "pregunta": "Cuál de los siguientes constituye el órgano de Control Económico-financiera, la Notaría Militar y el Asesoramiento Económico-fiscal:",
+    "opciones": [
+      "Intervención Delegada del EMAD",
+      "Intervención General de la Defensa",
+      "Estado Mayor Conjunto de la Defensa",
+      "Jefatura de RRHH"
+    ],
+    "respuestaCorrecta": "Intervención Delegada del EMAD"
+  },
+  {
+    "pregunta": "Respecto del Mando de Operaciones señalar la opción incorrecta:",
+    "opciones": [
+      "Ejercerá junto con el EMACON y la JAE la coordinación en la administración de los recursos destinados a financiar la participación de las FAS en operaciones de paz y ayuda humanitaria asignados al EAMD",
+      "Asesorará al Jemad en el planeamiento y conducción estratégica de las operaciones",
+      "Coordinará las necesidades de apoyo meteorológico de las FAS, incluyendo los que se deriven de la integración de España en las OISD",
+      "Será responsable de la dirección del sostenimiento de las operaciones militares de carácter permanente"
+    ],
+    "respuestaCorrecta": "Será responsable de la dirección del sostenimiento de las operaciones militares de carácter permanente"
+  },
+  {
+    "pregunta": "Directamente subordinadas al Jemad, se encuentran las organizaciones operativas permanentes para el desarrollo de las operaciones que las FAS tienen activadas continuamente. Entre las que se encuentran:",
+    "opciones": [
+      "Mando Operativo Terrestre",
+      "Mando Operativo Aeroespacial",
+      "Todas son correctas",
+      "Mando Operativo Marítimo"
+    ],
+    "respuestaCorrecta": "Todas son correctas"
+  },
+  {
+    "pregunta": "De las funciones del Gobierno, señale la opción falsa:",
+    "opciones": [
+      "Desarrollar los criterios generales de promoción y ascenso establecidos en esta ley.",
+      "Ejercer las demás competencias que se le atribuyen en esta ley y en el resto del ordenamiento jurídico.",
+      "Desarrollar la programación plurianual de provisión de plazas y las provisiones anuales.",
+      "Dirigir el planeamiento de la defensa, del que se deducirán las necesidades de personal militar."
+    ],
+    "respuestaCorrecta": "Desarrollar la programación plurianual de provisión de plazas y las provisiones anuales."
+  },
+  {
+    "pregunta": "El ascenso al empleo de capitán o teniente de navío se efectuará siguiendo el sistema de:",
+    "opciones": [
+      "Antigüedad",
+      "Mérito y capacidad",
+      "Concurso de méritos",
+      "Selección"
+    ],
+    "respuestaCorrecta": "Antigüedad"
+  },
+  {
+    "pregunta": "La Ley de la Carrera Militar trata el desarrollo de la carrera militar del Príncipe de Asturias, el cual podrá tener diferentes empleos militares, a lo cuales ascenderá mediante... (Señale la respuesta correcta).",
+    "opciones": [
+      "Clasificación.",
+      "Libre designación.",
+      "Real Decreto.",
+      "Elección."
+    ],
+    "respuestaCorrecta": "Real Decreto."
+  },
+  {
+    "pregunta": "¿A qué cuerpo de los siguientes le corresponde el cometido de asesoramiento en materia económico-financiera?",
+    "opciones": [
+      "Al Cuerpo Jurídico Militar.",
+      "Al Cuerpo de Intendencia del Ejército de Tierra.",
+      "Al Cuerpo de Especialistas del Ejército de Tierra.",
+      "Al Cuerpo Militar de Intervención."
+    ],
+    "respuestaCorrecta": "Al Cuerpo de Intendencia del Ejército de Tierra."
+  },
+  {
+    "pregunta": "De las categorías militares, ¿cual de ellas constituye el eslabón fundamental en la estructura orgánica y operativa de las Fuerzas Armadas?",
+    "opciones": [
+      "Los suboficiales",
+      "Los militares de Tropa y Marinería",
+      "Los Oficiales",
+      "Los Oficiales Generales"
+    ],
+    "respuestaCorrecta": "Los suboficiales"
+  },
+  {
+    "pregunta": "En las competencias en materia de personal militar, al Gobierno le corresponde:",
+    "opciones": [
+      "Dirigir las demás competencias que se le atribuyen en esta ley y en el resto del ordenamiento jurídico",
+      "Dirigir la programación plurianual de provisión de plazas y las provisiones anuales.",
+      "Desarrollar los criterios generales de promoción y ascenso establecidos en esta ley",
+      "Aprobar el planeamiento de la defensa, del que se deducirán las necesidades de personal militar"
+    ],
+    "respuestaCorrecta": "Desarrollar los criterios generales de promoción y ascenso establecidos en esta ley"
+  },
+  {
+    "pregunta": "¿Cuál es el factor de cohesión que obliga a mandar con responsabilidad y a obedecer lo mandado?",
+    "opciones": [
+      "La unidad",
+      "La eficacia",
+      "La jerarquía",
+      "La disciplina"
+    ],
+    "respuestaCorrecta": "La disciplina"
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes no es un principio con el que tiene que actuar el militar como servidor público?",
+    "opciones": [
+      "Objetividad",
+      "Parcialidad",
+      "Confidencialidad",
+      "Integridad"
+    ],
+    "respuestaCorrecta": "Parcialidad"
+  },
+  {
+    "pregunta": "Los principios éticos y las reglas de comportamiento que definen las RROO, lo hacer de acuerdo con… Señale la correcta",
+    "opciones": [
+      "La Legislación general y la normativa militar",
+      "La Constitución y la legislación general",
+      "La Constitución y el resto del ordenamiento jurídico",
+      "La Constitución"
+    ],
+    "respuestaCorrecta": "La Constitución y el resto del ordenamiento jurídico"
+  },
+  {
+    "pregunta": "¿Cuándo fueran dictadas las Ordenanzas de Carlos III?",
+    "opciones": [
+      "1768",
+      "1769",
+      "1748",
+      "1793"
+    ],
+    "respuestaCorrecta": "1768"
+  },
+  {
+    "pregunta": "¿cuándo serán informados los militares por sus mandos de los fines, organización y funcionamiento de la unidad? .",
+    "opciones": [
+      "Antes de ingresar en las Fuerzas Armadas",
+      "Ninguna de las anteriores",
+      "Al incorporarse a las Fuerzas Armadas",
+      "Después de prestar juramento o promesa a la Bandera"
+    ],
+    "respuestaCorrecta": "Ninguna de las anteriores"
+  },
+  {
+    "pregunta": "¿Qué porcentaje de afiliados deberá tener una asociación de militares de tropa y marinería para estar representada en el Consejo de Personal de las Fuerzas Armadas?",
+    "opciones": [
+      "Ninguna de las anteriores",
+      "1%",
+      "1,5 %",
+      "3%"
+    ],
+    "respuestaCorrecta": "1,5 %"
+  },
+  {
+    "pregunta": "Los militares estarán en disponibilidad permanente para el servicio. Las exigencias de esa disponibilidad se adaptarán a:",
+    "opciones": [
+      "las características del destino",
+      "ninguna es correcta",
+      "la disponibilidad horaria",
+      "las circunstancias personales"
+    ],
+    "respuestaCorrecta": "las características del destino"
+  },
+  {
+    "pregunta": "El registro personal de los militares, de sus taquillas, efectos y pertenencias que estuvieren en la unidad requerirá, como norma general… (Señale la respuesta incorrecta).",
+    "opciones": [
+      "El jefe de la unidad podrá autorizar el registro en caso de que haya razones fundadas de salud pública.",
+      "El jefe de la unidad podrá autorizar el registro en caso de que haya indicios de la comisión de un hecho delictivo.",
+      "Resolución judicial.",
+      "El consentimiento del afectado en cualquier caso."
+    ],
+    "respuestaCorrecta": "El consentimiento del afectado en cualquier caso."
+  },
+  {
+    "pregunta": "¿Qué norma regula el Derecho de los militares a crear asociaciones y asociarse libremente para la consecución de fines lícitos?",
+    "opciones": [
+      "La Ley Orgánica 1/2002, reguladora del Derecho de asociación.",
+      "La Ley Orgánica 5/2005, de la Defensa Nacional.",
+      "La Ley Orgánica 9/2011, de derechos y deberes de los miembros de las Fuerzas Armadas.",
+      "La Ley Orgánica 39/2007, de la Carrera Militar."
+    ],
+    "respuestaCorrecta": "La Ley Orgánica 1/2002, reguladora del Derecho de asociación."
+  },
+  {
+    "pregunta": "Los miembros de las Fuerzas Armadas, podrán presentar sus quejas siguiendo el conducto regular y haciéndolo… (Señale la respuesta correcta).",
+    "opciones": [
+      "De buen modo, verbalmente o por escrito.",
+      "Todas las respuestas son correctas.",
+      "De buen modo, siempre por escrito.",
+      "De buen modo, siempre verbalmente."
+    ],
+    "respuestaCorrecta": "De buen modo, verbalmente o por escrito."
+  },
+  {
+    "pregunta": "Las iniciativas y quejas reguladas por el Real Decreto 176/2014, no podrán referirse a materias relacionadas con… (Señale la respuesta incorrecta).",
+    "opciones": [
+      "Las decisiones de política de seguridad y defensa.",
+      "La tramitación y resolución de los procedimientos administrativos o jurisdiccionales.",
+      "El planeamiento y conducción de las operaciones militares.",
+      "El régimen de personal."
+    ],
+    "respuestaCorrecta": "El régimen de personal."
+  },
+  {
+    "pregunta": "En el contexto del RD 176/2014 ¿Cuál será el plazo para adoptar un acuerdo sobre una iniciativa recibida?",
+    "opciones": [
+      "Tres meses.",
+      "Un mes.",
+      "Doce meses.",
+      "Seis meses."
+    ],
+    "respuestaCorrecta": "Seis meses."
+  },
+  {
+    "pregunta": "¿Cómo se denomina al derecho que tiene el militar de plantear actuaciones relativas al régimen de personal y relativas a las condiciones de vida, siempre que afecte a los miembros de su categoría?",
+    "opciones": [
+      "Iniciativa o propuesta.",
+      "Queja.",
+      "Proposición.",
+      "Reclamación."
+    ],
+    "respuestaCorrecta": "Iniciativa o propuesta."
+  },
+  {
+    "pregunta": "El principio de igualdad de trato entre mujeres y hombres informará con carácter transversal… (Señale la respuesta correcta).",
+    "opciones": [
+      "Solamente informará a la normativa aprobada por la Administración de los Gobiernos Locales.",
+      "Solamente informará a la normativa aprobada por las Administraciones de las Comunidades Autónomas.",
+      "Solamente informará a la normativa aprobada por la Administración General del Estado.",
+      "Siempre informará la actuación de todos los Poderes Públicos."
+    ],
+    "respuestaCorrecta": "Siempre informará la actuación de todos los Poderes Públicos."
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes principios no forma parte del Protocolo de actuación frente al acoso sexual y al acoso por razón de sexo?",
+    "opciones": [
+      "El tratamiento reservado de las denuncias de hechos que no pudieran ser constitutivos de acoso sexual o de acoso por razón de sexo, con perjuicio de lo establecido en la normativa de régimen disciplinario.",
+      "El compromiso de la Administración General del Estado y de los organismos públicos vinculados o dependientes de ella de prevenir y no tolerar el acoso sexual y el acoso por razón de sexo.",
+      "La instrucción a todo el personal de su deber de respetar la dignidad de las personas y su derecho a la intimidad, así como la igualdad de trato entre mujeres y hombres.",
+      "La identificación de las personas responsables de atender a quienes formulen una queja o denuncia."
+    ],
+    "respuestaCorrecta": "El tratamiento reservado de las denuncias de hechos que no pudieran ser constitutivos de acoso sexual o de acoso por razón de sexo, con perjuicio de lo establecido en la normativa de régimen disciplinario."
+  },
+  {
+    "pregunta": "¿Qué significan las siglas GED?",
+    "opciones": [
+      "Enfoque de Genero en Desarrollo",
+      "Estrategia de desarrollo de géneros",
+      "Desarrollo ecuánime de géneros",
+      "Estrategia global de desarrollo"
+    ],
+    "respuestaCorrecta": "Enfoque de Genero en Desarrollo"
+  },
+  {
+    "pregunta": "En apoyo a la División de Igualdad y Apoyo al Personal del Ministerio de Defensa ¿Quién velará por la composición equilibrada entre hombres y mujeres en los tribunales de acceso a los diferentes cuerpos y escalas militares?",
+    "opciones": [
+      "La Secretaría Permanente de Igualdad.",
+      "La Dirección General de Reclutamiento y Enseñanza Militar.",
+      "Las Unidades de Protección frente al Acoso.",
+      "Los propios tribunales de acceso."
+    ],
+    "respuestaCorrecta": "La Secretaría Permanente de Igualdad."
+  },
+  {
+    "pregunta": "De la UPA, señale la opción incorrecta:",
+    "opciones": [
+      "Existirá una UPA independiente de la Subirección General de Personal para los militares destinados en el órgano central",
+      "Para el personal dependiente del Jefe de Estado Mayor de la Defensa existirá una UPA que dependerá de la Jefatura de Recursos Humanos.",
+      "Es un órgano ajeno a la cadena orgánica de mando",
+      "Se crea con el fin de garantizar la prevención y eliminación del acoso sexual y del acoso por razón de sexo"
+    ],
+    "respuestaCorrecta": "Existirá una UPA independiente de la Subirección General de Personal para los militares destinados en el órgano central"
+  },
+  {
+    "pregunta": "¿A quién esta adscrito el Observatorio militar para la igualdad entre mujeres y hombres en las Fuerzas Armadas?",
+    "opciones": [
+      "A la Secretaría General Técnica del Ministerio de Defensa.",
+      "A la Dirección General de Reclutamiento y Enseñanza Militar.",
+      "A la Subsecretaría de Defensa.",
+      "A la Dirección General de Personal."
+    ],
+    "respuestaCorrecta": "A la Subsecretaría de Defensa."
+  },
+  {
+    "pregunta": "¿Quién eleborara el manual de buenas practicas para el mando en materia de protección frente al acoso?",
+    "opciones": [
+      "La SEGENPOL",
+      "La UPA",
+      "Ninguna es correcta",
+      "El observatorio militar de igualdad"
+    ],
+    "respuestaCorrecta": "El observatorio militar de igualdad"
+  },
+  {
+    "pregunta": "¿Cómo funciona el observatorio militar para la igualdad?",
+    "opciones": [
+      "En pleno, comisiones y delegaciones",
+      "En pleno",
+      "En pleno o por comisiones",
+      "En pleno o por comisiones técnicas"
+    ],
+    "respuestaCorrecta": "En pleno o por comisiones técnicas"
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes afirmaciones no es una función del Observatorio Militar para la Igualdad?",
+    "opciones": [
+      "Analizar, debatir y, en su caso, realizar propuestas para mejorar la incidencia que las actividades relacionadas con el desarrollo de la carrera militar tienen sobre la igualdad efectiva y real entre mujeres y hombres, así como sobre la conciliación de la vida personal, familiar y laboral.",
+      "Conocer, cuando se considere necesario, las Memorias del análisis de impacto normativo de las medidas que se establezcan en los anteproyectos y proyectos dispositivos del Ministerio de Defensa y cualquier otra que guarde relación con el objeto de este órgano",
+      "El Observatorio Militar para la Igualdad actúa en Pleno o en las Comisiones técnicas que se constituyan. El Pleno acordará la creación de cuantas Comisiones técnicas estime oportunas, que se constituirán previa aprobación de la mayoría de sus miembros. Cada Comisión tendrá un mínimo de 5 miembros.",
+      "Analizar la información estadística sobre la mujer en las Fuerzas Armadas, especialmente la comparativa con el hombre en relación con las medidas de conciliación y la Unidad de destino."
+    ],
+    "respuestaCorrecta": "El Observatorio Militar para la Igualdad actúa en Pleno o en las Comisiones técnicas que se constituyan. El Pleno acordará la creación de cuantas Comisiones técnicas estime oportunas, que se constituirán previa aprobación de la mayoría de sus miembros. Cada Comisión tendrá un mínimo de 5 miembros."
+  },
+  {
+    "pregunta": "Salvo disposición expresa en contra los informes serán:",
+    "opciones": [
+      "vinculantes",
+      "voluntarios",
+      "restrictivos",
+      "facultativos"
+    ],
+    "respuestaCorrecta": "facultativos"
+  },
+  {
+    "pregunta": "¿En que casos los actos de las Administraciones Públicas son nulos de pleno derecho?",
+    "opciones": [
+      "Los que sean no constitutivos de infracción penal o se dicten como consecuencia de ésta",
+      "Los dictados por órgano manifiestamente competente por razón de la materia y del territorio",
+      "Los dictados por órgano manifiestamente competente por razón de la materia o del territorio",
+      "Los actos expresos o presuntos contrarios al ordenamiento jurídico por los que se adquieren facultades o derechos cuando se carezca de los requisitos esenciales para su adquisición"
+    ],
+    "respuestaCorrecta": "Los actos expresos o presuntos contrarios al ordenamiento jurídico por los que se adquieren facultades o derechos cuando se carezca de los requisitos esenciales para su adquisición"
+  },
+  {
+    "pregunta": "¿Qué artículo de la Ley 39/2015 define el ámbito subjetivo de aplicación?",
+    "opciones": [
+      "Artículo 7.",
+      "Artículo 1.",
+      "Artículo 2.",
+      "Artículo 5."
+    ],
+    "respuestaCorrecta": "Artículo 2."
+  },
+  {
+    "pregunta": "Las Administraciones Públicas harán público un Plan Normativo que contendrá las iniciativas legales o reglamentarias que vayan a ser elevadas para su aprobación en el año siguiente:",
+    "opciones": [
+      "Trimestralmente",
+      "Semanalmente",
+      "Anualmente",
+      "Mensualmente"
+    ],
+    "respuestaCorrecta": "Anualmente"
+  },
+  {
+    "pregunta": "Un procedimiento se iniciará de oficio por acuerdo del órgano competente",
+    "opciones": [
+      "A petición razonada de otros órganos",
+      "Por denuncia",
+      "Bien por iniciativa propia",
+      "Todas las opciones planteadas son correctas"
+    ],
+    "respuestaCorrecta": "Todas las opciones planteadas son correctas"
+  },
+  {
+    "pregunta": "La Estrategia de Seguridad Nacional establece tres ejes estratégicos sobre los que se articulan las Líneas de Acción (L.A) de la Política de Seguridad Nacional. Cuáles son esos ejes:",
+    "opciones": [
+      "Todas son correctas",
+      "Una España que protege la vida de las personas y sus derechos y libertades, así como el orden constitucional",
+      "Una España que participa en la preservación de la paz y la seguridad internacional y defiende sus intereses estratégicos",
+      "Una España que promueve la prosperidad y el bienestar de los ciudadanos"
+    ],
+    "respuestaCorrecta": "Todas son correctas"
+  },
+  {
+    "pregunta": "Cuántos objetivos establece la Estrategia de Seguridad Nacional :",
+    "opciones": [
+      "Cinco",
+      "Tres",
+      "Cuatro",
+      "Dos"
+    ],
+    "respuestaCorrecta": "Tres"
+  },
+  {
+    "pregunta": "El capítulo 4 de la Estrategia de Seguridad Nacional, establece los objetivos de la Estrategia y desarrolla un planeamiento integrado para la Política de Seguridad Nacional con una estructura diseñada con tres ejes estratégicos. Cuál no es uno de esos ejes:",
+    "opciones": [
+      "Participar",
+      "Proteger",
+      "Promover",
+      "Fomentar"
+    ],
+    "respuestaCorrecta": "Fomentar"
+  },
+  {
+    "pregunta": "Señalar la falsa. El capítulo cuatro de la Estrategia de la Seguridad Nacional, establece los objetivos de la Estrategia y desarrolla un planeamiento integrado para la política de Seguridad Nacional, con una estructura diseñada con tres ejes estratégicos que son:",
+    "opciones": [
+      "Proteger",
+      "Promover",
+      "Prevenir",
+      "Participar"
+    ],
+    "respuestaCorrecta": "Prevenir"
+  },
+  {
+    "pregunta": "La Estrategia de Seguridad Nacional 2021, establece tres objetivos, siendo el primero de ellos:",
+    "opciones": [
+      "Desarrollar la capacidad de prevención, disuasión, detección y respuesta de España frente a estrategias híbridas",
+      "Ninguna es correcta",
+      "Avanzar en el modelo de gestión de crisis",
+      "Favorecer la dimensión de seguridad de las capacidades tecnológicas y de los sectores estratégicos"
+    ],
+    "respuestaCorrecta": "Avanzar en el modelo de gestión de crisis"
+  },
+  {
+    "pregunta": "La cultura de Seguridad Nacional es un complemento importante para el desarrollo y consolidación de la política de Seguridad Nacional, ya que la concienciación social contribuye a fortalecer la resiliencia de la sociedad y del Estado. Para ello es necesario implementar las acciones incluidas en el Plan Integral de Cultura de Seguridad Nacional, a través de la colaboración de las Administraciones Públicas, el sector privado y la sociedad civil, en cuatro ámbitos de actuación. Cuál no es uno de esos ámbitos:",
+    "opciones": [
+      "Sensibilización",
+      "Comunicación pública y divulgación",
+      "Relevancia exterior",
+      "Formación"
+    ],
+    "respuestaCorrecta": "Sensibilización"
+  },
+  {
+    "pregunta": "PDC-01 (B). (SEÑALA LA RESPUESTA CORRECTA). La Doctrina para el Empleo de las FAS clasifica las acciones tácticas militares en cinco categorías, entre las que se encuentran...",
+    "opciones": [
+      "Las acciones estratégicas.",
+      "Las acciones de contribución.",
+      "Las acciones operativas.",
+      "Las acciones diplomáticas."
+    ],
+    "respuestaCorrecta": "Las acciones de contribución."
+  },
+  {
+    "pregunta": "PDC-01 (B). En el marco de la Doctrina para el Empleo de las FAS, se resaltan unos determinados riesgos y amenazas, entre los cuales se encuentran los siguientes… (Señale la opción incorrecta).",
+    "opciones": [
+      "La manipulación de la información.",
+      "Las tensiones estratégicas y regionales.",
+      "El crimen organizado.",
+      "Los tráficos ilegales y la corrupción."
+    ],
+    "respuestaCorrecta": "El crimen organizado."
+  },
+  {
+    "pregunta": "PDC-01 (B). (SEÑALA LA RESPUESTA FALSA). Entre los potenciales adversarios que puede tener el Estado español, según viene recogido en la Doctrina para el Empleo de las Fuerzas Armadas, se encuentran los siguientes:",
+    "opciones": [
+      "Organizaciones terroristas transnacionales.",
+      "Organizaciones criminales.",
+      "Grupos hacktivistas e \"insiders\".",
+      "Organizaciones fascistas."
+    ],
+    "respuestaCorrecta": "Organizaciones fascistas."
+  },
+  {
+    "pregunta": "PDC-01 (B). Entre los intereses nacionales de seguridad, el suministro energético y de recursos básicos para la subsistencia de la población está considerado un interés nacional de tipo...",
+    "opciones": [
+      "Primario.",
+      "Estratégico.",
+      "Fundamental.",
+      "Vital."
+    ],
+    "respuestaCorrecta": "Estratégico."
+  },
+  {
+    "pregunta": "Dentro de la tipología de adversarios, definidos en la Doctrina para el empleo de las Fuerzas Armadas (PDC-01 (B)), aquellos adversarios que actúan por delegación de denominan...",
+    "opciones": [
+      "Dáesh.",
+      "Proxies.",
+      "Estados insurgentes.",
+      "Actores no-estatales."
+    ],
+    "respuestaCorrecta": "Proxies."
+  },
+  {
+    "pregunta": "PDC-01 (B). Entre los diferentes instrumentos de poder de una nación para afrontar un conflicto ¿Cuál de ellos sustenta el proceso de comprensión de la situación y reduce el umbral de incertidumbre en la toma de decisiones?",
+    "opciones": [
+      "El instrumento de la información.",
+      "El instrumento diplomático.",
+      "La capacidad social.",
+      "La capacidad de inteligencia."
+    ],
+    "respuestaCorrecta": "El instrumento de la información."
+  },
+  {
+    "pregunta": "En la actualidad las Naciones Unidas cuentan con cuántos Estados miembros:",
+    "opciones": [
+      "193",
+      "29",
+      "156",
+      "27"
+    ],
+    "respuestaCorrecta": "193"
+  },
+  {
+    "pregunta": "El órgano normativo y deliberativo de las Naciones Unidas es:",
+    "opciones": [
+      "el consejo económico y social",
+      "el Consejo de seguridad",
+      "la Asamblea general",
+      "secretaría de la ONU"
+    ],
+    "respuestaCorrecta": "la Asamblea general"
+  },
+  {
+    "pregunta": "La Corte Internacional de Justicia es el órgano judicial principal de las Naciones Unidas y su sede se encuentra en:",
+    "opciones": [
+      "La Haya",
+      "Bruselas",
+      "Estrasburgo",
+      "Luxemburgo"
+    ],
+    "respuestaCorrecta": "La Haya"
+  },
+  {
+    "pregunta": "La Carta de las Naciones Unidas ha sufrido diferentes enmiendas en su articulado, entre las que cabe destacar, la enmienda del artículo 23 que hace referencia a:",
+    "opciones": [
+      "ninguna de las anteriores",
+      "las decisiones relativas a las cuestiones de procedimiento serán tomadas por el voto afirmativo de nueve miembros incluídos los 5 miembros permanentes",
+      "incremento del número de miembros del consejo de seguridad de 11 a 15",
+      "reducir el número de miembros del consejo económico y social de 65 a 54"
+    ],
+    "respuestaCorrecta": "incremento del número de miembros del consejo de seguridad de 11 a 15"
+  },
+  {
+    "pregunta": "¿Cual es la autoridad militar superior de la Organización del Tratado Atlántico Norte?",
+    "opciones": [
+      "El Comité Militar.",
+      "El Estado Mayor Internacional.",
+      "El Mando Aliado de Transformación",
+      "El Mando Aliado de Operaciones."
+    ],
+    "respuestaCorrecta": "El Comité Militar."
+  },
+  {
+    "pregunta": "¿En que año sucede el Consejo de Asociación Euroatlántico a la NACC?",
+    "opciones": [
+      "1997",
+      "1995",
+      "1994",
+      "1990"
+    ],
+    "respuestaCorrecta": "1997"
+  },
+  {
+    "pregunta": "Entre las contribuciones que España aporta a la OTAN se encuentrán las siguientes... (Señale la respuesta incorrecta).",
+    "opciones": [
+      "Base Aérea de los Llanos (Albacete).",
+      "Centro Combinados de Operaciones Aéreas (CAOC), de Torrejón de Ardoz.",
+      "Centro Internacional de Desminado de la Academía de Ingenieros.",
+      "Base Naval de Rota (Cádiz)."
+    ],
+    "respuestaCorrecta": "Centro Internacional de Desminado de la Academía de Ingenieros."
+  },
+  {
+    "pregunta": "¿Qué países entraron en la OTAN en el año 2009?",
+    "opciones": [
+      "Ucrania y Eslovaquia",
+      "Letonia y Lituania",
+      "Bulgaria y Rumania",
+      "Albania y Croacia"
+    ],
+    "respuestaCorrecta": "Albania y Croacia"
+  },
+  {
+    "pregunta": "¿Cuándo se firma el Tratado de Dunquerque?",
+    "opciones": [
+      "El 5 de mayo de 1947",
+      "El 6 de mayo de 1947",
+      "El 7 de mayo de 1947",
+      "El 9 de mayo de 1947"
+    ],
+    "respuestaCorrecta": "El 9 de mayo de 1947"
+  },
+  {
+    "pregunta": "Entre los países que España puede sobrevolar en el marco del Tratado de Cielos Abiertos de la OSCE, se encuentra el siguiente... (Señale la respuesta correcta).",
+    "opciones": [
+      "Holanda.",
+      "Georgia.",
+      "Bélgica.",
+      "Portugal."
+    ],
+    "respuestaCorrecta": "Georgia."
+  },
+  {
+    "pregunta": "La CSCE celebró una Cumbre de Jefes de Estado y Gobierno en 1992, con un cierto simbolismo histórico. ¿En qué ciudad europea?",
+    "opciones": [
+      "Reykiavik",
+      "Helsinki",
+      "Oslo",
+      "Madrid"
+    ],
+    "respuestaCorrecta": "Helsinki"
+  },
+  {
+    "pregunta": "En 1996, en la cumbre de Lisboa, se aprueban medidas principales. En el Tratado FACE, ¿Sobre que tipo de armas se reducen en Europa?",
+    "opciones": [
+      "Armas Químicas",
+      "Fuerzas Navales",
+      "Armas Convencionales",
+      "Todas son correctas"
+    ],
+    "respuestaCorrecta": "Armas Convencionales"
+  },
+  {
+    "pregunta": "¿Cual de los siguientes “cestos” o “Dimensiones” no forma parte en los que se abordo la seguridad europea?",
+    "opciones": [
+      "la económico-social",
+      "la político-militar",
+      "la humanitaria",
+      "la económico-ecológica"
+    ],
+    "respuestaCorrecta": "la económico-social"
+  },
+  {
+    "pregunta": "¿Qué se firma el 17 de Febrero de 1986?",
+    "opciones": [
+      "La entrada de España en la CEE",
+      "El acta Unica Europea",
+      "El mercado único",
+      "La supresión de fronteras"
+    ],
+    "respuestaCorrecta": "El acta Unica Europea"
+  },
+  {
+    "pregunta": "¿Qué acuerdo suscribió España en junio de 1991 para fomentar una \"Europa sin Fronteras\"?",
+    "opciones": [
+      "El Tratado de Maastricht",
+      "El Mecanismo de Cambios del Sistema Monetario Europeo",
+      "El Acuerdo de Schengen",
+      "La creación del Euro"
+    ],
+    "respuestaCorrecta": "El Acuerdo de Schengen"
+  },
+  {
+    "pregunta": "¿Qué agencia de la UE es responsable de garantizar la protección de datos personales?",
+    "opciones": [
+      "La Escuela Europea de Seguridad y Defensa",
+      "El Supervisor Europeo de Protección de Datos",
+      "El Comité de las Regiones",
+      "El Banco Europeo de Inversiones"
+    ],
+    "respuestaCorrecta": "El Supervisor Europeo de Protección de Datos"
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes funciones no le corresponde al Banco Central Europeo?",
+    "opciones": [
+      "Comprobar que los fondos de la UE se perciben y se utilizan correctamente",
+      "Gestiona el Euro",
+      "Lleva adelante la política económica y monetaria de la UE",
+      "Mantiene la estabilidad de los precios"
+    ],
+    "respuestaCorrecta": "Comprobar que los fondos de la UE se perciben y se utilizan correctamente"
+  },
+  {
+    "pregunta": "¿Cada cuantos años se elige el parlamento europeo?",
+    "opciones": [
+      "Cada 4 años",
+      "Cada 5 años",
+      "Cada 2 años",
+      "Cada 10 años"
+    ],
+    "respuestaCorrecta": "Cada 5 años"
+  },
+  {
+    "pregunta": "Misiones. ¿En cuál de las siguientes zonas geográficas se llevo a cabo las “Misión de Entrenamiento de la Unión Europea – EUTM”?",
+    "opciones": [
+      "En el Mediterráneo.",
+      "En África.",
+      "En la antigua ex-Yugoslavia.",
+      "En el Golfo de Adén."
+    ],
+    "respuestaCorrecta": "En África."
+  },
+  {
+    "pregunta": "¿A qué operación daba apoyo el Destacamento Aero Táctico “Grappa”?",
+    "opciones": [
+      "Operación Sophia.",
+      "Operación Atalanta.",
+      "Operación EUTM MALI.",
+      "Operación EUTM República Centroafricana."
+    ],
+    "respuestaCorrecta": "Operación Sophia."
+  },
+  {
+    "pregunta": "¿Qué medios ha desplegado España en la Misión “Presencia Avanzada Reforzada”?",
+    "opciones": [
+      "Fragatas de la Armada.",
+      "Un submarino apoyado por un Buque de Asalto Anfibio, ambos de la Armada.",
+      "Carros de Combate del Ejército de Tierra.",
+      "Una batería Patriot del Ejército de Tierra."
+    ],
+    "respuestaCorrecta": "Carros de Combate del Ejército de Tierra."
+  },
+  {
+    "pregunta": "La Unidad de helicópteros Española (ISPUHEL) de las Fuerzas Aeromóviles del Ejército de Tierra desplegó en Irak en la localidad de...",
+    "opciones": [
+      "Kabul.",
+      "Herat.",
+      "Qala-i-Naw.",
+      "Taji."
+    ],
+    "respuestaCorrecta": "Taji."
   }
 ]
+
+
 

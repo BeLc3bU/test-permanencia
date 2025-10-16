@@ -1,4 +1,4 @@
-const CACHE_NAME = 'test-permanencia-v9'; // Versión actualizada para reflejar los nuevos archivos cacheados.
+const CACHE_NAME = 'test-permanencia-v10'; // Nueva versión para forzar la actualización.
 // Lista de archivos para cachear en la instalación.
 const urlsToCache = [
   '.', // Representa la raíz del directorio actual
@@ -18,10 +18,21 @@ const urlsToCache = [
 
 // Evento 'install': se dispara cuando el service worker se instala.
 self.addEventListener('install', event => {
+  console.log('Instalando nuevo Service Worker...');
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(urlsToCache))
-      // Ya no llamamos a self.skipWaiting() aquí para dar control al usuario.
+      .then(cache => {
+        console.log('Caché abierta. Cacheando archivos de la aplicación...');
+        // Estrategia de actualización proactiva para los archivos de preguntas.
+        // Se intentan obtener de la red y si falla, no se cachean en la instalación.
+        const questionFiles = [
+          'preguntas.json',
+          'preguntas_imprescindibles.json',
+          'examen_2022.json',
+          'examen_2024.json'
+        ].map(url => fetch(new Request(url, { cache: 'reload' }))); // 'reload' para asegurar que se va a la red.
+        return Promise.all([...urlsToCache.map(url => cache.add(url)), ...questionFiles.map(req => req.then(res => cache.put(res.url, res)))]);
+      })
   );
 });
 
@@ -47,53 +58,28 @@ self.addEventListener('activate', event => {
 
 // Evento 'fetch': se dispara cada vez que la página pide un recurso (CSS, JS, imagen, etc.).
 self.addEventListener('fetch', event => {
-    const url = new URL(event.request.url);
-
-    // Estrategia "Network First" para preguntas.json
-    if (url.pathname.endsWith('.json')) {
-        event.respondWith(
-            caches.open(CACHE_NAME).then(cache => {
-                return fetch(event.request)
-                    .then(networkResponse => {
-                        // Si la petición a la red tiene éxito, actualizamos la caché
-                        // Solo cacheamos peticiones GET válidas con protocolo http/https
-                        if (event.request.method === 'GET' && networkResponse.status === 200 && url.protocol.startsWith('http')) {
-                            cache.put(event.request, networkResponse.clone());
-                        }
-                        return networkResponse;
-                    })
-                    .catch(() => {
-                        // Si la red falla, solo intentamos devolver desde la caché si es una petición GET.
-                        if (event.request.method === 'GET') {
-                            return cache.match(event.request);
-                        }
-                        // Para otros métodos (POST, etc.), simplemente dejamos que el fallo de red ocurra.
-                    });
-            })
-        );
-    } else {
-        // Estrategia "Cache First" para el resto de los archivos
-        event.respondWith(
-            caches.match(event.request).then(response => {
-                // Si está en caché, lo devolvemos. Si no, vamos a la red.
-                return response || fetch(event.request).then(networkResponse => {
-                    // Opcional: Cachear nuevos recursos que no estaban en la lista inicial
-                    // Esto es útil si añades nuevas imágenes o archivos sin actualizar el SW
-                    return caches.open(CACHE_NAME).then(cache => {
-                    // Solo cacheamos peticiones GET exitosas y válidas con protocolo http/https
-                    if (event.request.method === 'GET' && networkResponse.status === 200 && url.protocol.startsWith('http')) {
-                           cache.put(event.request, networkResponse.clone());
-                        }
-                        return networkResponse;
-                    });
-                });
-            }).catch(error => {
-                // En caso de que falle la red y el recurso no esté en caché,
-                // se puede devolver una página de fallback o simplemente dejar que el error ocurra.
-                console.error('Fetch fallido; ni en caché ni en red:', error);
-            })
-        );
-    }
+  // Estrategia "Cache First" para todos los recursos.
+  // La actualización de los archivos de preguntas se maneja en 'install' y 'periodicsync'.
+  // Esto hace que la carga de la app sea instantánea cuando está offline.
+  event.respondWith(
+    caches.match(event.request).then(response => {
+      // Si está en caché, lo devolvemos. Si no, vamos a la red.
+      return response || fetch(event.request).then(networkResponse => {
+        // Opcional: Cachear nuevos recursos que no estaban en la lista inicial
+        return caches.open(CACHE_NAME).then(cache => {
+          const url = new URL(event.request.url);
+          // Solo cacheamos peticiones GET exitosas y válidas con protocolo http/https
+          if (event.request.method === 'GET' && networkResponse.status === 200 && url.protocol.startsWith('http')) {
+            cache.put(event.request, networkResponse.clone());
+          }
+          return networkResponse;
+        });
+      });
+    }).catch(error => {
+      console.error('Fetch fallido; ni en caché ni en red:', error);
+      // Aquí se podría devolver una página de fallback si se desea.
+    })
+  );
 });
 
 // Evento 'message': escucha mensajes desde el cliente (la página web).
