@@ -50,6 +50,12 @@ try {
                 preguntasUnicasMap.set(clave, p);
             }
         }
+        // Añadir 'imprescindible: true' si el nombre del archivo lo indica
+        if (nombreArchivo.includes('imprescindibles')) {
+            if (p) {
+                p.imprescindible = true;
+            }
+        }
     });
     preguntasDepuradas = Array.from(preguntasUnicasMap.values());
     totalPreguntasUnicas = preguntasDepuradas.length;
