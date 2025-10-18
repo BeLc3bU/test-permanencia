@@ -11,22 +11,25 @@
 </head>
 <body>
 
-    <div id="contenedor-test" class="contenedor-test">
+    <main id="contenedor-test" class="contenedor-test">
 
 
         <!-- Menú de Inicio -->
-        <div id="inicio-menu">
-            <h1>Test de Permanencia</h1>
-            <p>Elige un modo para comenzar</p>
-            <div class="config-test-normal">
-                <label for="num-preguntas-select">Preguntas por test:</label>
-                <select id="num-preguntas-select">
-                    <option value="10">10</option>
-                    <option value="20" selected>20</option>
-                    <option value="30">30</option>
-                    <option value="50">50</option>
-                </select>
-            </div>
+        <section id="inicio-menu" aria-labelledby="main-title">
+            <h1 id="main-title">Test de Permanencia</h1>
+            <p id="main-subtitle">Elige un modo para comenzar</p>
+            <fieldset class="config-test-normal">
+                <legend>Configuración de Test</legend>
+                <div>
+                    <label for="num-preguntas-select">Preguntas por test:</label>
+                    <select id="num-preguntas-select">
+                        <option value="10">10</option>
+                        <option value="20" selected>20</option>
+                        <option value="30">30</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+            </fieldset>
             <div class="footer-botones">
                 <button id="iniciar-examen-2024-btn" class="menu-btn" data-action="examen-2024">Examen 2024</button>
                 <button id="iniciar-examen-2022-btn" class="menu-btn" data-action="examen-2022">Examen 2022</button>
@@ -34,10 +37,10 @@
                 <button id="iniciar-repaso-fallos-btn" class="menu-btn btn-secundario" data-action="repasar-fallos">Repasar Fallos <span id="contador-fallos"></span></button>
                 <button id="reiniciar-progreso-btn" class="menu-btn btn-terciario" data-action="reiniciar-progreso">Reiniciar Progreso</button>
             </div>
-        </div>
+        </section>
 
         <!-- Contenido del Test (oculto al inicio) -->
-        <div id="test-content" class="oculto">
+        <section id="test-content" class="oculto" aria-labelledby="pregunta-actual">
             <div class="progreso-header">
             <div class="info-header">
                 <div id="progreso-texto"></div>
@@ -46,8 +49,8 @@
                 </div>
                 <div id="record-texto"></div>
             </div>
-            <div class="barra-progreso-contenedor">
-                <div id="barra-progreso"></div>
+            <div class="barra-progreso-contenedor" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div id="barra-progreso" style="width: 0%;"></div>
             </div>
             </div>
             <div id="pregunta-wrapper"> <!-- Contenedor para la animación -->
@@ -61,8 +64,8 @@
                 <button id="seguir-mas-tarde-btn" class="oculto">Seguir más tarde</button>
                 <button id="reiniciar-test" class="oculto">Menú Principal</button>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 
     <!-- Modal de Confirmación (oculto por defecto) -->
     <div id="modal-overlay" class="oculto">

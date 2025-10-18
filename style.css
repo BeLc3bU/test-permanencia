@@ -168,12 +168,10 @@ body {
 
 #barra-progreso {
     height: 100%;
-    width: 100%; /* Ocupará siempre el 100% del contenedor */
+    width: 0%; /* Se controla con JS */
     background-color: var(--color-primario);
     border-radius: 4px;
-    transform: scaleX(0); /* Estado inicial, escalado a 0 */
-    transform-origin: left; /* La animación crece desde la izquierda */
-    transition: transform 0.4s ease-in-out; /* Animación suave de la transformación */
+    transition: width 0.4s ease-in-out; /* Animación suave del ancho */
 }
 
 #pregunta-actual {
@@ -210,6 +208,12 @@ body {
     40%, 60% { transform: translateX(4px); }
 }
 /* Contenedor para aplicar la animación de forma conjunta */
+@keyframes pop-in {
+    0% { transform: scale(0.5); opacity: 0; }
+    80% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
 #pregunta-wrapper { will-change: transform, opacity; }
 
 /* Estilo mejorado para los botones de opción */
@@ -225,7 +229,7 @@ body {
     border: 1px solid var(--color-opcion-borde);
     border-radius: 8px;
     cursor: pointer;
-    transition: border-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+    transition: all 0.2s ease-in-out;
     position: relative; /* Para posicionar el pseudo-elemento */
 }
 
@@ -233,7 +237,6 @@ body {
     border-color: var(--color-primario);
     color: var(--color-texto-principal);
     transform: translateY(-2px);
-    box-shadow: 0 2px 8px var(--color-sombra);
     box-shadow: 0 4px 12px var(--color-sombra);
 }
 
@@ -270,6 +273,13 @@ body {
     display: none; /* Oculto por defecto */
 }
 
+#feedback.visible::before {
+    display: inline-block;
+    margin-right: 0.5rem;
+    font-weight: bold;
+    animation: pop-in 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
 #feedback.visible {
     display: block;
 }
@@ -279,9 +289,22 @@ body {
     background-color: var(--color-correcto-fondo);
 }
 
+#feedback.visible.correcto::before {
+    content: '✓';
+}
+
 #feedback.incorrecto {
     color: var(--color-incorrecto-texto);
     background-color: var(--color-incorrecto-fondo);
+}
+
+#feedback.visible.incorrecto::before {
+    content: '✗';
+}
+
+.nuevo-record-anim {
+    display: inline-block;
+    animation: highlight-record 1.5s ease-in-out;
 }
 
 #feedback.final {
@@ -289,6 +312,12 @@ body {
     border: none;
     text-align: center;
     font-size: 1.2rem;
+}
+@keyframes highlight-record {
+    0%, 100% { transform: scale(1); color: var(--color-primario); }
+    25% { transform: scale(1.1); color: var(--color-correcto-borde); }
+    50% { transform: scale(1); color: var(--color-primario); }
+    75% { transform: scale(1.1); color: var(--color-correcto-borde); }
 }
 
 .footer-botones {
@@ -333,7 +362,7 @@ body {
     opacity: 0.6;
 }
 
-.menu-btn:active:not(:disabled), #reiniciar-test:active:not(:disabled) {
+.menu-btn:active:not(:disabled), #reiniciar-test:active:not(:disabled), #modal-confirm-btn:active, #modal-cancel-btn:active {
     transform: translateY(1px) scale(0.98);
 }
 
@@ -518,12 +547,17 @@ body {
 
 /* --- Configuración Test Normal --- */
 .config-test-normal {
+    border: 1px solid var(--color-opcion-borde);
+    border-radius: 8px;
+    padding: 1rem;
     margin-bottom: 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
     color: var(--color-texto-secundario);
+}
+
+.config-test-normal legend {
+    font-weight: bold;
+    padding: 0 0.5rem;
+    margin-left: 0.5rem; /* Alinea con el padding del div interior */
 }
 
 #num-preguntas-select {

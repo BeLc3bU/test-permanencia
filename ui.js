@@ -10,6 +10,7 @@ export class UI {
             iniciarExamen2024Btn: document.getElementById('iniciar-examen-2024-btn'),
             iniciarExamen2022Btn: document.getElementById('iniciar-examen-2022-btn'),
             numPreguntasSelect: document.getElementById('num-preguntas-select'),
+            configTestNormal: document.querySelector('.config-test-normal'),
             soundToggleBtn: document.getElementById('sound-toggle-btn'),
             reiniciarProgresoBtn: document.getElementById('reiniciar-progreso-btn'),
             seguirMasTardeBtn: document.getElementById('seguir-mas-tarde-btn'),
@@ -17,6 +18,7 @@ export class UI {
             opcionesEl: document.getElementById('opciones-respuesta'),
             feedbackEl: document.getElementById('feedback'),
             reiniciarBtn: document.getElementById('reiniciar-test'),
+            barraProgresoContenedor: document.querySelector('.barra-progreso-contenedor'),
             finalizarAhoraBtn: document.getElementById('finalizar-ahora-btn'),
             barraProgresoEl: document.getElementById('barra-progreso'),
             progresoTextoEl: document.getElementById('progreso-texto'),
@@ -101,8 +103,11 @@ export class UI {
     }
 
     updateProgressBar(currentIndex, totalQuestions) {
-        const progreso = (currentIndex) / totalQuestions;
-        this.elements.barraProgresoEl.style.transform = `scaleX(${progreso})`;
+        const porcentaje = totalQuestions > 0 ? ((currentIndex + 1) / totalQuestions) * 100 : 0;
+        this.elements.barraProgresoEl.style.width = `${porcentaje}%`;
+        
+        // Actualizar atributos ARIA para lectores de pantalla
+        this.elements.barraProgresoContenedor.setAttribute('aria-valuenow', Math.round(porcentaje));
         this.elements.progresoTextoEl.innerText = `Pregunta ${currentIndex + 1} de ${totalQuestions}`;
     }
 
