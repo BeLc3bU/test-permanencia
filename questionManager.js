@@ -32,16 +32,9 @@ function shuffleArray(array) {
     }
 }
 
-export async function loadAllQuestions(modo = 'normal') {
-    let filesToLoad = ['preguntas.json']; // Por defecto, solo el principal
-
-    if (modo === 'examen2022') {
-        filesToLoad.push('examen_2022.json');
-    } else if (modo === 'examen2024') {
-        filesToLoad.push('examen_2024.json');
-    } else if (modo === 'all') { // Un modo especial para cargar todo si es necesario
-        filesToLoad = ['preguntas.json', 'preguntas_imprescindibles.json', 'examen_2022.json', 'examen_2024.json'];
-    }
+export async function loadAllQuestions() {
+    // Carga todos los archivos de preguntas al inicio para que estén disponibles para todos los modos.
+    const filesToLoad = ['preguntas.json', 'examen_2022.json', 'examen_2024.json'];
 
     const questionSets = await Promise.all(
         filesToLoad.map(file => loadQuestionFile(file))

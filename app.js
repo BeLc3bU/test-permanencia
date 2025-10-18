@@ -82,6 +82,7 @@ window.addEventListener('load', () => {
 
     // --- Lógica del Flujo del Test ---
     function iniciarNuevoTest(modo, opciones) {
+        limpiarEstado(modo); // Asegura que no haya sesiones previas conflictivas.
         const estadoActual = prepararTest(modo, opciones);
         ui.showTestView();
         ui.resetTestUI();
