@@ -32,14 +32,22 @@ function shuffleArray(array) {
     }
 }
 
-export async function loadAllQuestions() {
-    const [preguntasNormales, preguntasImprescindibles, preguntasExamen2022, preguntasExamen2024] = await Promise.all([
-        loadQuestionFile('preguntas.json'),
-        loadQuestionFile('preguntas_imprescindibles.json'),
-        loadQuestionFile('examen_2022.json'),
-        loadQuestionFile('examen_2024.json')
-    ]);
-    const unifiedQuestions = [...preguntasNormales, ...preguntasImprescindibles, ...preguntasExamen2022, ...preguntasExamen2024];
+export async function loadAllQuestions(modo = 'normal') {
+    let filesToLoad = ['preguntas.json']; // Por defecto, solo el principal
+
+    if (modo === 'examen2022') {
+        filesToLoad.push('examen_2022.json');
+    } else if (modo === 'examen2024') {
+        filesToLoad.push('examen_2024.json');
+    } else if (modo === 'all') { // Un modo especial para cargar todo si es necesario
+        filesToLoad = ['preguntas.json', 'preguntas_imprescindibles.json', 'examen_2022.json', 'examen_2024.json'];
+    }
+
+    const questionSets = await Promise.all(
+        filesToLoad.map(file => loadQuestionFile(file))
+    );
+
+    const unifiedQuestions = questionSets.flat();
     allQuestions = unifyAndDeduplicate(unifiedQuestions);
 
     if (allQuestions.length === 0) {

@@ -23,9 +23,6 @@ export function prepararTest(modo, opciones = {}) {
 
     if (['repaso', 'examen2024', 'examen2022'].includes(modo)) {
         currentTestSession.preguntasDelTest = preguntasPersonalizadas;
-    } else if (modo === 'imprescindible') {
-        questionBank.shuffle(preguntasPersonalizadas);
-        currentTestSession.preguntasDelTest = preguntasPersonalizadas;
     } else { // modo 'normal'
         let preguntasNoVistasIndices = questionBank.getUnseenIndices();
         if (preguntasNoVistasIndices.length === 0) {

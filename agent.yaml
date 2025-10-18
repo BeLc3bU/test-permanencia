@@ -17,7 +17,7 @@ agent_development_plan:
         - "Gestionar el ciclo de vida del SW (instalación, activación, limpieza de caché antigua, actualización con prompt)."
       involved_files:
         - manifest.json
-        - service-worker.js
+        - service-worker.js 
         - app.js
     - feature: "Modos de Test"
       development_tasks:
@@ -93,7 +93,7 @@ agent_development_plan:
             - "Usar localStorage para el pool de preguntas no vistas."
             - "Implementar guardado y eliminación de fallos persistentes."
         - title: "Implementar Modos de Repaso e Imprescindible"
-          sub_steps:
+          sub_steps: 
             - "Crear lógica para 'Repaso de Fallos' usando los índices guardados."
             - "Crear lógica para 'Test Imprescindible' filtrando por la propiedad 'imprescindible'."
         - title: "Persistencia de Sesión y Récord"

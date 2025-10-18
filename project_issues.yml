@@ -9,7 +9,7 @@ sprints:
         user_stories:
           - story: "Como usuario, quiero poder elegir un tema específico para mi test y así poder reforzar áreas concretas."
             tasks:
-              - "Modificar la estructura de `preguntas.json` para añadir un campo `tema` a cada pregunta."
+              - "Añadir un campo `tema` a cada pregunta en `preguntas.json`."
               - "Actualizar el script `validar_preguntas.js` para que verifique la existencia del campo `tema`."
               - "Diseñar y desarrollar una nueva pantalla o modal en el menú de inicio para la selección de temas."
               - "Modificar la lógica de `iniciarTest` en `app.js` para filtrar las preguntas según el tema seleccionado."

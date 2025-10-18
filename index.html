@@ -31,7 +31,6 @@
                 <button id="iniciar-examen-2024-btn" class="menu-btn" data-action="examen-2024">Examen 2024</button>
                 <button id="iniciar-examen-2022-btn" class="menu-btn" data-action="examen-2022">Examen 2022</button>
                 <button id="iniciar-nuevo-test-btn" class="menu-btn btn-primario" data-action="nuevo-test">Nuevo Test</button>
-                <button id="iniciar-test-imprescindible-btn" class="menu-btn" data-action="test-imprescindible">Test Imprescindible</button>
                 <button id="iniciar-repaso-fallos-btn" class="menu-btn btn-secundario" data-action="repasar-fallos">Repasar Fallos <span id="contador-fallos"></span></button>
                 <button id="reiniciar-progreso-btn" class="menu-btn btn-terciario" data-action="reiniciar-progreso">Reiniciar Progreso</button>
             </div>
@@ -43,8 +42,6 @@
             <div class="info-header">
                 <div id="progreso-texto"></div>
                 <div class="header-botones">
-                    <button id="finalizar-ahora-btn" class="oculto">Finalizar Test</button>
-                    <button id="seguir-mas-tarde-btn" class="oculto">Seguir más tarde</button>
                     <button id="sound-toggle-btn" class="oculto" aria-label="Silenciar sonidos">🔊</button>
                 </div>
                 <div id="record-texto"></div>
@@ -60,6 +57,8 @@
             <div id="feedback" aria-live="polite"></div>
             <div id="revision-fallos" class="oculto"></div>
             <div class="footer-botones">
+                <button id="finalizar-ahora-btn" class="oculto">Finalizar Test</button>
+                <button id="seguir-mas-tarde-btn" class="oculto">Seguir más tarde</button>
                 <button id="reiniciar-test" class="oculto">Menú Principal</button>
             </div>
         </div>
@@ -84,7 +83,7 @@
     </div>
 
     <!-- Botón de tema fuera del flujo principal para posicionamiento fijo -->
-    <button id="theme-toggle-btn" aria-label="Cambiar tema"></button>
+    <button id="theme-toggle-btn" aria-label="Cambiar tema claro/oscuro"></button>
 
     <script type="module" src="app.js"></script>
 </body>

@@ -3,13 +3,15 @@ const path = require('path');
 
 // Determinar qué archivo validar basado en los argumentos de la línea de comandos
 const args = process.argv.slice(2);
-let nombreArchivo = 'preguntas.json'; // Archivo por defecto
-if (args.includes('--imprescindibles')) {
-    nombreArchivo = 'preguntas_imprescindibles.json';
-} else if (args.includes('--examen2022')) {
+let nombreArchivo;
+let propiedadEspecial = null; // Para añadir propiedades como 'imprescindible' o 'examen'
+
+if (args.includes('--examen2022')) {
     nombreArchivo = 'examen_2022.json';
+    propiedadEspecial = { key: 'examen', value: '2022' };
 } else if (args.includes('--examen2024')) {
     nombreArchivo = 'examen_2024.json';
+    propiedadEspecial = { key: 'examen', value: '2024' };
 } else if (args.length > 0 && !args[0].startsWith('--')) {
     nombreArchivo = args[0];
 }
@@ -49,11 +51,9 @@ try {
             if (!preguntasUnicasMap.has(clave)) {
                 preguntasUnicasMap.set(clave, p);
             }
-        }
-        // Añadir 'imprescindible: true' si el nombre del archivo lo indica
-        if (nombreArchivo.includes('imprescindibles')) {
-            if (p) {
-                p.imprescindible = true;
+            // Añadir propiedad especial si se ha definido
+            if (propiedadEspecial) {
+                p[propiedadEspecial.key] = propiedadEspecial.value;
             }
         }
     });
@@ -99,17 +99,6 @@ try {
 
         if (pregunta.hasOwnProperty('examen') && typeof pregunta.examen !== 'string') {
             errores.push(`[Pregunta #${numeroPregunta}] El campo "examen" debe ser un string (ej: "2024").`);
-        }
-
-
-        // 2.4. Validar preguntas duplicadas
-        if (pregunta.pregunta) {
-            const preguntaNormalizada = pregunta.pregunta.trim().toLowerCase();
-            if (preguntasVistas.has(preguntaNormalizada)) {
-                errores.push(`[Pregunta #${numeroPregunta}] El texto de la pregunta está DUPLICADO: "${pregunta.pregunta}"`);
-            } else {
-                preguntasVistas.add(preguntaNormalizada);
-            }
         }
     });
 

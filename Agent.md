@@ -54,7 +54,7 @@ El desarrollo se abordaría de forma incremental, construyendo sobre una base s�
 
 4.  **Implementar Modos de Repaso e Imprescindible**:
     *   **Repaso de Fallos**: Crear un botón que lea los índices de `FAILED_QUESTIONS_KEY`, construya un array de preguntas y lo pase a la función `iniciarTest('repaso', ...)`.
-    *   **Test Imprescindible**: Modificar la carga inicial para unificar `preguntas.json` y `preguntas_imprescindibles.json`. La función `iniciarTest('imprescindible', ...)` filtrará las preguntas que tengan la propiedad `"imprescindible": true`.
+    -   **Test Imprescindible**: Modificar la carga inicial para unificar `preguntas.json` y `preguntas_imprescindibles.json`. La función `iniciarTest('imprescindible', ...)` filtrará las preguntas que tengan la propiedad `"imprescindible": true`. **(Funcionalidad eliminada, se fusionó todo en `preguntas.json`)**
 
 5.  **Persistencia de Sesión y Récord**:
     *   Implementar `guardarEstado` para serializar el objeto `estadoTest` a `localStorage` después de cada respuesta o al pulsar "Seguir más tarde".

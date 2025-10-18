@@ -54,13 +54,6 @@
       "description": "Iniciar un test con las preguntas falladas anteriormente",
       "url": "index.html?action=repasar-fallos",
       "icons": [{ "src": "icons/icon-192x192.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "Test Imprescindible",
-      "short_name": "Imprescindible",
-      "description": "Iniciar un test con las preguntas más importantes",
-      "url": "index.html?action=test-imprescindible",
-      "icons": [{ "src": "icons/icon-192x192.png", "sizes": "192x192" }]
     }
   ],
   "screenshots": [

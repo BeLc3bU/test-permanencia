@@ -2,7 +2,7 @@
 
 Una aplicación web progresiva (PWA) diseñada para ayudar a los usuarios a prepararse para el test de permanencia a través de cuestionarios interactivos. La aplicación es instalable, funciona offline y guarda el progreso del usuario para una experiencia de estudio fluida y continua.
 
-## ✨ Características Principales
+## ✨ Características
 
 - **3 Modos de Test**: Normal (aleatorio), Repaso de Fallos (persistente) y Test Imprescindible (con preguntas clave).
 - **Modo Test Normal Configurable**: Cuestionarios con un número de preguntas seleccionable por el usuario (10, 20, 30, 50) de un pool que no se repite hasta haber visto todas las preguntas.

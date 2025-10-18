@@ -3,8 +3,7 @@ const KEYS = {
     UNSEEN_QUESTIONS: 'testPermanenciaUnseenQuestions',
     FAILED_QUESTIONS: 'testPermanenciaFailedQuestions',
     THEME: 'testPermanenciaTheme',
-    SESSION_NORMAL: 'testPermanenciaState',
-    SESSION_IMPRESCINDIBLE: 'testImprescindibleState',
+    SESSION_REPASO: 'testRepasoState',
     SESSION_EXAMEN_2022: 'testExamen2022State',
     SESSION_EXAMEN_2024: 'testExamen2024State',
     SOUND_MUTED: 'testPermanenciaSoundMuted',
@@ -13,10 +12,10 @@ const KEYS = {
 
 function getSessionKey(modo) {
     switch (modo) {
-        case 'imprescindible': return KEYS.SESSION_IMPRESCINDIBLE;
+        case 'repaso': return KEYS.SESSION_REPASO;
         case 'examen2024': return KEYS.SESSION_EXAMEN_2024;
         case 'examen2022': return KEYS.SESSION_EXAMEN_2022;
-        default: return KEYS.SESSION_NORMAL;
+        default: return `testPermanenciaState_${modo}`; // Clave dinámica para 'normal' y otros futuros modos
     }
 }
 

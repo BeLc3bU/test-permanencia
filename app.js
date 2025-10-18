@@ -11,7 +11,6 @@ window.addEventListener('load', () => {
         ui.initializeMuteState(storage.getMuteState());
         ui.initializeNumPreguntas(storage.getNumPreguntas());
         registrarEventListeners();
-        
         try {
             await cargarTodasLasPreguntas();
             actualizarContadoresUI();
@@ -19,9 +18,11 @@ window.addEventListener('load', () => {
             intentarRestaurarSesion();
         } catch (error) {
             console.error("Fallo crítico al cargar las preguntas. Los tests no estarán disponibles.", error);
-            [ui.elements.iniciarNuevoTestBtn, ui.elements.iniciarTestImprescindibleBtn, ui.elements.iniciarRepasoFallosBtn].forEach(btn => {
-                btn.disabled = true;
-                btn.title = "Error al cargar preguntas.";
+            [ui.elements.iniciarNuevoTestBtn, ui.elements.iniciarRepasoFallosBtn, ui.elements.iniciarExamen2024Btn, ui.elements.iniciarExamen2022Btn].forEach(btn => {
+            if (btn) { // Comprobación de seguridad
+                    btn.disabled = true;
+                    btn.title = "Error al cargar preguntas.";
+                }
             });
         }
     }
@@ -29,19 +30,22 @@ window.addEventListener('load', () => {
     function intentarRestaurarSesion() {
         const modosPosibles = [
             { nombre: 'normal', clave: 'normal' },
-            { nombre: 'imprescindible', clave: 'imprescindible' },
             { nombre: 'examen 2024', clave: 'examen2024' },
             { nombre: 'examen 2022', clave: 'examen2022' }
         ];
 
         for (const modo of modosPosibles) {
             if (storage.getSession(modo.clave)) {
-                if (confirm(`Hemos encontrado un test ${modo.nombre} sin finalizar. ¿Quieres continuar donde lo dejaste?`)) {
-                    restaurarSesion(modo.clave); // La clave coincide con el 'modo'
-                    return;
-                } else {
-                    limpiarEstado(modo.clave);
-                }
+                ui.showConfirmationModal({
+                    title: 'Test sin finalizar',
+                    message: `Hemos encontrado un test de "${modo.nombre}" sin finalizar. ¿Quieres continuar donde lo dejaste?`,
+                    onConfirm: () => restaurarSesion(modo.clave),
+                    onCancel: () => {
+                        limpiarEstado(modo.clave);
+                        ui.showStartView();
+                    }
+                });
+                return; // Salimos del bucle para mostrar solo un modal a la vez
             }
         }
         ui.showStartView();
@@ -98,15 +102,6 @@ window.addEventListener('load', () => {
         iniciarNuevoTest('normal', { numPreguntas });
     }
 
-    function iniciarTestImprescindible() {
-        const preguntasImprescindibles = questionBank.getAll().filter(p => p.imprescindible);
-        if (preguntasImprescindibles.length > 0) {
-            iniciarNuevoTest('imprescindible', { preguntasPersonalizadas: preguntasImprescindibles });
-        } else {
-            alert('No se encontraron preguntas imprescindibles. Asegúrate de que estén correctamente marcadas en el archivo JSON.');
-        }
-    }
-
     function iniciarTestExamen(anio) {
         const preguntasExamen = questionBank.getAll().filter(p => p.examen === anio.toString());
         if (preguntasExamen.length > 0) {
@@ -133,12 +128,14 @@ window.addEventListener('load', () => {
         setTimeout(() => {
             const resultadoAvance = avanzarPregunta();
             if (resultadoAvance.finalizado) {
-                ui.showTestResults(resultadoAvance, iniciarRepasoFallos, () => { ui.showStartView(); isProcessing = false; });
+                ui.showTestResults(resultadoAvance, iniciarRepasoFallos, () => { ui.showStartView(); });
                 actualizarContadoresUI();
+                isProcessing = false; // Desbloquear al finalizar el test
             } else {
                 mostrarPreguntaActual(); // Avanza a la siguiente pregunta automáticamente
-                isProcessing = false; // Desbloquear después de renderizar la siguiente pregunta
             }
+            // Se desbloquea después de que la siguiente pregunta se renderice o el test finalice
+            if (!resultadoAvance.finalizado) isProcessing = false;
         }, delay);
     }
 
@@ -169,7 +166,6 @@ window.addEventListener('load', () => {
     function registrarEventListeners() {
         ui.elements.iniciarNuevoTestBtn.addEventListener('click', iniciarTestNormal);
         ui.elements.iniciarRepasoFallosBtn.addEventListener('click', () => iniciarRepasoFallos());
-        ui.elements.iniciarTestImprescindibleBtn.addEventListener('click', iniciarTestImprescindible);
         ui.elements.iniciarExamen2024Btn.addEventListener('click', () => iniciarTestExamen(2024));
         ui.elements.iniciarExamen2022Btn.addEventListener('click', () => iniciarTestExamen(2022));
 
@@ -197,15 +193,7 @@ window.addEventListener('load', () => {
             ui.showConfirmationModal({
                 title: '¿Finalizar Test?',
                 message: 'Tu progreso en este test se perderá. ¿Estás seguro de que quieres finalizar ahora?',
-                onConfirm: () => {
-                    if (isProcessing) return;
-                    isProcessing = true;
-                    const resultadoAvance = finalizarTestForzado();
-                    if (resultadoAvance && resultadoAvance.finalizado) {
-                        ui.showTestResults(resultadoAvance, iniciarRepasoFallos, () => { ui.showStartView(); isProcessing = false; });
-                        actualizarContadoresUI();
-                    }
-                }
+                onConfirm: manejarFinalizarTestForzado
             });
         });
 
@@ -235,6 +223,17 @@ window.addEventListener('load', () => {
 
             if (opcionSeleccionada) manejarSeleccionRespuesta(opcionSeleccionada);
         });
+    }
+
+    function manejarFinalizarTestForzado() {
+        if (isProcessing) return;
+        isProcessing = true;
+        const resultadoAvance = finalizarTestForzado();
+        if (resultadoAvance && resultadoAvance.finalizado) {
+            ui.showTestResults(resultadoAvance, iniciarRepasoFallos, () => { ui.showStartView(); });
+            actualizarContadoresUI();
+        }
+        isProcessing = false;
     }
 
     inicializarApp();
