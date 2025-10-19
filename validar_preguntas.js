@@ -3,7 +3,7 @@ const path = require('path');
 
 // Determinar qué archivo validar basado en los argumentos de la línea de comandos
 const args = process.argv.slice(2);
-let nombreArchivo;
+let nombreArchivo = 'preguntas.json'; // Archivo por defecto si no se especifica otro
 let propiedadEspecial = null; // Para añadir propiedades como 'imprescindible' o 'examen'
 
 if (args.includes('--examen2022')) {

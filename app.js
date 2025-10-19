@@ -71,7 +71,7 @@ window.addEventListener('load', () => {
     async function manejarAccionesDeAtajos() {
         const action = new URLSearchParams(window.location.search).get('action');
         if (action) {
-            document.querySelector(`[data-action="${action}"]`)?.click();
+            document.querySelector(`[data-action=""]`)?.click();
         }
     }
 
@@ -106,9 +106,9 @@ window.addEventListener('load', () => {
     function iniciarTestExamen(anio) {
         const preguntasExamen = questionBank.getAll().filter(p => p.examen === anio.toString());
         if (preguntasExamen.length > 0) {
-            iniciarNuevoTest(`examen${anio}`, { preguntasPersonalizadas: preguntasExamen });
+            iniciarNuevoTest(`examen`, { preguntasPersonalizadas: preguntasExamen });
         } else {
-            alert(`No se encontraron preguntas para el Examen ${anio}. El archivo podría estar vacío o mal configurado.`);
+            alert(`No se encontraron preguntas para el Examen . El archivo podría estar vacío o mal configurado.`);
         }
     }
 
