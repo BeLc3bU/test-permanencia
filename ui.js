@@ -169,7 +169,13 @@ export class UI {
                 this.triggerHapticFeedback('error');
             }
             if (botonSeleccionado) botonSeleccionado.classList.add('incorrecto');
-            this.elements.feedbackEl.innerHTML = `&#10007; Incorrecto. La respuesta correcta es: <strong>${respuestaCorrecta}</strong>`;
+            
+            // Usar textContent para evitar XSS
+            this.elements.feedbackEl.innerHTML = '&#10007; Incorrecto. La respuesta correcta es: ';
+            const strongElement = document.createElement('strong');
+            strongElement.textContent = respuestaCorrecta;
+            this.elements.feedbackEl.appendChild(strongElement);
+            
             this.elements.feedbackEl.className = 'feedback visible incorrecto';
         }
 
@@ -220,17 +226,38 @@ export class UI {
 
         this.elements.revisionFallosEl.classList.remove('oculto');
         const titulo = document.createElement('h2');
-        titulo.innerText = 'Revisión de fallos';
+        titulo.textContent = 'Revisión de fallos';
         this.elements.revisionFallosEl.appendChild(titulo);
 
         preguntasFalladas.forEach(item => {
             const divItem = document.createElement('div');
             divItem.classList.add('item-revision');
-            divItem.innerHTML = `
-                <p><strong>Pregunta:</strong> ${item.preguntaData.pregunta}</p>
-                <p style="color: var(--color-incorrecto-texto);"><strong>Tu respuesta:</strong> ${item.respuestaUsuario}</p>
-                <p style="color: var(--color-correcto-texto);"><strong>Respuesta correcta:</strong> ${item.preguntaData.respuestaCorrecta}</p>
-            `;
+            
+            // Usar textContent en lugar de innerHTML para evitar XSS
+            const preguntaP = document.createElement('p');
+            const preguntaStrong = document.createElement('strong');
+            preguntaStrong.textContent = 'Pregunta: ';
+            preguntaP.appendChild(preguntaStrong);
+            preguntaP.appendChild(document.createTextNode(item.preguntaData.pregunta));
+            
+            const respuestaP = document.createElement('p');
+            respuestaP.style.color = 'var(--color-incorrecto-texto)';
+            const respuestaStrong = document.createElement('strong');
+            respuestaStrong.textContent = 'Tu respuesta: ';
+            respuestaP.appendChild(respuestaStrong);
+            respuestaP.appendChild(document.createTextNode(item.respuestaUsuario));
+            
+            const correctaP = document.createElement('p');
+            correctaP.style.color = 'var(--color-correcto-texto)';
+            const correctaStrong = document.createElement('strong');
+            correctaStrong.textContent = 'Respuesta correcta: ';
+            correctaP.appendChild(correctaStrong);
+            correctaP.appendChild(document.createTextNode(item.preguntaData.respuestaCorrecta));
+            
+            divItem.appendChild(preguntaP);
+            divItem.appendChild(respuestaP);
+            divItem.appendChild(correctaP);
+            
             this.elements.revisionFallosEl.appendChild(divItem);
         });
     }

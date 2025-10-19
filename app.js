@@ -3,6 +3,36 @@ import { UI } from './ui.js';
 
 let isProcessing = false; // Variable de bloqueo para evitar dobles clics y race conditions
 const ui = new UI(); // Instancia única de la clase UI
+window.appUI = ui; // Hacer UI disponible globalmente para manejo de errores
+
+// Manejo de errores globales
+window.addEventListener('error', (event) => {
+    console.error('Error global capturado:', {
+        message: event.message,
+        filename: event.filename,
+        lineno: event.lineno,
+        colno: event.colno,
+        error: event.error
+    });
+    
+    // Mostrar mensaje amigable al usuario para errores no críticos
+    if (event.error && event.error.name !== 'ValidationError') {
+        const ui = window.appUI; // UI disponible globalmente
+        if (ui && ui.showConfirmationModal) {
+            ui.showConfirmationModal({
+                title: 'Error Inesperado',
+                message: 'Ha ocurrido un error inesperado. Por favor, recarga la página.',
+                onConfirm: () => window.location.reload(),
+                onCancel: () => {}
+            });
+        }
+    }
+});
+
+window.addEventListener('unhandledrejection', (event) => {
+    console.error('Promise rechazada no manejada:', event.reason);
+    event.preventDefault(); // Prevenir que aparezca en consola
+});
 
 window.addEventListener('load', () => {
     // --- Inicialización de la aplicación ---
@@ -71,7 +101,12 @@ window.addEventListener('load', () => {
     async function manejarAccionesDeAtajos() {
         const action = new URLSearchParams(window.location.search).get('action');
         if (action) {
-            document.querySelector(`[data-action=""]`)?.click();
+            const button = document.querySelector(`[data-action="${action}"]`);
+            if (button) {
+                button.click();
+            } else {
+                console.warn(`No se encontró botón para la acción: ${action}`);
+            }
         }
     }
 
@@ -106,9 +141,9 @@ window.addEventListener('load', () => {
     function iniciarTestExamen(anio) {
         const preguntasExamen = questionBank.getAll().filter(p => p.examen === anio.toString());
         if (preguntasExamen.length > 0) {
-            iniciarNuevoTest(`examen`, { preguntasPersonalizadas: preguntasExamen });
+            iniciarNuevoTest(`examen${anio}`, { preguntasPersonalizadas: preguntasExamen });
         } else {
-            alert(`No se encontraron preguntas para el Examen . El archivo podría estar vacío o mal configurado.`);
+            alert(`No se encontraron preguntas para el Examen ${anio}. El archivo podría estar vacío o mal configurado.`);
         }
     }
 
@@ -143,7 +178,16 @@ window.addEventListener('load', () => {
     function iniciarRepasoFallos(preguntasFalladasTest) {
         let indicesFallos;
         if (preguntasFalladasTest) {
-            indicesFallos = preguntasFalladasTest.map(item => questionBank.getAll().findIndex(p => p.pregunta === item.preguntaData.pregunta));
+            // Crear un Map para búsquedas O(1) en lugar de O(n)
+            const preguntaMap = new Map();
+            questionBank.getAll().forEach((p, index) => {
+                preguntaMap.set(p.pregunta, index);
+            });
+            
+            indicesFallos = preguntasFalladasTest.map(item => {
+                const index = preguntaMap.get(item.preguntaData.pregunta);
+                return index !== undefined ? index : -1;
+            }).filter(index => index !== -1);
         } else {
             indicesFallos = storage.getFailedQuestionsIndices();
         }

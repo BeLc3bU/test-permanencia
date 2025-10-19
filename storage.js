@@ -20,16 +20,55 @@ function getSessionKey(modo) {
 }
 
 function get(key) {
-    const item = localStorage.getItem(key);
-    return item ? JSON.parse(item) : null;
+    try {
+        const item = localStorage.getItem(key);
+        return item ? JSON.parse(item) : null;
+    } catch (error) {
+        console.error(`Error al parsear datos de localStorage para clave "${key}":`, error);
+        return null;
+    }
 }
 
 function set(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
+    try {
+        localStorage.setItem(key, JSON.stringify(value));
+    } catch (error) {
+        console.error(`Error al guardar datos en localStorage para clave "${key}":`, error);
+        // Intentar limpiar localStorage si está lleno
+        if (error.name === 'QuotaExceededError') {
+            console.warn('localStorage lleno, intentando limpiar datos antiguos...');
+            clearOldData();
+            // Intentar guardar de nuevo
+            try {
+                localStorage.setItem(key, JSON.stringify(value));
+            } catch (retryError) {
+                console.error('No se pudo guardar después de limpiar localStorage:', retryError);
+            }
+        }
+    }
 }
 
 function remove(key) {
-    localStorage.removeItem(key);
+    try {
+        localStorage.removeItem(key);
+    } catch (error) {
+        console.error(`Error al eliminar datos de localStorage para clave "${key}":`, error);
+    }
+}
+
+function clearOldData() {
+    const keysToKeep = ['testPermanenciaHighScore', 'testPermanenciaTheme'];
+    const allKeys = Object.keys(localStorage);
+    
+    allKeys.forEach(key => {
+        if (!keysToKeep.includes(key)) {
+            try {
+                localStorage.removeItem(key);
+            } catch (error) {
+                console.error(`Error al limpiar clave "${key}":`, error);
+            }
+        }
+    });
 }
 
 export const storage = {

@@ -44,12 +44,22 @@ export function prepararTest(modo, opciones = {}) {
 }
 
 export function procesarRespuesta(opcionSeleccionada) {
-    if (currentTestSession.haRespondido) return null;
+    if (!currentTestSession || currentTestSession.haRespondido) return null;
     currentTestSession.haRespondido = true;
 
     const preguntaActual = currentTestSession.preguntasDelTest[currentTestSession.preguntaActualIndex];
+    if (!preguntaActual) {
+        console.error('Pregunta actual no encontrada');
+        return null;
+    }
+
     const esCorrecto = opcionSeleccionada === preguntaActual.respuestaCorrecta;
     const indiceGlobal = questionBank.getAll().findIndex(p => p.pregunta === preguntaActual.pregunta);
+    
+    if (indiceGlobal === -1) {
+        console.warn('Pregunta no encontrada en el banco global');
+        return null;
+    }
 
     if (esCorrecto) {
         currentTestSession.puntuacion++;
