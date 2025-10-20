@@ -5,6 +5,43 @@ let currentTestSession = null;
 
 export const cargarTodasLasPreguntas = loadQuestions;
 
+/**
+ * Prepara las preguntas para un test en modo 'normal'.
+ * Selecciona preguntas no vistas de forma aleatoria.
+ * @param {object} opciones - Opciones para el test, como numPreguntas.
+ * @returns {Array<object>} - Un array de preguntas para el test.
+ */
+function prepararTestNormal(opciones) {
+    const { numPreguntas = 20 } = opciones;
+    let preguntasNoVistasIndices = questionBank.getUnseenIndices();
+
+    if (preguntasNoVistasIndices.length === 0) {
+        alert('¡Enhorabuena! Has visto todas las preguntas. El ciclo de preguntas se reiniciará.');
+        questionBank.resetUnseen();
+        questionBank.shuffle(questionBank.getUnseenIndices()); // Barajar tras reiniciar
+        preguntasNoVistasIndices = questionBank.getUnseenIndices();
+    }
+
+    questionBank.shuffle(preguntasNoVistasIndices);
+    const numeroDePreguntasParaTest = Math.min(preguntasNoVistasIndices.length, numPreguntas);
+    const indicesParaElTest = preguntasNoVistasIndices.slice(0, numeroDePreguntasParaTest);
+
+    const nuevosIndicesNoVistos = preguntasNoVistasIndices.filter(index => !indicesParaElTest.includes(index));
+    questionBank.setUnseenIndices(nuevosIndicesNoVistos);
+
+    return indicesParaElTest.map(index => questionBank.getAll()[index]);
+}
+
+/**
+ * Prepara las preguntas para un test que usa una lista predefinida (repaso, examen).
+ * @param {object} opciones - Opciones para el test, incluyendo preguntasPersonalizadas.
+ * @returns {Array<object>} - Un array de preguntas para el test.
+ */
+function prepararTestPersonalizado(opciones) {
+    const { preguntasPersonalizadas = [] } = opciones;
+    return preguntasPersonalizadas;
+}
+
 export function prepararTest(modo, opciones = {}) {
     limpiarEstado(modo);
 
@@ -19,27 +56,23 @@ export function prepararTest(modo, opciones = {}) {
         modo: modo,
     };
 
-    const { preguntasPersonalizadas = [], numPreguntas = 20 } = opciones;
+    // Estrategias de preparación de test según el modo
+    const preparadoresDeTest = {
+        normal: prepararTestNormal,
+        repaso: prepararTestPersonalizado,
+        examen2022: prepararTestPersonalizado,
+        examen2024: prepararTestPersonalizado,
+        // Se pueden añadir más modos aquí fácilmente
+    };
 
-    if (['repaso', 'examen2024', 'examen2022'].includes(modo)) {
-        currentTestSession.preguntasDelTest = preguntasPersonalizadas;
-    } else { // modo 'normal'
-        let preguntasNoVistasIndices = questionBank.getUnseenIndices();
-        if (preguntasNoVistasIndices.length === 0) {
-            alert('¡Enhorabuena! Has visto todas las preguntas. El ciclo de preguntas se reiniciará.');
-            questionBank.resetUnseen();
-            questionBank.shuffle(questionBank.getUnseenIndices()); // Barajar tras reiniciar
-            preguntasNoVistasIndices = questionBank.getUnseenIndices();
-        }
+    const preparador = preparadoresDeTest[modo] || preparadoresDeTest.normal;
+    currentTestSession.preguntasDelTest = preparador(opciones);
 
-        questionBank.shuffle(preguntasNoVistasIndices);
-        const numeroDePreguntasParaTest = Math.min(preguntasNoVistasIndices.length, numPreguntas);
-        const indicesParaElTest = preguntasNoVistasIndices.slice(0, numeroDePreguntasParaTest);
-        currentTestSession.preguntasDelTest = indicesParaElTest.map(index => questionBank.getAll()[index]);
-
-        const nuevosIndicesNoVistos = preguntasNoVistasIndices.filter(index => !indicesParaElTest.includes(index));
-        questionBank.setUnseenIndices(nuevosIndicesNoVistos);
+    // Barajamos las preguntas para los modos que no son 'normal', ya que vienen en orden.
+    if (modo !== 'normal') {
+        questionBank.shuffle(currentTestSession.preguntasDelTest);
     }
+
     return currentTestSession;
 }
 
