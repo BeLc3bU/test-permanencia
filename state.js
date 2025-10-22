@@ -62,6 +62,8 @@ export function prepararTest(modo, opciones = {}) {
         repaso: prepararTestPersonalizado,
         examen2022: prepararTestPersonalizado,
         examen2024: prepararTestPersonalizado,
+        imprescindible: prepararTestPersonalizado,
+        examen2025ET: prepararTestPersonalizado,
         // Se pueden añadir más modos aquí fácilmente
     };
 
@@ -76,11 +78,11 @@ export function prepararTest(modo, opciones = {}) {
     return currentTestSession;
 }
 
-export function procesarRespuesta(opcionSeleccionada) {
-    if (!currentTestSession || currentTestSession.haRespondido) return null;
-    currentTestSession.haRespondido = true;
+export function procesarRespuesta(opcionSeleccionada, estadoActual) {
+    if (!estadoActual || estadoActual.haRespondido) return null;
+    estadoActual.haRespondido = true;
 
-    const preguntaActual = currentTestSession.preguntasDelTest[currentTestSession.preguntaActualIndex];
+    const preguntaActual = estadoActual.preguntasDelTest[estadoActual.preguntaActualIndex];
     if (!preguntaActual) {
         console.error('Pregunta actual no encontrada');
         return null;
@@ -95,64 +97,63 @@ export function procesarRespuesta(opcionSeleccionada) {
     }
 
     if (esCorrecto) {
-        currentTestSession.puntuacion++;
-        currentTestSession.aciertos++;
+        estadoActual.puntuacion++;
+        estadoActual.aciertos++;
         storage.removeFailedQuestion(indiceGlobal);
     } else {
-        currentTestSession.puntuacion = parseFloat((currentTestSession.puntuacion - 0.33).toFixed(2));
-        currentTestSession.fallos++;
-        if (!currentTestSession.preguntasFalladas.some(p => p.preguntaData.pregunta === preguntaActual.pregunta)) {
-            currentTestSession.preguntasFalladas.push({
+        estadoActual.puntuacion = parseFloat((estadoActual.puntuacion - 0.33).toFixed(2));
+        estadoActual.fallos++;
+        if (!estadoActual.preguntasFalladas.some(p => p.preguntaData.pregunta === preguntaActual.pregunta)) {
+            estadoActual.preguntasFalladas.push({
                 preguntaData: preguntaActual,
                 respuestaUsuario: opcionSeleccionada
             });
         }
         storage.addFailedQuestion(indiceGlobal);
     }
-    if (currentTestSession.preguntaActualIndex > 0) {
-        guardarEstado();
+    if (estadoActual.preguntaActualIndex > 0) {
+        guardarEstado(estadoActual);
     }
     return { esCorrecto, respuestaCorrecta: preguntaActual.respuestaCorrecta };
 }
 
-export function avanzarPregunta() {
-    if (!currentTestSession) return null;
-    currentTestSession.preguntaActualIndex++;
-    currentTestSession.haRespondido = false;
-    if (currentTestSession.preguntaActualIndex >= currentTestSession.preguntasDelTest.length) {
-        const { resultado } = finalizarTest();
-        currentTestSession = null;
-        return resultado;
+export function avanzarPregunta(estadoActual) {
+    if (!estadoActual) return { nuevoEstado: null, resultadoFinal: null };
+    estadoActual.preguntaActualIndex++;
+    estadoActual.haRespondido = false;
+    if (estadoActual.preguntaActualIndex >= estadoActual.preguntasDelTest.length) {
+        const resultadoFinal = finalizarTest(estadoActual);
+        return { nuevoEstado: null, resultadoFinal };
     }
-    return { finalizado: false, estado: currentTestSession };
+    return { nuevoEstado: estadoActual, resultadoFinal: null };
 }
 
-function finalizarTest() {
-    if (!currentTestSession) return { resultado: null, estadoFinalizado: null };
+function finalizarTest(estadoAFinalizar) {
+    if (!estadoAFinalizar) return null;
 
-    const puntuacionFinal = Math.max(0, currentTestSession.puntuacion).toFixed(2);
+    const puntuacionFinal = Math.max(0, estadoAFinalizar.puntuacion).toFixed(2);
     const recordActual = storage.getHighScore();
     let nuevoRecord = false;
-    if (currentTestSession.puntuacion > recordActual) {
-        storage.setHighScore(currentTestSession.puntuacion);
+    if (estadoAFinalizar.puntuacion > recordActual) {
+        storage.setHighScore(estadoAFinalizar.puntuacion);
         nuevoRecord = true;
     }
-    const estadoFinalizado = { ...currentTestSession };
-    limpiarEstado(currentTestSession.modo);
+    const estadoFinalizado = { ...estadoAFinalizar };
+    limpiarEstado(estadoAFinalizar.modo);
     const resultado = { finalizado: true, puntuacionFinal, aciertos: estadoFinalizado.aciertos, fallos: estadoFinalizado.fallos, nuevoRecord, preguntasFalladas: estadoFinalizado.preguntasFalladas };
-    return { resultado, estadoFinalizado };
+    return resultado;
 }
 
 export function finalizarTestForzado() {
-    if (!currentTestSession) return null;
-    const { resultado } = finalizarTest();
+    const estadoActual = getTestState();
+    if (!estadoActual) return null;
+    const resultado = finalizarTest(estadoActual);
     currentTestSession = null;
     return resultado;
 }
 
-export function guardarEstado() {
-    if (!currentTestSession) return;
-    storage.setSession(currentTestSession.modo, currentTestSession);
+export function guardarEstado(estado) {
+    if (estado) storage.setSession(estado.modo, estado);
 }
 
 export function cargarEstado(modo) {

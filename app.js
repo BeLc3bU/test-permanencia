@@ -42,7 +42,7 @@ window.addEventListener('load', () => {
         ui.initializeNumPreguntas(storage.getNumPreguntas());
         registrarEventListeners();
         try {
-            await cargarTodasLasPreguntas();
+            await cargarTodasLasPreguntas(); // Ahora carga todos los exámenes
             actualizarContadoresUI();
             await manejarAccionesDeAtajos();
             intentarRestaurarSesion();
@@ -61,7 +61,9 @@ window.addEventListener('load', () => {
         const modosPosibles = [
             { nombre: 'normal', clave: 'normal' },
             { nombre: 'examen 2024', clave: 'examen2024' },
-            { nombre: 'examen 2022', clave: 'examen2022' }
+            { nombre: 'examen 2022', clave: 'examen2022' },
+            { nombre: 'examen 2025ET', clave: 'examen2025ET' },
+            { nombre: 'imprescindible', clave: 'imprescindible' }
         ];
 
         for (const modo of modosPosibles) {
@@ -85,12 +87,12 @@ window.addEventListener('load', () => {
         const estadoGuardado = cargarEstado(modo);
         if (estadoGuardado) {
             ui.showTestView();
-            ui.resetTestUI();
+                ui.resetTestUI(estadoGuardado);
             ui.updateRecord(storage.getHighScore());
-            mostrarPreguntaActual();
+                mostrarPreguntaActual(estadoGuardado);
             if (estadoGuardado.haRespondido) {
-                const preguntaData = estadoGuardado.preguntasDelTest[estadoGuardado.preguntaActualIndex];
-                const ultimaRespuestaFallada = estadoGuardado.preguntasFalladas.find(p => p.preguntaData.pregunta === preguntaData.pregunta);
+                    const preguntaData = estadoGuardado.preguntasDelTest[estadoGuardado.preguntaActualIndex] || {};
+                    const ultimaRespuestaFallada = estadoGuardado.preguntasFalladas.find(p => p.preguntaData.pregunta === preguntaData?.pregunta);
                 const opcionSeleccionada = ultimaRespuestaFallada ? ultimaRespuestaFallada.respuestaUsuario : preguntaData.respuestaCorrecta;
                 const esCorrecto = !ultimaRespuestaFallada;
                 ui.showAnswerFeedback(opcionSeleccionada, esCorrecto, preguntaData.respuestaCorrecta);
@@ -119,60 +121,20 @@ window.addEventListener('load', () => {
     function iniciarNuevoTest(modo, opciones) {
         limpiarEstado(modo); // Asegura que no haya sesiones previas conflictivas.
         const estadoActual = prepararTest(modo, opciones);
-        ui.showTestView();
-        ui.resetTestUI();
-        ui.updateRecord(storage.getHighScore());
-        mostrarPreguntaActual(estadoActual);
-    }
-
-    function mostrarPreguntaActual() {
-        const estadoActual = getTestState(); // Corregido: Usar la función importada
-        if (!estadoActual) return;
-
-        const preguntaData = estadoActual.preguntasDelTest[estadoActual.preguntaActualIndex];
-        ui.renderQuestion(preguntaData, estadoActual.preguntaActualIndex, estadoActual.preguntasDelTest.length, manejarSeleccionRespuesta);
+        if (estadoActual.preguntasDelTest.length > 0) {
+            ui.showTestView();
+            ui.resetTestUI(estadoActual);
+            ui.updateRecord(storage.getHighScore());
+            mostrarPreguntaActual(estadoActual);
+        } else {
+            alert(`No hay preguntas disponibles para el modo "${modo}".`);
+            ui.showStartView();
+        }
     }
 
     function iniciarTestNormal() {
         const numPreguntas = ui.elements.numPreguntasSelect.value === 'Infinity' ? Infinity : parseInt(ui.elements.numPreguntasSelect.value, 10);
         iniciarNuevoTest('normal', { numPreguntas });
-    }
-
-    function iniciarTestExamen(anio) {
-        const preguntasExamen = questionBank.getAll().filter(p => p.examen === anio.toString());
-        if (preguntasExamen.length > 0) {
-            iniciarNuevoTest(`examen${anio}`, { preguntasPersonalizadas: preguntasExamen });
-        } else {
-            alert(`No se encontraron preguntas para el Examen ${anio}. El archivo podría estar vacío o mal configurado.`);
-        }
-    }
-
-    async function manejarSeleccionRespuesta(opcionSeleccionada) {
-        if (isProcessing) return; // Evitar procesamiento múltiple
-        isProcessing = true;
-
-        const resultadoRespuesta = procesarRespuesta(opcionSeleccionada);
-        if (!resultadoRespuesta) {
-            isProcessing = false;
-            return;
-        }
-
-        ui.showAnswerFeedback(opcionSeleccionada, resultadoRespuesta.esCorrecto, resultadoRespuesta.respuestaCorrecta);
-        actualizarContadoresUI();
-
-        const delay = resultadoRespuesta.esCorrecto ? 1000 : 2000;
-        setTimeout(() => {
-            const resultadoAvance = avanzarPregunta();
-            if (resultadoAvance.finalizado) {
-                ui.showTestResults(resultadoAvance, iniciarRepasoFallos, () => { ui.showStartView(); });
-                actualizarContadoresUI();
-                isProcessing = false; // Desbloquear al finalizar el test
-            } else {
-                mostrarPreguntaActual(); // Avanza a la siguiente pregunta automáticamente
-            }
-            // Se desbloquea después de que la siguiente pregunta se renderice o el test finalice
-            if (!resultadoAvance.finalizado) isProcessing = false;
-        }, delay);
     }
 
     function iniciarRepasoFallos(preguntasFalladasTest) {
@@ -200,6 +162,52 @@ window.addEventListener('load', () => {
         const preguntasParaRepasar = indicesFallos.map(index => questionBank.getAll()[index]).filter(Boolean);
         iniciarNuevoTest('repaso', { preguntasPersonalizadas: preguntasParaRepasar });
     }
+    
+    function iniciarTestImprescindible() {
+        const preguntasImprescindibles = questionBank.getAll().filter(p => p.imprescindible === true);
+        iniciarNuevoTest('imprescindible', { preguntasPersonalizadas: preguntasImprescindibles });
+    }
+
+    function iniciarTestExamen(examenId) {
+        const preguntasExamen = questionBank.getAll().filter(p => p.examen === examenId.toString());
+        if (preguntasExamen.length > 0) {
+            iniciarNuevoTest(`examen${examenId}`, { preguntasPersonalizadas: preguntasExamen });
+        } else {
+            alert(`No se encontraron preguntas para el Examen ${examenId}. El archivo podría estar vacío o mal configurado.`);
+        }
+    }
+
+    function mostrarPreguntaActual(estadoActual) {
+        if (!estadoActual) return;
+        const preguntaData = estadoActual.preguntasDelTest[estadoActual.preguntaActualIndex];
+        ui.renderQuestion(preguntaData, estadoActual.preguntaActualIndex, estadoActual.preguntasDelTest.length, (opcion) => manejarSeleccionRespuesta(opcion, estadoActual));
+    }
+
+    async function manejarSeleccionRespuesta(opcionSeleccionada, estadoActual) {
+        if (isProcessing) return;
+        isProcessing = true;
+
+        const resultadoRespuesta = procesarRespuesta(opcionSeleccionada, estadoActual);
+        if (!resultadoRespuesta) {
+            isProcessing = false;
+            return;
+        }
+
+        ui.showAnswerFeedback(opcionSeleccionada, resultadoRespuesta.esCorrecto, resultadoRespuesta.respuestaCorrecta);
+        actualizarContadoresUI();
+
+        const delay = resultadoRespuesta.esCorrecto ? 1000 : 2000;
+        setTimeout(() => {
+            const { nuevoEstado, resultadoFinal } = avanzarPregunta(estadoActual);
+            if (resultadoFinal) {
+                ui.showTestResults(resultadoFinal, iniciarRepasoFallos, () => { ui.showStartView(); });
+                actualizarContadoresUI();
+            } else {
+                mostrarPreguntaActual(nuevoEstado);
+            }
+            isProcessing = false;
+        }, delay);
+    }
 
     function reiniciarProgresoCompleto() {
         questionBank.resetUnseen();
@@ -212,7 +220,9 @@ window.addEventListener('load', () => {
         ui.elements.iniciarNuevoTestBtn.addEventListener('click', iniciarTestNormal);
         ui.elements.iniciarRepasoFallosBtn.addEventListener('click', () => iniciarRepasoFallos());
         ui.elements.iniciarExamen2024Btn.addEventListener('click', () => iniciarTestExamen(2024));
+        ui.elements.iniciarTestImprescindibleBtn.addEventListener('click', iniciarTestImprescindible);
         ui.elements.iniciarExamen2022Btn.addEventListener('click', () => iniciarTestExamen(2022));
+        ui.elements.iniciarExamen2025ETBtn.addEventListener('click', () => iniciarTestExamen('2025ET'));
 
         ui.elements.numPreguntasSelect.addEventListener('change', (e) => {
             const num = e.target.value === 'Infinity' ? Infinity : parseInt(e.target.value, 10);
@@ -253,20 +263,18 @@ window.addEventListener('load', () => {
         });
 
         document.addEventListener('keydown', (e) => {
-            const estadoActual = getTestState();
-            if (!estadoActual || estadoActual.haRespondido) return;
+            const estado = getTestState();
+            if (!estado || estado.haRespondido) return;
 
-            const preguntaActual = estadoActual.preguntasDelTest[estadoActual.preguntaActualIndex];
+            const preguntaActual = estado.preguntasDelTest[estado.preguntaActualIndex];
             let opcionSeleccionada = null;
 
-            switch (e.key.toLowerCase()) {
-                case 'a': case '1': opcionSeleccionada = preguntaActual.opciones[0]; break;
-                case 'b': case '2': opcionSeleccionada = preguntaActual.opciones[1]; break;
-                case 'c': case '3': opcionSeleccionada = preguntaActual.opciones[2]; break;
-                case 'd': case '4': opcionSeleccionada = preguntaActual.opciones[3]; break;
-            }
+            const keyMap = { 'a': 0, '1': 0, 'b': 1, '2': 1, 'c': 2, '3': 2, 'd': 3, '4': 3 };
+            const index = keyMap[e.key.toLowerCase()];
 
-            if (opcionSeleccionada) manejarSeleccionRespuesta(opcionSeleccionada);
+            if (index !== undefined && preguntaActual.opciones[index]) {
+                manejarSeleccionRespuesta(preguntaActual.opciones[index], estado);
+            }
         });
     }
 
@@ -274,7 +282,7 @@ window.addEventListener('load', () => {
         if (isProcessing) return;
         isProcessing = true;
         const resultadoAvance = finalizarTestForzado();
-        if (resultadoAvance && resultadoAvance.finalizado) {
+        if (resultadoAvance) {
             ui.showTestResults(resultadoAvance, iniciarRepasoFallos, () => { ui.showStartView(); });
             actualizarContadoresUI();
         }

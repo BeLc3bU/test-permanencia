@@ -9,6 +9,7 @@ export class UI {
             iniciarTestImprescindibleBtn: document.getElementById('iniciar-test-imprescindible-btn'),
             iniciarExamen2024Btn: document.getElementById('iniciar-examen-2024-btn'),
             iniciarExamen2022Btn: document.getElementById('iniciar-examen-2022-btn'),
+            iniciarExamen2025ETBtn: document.getElementById('iniciar-examen-2025ET-btn'),
             numPreguntasSelect: document.getElementById('num-preguntas-select'),
             configTestNormal: document.querySelector('.config-test-normal'),
             soundToggleBtn: document.getElementById('sound-toggle-btn'),
@@ -262,11 +263,12 @@ export class UI {
         });
     }
 
-    resetTestUI() {
+    resetTestUI(estadoActual) {
         this.elements.reiniciarBtn.classList.add('oculto');
         this.elements.finalizarAhoraBtn.classList.remove('oculto');
         this.elements.revisionFallosEl.classList.add('oculto');
-        this.elements.seguirMasTardeBtn.classList.remove('oculto');
+        const esModoExamen = estadoActual.modo.startsWith('examen');
+        this.elements.seguirMasTardeBtn.classList.toggle('oculto', esModoExamen);
         this.elements.soundToggleBtn.classList.remove('oculto');
     }
 

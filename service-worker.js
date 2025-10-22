@@ -1,4 +1,4 @@
-const CACHE_NAME = 'test-permanencia-v13'; // Nueva versión para forzar la actualización.
+const CACHE_NAME = 'test-permanencia-v15'; // Nueva versión para forzar la actualización.
 // Lista de archivos para cachear en la instalación.
 const urlsToCache = [
   '.', // Representa la raíz del directorio actual
@@ -10,6 +10,7 @@ const urlsToCache = [
   'manifest.json',
   'examen_2022.json',
   'examen_2024.json',
+  'examen_2025ET.json',
   'icons/icon-192x192.png',
   'icons/icon-512x512.png',
   'sounds/correct.mp3',
@@ -111,7 +112,8 @@ self.addEventListener('periodicsync', event => {
         return Promise.all([
           fetch(new Request('preguntas.json', { cache: 'no-store' })),
           fetch(new Request('examen_2022.json', { cache: 'no-store' })),
-          fetch(new Request('examen_2024.json', { cache: 'no-store' }))
+          fetch(new Request('examen_2024.json', { cache: 'no-store' })),
+          fetch(new Request('examen_2025ET.json', { cache: 'no-store' }))
         ]);
       })
     );

@@ -34,7 +34,7 @@ function shuffleArray(array) {
 
 export async function loadAllQuestions() {
     // Carga todos los archivos de preguntas al inicio para que estén disponibles para todos los modos.
-    const filesToLoad = ['preguntas.json', 'examen_2022.json', 'examen_2024.json'];
+    const filesToLoad = ['preguntas.json', 'examen_2022.json', 'examen_2024.json', 'examen_2025ET.json'];
 
     const questionSets = await Promise.all(
         filesToLoad.map(file => loadQuestionFile(file))
