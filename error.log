@@ -1,0 +1,710 @@
+warning: Git tree '/usr/local/monospace/templates/private/_local_import' is dirty
+these 6 derivations will be built:
+  /nix/store/6ip6d6j1sj88i9n7rn455s48zb9xa1px-idx-template.drv
+  /nix/store/r1g97pfblqkssrarpkj6dcwmj6sv8ig5-sandbox-files.drv
+  /nix/store/v5ii659s2cc5c5dfxp1ys60svzxkv6hi-builder.pl.drv
+  /nix/store/jk5hbsy1pwrd74r1qbksgkkjc3jxnhk3-sandbox.drv
+  /nix/store/ax4fqnayc68rz2jxw92l9hcrhh4id7h0-usr-env.drv
+  /nix/store/50kwbwws4rzj5cc5ah4flfk1kpmpj7ly-idx-template.drv
+these 13 paths will be fetched (12.74 MiB download, 118.94 MiB unpacked):
+  /nix/store/1jnl0g7a6fcc7ma4f4kg77arpz84ifzf-ShellCheck-0.9.0
+  /nix/store/wam6939g2ch4aj6g30nfcsfm9lchmmjy-bash-5.2-p15-man
+  /nix/store/h5wbzr3h7hazy446j81nshp1i3fdnsxw-curl-8.4.0-man
+  /nix/store/gnx2p695iqmlr0w88ccklbgwim6axcmb-ed-1.19
+  /nix/store/v8p4q804sx0jjpds4xpk7sf64sy3jb1r-file-5.45
+  /nix/store/rwrw7zjjw884w3myrjnhf78dq3zrmgsf-gnu-config-2023-09-19
+  /nix/store/w9v3jmfwl6dc96l2p6k6c0lc6affyxi1-gnumake-4.4.1
+  /nix/store/88gf3i3nis12h1z1mkrqjsycchgcqjzr-patch-2.7.6
+  /nix/store/yf4fcxik258lrm0r4vxjv05wy1svd6i2-patchelf-0.15.0
+  /nix/store/72ww6m5915nw48q1nlij1i0pkr363zcb-stdenv-linux
+  /nix/store/x78if997ckjnsbs524iyvajvz607hqkv-ts-node-10.9.1
+  /nix/store/26vvnzfjg860ny4s7s1af38nskpfyps1-typescript-5.2.2
+  /nix/store/a4la4kzmq9kwqc71kf9lksx15pcq8wbg-update-autotools-gnu-config-scripts-hook
+copying path '/nix/store/1jnl0g7a6fcc7ma4f4kg77arpz84ifzf-ShellCheck-0.9.0' from 'https://cache.nixos.org' to 'local-overlay://'...
+copying path '/nix/store/rwrw7zjjw884w3myrjnhf78dq3zrmgsf-gnu-config-2023-09-19' from 'https://cache.nixos.org' to 'local-overlay://'...
+copying path '/nix/store/gnx2p695iqmlr0w88ccklbgwim6axcmb-ed-1.19' from 'https://cache.nixos.org' to 'local-overlay://'...
+copying path '/nix/store/v8p4q804sx0jjpds4xpk7sf64sy3jb1r-file-5.45' from 'https://cache.nixos.org' to 'local-overlay://'...
+copying path '/nix/store/w9v3jmfwl6dc96l2p6k6c0lc6affyxi1-gnumake-4.4.1' from 'https://cache.nixos.org' to 'local-overlay://'...
+copying path '/nix/store/yf4fcxik258lrm0r4vxjv05wy1svd6i2-patchelf-0.15.0' from 'https://cache.nixos.org' to 'local-overlay://'...
+copying path '/nix/store/26vvnzfjg860ny4s7s1af38nskpfyps1-typescript-5.2.2' from 'https://cache.nixos.org' to 'local-overlay://'...
+copying path '/nix/store/wam6939g2ch4aj6g30nfcsfm9lchmmjy-bash-5.2-p15-man' from 'https://cache.nixos.org' to 'local-overlay://'...
+copying path '/nix/store/h5wbzr3h7hazy446j81nshp1i3fdnsxw-curl-8.4.0-man' from 'https://cache.nixos.org' to 'local-overlay://'...
+copying path '/nix/store/a4la4kzmq9kwqc71kf9lksx15pcq8wbg-update-autotools-gnu-config-scripts-hook' from 'https://cache.nixos.org' to 'local-overlay://'...
+copying path '/nix/store/88gf3i3nis12h1z1mkrqjsycchgcqjzr-patch-2.7.6' from 'https://cache.nixos.org' to 'local-overlay://'...
+copying path '/nix/store/72ww6m5915nw48q1nlij1i0pkr363zcb-stdenv-linux' from 'https://cache.nixos.org' to 'local-overlay://'...
+building '/nix/store/v5ii659s2cc5c5dfxp1ys60svzxkv6hi-builder.pl.drv'...
+copying path '/nix/store/x78if997ckjnsbs524iyvajvz607hqkv-ts-node-10.9.1' from 'https://cache.nixos.org' to 'local-overlay://'...
+building '/nix/store/r1g97pfblqkssrarpkj6dcwmj6sv8ig5-sandbox-files.drv'...
+building '/nix/store/6ip6d6j1sj88i9n7rn455s48zb9xa1px-idx-template.drv'...
+building '/nix/store/jk5hbsy1pwrd74r1qbksgkkjc3jxnhk3-sandbox.drv'...
+created 430 symlinks in user environment
+building '/nix/store/ax4fqnayc68rz2jxw92l9hcrhh4id7h0-usr-env.drv'...
+/nix/store/qs8ylvfyg09044iv0zb2g8szzbpj5qga-usr-env /build
+/nix/store/qs8ylvfyg09044iv0zb2g8szzbpj5qga-usr-env/usr /nix/store/qs8ylvfyg09044iv0zb2g8szzbpj5qga-usr-env /build
+/nix/store/qs8ylvfyg09044iv0zb2g8szzbpj5qga-usr-env /build
+building '/nix/store/50kwbwws4rzj5cc5ah4flfk1kpmpj7ly-idx-template.drv'...
+Fetching users imported file...
+/nix/store/yykl8xj87grp4h9gfyvxiwyzzih7sdpk-qj85la07lhhzrcisqynps3pqy5id5fa1-source [ 'README.md', 'idx-template.json', 'idx-template.nix', 'unzipper.ts' ]
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  6 11.5M    6  766k    0     0   786k      0  0:00:15 --:--:--  0:00:15  785k100 11.5M  100 11.5M    0     0  7839k      0  0:00:01  0:00:01 --:--:-- 7844k
+Extracting imported file to /out/testpermanencia...
+Archive:  /out/testpermanencia/downloaded_file
+  inflating: /out/testpermanencia/validar_preguntas.js  
+   creating: /out/testpermanencia/.cursor/
+   creating: /out/testpermanencia/.cursor/rules/
+   creating: /out/testpermanencia/.git/
+  inflating: /out/testpermanencia/.git/COMMIT_EDITMSG  
+  inflating: /out/testpermanencia/.git/config  
+  inflating: /out/testpermanencia/.git/description  
+  inflating: /out/testpermanencia/.git/FETCH_HEAD  
+  inflating: /out/testpermanencia/.git/HEAD  
+   creating: /out/testpermanencia/.git/hooks/
+  inflating: /out/testpermanencia/.git/hooks/applypatch-msg.sample  
+  inflating: /out/testpermanencia/.git/hooks/commit-msg.sample  
+  inflating: /out/testpermanencia/.git/hooks/fsmonitor-watchman.sample  
+  inflating: /out/testpermanencia/.git/hooks/post-update.sample  
+  inflating: /out/testpermanencia/.git/hooks/pre-applypatch.sample  
+  inflating: /out/testpermanencia/.git/hooks/pre-commit.sample  
+  inflating: /out/testpermanencia/.git/hooks/pre-merge-commit.sample  
+  inflating: /out/testpermanencia/.git/hooks/pre-push.sample  
+  inflating: /out/testpermanencia/.git/hooks/pre-rebase.sample  
+  inflating: /out/testpermanencia/.git/hooks/pre-receive.sample  
+  inflating: /out/testpermanencia/.git/hooks/prepare-commit-msg.sample  
+  inflating: /out/testpermanencia/.git/hooks/push-to-checkout.sample  
+  inflating: /out/testpermanencia/.git/hooks/sendemail-validate.sample  
+  inflating: /out/testpermanencia/.git/hooks/update.sample  
+  inflating: /out/testpermanencia/.git/index  
+   creating: /out/testpermanencia/.git/info/
+  inflating: /out/testpermanencia/.git/info/exclude  
+   creating: /out/testpermanencia/.git/logs/
+  inflating: /out/testpermanencia/.git/logs/HEAD  
+   creating: /out/testpermanencia/.git/logs/refs/
+   creating: /out/testpermanencia/.git/logs/refs/heads/
+  inflating: /out/testpermanencia/.git/logs/refs/heads/main  
+   creating: /out/testpermanencia/.git/logs/refs/remotes/
+   creating: /out/testpermanencia/.git/logs/refs/remotes/origin/
+  inflating: /out/testpermanencia/.git/logs/refs/remotes/origin/HEAD  
+  inflating: /out/testpermanencia/.git/logs/refs/remotes/origin/main  
+   creating: /out/testpermanencia/.git/objects/
+   creating: /out/testpermanencia/.git/objects/00/
+  inflating: /out/testpermanencia/.git/objects/00/7d848abcd8aa8ea9b9e17d4fa52587c385664c  
+  inflating: /out/testpermanencia/.git/objects/00/e46d6fc4dcbd6ed4608cd7ff8e470599f10c0f  
+   creating: /out/testpermanencia/.git/objects/01/
+  inflating: /out/testpermanencia/.git/objects/01/96dcb3ba857a88e666ede8d0378ba5dc6d061a  
+   creating: /out/testpermanencia/.git/objects/02/
+  inflating: /out/testpermanencia/.git/objects/02/3bf595b5a45daa4eadcc67f438e031a9b3fb2c  
+  inflating: /out/testpermanencia/.git/objects/02/51a2654e4dc11013d44b12b2c3b62dc66952b2  
+  inflating: /out/testpermanencia/.git/objects/02/6f31070cbb77a707d3c9e7185a05ec081df869  
+  inflating: /out/testpermanencia/.git/objects/02/afaf6c03f2b76d004a60366299557a618b047c  
+   creating: /out/testpermanencia/.git/objects/03/
+  inflating: /out/testpermanencia/.git/objects/03/c2b7a3842d0858e9cea52aadd8b34792709b1a  
+   creating: /out/testpermanencia/.git/objects/04/
+  inflating: /out/testpermanencia/.git/objects/04/8985ca0505f00d08352d2aca5b849ead975d88  
+  inflating: /out/testpermanencia/.git/objects/04/ea778cae10f30efeeb9b1d91b09aa9c565d8ce  
+   creating: /out/testpermanencia/.git/objects/05/
+  inflating: /out/testpermanencia/.git/objects/05/86b80a6ee94813084b4db0a72bfb2bd7a5f630  
+  inflating: /out/testpermanencia/.git/objects/05/e64a37cc8e88df2f411215272b9453c6f788ea  
+   creating: /out/testpermanencia/.git/objects/06/
+  inflating: /out/testpermanencia/.git/objects/06/eec479ba54b6a96c18ae0679810cc584c22774  
+   creating: /out/testpermanencia/.git/objects/08/
+  inflating: /out/testpermanencia/.git/objects/08/c8bc63676dc1d7dadc24e0878f98e83630f73b  
+  inflating: /out/testpermanencia/.git/objects/08/f9698e6a83990f17aa52c7234bc4b6ce803ea3  
+   creating: /out/testpermanencia/.git/objects/09/
+  inflating: /out/testpermanencia/.git/objects/09/2b1d8209658a829fff89c84365abfb8e063dd4  
+   creating: /out/testpermanencia/.git/objects/0e/
+  inflating: /out/testpermanencia/.git/objects/0e/8f3f9d7f258134ba3acdae580336674ca1ded5  
+   creating: /out/testpermanencia/.git/objects/0f/
+  inflating: /out/testpermanencia/.git/objects/0f/2e2d1c7af3d3ca1b3e6da5ea3ce26aea4c94d4  
+  inflating: /out/testpermanencia/.git/objects/0f/5561bb22bcd1f23e1066404c6a6862aedf1718  
+   creating: /out/testpermanencia/.git/objects/10/
+  inflating: /out/testpermanencia/.git/objects/10/410531bacd4e757c750bcee00f697f8e0eda90  
+   creating: /out/testpermanencia/.git/objects/12/
+  inflating: /out/testpermanencia/.git/objects/12/767a387471a2677eb2bf0f3cc7488c23bce1db  
+   creating: /out/testpermanencia/.git/objects/13/
+  inflating: /out/testpermanencia/.git/objects/13/23dc2826b7df05eb3992ffc3318a619c213eb6  
+   creating: /out/testpermanencia/.git/objects/14/
+  inflating: /out/testpermanencia/.git/objects/14/81f57a9fd7f955a8b0b13f0be15d6d32ed72a4  
+  inflating: /out/testpermanencia/.git/objects/14/82acd7a39bfb852a07b1f9e5f34990354db7c9  
+  inflating: /out/testpermanencia/.git/objects/14/d7a1a1ad1c3185ed75d70331994dc142a28b41  
+   creating: /out/testpermanencia/.git/objects/17/
+  inflating: /out/testpermanencia/.git/objects/17/aa811c13cf2b9832f3b29c2d4d6e0009a38df1  
+  inflating: /out/testpermanencia/.git/objects/17/be99d14f0ff39f6a3730580746e3223b4c1083  
+   creating: /out/testpermanencia/.git/objects/1a/
+  inflating: /out/testpermanencia/.git/objects/1a/b0b8e789da136f09aa9f58198cd05cc84d3e26  
+   creating: /out/testpermanencia/.git/objects/1c/
+  inflating: /out/testpermanencia/.git/objects/1c/12a129f3233be664ef5042a0fe371c315415ae  
+   creating: /out/testpermanencia/.git/objects/1d/
+  inflating: /out/testpermanencia/.git/objects/1d/d7f0b5a4c6b8d7d34f678e8dfbfd0fe99c59d1  
+   creating: /out/testpermanencia/.git/objects/1f/
+  inflating: /out/testpermanencia/.git/objects/1f/a27637515235ed3f13feb1838c46fb6fd74401  
+  inflating: /out/testpermanencia/.git/objects/1f/c9f49b8ed9990dc3173d3091764a07aa7bffec  
+   creating: /out/testpermanencia/.git/objects/22/
+  inflating: /out/testpermanencia/.git/objects/22/21eae36ae0fde5849bd66c2b39ecce16990bdc  
+   creating: /out/testpermanencia/.git/objects/23/
+  inflating: /out/testpermanencia/.git/objects/23/a955c21131d3375a821afe61aff1019ea190e1  
+   creating: /out/testpermanencia/.git/objects/24/
+  inflating: /out/testpermanencia/.git/objects/24/19ac7de6eb99f5ff213dad85f20319252ad4d6  
+  inflating: /out/testpermanencia/.git/objects/24/ab5914d4fddf988e27c4693e03ce92e86df237  
+   creating: /out/testpermanencia/.git/objects/25/
+  inflating: /out/testpermanencia/.git/objects/25/e494481c4b1a48c211f9b7693e1c5f8894a294  
+   creating: /out/testpermanencia/.git/objects/26/
+  inflating: /out/testpermanencia/.git/objects/26/531811060e6bf13d95916d5e3808dcd92f15d1  
+  inflating: /out/testpermanencia/.git/objects/26/cea872c1a2761398f5cac63d592008bbfd1d39  
+   creating: /out/testpermanencia/.git/objects/29/
+  inflating: /out/testpermanencia/.git/objects/29/b9d3009dba10c44d588ac24d699da7606af899  
+  inflating: /out/testpermanencia/.git/objects/29/cf01bfe842fe09a59f85f71fc6bac205a6abc7  
+   creating: /out/testpermanencia/.git/objects/2a/
+  inflating: /out/testpermanencia/.git/objects/2a/d4bb2e6734330e05f1df948fe98806a511186c  
+   creating: /out/testpermanencia/.git/objects/2b/
+  inflating: /out/testpermanencia/.git/objects/2b/85370cae88f7d9f804cc38dabba11052b32d3a  
+   creating: /out/testpermanencia/.git/objects/2f/
+  inflating: /out/testpermanencia/.git/objects/2f/c73a8bf74df4e1b4ea71342e93752ff0fcde9e  
+   creating: /out/testpermanencia/.git/objects/30/
+  inflating: /out/testpermanencia/.git/objects/30/25d5c77baeaa0a3803ad890147688296d4b94c  
+   creating: /out/testpermanencia/.git/objects/32/
+  inflating: /out/testpermanencia/.git/objects/32/74b09a20767649aa8bc6e31fb9b71cc0df51be  
+   creating: /out/testpermanencia/.git/objects/34/
+  inflating: /out/testpermanencia/.git/objects/34/885c7387f5e8c5c4730cbb309d0cb5e6e46857  
+  inflating: /out/testpermanencia/.git/objects/34/9bdf3e0b77b5b5aa250c348b47956ad47cd4de  
+   creating: /out/testpermanencia/.git/objects/35/
+  inflating: /out/testpermanencia/.git/objects/35/2f2b58adbde2dd690e250ec129ae16152341e9  
+   creating: /out/testpermanencia/.git/objects/3a/
+  inflating: /out/testpermanencia/.git/objects/3a/441ea87a9fa8da340205fa0cc8308f33d98f6c  
+  inflating: /out/testpermanencia/.git/objects/3a/a026a1830713c1adfd35488b9030fe3e10e33f  
+   creating: /out/testpermanencia/.git/objects/3b/
+  inflating: /out/testpermanencia/.git/objects/3b/f446ece92a3b47560a688203c99da536d17ec4  
+   creating: /out/testpermanencia/.git/objects/3e/
+  inflating: /out/testpermanencia/.git/objects/3e/b17b900b753c02b47d9c4299f451df6d1688e4  
+   creating: /out/testpermanencia/.git/objects/41/
+  inflating: /out/testpermanencia/.git/objects/41/cd69d3851402ddd400fe5393a323d0e4c360dc  
+   creating: /out/testpermanencia/.git/objects/43/
+  inflating: /out/testpermanencia/.git/objects/43/7c85a2baf2546484ff251d5c479d8cbdbca34c  
+   creating: /out/testpermanencia/.git/objects/45/
+  inflating: /out/testpermanencia/.git/objects/45/3c349f83c938d7acf186c2470f2f69f3a40c96  
+  inflating: /out/testpermanencia/.git/objects/45/40facad9819bfd018cd6ae7635950f5485fc02  
+  inflating: /out/testpermanencia/.git/objects/45/cf9aa876bed8d5ca298db737ff1feac1148440  
+   creating: /out/testpermanencia/.git/objects/46/
+  inflating: /out/testpermanencia/.git/objects/46/41fcf5cab5cac4e3d0cb1df3938885885b545d  
+   creating: /out/testpermanencia/.git/objects/49/
+  inflating: /out/testpermanencia/.git/objects/49/31f440be281dbb87657d094061c867ad1b8632  
+  inflating: /out/testpermanencia/.git/objects/49/3d7365b992af28a6ccf1629722dc61f6984d6a  
+   creating: /out/testpermanencia/.git/objects/4a/
+  inflating: /out/testpermanencia/.git/objects/4a/19606708d74ba91dc5d4cd777f1e440e3d9587  
+   creating: /out/testpermanencia/.git/objects/4e/
+  inflating: /out/testpermanencia/.git/objects/4e/c64f2303bf71ed7eaca8f1e284247eb3268ee4  
+   creating: /out/testpermanencia/.git/objects/4f/
+  inflating: /out/testpermanencia/.git/objects/4f/bdb8fdb84b2d886d329545c5bbf4db23fe39e3  
+   creating: /out/testpermanencia/.git/objects/50/
+  inflating: /out/testpermanencia/.git/objects/50/36141223ac287a833686acdc3d90fa886708ff  
+  inflating: /out/testpermanencia/.git/objects/50/e09a2c07e634d01d8681a6cf73ccb8e1bdb1f8  
+   creating: /out/testpermanencia/.git/objects/51/
+  inflating: /out/testpermanencia/.git/objects/51/fa46eb46dbc1b8d2f810e64a933bb4a5e6170b  
+   creating: /out/testpermanencia/.git/objects/52/
+  inflating: /out/testpermanencia/.git/objects/52/88188c69ea9ec91782829a51d153788b4491d2  
+   creating: /out/testpermanencia/.git/objects/55/
+  inflating: /out/testpermanencia/.git/objects/55/3f10d257fd7b33b052f49f5119925944db0244  
+   creating: /out/testpermanencia/.git/objects/58/
+  inflating: /out/testpermanencia/.git/objects/58/5413dc0aba47e5e331e7bd709d09dd5e072742  
+  inflating: /out/testpermanencia/.git/objects/58/92a8f66dab216a56c78dcda737e1def7c3f294  
+  inflating: /out/testpermanencia/.git/objects/58/97bc3cdbe661a91025b63f51b3194cc3c91879  
+   creating: /out/testpermanencia/.git/objects/5b/
+  inflating: /out/testpermanencia/.git/objects/5b/c1557c6c3788b8998ab2bcc246ee3f65668825  
+   creating: /out/testpermanencia/.git/objects/5c/
+  inflating: /out/testpermanencia/.git/objects/5c/12a706f6c3c541d5cc115e1819b659893c38d2  
+  inflating: /out/testpermanencia/.git/objects/5c/db6931fe5611336ebe63119d9338c249e6aeb8  
+   creating: /out/testpermanencia/.git/objects/5d/
+  inflating: /out/testpermanencia/.git/objects/5d/6953d053a9b578cd5b502d7bae141b3c1fc232  
+  inflating: /out/testpermanencia/.git/objects/5d/b9ab8ff80c359099d8be0c9cd1b72fb43002cf  
+   creating: /out/testpermanencia/.git/objects/5f/
+  inflating: /out/testpermanencia/.git/objects/5f/b096b29895e06a2604c66764716d2680833c9c  
+   creating: /out/testpermanencia/.git/objects/61/
+  inflating: /out/testpermanencia/.git/objects/61/914c804efbb3626532d8e467ebe63e62b2d52f  
+   creating: /out/testpermanencia/.git/objects/62/
+  inflating: /out/testpermanencia/.git/objects/62/0b2ec6f10cd3c35e4612e9a7be41853a574e4d  
+   creating: /out/testpermanencia/.git/objects/64/
+  inflating: /out/testpermanencia/.git/objects/64/643ce4c32dc65972ae84cda123eee23eef1d1a  
+   creating: /out/testpermanencia/.git/objects/66/
+  inflating: /out/testpermanencia/.git/objects/66/2d8531979cda8f12fabee2235385e86ce781ef  
+   creating: /out/testpermanencia/.git/objects/67/
+  inflating: /out/testpermanencia/.git/objects/67/064f47d7d17ed49dc9eecc4f2ea0dd79ba3975  
+  inflating: /out/testpermanencia/.git/objects/67/436559500deaab975c5ac2a33e305be72299b8  
+   creating: /out/testpermanencia/.git/objects/6a/
+  inflating: /out/testpermanencia/.git/objects/6a/86ef02e546ffdbf2371a9a35af8352032c6dd8  
+   creating: /out/testpermanencia/.git/objects/6b/
+  inflating: /out/testpermanencia/.git/objects/6b/63be9f93af3adcadcef8207fb58776bc8af146  
+   creating: /out/testpermanencia/.git/objects/6c/
+  inflating: /out/testpermanencia/.git/objects/6c/60b706ef554c7663cd6fd297b321e2d83679f3  
+   creating: /out/testpermanencia/.git/objects/6d/
+  inflating: /out/testpermanencia/.git/objects/6d/f8f60db78b5f20115969c7ee026f01ea15f4dc  
+   creating: /out/testpermanencia/.git/objects/6e/
+  inflating: /out/testpermanencia/.git/objects/6e/f76fc2c2082713ce2c2efaabba2d0472778589  
+   creating: /out/testpermanencia/.git/objects/6f/
+  inflating: /out/testpermanencia/.git/objects/6f/e688024247f823f088ca71b21691a50d43c42e  
+   creating: /out/testpermanencia/.git/objects/70/
+  inflating: /out/testpermanencia/.git/objects/70/7762c24c25add01f550bf4cff757b3512b56e7  
+  inflating: /out/testpermanencia/.git/objects/70/803c0d6eab36c5966073535202cbe4d729c133  
+   creating: /out/testpermanencia/.git/objects/72/
+  inflating: /out/testpermanencia/.git/objects/72/83b61f90bb059f5ad86f2257ff4c1877860477  
+   creating: /out/testpermanencia/.git/objects/73/
+  inflating: /out/testpermanencia/.git/objects/73/b3ab3bd37a967f6b4a1d30fdbf69054f0cff05  
+   creating: /out/testpermanencia/.git/objects/74/
+  inflating: /out/testpermanencia/.git/objects/74/5a36af9cae65b6610ad17bdbd516e9bf0d655e  
+  inflating: /out/testpermanencia/.git/objects/74/b2726aa9643011d7954aca91adc8a5c6ac6327  
+   creating: /out/testpermanencia/.git/objects/75/
+  inflating: /out/testpermanencia/.git/objects/75/e4e4f3661848151b234278e0ffdd29141c9bbc  
+  inflating: /out/testpermanencia/.git/objects/75/f186257e60b3db033212e089525b51177848fe  
+   creating: /out/testpermanencia/.git/objects/78/
+  inflating: /out/testpermanencia/.git/objects/78/9cb69680617d37fd6489c5a12d46c88575090b  
+   creating: /out/testpermanencia/.git/objects/79/
+  inflating: /out/testpermanencia/.git/objects/79/d99888a94f6ee7e69f2052e5400512ca370b08  
+   creating: /out/testpermanencia/.git/objects/7b/
+  inflating: /out/testpermanencia/.git/objects/7b/8f92f08378146f02cead9fb95545645d61f012  
+  inflating: /out/testpermanencia/.git/objects/7b/94b235371b18267b7d6804d44780f6dea9993b  
+   creating: /out/testpermanencia/.git/objects/7c/
+  inflating: /out/testpermanencia/.git/objects/7c/da4d930b66b05ca095a59735db7b1069839798  
+   creating: /out/testpermanencia/.git/objects/7f/
+  inflating: /out/testpermanencia/.git/objects/7f/d2299b2b07f604917b9b03e13941f2356d35d4  
+  inflating: /out/testpermanencia/.git/objects/7f/f80429cdb263980551d8a7a810aedac6a9c276  
+   creating: /out/testpermanencia/.git/objects/80/
+  inflating: /out/testpermanencia/.git/objects/80/2ccd5b49bb0e5057427a1e6a3529d4835f2411  
+   creating: /out/testpermanencia/.git/objects/82/
+  inflating: /out/testpermanencia/.git/objects/82/1a936f0d666daadb766bb236541d56baef3f0d  
+   creating: /out/testpermanencia/.git/objects/83/
+  inflating: /out/testpermanencia/.git/objects/83/4bbdd017dd6a9c01ee2b68c5138bc655fbacdc  
+   creating: /out/testpermanencia/.git/objects/84/
+  inflating: /out/testpermanencia/.git/objects/84/35bb16a820ca52360bad558405d966c7a35274  
+  inflating: /out/testpermanencia/.git/objects/84/7d5fc6c63bad60320b896ae630f1bbb0190f10  
+   creating: /out/testpermanencia/.git/objects/86/
+  inflating: /out/testpermanencia/.git/objects/86/1aab6b26e981304eee990992e8dabf4eb7fd0f  
+   creating: /out/testpermanencia/.git/objects/88/
+  inflating: /out/testpermanencia/.git/objects/88/41b0083e9d36a936018038a46e6f9d4ede4836  
+  inflating: /out/testpermanencia/.git/objects/88/da34090321ac510265772853a0f877308c1506  
+   creating: /out/testpermanencia/.git/objects/8b/
+  inflating: /out/testpermanencia/.git/objects/8b/84450189e8ff9e38af642fb968cbee64367a18  
+  inflating: /out/testpermanencia/.git/objects/8b/8b3a2496a403ddab4dd8b57634f3d8b5518377  
+  inflating: /out/testpermanencia/.git/objects/8b/8b7a63faf84d62ce46abf9b788e9b60d235a49  
+  inflating: /out/testpermanencia/.git/objects/8b/b54704449e8ca1c6bf0ee95d84fcad3a35b37b  
+   creating: /out/testpermanencia/.git/objects/8d/
+  inflating: /out/testpermanencia/.git/objects/8d/428c15a4ab59c7e3f12d161a1e4c5b6e0dec87  
+   creating: /out/testpermanencia/.git/objects/93/
+  inflating: /out/testpermanencia/.git/objects/93/602a2dae03f587bd60ff6362ed1387e6c21c95  
+   creating: /out/testpermanencia/.git/objects/95/
+  inflating: /out/testpermanencia/.git/objects/95/bf3235025345bb50858126d698985b849db7ab  
+   creating: /out/testpermanencia/.git/objects/97/
+  inflating: /out/testpermanencia/.git/objects/97/ba529b0afc9bc2a0a87e803c4d3aa611a35564  
+   creating: /out/testpermanencia/.git/objects/9a/
+  inflating: /out/testpermanencia/.git/objects/9a/df99b7e28f0fd20b5de01569a4b818965a65b0  
+   creating: /out/testpermanencia/.git/objects/9d/
+  inflating: /out/testpermanencia/.git/objects/9d/5110b1a0a4ffad623871ee1fd33510e65f3276  
+   creating: /out/testpermanencia/.git/objects/9e/
+  inflating: /out/testpermanencia/.git/objects/9e/e76a14cba477ec06099ab199f743afc31c45ff  
+   creating: /out/testpermanencia/.git/objects/a5/
+  inflating: /out/testpermanencia/.git/objects/a5/1833c156597d86c33ae0aa55e948aea8b6521e  
+   creating: /out/testpermanencia/.git/objects/a8/
+  inflating: /out/testpermanencia/.git/objects/a8/609c1f6cf7483055fa1a351a02433e61db77c5  
+   creating: /out/testpermanencia/.git/objects/a9/
+  inflating: /out/testpermanencia/.git/objects/a9/6cc5e92f870fbcd98afd76b767d7a402baaaf8  
+  inflating: /out/testpermanencia/.git/objects/a9/e7c35a58616629536b7cc926c43d82ff868b03  
+   creating: /out/testpermanencia/.git/objects/aa/
+  inflating: /out/testpermanencia/.git/objects/aa/0508c6c4dc1b8a5a66b03a03c400c3269a8a88  
+  inflating: /out/testpermanencia/.git/objects/aa/c497e560ce2f176e1e65830e08527b77f01373  
+   creating: /out/testpermanencia/.git/objects/ad/
+  inflating: /out/testpermanencia/.git/objects/ad/0714e598be3ac6a713c72e6ed3375f236f16aa  
+   creating: /out/testpermanencia/.git/objects/ae/
+  inflating: /out/testpermanencia/.git/objects/ae/e23ecd4c96ae3d41cc22867b887d7dcaf9a359  
+   creating: /out/testpermanencia/.git/objects/af/
+  inflating: /out/testpermanencia/.git/objects/af/0245a710c66592870c5f4ab5379543a925ee01  
+   creating: /out/testpermanencia/.git/objects/b0/
+  inflating: /out/testpermanencia/.git/objects/b0/ed0abb26773dd2e3fb14342c53d6cd1bbbd80c  
+   creating: /out/testpermanencia/.git/objects/b3/
+  inflating: /out/testpermanencia/.git/objects/b3/c31c1f6dfcfca7aca1f019c8f8358cfb5470cd  
+   creating: /out/testpermanencia/.git/objects/b4/
+  inflating: /out/testpermanencia/.git/objects/b4/2afa4643fbdd59feb35f008bd4175f4dadcd27  
+   creating: /out/testpermanencia/.git/objects/b7/
+  inflating: /out/testpermanencia/.git/objects/b7/79f18153aa7270ab105fa62060ee06cb33cffd  
+   creating: /out/testpermanencia/.git/objects/b9/
+  inflating: /out/testpermanencia/.git/objects/b9/b14ceb88f86295c689be3444d43287166cf35f  
+   creating: /out/testpermanencia/.git/objects/ba/
+  inflating: /out/testpermanencia/.git/objects/ba/d6c4509ddcfc28de2b69af7bbb3cd0d9c1ae60  
+  inflating: /out/testpermanencia/.git/objects/ba/f5ebc9623292f46b06f729176fd07a7449b07e  
+   creating: /out/testpermanencia/.git/objects/bb/
+  inflating: /out/testpermanencia/.git/objects/bb/2d9bd11aec212016cb12506b7c9d56af2698d8  
+  inflating: /out/testpermanencia/.git/objects/bb/e667dbdd19f51db9b17b20a2022cc823edb6e1  
+   creating: /out/testpermanencia/.git/objects/bd/
+  inflating: /out/testpermanencia/.git/objects/bd/45cf894f3b9829978f3975c4a4f5bff8bb65b0  
+   creating: /out/testpermanencia/.git/objects/be/
+  inflating: /out/testpermanencia/.git/objects/be/0a0f46c6c2fed2a681fc823796e97beb6c6a38  
+  inflating: /out/testpermanencia/.git/objects/be/42382af3ee36e37e7dc2a6c461abc9a95212c1  
+  inflating: /out/testpermanencia/.git/objects/be/92ac513fd8b76cbca7069789f0ad8731352276  
+   creating: /out/testpermanencia/.git/objects/c0/
+  inflating: /out/testpermanencia/.git/objects/c0/a41eada0d50162b12ab08323e22ec49d470746  
+  inflating: /out/testpermanencia/.git/objects/c0/f668bdf6b720a52373483ef2c473231390d744  
+   creating: /out/testpermanencia/.git/objects/c1/
+  inflating: /out/testpermanencia/.git/objects/c1/c799bdbce27924991eb33dee59f484b2503abb  
+   creating: /out/testpermanencia/.git/objects/c3/
+  inflating: /out/testpermanencia/.git/objects/c3/19c9a04708bcfb8824256163502d4fd8903b68  
+  inflating: /out/testpermanencia/.git/objects/c3/34d3a88a57c5e0ff2bda7e103583c24fa537bb  
+  inflating: /out/testpermanencia/.git/objects/c3/b00991c215512084df0213be42dd366e64f3eb  
+  inflating: /out/testpermanencia/.git/objects/c3/e0bb453dca6ff8c8f832ddbe9e3c383f88437b  
+   creating: /out/testpermanencia/.git/objects/c4/
+  inflating: /out/testpermanencia/.git/objects/c4/a8da10b8ce44cd9ec055f391bc04742261fbb7  
+   creating: /out/testpermanencia/.git/objects/c5/
+  inflating: /out/testpermanencia/.git/objects/c5/82117f234ee0dcf0c6ca511a688cf74d905d91  
+   creating: /out/testpermanencia/.git/objects/c6/
+  inflating: /out/testpermanencia/.git/objects/c6/230fd98c98e987cd42035f5666877d0133cb10  
+   creating: /out/testpermanencia/.git/objects/c7/
+  inflating: /out/testpermanencia/.git/objects/c7/67b942f173ed359df29b8832cb80d849417f2c  
+  inflating: /out/testpermanencia/.git/objects/c7/dee79a8ba503b77ff49f0307ae992067cc258c  
+   creating: /out/testpermanencia/.git/objects/c8/
+  inflating: /out/testpermanencia/.git/objects/c8/ff176a43e3ece3a338ac63a90c7a1e1855f552  
+   creating: /out/testpermanencia/.git/objects/c9/
+  inflating: /out/testpermanencia/.git/objects/c9/16abec50f0b0213c19e78f561fd22184f0e439  
+  inflating: /out/testpermanencia/.git/objects/c9/2de3d3ae6827c529616edae7fd23e55765910b  
+  inflating: /out/testpermanencia/.git/objects/c9/97ea95d6700bed61fed46a7c4638b692edab3a  
+   creating: /out/testpermanencia/.git/objects/ca/
+  inflating: /out/testpermanencia/.git/objects/ca/078b885b44868c497f7d2bd945999d732ca09a  
+   creating: /out/testpermanencia/.git/objects/cb/
+  inflating: /out/testpermanencia/.git/objects/cb/d2372e5d25958834eac440279a85bd92cc2b62  
+   creating: /out/testpermanencia/.git/objects/cc/
+  inflating: /out/testpermanencia/.git/objects/cc/53c211f0757e1d479290ee0f107e9dc3a63a96  
+   creating: /out/testpermanencia/.git/objects/cf/
+  inflating: /out/testpermanencia/.git/objects/cf/2acd04160a8eb62fc5ea87dd34ecf172952669  
+  inflating: /out/testpermanencia/.git/objects/cf/4044521327c1b664e2bf2aacc331b14b311724  
+   creating: /out/testpermanencia/.git/objects/d0/
+  inflating: /out/testpermanencia/.git/objects/d0/9bf7a0e96050254943b6d3c14225b3dd23f005  
+  inflating: /out/testpermanencia/.git/objects/d0/bd73b7d8c326a0d099b8ab83473bbc18f12c50  
+   creating: /out/testpermanencia/.git/objects/d2/
+  inflating: /out/testpermanencia/.git/objects/d2/6a78e7625b72958b49d4bebb57d50cf2e16670  
+  inflating: /out/testpermanencia/.git/objects/d2/ae4dc45656d419ab4653aab7049f3ea0fc4950  
+   creating: /out/testpermanencia/.git/objects/d3/
+  inflating: /out/testpermanencia/.git/objects/d3/f4c4f6a87b17e3e8388c7ca2c938007b300f50  
+   creating: /out/testpermanencia/.git/objects/d4/
+  inflating: /out/testpermanencia/.git/objects/d4/6fcb3597139c4bcf5d765a80de3301e75d44d9  
+  inflating: /out/testpermanencia/.git/objects/d4/d6d1a898d62f13a8d72ccb24a35f17af0926ca  
+   creating: /out/testpermanencia/.git/objects/d7/
+  inflating: /out/testpermanencia/.git/objects/d7/c7b36d5552b341554c6ced4d1853d6de0e296f  
+   creating: /out/testpermanencia/.git/objects/d9/
+  inflating: /out/testpermanencia/.git/objects/d9/1994d3beab2ceca02a0c8423a03648774c8300  
+  inflating: /out/testpermanencia/.git/objects/d9/4530903971c3cedf02e0629a0b1c9a7a4a34fb  
+  inflating: /out/testpermanencia/.git/objects/d9/878169c7f3c2ecbfd4954f1296cd544c778c73  
+   creating: /out/testpermanencia/.git/objects/da/
+  inflating: /out/testpermanencia/.git/objects/da/2345335a69f20976e9e4b7c5ab40a65c622925  
+   creating: /out/testpermanencia/.git/objects/db/
+  inflating: /out/testpermanencia/.git/objects/db/39002457f85e16fc75982f32fcb8c42fbc774b  
+  inflating: /out/testpermanencia/.git/objects/db/b9a0682c65eba9ea6f8aaf8cb72f8a2fe23507  
+   creating: /out/testpermanencia/.git/objects/dd/
+  inflating: /out/testpermanencia/.git/objects/dd/e16d541e12b8da9bdb64f7abc38486171ab473  
+   creating: /out/testpermanencia/.git/objects/de/
+  inflating: /out/testpermanencia/.git/objects/de/9e774c9ae4cda514de29ad81cdf9dbe026ec1e  
+   creating: /out/testpermanencia/.git/objects/e1/
+  inflating: /out/testpermanencia/.git/objects/e1/42321eee533bbda7636a97a96417728707771e  
+   creating: /out/testpermanencia/.git/objects/e2/
+  inflating: /out/testpermanencia/.git/objects/e2/05e5ec1d73ea06d6a86cce04d7e7127113ed7e  
+   creating: /out/testpermanencia/.git/objects/e4/
+  inflating: /out/testpermanencia/.git/objects/e4/3266d05e6c3412893408e74de36ec96ea3cd4a  
+   creating: /out/testpermanencia/.git/objects/e5/
+  inflating: /out/testpermanencia/.git/objects/e5/a625a38709753cd0e726bb815704b0a4244688  
+   creating: /out/testpermanencia/.git/objects/e6/
+  inflating: /out/testpermanencia/.git/objects/e6/9de29bb2d1d6434b8b29ae775ad8c2e48c5391  
+   creating: /out/testpermanencia/.git/objects/ed/
+  inflating: /out/testpermanencia/.git/objects/ed/68d11cbabfce68b9821a65dcc75083b9385c04  
+  inflating: /out/testpermanencia/.git/objects/ed/8044ef00f702b0a5727d706f00cdd018949899  
+   creating: /out/testpermanencia/.git/objects/f0/
+  inflating: /out/testpermanencia/.git/objects/f0/cade748febc880924f151c6889e23b0a35101f  
+   creating: /out/testpermanencia/.git/objects/f1/
+  inflating: /out/testpermanencia/.git/objects/f1/f79a229d072442fdcc77b8d31996fa0de9e056  
+   creating: /out/testpermanencia/.git/objects/f2/
+  inflating: /out/testpermanencia/.git/objects/f2/432b91230fcbc870a5a4e5b77edc843847c311  
+   creating: /out/testpermanencia/.git/objects/f4/
+  inflating: /out/testpermanencia/.git/objects/f4/5c9ad280e4025a14c4eb60839927670b8d1625  
+   creating: /out/testpermanencia/.git/objects/f5/
+  inflating: /out/testpermanencia/.git/objects/f5/b1cb6275014067f78824402cce41f28e1f654f  
+  inflating: /out/testpermanencia/.git/objects/f5/fe32c0a484d38bf939ac900824188fd8241b90  
+   creating: /out/testpermanencia/.git/objects/f6/
+  inflating: /out/testpermanencia/.git/objects/f6/135c5337342e91dfc9f2bbae35b42e15008b0a  
+   creating: /out/testpermanencia/.git/objects/f8/
+  inflating: /out/testpermanencia/.git/objects/f8/a9a05cc2db4c15b95be46a9d041f2641a52e1f  
+   creating: /out/testpermanencia/.git/objects/f9/
+  inflating: /out/testpermanencia/.git/objects/f9/703fd012d8f9217af152cc39a625da4ec7348f  
+   creating: /out/testpermanencia/.git/objects/fa/
+  inflating: /out/testpermanencia/.git/objects/fa/471327225021088830c217aebb4cbac8f79fbc  
+   creating: /out/testpermanencia/.git/objects/fd/
+  inflating: /out/testpermanencia/.git/objects/fd/3c63b1eecd077dc90059481e59418069f3cb0d  
+   creating: /out/testpermanencia/.git/objects/info/
+   creating: /out/testpermanencia/.git/objects/pack/
+  inflating: /out/testpermanencia/.git/objects/pack/pack-2dd6f4429bfbffbbee15b049b083aaa4c7bbcbf4.idx  
+  inflating: /out/testpermanencia/.git/objects/pack/pack-2dd6f4429bfbffbbee15b049b083aaa4c7bbcbf4.pack  
+  inflating: /out/testpermanencia/.git/objects/pack/pack-2dd6f4429bfbffbbee15b049b083aaa4c7bbcbf4.rev  
+  inflating: /out/testpermanencia/.git/ORIG_HEAD  
+  inflating: /out/testpermanencia/.git/packed-refs  
+   creating: /out/testpermanencia/.git/refs/
+   creating: /out/testpermanencia/.git/refs/heads/
+  inflating: /out/testpermanencia/.git/refs/heads/main  
+   creating: /out/testpermanencia/.git/refs/remotes/
+   creating: /out/testpermanencia/.git/refs/remotes/origin/
+  inflating: /out/testpermanencia/.git/refs/remotes/origin/HEAD  
+  inflating: /out/testpermanencia/.git/refs/remotes/origin/main  
+   creating: /out/testpermanencia/.git/refs/tags/
+   creating: /out/testpermanencia/.well_known/
+  inflating: /out/testpermanencia/.well_known/assetlinks.json  
+   creating: /out/testpermanencia/icons/
+  inflating: /out/testpermanencia/icons/icon-192x192.png  
+  inflating: /out/testpermanencia/icons/icon-512x512.png  
+  inflating: /out/testpermanencia/icons/icon-maskable-512x512.png  
+  inflating: /out/testpermanencia/icons/icon-monochrome-512x512.png  
+   creating: /out/testpermanencia/screenshots/
+  inflating: /out/testpermanencia/screenshots/screenshot-inicio.png  
+  inflating: /out/testpermanencia/screenshots/screenshot-pregunta.png  
+   creating: /out/testpermanencia/sounds/
+  inflating: /out/testpermanencia/sounds/correct.mp3  
+  inflating: /out/testpermanencia/sounds/incorrect.mp3  
+  inflating: /out/testpermanencia/Agent.md  
+  inflating: /out/testpermanencia/agent.yaml  
+  inflating: /out/testpermanencia/app.js  
+  inflating: /out/testpermanencia/create_issues.sh  
+  inflating: /out/testpermanencia/depurado_preguntas.json  
+  inflating: /out/testpermanencia/examen_2022.json  
+  inflating: /out/testpermanencia/examen_2024.json  
+  inflating: /out/testpermanencia/examen_2025ET.json  
+  inflating: /out/testpermanencia/index.html  
+  inflating: /out/testpermanencia/manifest.json  
+  inflating: /out/testpermanencia/preguntas.json  
+  inflating: /out/testpermanencia/project_issues.yml  
+  inflating: /out/testpermanencia/questionManager.js  
+  inflating: /out/testpermanencia/README.md  
+  inflating: /out/testpermanencia/service-worker.js  
+  inflating: /out/testpermanencia/simulacro_1.json  
+  inflating: /out/testpermanencia/simulacro_2.json  
+  inflating: /out/testpermanencia/simulacro_3.json  
+  inflating: /out/testpermanencia/state.js  
+  inflating: /out/testpermanencia/storage.js  
+  inflating: /out/testpermanencia/style.css  
+  inflating: /out/testpermanencia/ui.js  
+Unzipped successfully!
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/screenshots/screenshot-inicio.png': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/screenshots/screenshot-pregunta.png': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/HEAD': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/ORIG_HEAD': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/config': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/refs/remotes/origin/HEAD': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/refs/remotes/origin/main': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/refs/heads/main': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/refs/tags': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/logs/HEAD': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/logs/refs/remotes/origin/HEAD': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/logs/refs/remotes/origin/main': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/logs/refs/heads/main': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/FETCH_HEAD': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/packed-refs': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/index': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/hooks/pre-push.sample': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/hooks/prepare-commit-msg.sample': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/hooks/pre-commit.sample': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/hooks/applypatch-msg.sample': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/hooks/pre-merge-commit.sample': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/hooks/fsmonitor-watchman.sample': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/hooks/pre-applypatch.sample': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/hooks/pre-receive.sample': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/hooks/push-to-checkout.sample': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/hooks/post-update.sample': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/hooks/pre-rebase.sample': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/hooks/sendemail-validate.sample': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/hooks/commit-msg.sample': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/hooks/update.sample': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/COMMIT_EDITMSG': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/info/exclude': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/e4/3266d05e6c3412893408e74de36ec96ea3cd4a': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/9e': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/cc': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/12': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/a9': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/10/410531bacd4e757c750bcee00f697f8e0eda90': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/fd': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/d3/f4c4f6a87b17e3e8388c7ca2c938007b300f50': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/46': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/58/97bc3cdbe661a91025b63f51b3194cc3c91879': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/58/92a8f66dab216a56c78dcda737e1def7c3f294': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/58/5413dc0aba47e5e331e7bd709d09dd5e072742': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/82': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/ae': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/25/e494481c4b1a48c211f9b7693e1c5f8894a294': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/a5/1833c156597d86c33ae0aa55e948aea8b6521e': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/b0': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/3a/441ea87a9fa8da340205fa0cc8308f33d98f6c': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/3a/a026a1830713c1adfd35488b9030fe3e10e33f': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/9a': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/74/b2726aa9643011d7954aca91adc8a5c6ac6327': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/74/5a36af9cae65b6610ad17bdbd516e9bf0d655e': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/0e': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/fa': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/45': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/f6/135c5337342e91dfc9f2bbae35b42e15008b0a': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/26': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/78': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/6f/e688024247f823f088ca71b21691a50d43c42e': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/2b': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/13/23dc2826b7df05eb3992ffc3318a619c213eb6': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/f4/5c9ad280e4025a14c4eb60839927670b8d1625': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/62': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/f2': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/75': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/cb': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/cf': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/08/f9698e6a83990f17aa52c7234bc4b6ce803ea3': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/08/c8bc63676dc1d7dadc24e0878f98e83630f73b': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/6e/f76fc2c2082713ce2c2efaabba2d0472778589': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/c6': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/a8/609c1f6cf7483055fa1a351a02433e61db77c5': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/b3': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/67/436559500deaab975c5ac2a33e305be72299b8': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/67/064f47d7d17ed49dc9eecc4f2ea0dd79ba3975': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/30': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/db/39002457f85e16fc75982f32fcb8c42fbc774b': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/db/b9a0682c65eba9ea6f8aaf8cb72f8a2fe23507': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/8d': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/64': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/1f/a27637515235ed3f13feb1838c46fb6fd74401': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/1f/c9f49b8ed9990dc3173d3091764a07aa7bffec': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/7b/94b235371b18267b7d6804d44780f6dea9993b': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/7b/8f92f08378146f02cead9fb95545645d61f012': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/c3/19c9a04708bcfb8824256163502d4fd8903b68': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/c3/34d3a88a57c5e0ff2bda7e103583c24fa537bb': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/c3/b00991c215512084df0213be42dd366e64f3eb': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/c3/e0bb453dca6ff8c8f832ddbe9e3c383f88437b': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/2f/c73a8bf74df4e1b4ea71342e93752ff0fcde9e': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/55': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/23/a955c21131d3375a821afe61aff1019ea190e1': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/de': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/22': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/f9/703fd012d8f9217af152cc39a625da4ec7348f': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/01': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/66/2d8531979cda8f12fabee2235385e86ce781ef': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/bd': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/34': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/50': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/ad': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/ba/d6c4509ddcfc28de2b69af7bbb3cd0d9c1ae60': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/ba/f5ebc9623292f46b06f729176fd07a7449b07e': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/af': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/06': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/be/0a0f46c6c2fed2a681fc823796e97beb6c6a38': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/be/92ac513fd8b76cbca7069789f0ad8731352276': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/be/42382af3ee36e37e7dc2a6c461abc9a95212c1': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/c9/16abec50f0b0213c19e78f561fd22184f0e439': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/c9/97ea95d6700bed61fed46a7c4638b692edab3a': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/c9/2de3d3ae6827c529616edae7fd23e55765910b': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/b9': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/c4': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/c5/82117f234ee0dcf0c6ca511a688cf74d905d91': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/80/2ccd5b49bb0e5057427a1e6a3529d4835f2411': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/24/ab5914d4fddf988e27c4693e03ce92e86df237': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/24/19ac7de6eb99f5ff213dad85f20319252ad4d6': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/d9/4530903971c3cedf02e0629a0b1c9a7a4a34fb': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/d9/1994d3beab2ceca02a0c8423a03648774c8300': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/d9/878169c7f3c2ecbfd4954f1296cd544c778c73': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/1d': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/09': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/17/aa811c13cf2b9832f3b29c2d4d6e0009a38df1': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/17/be99d14f0ff39f6a3730580746e3223b4c1083': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/5d': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/pack/pack-2dd6f4429bfbffbbee15b049b083aaa4c7bbcbf4.pack': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/pack/pack-2dd6f4429bfbffbbee15b049b083aaa4c7bbcbf4.idx': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/pack/pack-2dd6f4429bfbffbbee15b049b083aaa4c7bbcbf4.rev': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/5f': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/f0': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/05/86b80a6ee94813084b4db0a72bfb2bd7a5f630': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/05/e64a37cc8e88df2f411215272b9453c6f788ea': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/86': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/93': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/29': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/f1/f79a229d072442fdcc77b8d31996fa0de9e056': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/5b': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/03/c2b7a3842d0858e9cea52aadd8b34792709b1a': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/41': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/35/2f2b58adbde2dd690e250ec129ae16152341e9': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/ca': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/9d': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/bb/e667dbdd19f51db9b17b20a2022cc823edb6e1': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/bb/2d9bd11aec212016cb12506b7c9d56af2698d8': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/b7/79f18153aa7270ab105fa62060ee06cb33cffd': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/72': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/8b/b54704449e8ca1c6bf0ee95d84fcad3a35b37b': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/8b/8b7a63faf84d62ce46abf9b788e9b60d235a49': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/8b/84450189e8ff9e38af642fb968cbee64367a18': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/8b/8b3a2496a403ddab4dd8b57634f3d8b5518377': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/e1': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/02/51a2654e4dc11013d44b12b2c3b62dc66952b2': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/02/6f31070cbb77a707d3c9e7185a05ec081df869': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/02/3bf595b5a45daa4eadcc67f438e031a9b3fb2c': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/02/afaf6c03f2b76d004a60366299557a618b047c': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/52': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/1a': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/da': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/info': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/d2': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/7f/d2299b2b07f604917b9b03e13941f2356d35d4': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/7f/f80429cdb263980551d8a7a810aedac6a9c276': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/14/82acd7a39bfb852a07b1f9e5f34990354db7c9': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/14/d7a1a1ad1c3185ed75d70331994dc142a28b41': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/14/81f57a9fd7f955a8b0b13f0be15d6d32ed72a4': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/4a/19606708d74ba91dc5d4cd777f1e440e3d9587': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/7c': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/97': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/49/3d7365b992af28a6ccf1629722dc61f6984d6a': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/49/31f440be281dbb87657d094061c867ad1b8632': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/88': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/e6/9de29bb2d1d6434b8b29ae775ad8c2e48c5391': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/51': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/6b': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/4e': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/d7': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/43/7c85a2baf2546484ff251d5c479d8cbdbca34c': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/3b': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/95': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/b4/2afa4643fbdd59feb35f008bd4175f4dadcd27': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/3e': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/d0/9bf7a0e96050254943b6d3c14225b3dd23f005': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/d0/bd73b7d8c326a0d099b8ab83473bbc18f12c50': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/c1/c799bdbce27924991eb33dee59f484b2503abb': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/0f/2e2d1c7af3d3ca1b3e6da5ea3ce26aea4c94d4': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/0f/5561bb22bcd1f23e1066404c6a6862aedf1718': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/04': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/84/7d5fc6c63bad60320b896ae630f1bbb0190f10': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/84/35bb16a820ca52360bad558405d966c7a35274': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/e2': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/ed': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/d4/6fcb3597139c4bcf5d765a80de3301e75d44d9': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/d4/d6d1a898d62f13a8d72ccb24a35f17af0926ca': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/6d': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/aa/c497e560ce2f176e1e65830e08527b77f01373': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/aa/0508c6c4dc1b8a5a66b03a03c400c3269a8a88': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/c7': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/2a/d4bb2e6734330e05f1df948fe98806a511186c': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/5c/db6931fe5611336ebe63119d9338c249e6aeb8': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/5c/12a706f6c3c541d5cc115e1819b659893c38d2': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/6c': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/00/7d848abcd8aa8ea9b9e17d4fa52587c385664c': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/00/e46d6fc4dcbd6ed4608cd7ff8e470599f10c0f': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/4f': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/79': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/73/b3ab3bd37a967f6b4a1d30fdbf69054f0cff05': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/83/4bbdd017dd6a9c01ee2b68c5138bc655fbacdc': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/f5/b1cb6275014067f78824402cce41f28e1f654f': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/f5/fe32c0a484d38bf939ac900824188fd8241b90': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/c0': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/61': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/6a': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/70': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/dd/e16d541e12b8da9bdb64f7abc38486171ab473': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/e5/a625a38709753cd0e726bb815704b0a4244688': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/1c': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/f8': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/32': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/objects/c8/ff176a43e3ece3a338ac63a90c7a1e1855f552': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.git/description': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/icons/icon-512x512.png': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/icons/icon-192x192.png': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/icons/icon-monochrome-512x512.png': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/icons/icon-maskable-512x512.png': Permission denied
+/nix/store/jy06yi9z3vkn8w5zz84azhgb8n7gk8sh-coreutils-9.3/bin/mv: cannot remove '/tmp/tmp.ihZAx276Ua/testpermanencia/.well_known/assetlinks.json': Permission denied
