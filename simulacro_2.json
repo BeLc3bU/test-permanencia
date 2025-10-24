@@ -1,0 +1,1102 @@
+[
+  {
+    "pregunta": "CONSTITUCIÓN. Artículo 86. En caso de extraordinaria y urgente necesidad, el Gobierno podrá dictar disposiciones legislativas provisionales que tomarán la forma de:",
+    "opciones": [
+      "Decretos-leyes",
+      "Decretos-Legislativos",
+      "Ley Urgente",
+      "Decretos-Legislativos de carácter urgente"
+    ],
+    "respuestaCorrecta": "Decretos-leyes",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "CONSTITUCIÓN. Artículo 97. De las siguientes opciones, ¿Cuál NO es una competencia del Gobierno?",
+    "opciones": [
+      "Dirigir la Administración civil y militar y la defensa del Estado",
+      "Ejercer la potestad legislativa del Estado.",
+      "Dirigir la política interior y exterior.",
+      "Ejercer la potestad reglamentaria de acuerdo con la Constitución y las leyes."
+    ],
+    "respuestaCorrecta": "Ejercer la potestad legislativa del Estado.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "CONSTITUCIÓN. Artículo 124. El Fiscal General del Estado será nombrado por el Rey ¿A propuesta de quién?",
+    "opciones": [
+      "Del Consejo General del Poder Judicial",
+      "Del Gobierno",
+      "Del Presidente del Gobierno",
+      "De las Cortes Generales"
+    ],
+    "respuestaCorrecta": "Del Gobierno",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "CONSTITUCIÓN. Artículo 122. De los miembros del Consejo General del Poder Judicial, ¿Cuántos miembros propone el Senado?",
+    "opciones": [
+      "4",
+      "8",
+      "12",
+      "3"
+    ],
+    "respuestaCorrecta": "4",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "CONSTITUCIÓN. Artículo 102. Una acusación por traición o por cualquier delito contra la seguridad del Estado en el ejercicio de sus funciones, sólo podrá ser planteada por iniciativa de:",
+    "opciones": [
+      "La cuarta parte de los miembros del Congreso, y con la aprobación de la mayoría absoluta del mismo.",
+      "La tercera parte de los miembros del Congreso, y con la aprobación de la mayoría simple del mismo.",
+      "La cuarta parte de los miembros del Congreso, y con la aprobación de la mayoría simple del mismo.",
+      "La tercera parte de los miembros del Congreso, y con la aprobación de la mayoría absoluta del mismo."
+    ],
+    "respuestaCorrecta": "La cuarta parte de los miembros del Congreso, y con la aprobación de la mayoría absoluta del mismo.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "CONSTITUCIÓN. Artículo 68. ¿Cuándo tendrán lugar las elecciones?",
+    "opciones": [
+      "Tendrán lugar entre los 25 días y 50 días desde la formación del parlamento electo",
+      "Tendrán lugar entre los 30 días y 60 días desde la terminación del mandato",
+      "Tendrán lugar entre los 25 días y 30 días desde la terminación del mandato",
+      "Tendrán lugar entre los 30 días y 60 días desde el inicio del mandato"
+    ],
+    "respuestaCorrecta": "Tendrán lugar entre los 30 días y 60 días desde la terminación del mandato",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "CONSTITUCIÓN. Artículo 82. Cuando su objeto sea la formación de textos articulados, la delegación legislativa deberá otorgarse mediante una:",
+    "opciones": [
+      "Ley Orgánica",
+      "Ley",
+      "Ley de bases",
+      "Disposición transitoria"
+    ],
+    "respuestaCorrecta": "Ley de bases",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY ORGÁNICA 5/2005. LA DEFENSA NACIONAL. Artículo 4. ¿Quién debe autorizar, con carácter previo, la participación de las FAS en misiones internacionales?",
+    "opciones": [
+      "El Consejo de Ministros",
+      "El Gobierno",
+      "Las Cortes Generales",
+      "El Congreso de los Diputados"
+    ],
+    "respuestaCorrecta": "El Congreso de los Diputados",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY ORGÁNICA 5/2005. LA DEFENSA NACIONAL. Artículo 8. ¿Quién no formará parte Del Consejo de Defensa Nacional en pleno?",
+    "opciones": [
+      "Los Vicepresidentes del Gobierno",
+      "El Jefe de Estado Mayor de la Defensa",
+      "El Director del Gabinete del Ministro de Defensa",
+      "El Secretario de Estado Director del Centro Nacional de Inteligencia"
+    ],
+    "respuestaCorrecta": "El Director del Gabinete del Ministro de Defensa",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY 40/2015. RÉGIMEN JURÍDICO DEL SECTOR PÚBLICO. Artículo 14. ¿Quién podrá dirigirse al órgano que se encuentre conociendo de un asunto para que decline su competencia y remita las actuaciones al órgano competente?",
+    "opciones": [
+      "Los interesados que sean parte en el procedimiento.",
+      "Los órganos jerárquicamente superiores.",
+      "Todos los ciudadanos.",
+      "Cualquier persona jurídica."
+    ],
+    "respuestaCorrecta": "Los interesados que sean parte en el procedimiento.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY 40/2015. RÉGIMEN JURÍDICO DEL SECTOR PÚBLICO. Artículo 19. En un órgano colegiado de la AGE, ¿Quién es el responsable de asegurar el cumplimiento de las leyes?",
+    "opciones": [
+      "El Presidente",
+      "Todos los miembros",
+      "El Secretario",
+      "Los miembros Natos"
+    ],
+    "respuestaCorrecta": "El Presidente",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY 40/2015. RÉGIMEN JURÍDICO DEL SECTOR PÚBLICO. Artículo 8. Si alguna disposición atribuye la competencia a una Administración, sin especificar el órgano que debe ejercerla, se entenderá que la facultad de instruir y resolver los expedientes corresponde a:",
+    "opciones": [
+      "Los órganos inferiores competentes por razón de la materia y del territorio",
+      "Los órganos superiores competentes por razón de la materia",
+      "Los órganos superiores competentes por razón de la materia y del territorio",
+      "Los órganos inferiores competentes por razón de la materia"
+    ],
+    "respuestaCorrecta": "Los órganos inferiores competentes por razón de la materia y del territorio",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "EL MINISTERIO DE DEFENSA. REAL DECRETO 205/2024. ¿A qué órgano está adscrito el Arzobispado General Castrense?",
+    "opciones": [
+      "Dirección General de Personal",
+      "Subsecretaría de Defensa",
+      "Instituto Social de las Fuerzas Armadas",
+      "Secretaría General Técnica"
+    ],
+    "respuestaCorrecta": "Subsecretaría de Defensa",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "EL MINISTERIO DE DEFENSA. REAL DECRETO 205/2024. Disposición adicional primera. ¿Quién está inmediatamente por debajo del JEMAD en el orden de precedencia de autoridades en los actos de carácter especial?",
+    "opciones": [
+      "Persona titular de la Secretaría General de Política de Defensa.",
+      "Persona titular de la Subsecretaría de Defensa.",
+      "Persona titular de la Secretaría de Estado de Defensa.",
+      "Persona titular del Ministerio de Defensa."
+    ],
+    "respuestaCorrecta": "Persona titular de la Secretaría de Estado de Defensa.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "EL MINISTERIO DE DEFENSA. REAL DECRETO 205/2024. Artículo 9. ¿Cuál es una función desarrollada por la Subdirección General de Administración Periférica?",
+    "opciones": [
+      "Gestionar el personal civil, realizar las convocatorias de la oferta de empleo público que competan al Ministerio de Defensa y tramitar los procesos selectivos y la provisión de puestos de trabajo.",
+      "Gestionar el personal militar de los Cuerpos comunes.",
+      "Todas son correctas",
+      "Gestionar e inspeccionar las delegaciones de defensa y residencias militares dependientes de la Subsecretaría."
+    ],
+    "respuestaCorrecta": "Gestionar e inspeccionar las delegaciones de defensa y residencias militares dependientes de la Subsecretaría.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "EL MINISTERIO DE DEFENSA. REAL DECRETO 205/2024. ¿De qué órgano dependen la Comisión Permanente y Secretaría General del Consejo Superior del Deporte Militar?",
+    "opciones": [
+      "De la Dirección General de Reclutamiento y Enseñanza Militar",
+      "De la Dirección General de Personal",
+      "De la Dirección General del Deporte Militar",
+      "Del Misterio de Cultura y Deportes"
+    ],
+    "respuestaCorrecta": "De la Dirección General de Reclutamiento y Enseñanza Militar",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "REAL DECRETO 521/2020. ORGANIZACIÓN BÁSICA DE LAS FAS. ¿Qué órgano estará encuadrado en el Cuartel General como órgano consultivo y asesor, único en materia jurídica, del Jefe de Estado Mayor de cada Ejército y de la Armada y de aquellos otros órganos que éste determine?",
+    "opciones": [
+      "La Intervención Delegada Jurídica de cada Ejército y de la Armada",
+      "La Fiscalía Militar de cada Ejército y de la Armada",
+      "La Asesoría Jurídica de cada Ejército y de la Armada",
+      "La Asesoría Jurídica Delegada de cada Ejército y de la Armada"
+    ],
+    "respuestaCorrecta": "La Asesoría Jurídica de cada Ejército y de la Armada",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "REAL DECRETO 521/2020. ORGANIZACIÓN BÁSICA DE LAS FAS. ¿Cuál es el principal órgano de apoyo de un Jefe de Estado Mayor de Ejército?",
+    "opciones": [
+      "La Asesoría Jurídica",
+      "La Intervención Delegada",
+      "El Gabinete del Jefe de Estado Mayor",
+      "El Estado Mayor"
+    ],
+    "respuestaCorrecta": "El Estado Mayor",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "REAL DECRETO 521/2020. ORGANIZACIÓN BÁSICA DE LAS FAS. ¿Quién evalúa el régimen del personal, así como las condiciones de vida en buques, bases y acuartelamientos?",
+    "opciones": [
+      "El Jefe de Estado Mayor de la Defensa.",
+      "Los Jefes de Estado Mayor del Ejército de Tierra, de la Armada y del Ejército del Aire.",
+      "La persona titular de la Subsecretaría de Defensa.",
+      "El Mando o Jefatura de personal."
+    ],
+    "respuestaCorrecta": "Los Jefes de Estado Mayor del Ejército de Tierra, de la Armada y del Ejército del Aire.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "REAL DECRETO 521/2020. ORGANIZACIÓN BÁSICA DE LAS FAS. ¿Quién ejerce el mando de la Estructura Operativa de las Fuerzas Armadas?",
+    "opciones": [
+      "El JEME",
+      "El JEMAD",
+      "La Persona Titular del Ministerio de Defensa",
+      "El Jefe Mando de Operaciones"
+    ],
+    "respuestaCorrecta": "El JEMAD",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "INSTRUCCIÓN 55/2021, DEL JEMAD, POR LA QUE SE DESARROLLA LA ORGANIZACIÓN DEL EMAD. ¿Quién ejercerá las funciones de Jefe de la Base de Retamares?",
+    "opciones": [
+      "El JEMAD.",
+      "El Comandante del Mando de Operaciones.",
+      "El Segundo Comandante del Mando de Operaciones.",
+      "El Segundo Jefe del EMAD"
+    ],
+    "respuestaCorrecta": "El Comandante del Mando de Operaciones.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "INSTRUCCIÓN 55/2021, DEL JEMAD, POR LA QUE SE DESARROLLA LA ORGANIZACIÓN DEL EMAD. ¿Dónde está encuadrado El Núcleo del Cuartel General Conjunto Multinacional (ES-OHQ)?",
+    "opciones": [
+      "En El Mando de Operaciones",
+      "En El Mando Conjunto del Ciberespacio",
+      "En El Gabinete del JEMAD",
+      "En La División de Desarrollo de la Fuerza"
+    ],
+    "respuestaCorrecta": "En El Mando de Operaciones",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "INSTRUCCIÓN 55/2021, DEL JEMAD, POR LA QUE SE DESARROLLA LA ORGANIZACIÓN DEL EMAD. ¿Qué sección no forma parte de La División de Estrategia del Estado Mayor Conjunto de la Defensa?",
+    "opciones": [
+      "Sección de Organización.",
+      "Sección de Estrategia y Planes Estratégicos.",
+      "Sección de Conducción Estratégica.",
+      "Sección de Relaciones Internacionales."
+    ],
+    "respuestaCorrecta": "Sección de Organización.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "INSTRUCCIÓN 55/2021, DEL JEMAD, POR LA QUE SE DESARROLLA LA ORGANIZACIÓN DEL EMAD. ¿Quién elaborará y coordinará el Planeamiento de Fuerza y su integración en el Planeamiento de Defensa?",
+    "opciones": [
+      "La División de Planes",
+      "La División de Estrategia.",
+      "La División de Desarrollo de la Fuerza.",
+      "La Secretaría General del Estado Mayor Conjunto de la Defensa."
+    ],
+    "respuestaCorrecta": "La División de Planes",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "INSTRUCCIÓN 55/2021, DEL JEMAD, POR LA QUE SE DESARROLLA LA ORGANIZACIÓN DEL EMAD. El Área de Apoyos del Estado Mayor del Mando de Operaciones se estructura en una Secretaría Técnica y las secciones de J1 (Personal y Administración), J4 (Logística), J6 (CIS), J8 (Recursos Financieros) y:",
+    "opciones": [
+      "J10 (Inteligencia)",
+      "J10 (Operaciones)",
+      "J10 (Planes)",
+      "JMED (Sanidad)"
+    ],
+    "respuestaCorrecta": "JMED (Sanidad)",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "INSTRUCCIÓN 15/2021, DEL AJEMA , POR LA QUE SE DESARROLLA LA ORGANIZACIÓN DE LA ARMADA. ¿Dónde están encuadrados los Arsenales?",
+    "opciones": [
+      "La Dirección de Personal",
+      "La Dirección de Asistencia al Personal",
+      "La Dirección de Enseñanza Naval",
+      "La Jefatura de Apoyo Logístico"
+    ],
+    "respuestaCorrecta": "La Jefatura de Apoyo Logístico",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "INSTRUCCIÓN 6/2025, DEL JEMA, POR LA QUE SE DESARROLLA LA ORGANIZACIÓN BÁSICA DEL EA. ¿Cuál de las siguientes secciones forma parte de La División de Operaciones (DOP)?",
+    "opciones": [
+      "Sección de Recursos Financieros",
+      "Sección de Transformación Digital",
+      "Sección de Inteligencia",
+      "Sección de Operaciones Espaciales"
+    ],
+    "respuestaCorrecta": "Sección de Inteligencia",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "INSTRUCCIÓN 14/2021, DEL JEME, POR LA QUE SE DESARROLLA LA ORGANIZACIÓN DEL ET. ¿En qué unidad se encuadra el Regimiento de Infantería \"Soria\" nº 9?",
+    "opciones": [
+      "En la Brigada Canarias XVI",
+      "En la Brigada Baleares X",
+      "En la División Castillejos",
+      "En la División Canarias"
+    ],
+    "respuestaCorrecta": "En la Brigada Canarias XVI",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "INSTRUCCIÓN 6/2025, DEL JEMA, POR LA QUE SE DESARROLLA LA ORGANIZACIÓN BÁSICA DEL EA. Es responsable en caso de ser requerido para ello, de realizar las pruebas pertinentes para la selección de los oficiales de la Escala de Oficiales del EA aspirantes al curso de Estado Mayor, ¿A qué órgano nos referimos?",
+    "opciones": [
+      "EL Centro de Doctrina y Enseñanza.",
+      "La Dirección de Enseñanza",
+      "La Dirección de Guerra Aeroespacial.",
+      "El Centro de Guerra Aeroespacial."
+    ],
+    "respuestaCorrecta": "El Centro de Guerra Aeroespacial.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "INSTRUCCIÓN 6/2025, DEL JEMA, POR LA QUE SE DESARROLLA LA ORGANIZACIÓN BÁSICA DEL EA. No es un Órgano de la estructura de la Dirección de Asuntos Económicos:",
+    "opciones": [
+      "El Órgano Auxiliar de Dirección.",
+      "La Subdirección de Asuntos Económicos",
+      "La Subdirección de Gestión Económica y Contratación.",
+      "La Subdirección de Contabilidad y Presupuesto."
+    ],
+    "respuestaCorrecta": "La Subdirección de Asuntos Económicos",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "INSTRUCCIÓN 6/2025, DEL JEMA, POR LA QUE SE DESARROLLA LA ORGANIZACIÓN BÁSICA DEL EA. ¿De quién depende la Secretaría Permanente del Consejo Superior del Ejército del Aire y del Espacio?",
+    "opciones": [
+      "Directamente del JEMA.",
+      "Directamente del Jefe de Gabinete del JEMA.",
+      "De la Agrupación del Cuartel General del Ejército del Aire y del Espacio.",
+      "Directamente del SEJEMA."
+    ],
+    "respuestaCorrecta": "Directamente del SEJEMA.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "INSTRUCCIÓN 6/2025, DEL JEMA, POR LA QUE SE DESARROLLA LA ORGANIZACIÓN BÁSICA DEL EA. La Fuerza Aeroespacial del Ejército del Aire y del Espacio está constituida por Mandos dependientes directamente del JEMA, de las siguientes opciones, indica cual es un Mando dependiente del JEMA:",
+    "opciones": [
+      "Mando Aeroespacial de Combate. (MAECOM)",
+      "Mando Aéreo Especifico. (MAEES)",
+      "Mando Especial. (MESPE)",
+      "Mando del Espacio. (MESPA)"
+    ],
+    "respuestaCorrecta": "Mando del Espacio. (MESPA)",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "INSTRUCCIÓN 6/2025, DEL JEMA, POR LA QUE SE DESARROLLA LA ORGANIZACIÓN BÁSICA DEL EA. ¿Qué consideración tendrá el Grupo de Seguridad de la Agrupación del Cuartel General del Ejército del Aire y del Espacio?",
+    "opciones": [
+      "Centro Docente.",
+      "Fuerza a todos los efectos.",
+      "Fuerza a los efectos logísticos y administrativos.",
+      "Órgano Auxiliar del General de La Fuerza Aeroespacial."
+    ],
+    "respuestaCorrecta": "Fuerza a todos los efectos.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "INSTRUCCIÓN 6/2025, DEL JEMA, POR LA QUE SE DESARROLLA LA ORGANIZACIÓN BÁSICA DEL EA. La Dirección de Asuntos Económicos (DAE) tiene adscritos distintos Órganos, de los siguientes, ¿Cual no es uno de estos órganos adscritos a la DAE?",
+    "opciones": [
+      "La Secretaría de la Junta de Contratación del EA.",
+      "La Secretaría de la Mesa de Contratación permanente del CGEA.",
+      "La Secretaría de la Junta de Contabilidad del EA.",
+      "La Secretaría Permanente de la Junta Secundaria de Enajenaciones y Liquidadora de Material (JUSELMA)."
+    ],
+    "respuestaCorrecta": "La Secretaría de la Junta de Contabilidad del EA.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "RÉGIMEN DEL PERSONAL MILITAR PROFESIONAL. LEY 8/2006, DE 24 DE ABRIL, DE TROPA Y MARINERÍA. Artículo 10. El compromiso de larga duración finaliza por alguna de las siguientes causas:",
+    "opciones": [
+      "Por el ingreso en un centro de formación de la Guardia Civil.",
+      "Por el ingreso en cuerpos y escalas de funcionarios o adquisición de la condición de personal laboral fijo de las Administraciones públicas.",
+      "Cuando el militar profesional de tropa y marinería cumpla 45 años de edad.",
+      "Por el acceso a la condición de permanente."
+    ],
+    "respuestaCorrecta": "Cuando el militar profesional de tropa y marinería cumpla 45 años de edad.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "RÉGIMEN DEL PERSONAL MILITAR PROFESIONAL. LEY 8/2006, DE 24 DE ABRIL, DE TROPA Y MARINERÍA. Artículo 20. Para el acceso a la escala de Cabos y Guardias del Cuerpo de la Guardia Civil se reservará para los militares profesionales de tropa y marinería que lleven 5 años de servicios como tales un porcentaje de plazas, sin que en ningún caso dicha reserva pueda superar:",
+    "opciones": [
+      "El 50 por ciento.",
+      "El 60 por ciento.",
+      "El 65 por ciento.",
+      "El 25 por ciento."
+    ],
+    "respuestaCorrecta": "El 50 por ciento.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "RÉGIMEN DEL PERSONAL MILITAR PROFESIONAL. LEY 39/2007, DE 19 DE NOVIEMBRE, DE LA CARRERA MILITAR. Artículo 23. La precedencia de los militares estará determinada por ---------------------------- si está fijada en normas de carácter reglamentario.",
+    "opciones": [
+      "Cargo o destino que se ocupe",
+      "Empleo o destino que se ocupe",
+      "Cargo o situación que se ocupe",
+      "Empleo, cargo o destino que se ocupe"
+    ],
+    "respuestaCorrecta": "Cargo o destino que se ocupe",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "RÉGIMEN DEL PERSONAL MILITAR PROFESIONAL. LEY 39/2007, DE 19 DE NOVIEMBRE, DE LA CARRERA MILITAR. Artículo 39. Los miembros del Cuerpo Militar de Sanidad, se agrupan en:",
+    "opciones": [
+      "Una escala de oficiales",
+      "Una escala de oficiales enfermeros",
+      "Una escala de oficiales médicos y una escala de oficiales enfermeros",
+      "Una escala de oficiales y una escala de oficiales enfermeros"
+    ],
+    "respuestaCorrecta": "Una escala de oficiales y una escala de oficiales enfermeros",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "RÉGIMEN DEL PERSONAL MILITAR PROFESIONAL. LEY 39/2007, DE 19 DE NOVIEMBRE, DE LA CARRERA MILITAR. Artículo 17. ¿Qué es la relación cuantitativa y cualitativa de puestos de su estructura necesarios para estar en condiciones de cumplir los cometidos que tengan asignados?",
+    "opciones": [
+      "Relación de puestos militares",
+      "Plantilla Orgánica",
+      "Plantilla Operativa",
+      "Relación de puestos de trabajo"
+    ],
+    "respuestaCorrecta": "Plantilla Orgánica",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "RÉGIMEN DEL PERSONAL MILITAR PROFESIONAL. LEY 39/2007, DE 19 DE NOVIEMBRE, DE LA CARRERA MILITAR. Artículo 13. El nombramiento de JEMAD se efectuará por:",
+    "opciones": [
+      "Real decreto acordado en Consejo de Ministros, a propuesta del Presidente del Gobierno.",
+      "Real decreto acordado en Consejo de Ministros, a propuesta del Ministro de Defensa.",
+      "Real decreto del Presidente del Gobierno a propuesta de Ministro de Defensa.",
+      "Orden del Ministro de Defensa, oído el Consejo de Estado."
+    ],
+    "respuestaCorrecta": "Real decreto acordado en Consejo de Ministros, a propuesta del Presidente del Gobierno.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "RÉGIMEN DEL PERSONAL MILITAR PROFESIONAL. LEY 39/2007, DE 19 DE NOVIEMBRE, DE LA CARRERA MILITAR. Artículo 13. El Jefe de Estado Mayor de la Defensa, durante el tiempo que desempeñe el cargo, tendrá a todos los efectos la consideración de:",
+    "opciones": [
+      "Órgano Directivo",
+      "Mas antiguo de su empleo",
+      "Segundo Jefe del Ministerio de Defensa",
+      "Vicepresidente del Consejo de Defensa Nacional"
+    ],
+    "respuestaCorrecta": "Mas antiguo de su empleo",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "RÉGIMEN DEL PERSONAL MILITAR PROFESIONAL. LEY 39/2007, DE 19 DE NOVIEMBRE, DE LA CARRERA MILITAR. Artículo 64. ¿Quién aprobará para cada centro el calendario de actividades que integre las enseñanzas correspondientes a los títulos que se impartan y a la formación militar y facilite la coordinación en su ejecución?",
+    "opciones": [
+      "El Subsecretario de Defensa anualmente",
+      "El Director de cada centro anualmente",
+      "El Ministro de Defensa anualmente",
+      "El Gobierno anualmente"
+    ],
+    "respuestaCorrecta": "El Subsecretario de Defensa anualmente",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "RÉGIMEN DEL PERSONAL MILITAR PROFESIONAL. LEY 39/2007, DE 19 DE NOVIEMBRE, DE LA CARRERA MILITAR. Disposición adicional segunda. ¿Cómo se recompensa la constancia en el servicio de un suboficial?",
+    "opciones": [
+      "Con una Medalla a la Constancia",
+      "Con una Medalla al Mérito de su Ejército",
+      "Con el ingreso en la Real y Militar Orden de San Hermenegildo",
+      "Con la Medalla de San Fernando"
+    ],
+    "respuestaCorrecta": "Con el ingreso en la Real y Militar Orden de San Hermenegildo",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "RÉGIMEN DEL PERSONAL MILITAR PROFESIONAL. LEY 39/2007, DE 19 DE NOVIEMBRE, DE LA CARRERA MILITAR Artículo 113. Al militar de carrera que le corresponde pasar a la situación de reserva por lo dispuesto en esta ley y no cuente con veinte años de tiempo de servicios desde la adquisición de la condición de militar profesional:",
+    "opciones": [
+      "Permanecerá en activo hasta cumplir los 20 años de servicio y después pasará a la reserva",
+      "Pasará igualmente a la reserva en condiciones excepcionales",
+      "Pasará directamente a retiro",
+      "Puede permanecer en servicio activo, pasando al retiro al cumplir los 20 años de servicio"
+    ],
+    "respuestaCorrecta": "Pasará directamente a retiro",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "REALES ORDENANZAS PARA LAS FUERZAS ARMADAS. ¿Qué DEFINEN las Reales Ordenanzas para las Fuerzas Armadas en su artículo 1?",
+    "opciones": [
+      "Las Normas de comportamiento entre militares",
+      "El código de actuación de los miembros de las Fuerzas Armadas",
+      "Los principios éticos y las reglas de comportamiento de acuerdo a la constitución y el resto del ordenamiento jurídico",
+      "Todas son correctas"
+    ],
+    "respuestaCorrecta": "Los principios éticos y las reglas de comportamiento de acuerdo a la constitución y el resto del ordenamiento jurídico",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "REALES ORDENANZAS PARA LAS FUERZAS ARMADAS. Según el Artículo 94. ¿Qué le permitirán hacer frente a las situaciones cambiantes de cada momento, debiendo estar preparado para asumir la protección de la población afectada y los riesgos consiguiente?",
+    "opciones": [
+      "El conocimiento y cumplimiento de las reglas de enfrentamiento.",
+      "El conocimiento y cumplimiento de la doctrina militar en operaciones.",
+      "El conocimiento y cumplimiento de estas Reales Ordenanzas.",
+      "Todas son correctas."
+    ],
+    "respuestaCorrecta": "El conocimiento y cumplimiento de las reglas de enfrentamiento.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "REALES ORDENANZAS PARA LAS FUERZAS ARMADAS. Artículo 53. ¿Qué afirmación es falsa sobre el Estilo de mando?",
+    "opciones": [
+      "El militar que ejerza mando se hará querer y respetar por sus subordinados.",
+      "No disimulará jamás las faltas de disciplina.",
+      "Infundirá amor al servicio y exactitud en el desempeño de sus obligaciones.",
+      "Será firme en el mando, graciable en lo que pueda y comedido en su actitud y palabras aun cuando amoneste o sancione."
+    ],
+    "respuestaCorrecta": "El militar que ejerza mando se hará querer y respetar por sus subordinados.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY ORGÁNICA 9/2011. DERECHOS Y DEBERES DE LOS MIEMBROS DE LAS FAS. Artículo 48. ¿Cómo estará constituido El Consejo de Personal de las Fuerzas Armadas?",
+    "opciones": [
+      "Por Igual número por ambas partes, representantes de las asociaciones profesionales y por los representantes del Ministerio de Defensa.",
+      "Por Cuatro representantes de las asociaciones profesionales y por dos representantes del Ministerio de Defensa.",
+      "Por Diez representantes de las asociaciones profesionales y dos representantes del Ministerio de Defensa.",
+      "Por los participantes que determine el Ministro de Defensa, siendo siempre un mínimo de dos representantes del Ministerio de Defensa por cada asociación profesional."
+    ],
+    "respuestaCorrecta": "Por Igual número por ambas partes, representantes de las asociaciones profesionales y por los representantes del Ministerio de Defensa.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY ORGÁNICA 9/2011. DERECHOS Y DEBERES DE LOS MIEMBROS DE LAS FAS. Artículo 23. ¿Cuál será el lugar de residencia del militar?",
+    "opciones": [
+      "El del municipio familiar.",
+      "El del municipio de su delegación o subdelegación geográfica.",
+      "El que establezca su jefe de unidad.",
+      "El del municipio de su destino."
+    ],
+    "respuestaCorrecta": "El del municipio de su destino.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY ORGÁNICA 9/2011. DERECHOS Y DEBERES DE LOS MIEMBROS DE LAS FAS. Artículo 24. Los militares tienen ------------------ al uso del uniforme reglamentario y ---------------------de utilizarlo durante el servicio.",
+    "opciones": [
+      "Derecho/el deber",
+      "Deber/el derecho",
+      "La obligación/ la obligación",
+      "La obligación/ el derecho"
+    ],
+    "respuestaCorrecta": "Derecho/el deber",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY ORGÁNICA 9/2011. DERECHOS Y DEBERES DE LOS MIEMBROS DE LAS FAS. Artículo 48. Para poder acceder al Consejo, las asociaciones exclusivamente de oficiales o suboficiales deberán contar con un mínimo de afiliados del:",
+    "opciones": [
+      "1% de los miembros de su categoría",
+      "3% de los miembros de su categoría",
+      "1,5% de los miembros de su categoría",
+      "4% de los miembros de su categoría"
+    ],
+    "respuestaCorrecta": "3% de los miembros de su categoría",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY ORGÁNICA 8/2014. RÉGIMEN DISCIPLINARIO DE LAS FAS. Artículo 8. Es falta muy grave, cuando no constituya delito:",
+    "opciones": [
+      "Acudir de uniforme a lugares o establecimientos incompatibles con la condición militar",
+      "Las expresiones o manifestaciones de desprecio por razón de nacimiento, origen racial o étnico, género, sexo, orientación e identidad sexual, religión, convicciones, opinión, discapacidad o cualquier otra condición o circunstancia personal o social.",
+      "Destruir, abandonar, deteriorar o sustraer equipo, caudales, material u otros efectos, así como adquirir o poseer cualquiera de dichos bienes o efectos con conocimiento de su ilícita procedencia o facilitarlos a terceros.",
+      "Adoptar acuerdos u ordenar la ejecución de actos manifiestamente ilegales que causen perjuicio grave a la defensa nacional, al interés público o a los ciudadanos"
+    ],
+    "respuestaCorrecta": "Adoptar acuerdos u ordenar la ejecución de actos manifiestamente ilegales que causen perjuicio grave a la defensa nacional, al interés público o a los ciudadanos",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY ORGÁNICA 8/2014. RÉGIMEN DISCIPLINARIO DE LAS FAS. Artículo 40. En el caso de que las sanciones se cumplan en zona de operaciones, su ejecución:",
+    "opciones": [
+      "Implicará que el sancionado cese en las actividades que le correspondan, salvo que así se disponga motivadamente.",
+      "Implicará que el sancionado no cese en las actividades que le correspondan en todo caso.",
+      "Ninguna es correcta.",
+      "No implicará que el sancionado cese en las actividades que le correspondan, salvo que así se disponga motivadamente."
+    ],
+    "respuestaCorrecta": "No implicará que el sancionado cese en las actividades que le correspondan, salvo que así se disponga motivadamente.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY ORGÁNICA 8/2014. RÉGIMEN DISCIPLINARIO DE LAS FAS. Artículo 16. ¿Qué afirmación es falsa sobre el Arresto por falta grave y muy grave?",
+    "opciones": [
+      "Puede durar de 15 a 60 días.",
+      "Consiste en la privación de libertad del sancionado y su internamiento en un establecimiento disciplinario militar.",
+      "No producirá cambio en la situación administrativa del sancionado.",
+      "El militar sancionado participará en las actividades de la unidad durante el tiempo de este arresto."
+    ],
+    "respuestaCorrecta": "El militar sancionado participará en las actividades de la unidad durante el tiempo de este arresto.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY ORGÁNICA 8/2014. RÉGIMEN DISCIPLINARIO DE LAS FAS. Artículo 33. La competencia sancionadora en relación con los alumnos de los centros docentes militares de formación podrá ser ejercida por las autoridades y mandos a que se refiere los apartados 1, 2, 3, 4, 5 y 6 del artículo 32. A tales efectos los Jefes de Estudios e Instrucción se entenderán incluidos en el apartado:",
+    "opciones": [
+      "4. Los jefes de regimiento o unidad similar.",
+      "5. Los jefes de batallón, grupo o escuadrón aéreo o unidad similar.",
+      "6. Los jefes de compañía o unidad similar.",
+      "3. Los oficiales generales con mando o dirección sobre fuerza, unidad, centro u organismo."
+    ],
+    "respuestaCorrecta": "5. Los jefes de batallón, grupo o escuadrón aéreo o unidad similar.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY ORGÁNICA 8/2014. RÉGIMEN DISCIPLINARIO DE LAS FAS. Artículo 22. La sanción de arresto prevista en la presente ley para las faltas leves sólo podrá imponerse cuando:",
+    "opciones": [
+      "Se haya visto afectada la disciplina o las reglas esenciales que definen el comportamiento de los miembros de las FAS",
+      "Se haya visto afectado el servicio o las reglas esenciales que definen el comportamiento de los miembros de las FAS",
+      "Se haya visto afectada la disciplina, el servicio o las reglas esenciales que definen el comportamiento de los miembros de las FAS",
+      "Se haya visto afectada la disciplina, la unidad, el orden en especial cuando afecten al servicio."
+    ],
+    "respuestaCorrecta": "Se haya visto afectada la disciplina o las reglas esenciales que definen el comportamiento de los miembros de las FAS",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "REAL DECRETO 176/2014. TRAMITACIÓN DE INICIATIVAS Y QUEJAS. Artículo 13. El mando o jefatura de personal elaborará un informe en el que analizará todas las quejas tramitadas a través de los jefes de unidad, así como las que hubiera recibido directamente. ¿A quién será remitido dicho análisis?",
+    "opciones": [
+      "La Subsecretaría de Defensa.",
+      "El OMI.",
+      "El Ministro de Defensa.",
+      "La Dirección General de Personal."
+    ],
+    "respuestaCorrecta": "La Subsecretaría de Defensa.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY ORGÁNICA 3/2007. IGUALDAD EFECTIVA DE MUJERES Y HOMBRES. Artículo 5. Una diferencia de trato basada en una característica relacionada con el sexo cuando, debido a la naturaleza de las actividades profesionales concretas o al contexto en el que se lleven a cabo, dicha característica constituya un requisito profesional esencial y determinante, siempre y cuando el objetivo sea legítimo y el requisito proporcionado. ¿Qué se considera esta situación?",
+    "opciones": [
+      "No constituirá discriminación en el acceso al empleo",
+      "Discriminación en el acceso al empleo",
+      "Discriminación objetiva en el acceso al empleo",
+      "Discriminación positiva en el acceso al empleo"
+    ],
+    "respuestaCorrecta": "No constituirá discriminación en el acceso al empleo",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "OMI Y PROTOCOLO DE ACTUACIÓN FRENTE AL ACOSO. Resolución 400/38199/2015. Protocolo de actuación frente al acoso sexual y por razón de sexo en las FAS. 8. MEDIDAS PREVENTIVAS. ¿En qué cursos se desarrollarán sesiones informativas relativas al acoso?",
+    "opciones": [
+      "Curso de Estado Mayor",
+      "Para el ascenso a Cabo 1º",
+      "Para el ascenso a Teniente Coronel de Coronel",
+      "Para el ascenso a Capitán"
+    ],
+    "respuestaCorrecta": "Curso de Estado Mayor",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "OMI Y PROTOCOLO DE ACTUACIÓN FRENTE AL ACOSO. Resolución 400/38199/2015. Protocolo de actuación frente al acoso sexual y por razón de sexo en las FAS. 3. PRINCIPIOS RECTORES. ¿Quién se compromete a promover una cultura de prevención frente al acoso mediante el desarrollo de medidas de formación, sensibilización e información de todos sus integrantes?",
+    "opciones": [
+      "El Ministerio de Defensa",
+      "El Gobierno",
+      "El Estado",
+      "Los Poderes públicos"
+    ],
+    "respuestaCorrecta": "El Ministerio de Defensa",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "OMI Y PROTOCOLO DE ACTUACIÓN FRENTE AL ACOSO. Orden DEF/111/2019, de 8 de febrero, por la que se regula la estructura y funcionamiento del Observatorio Militar para la igualdad entre mujeres y hombres en las Fuerzas Armadas. Artículo 1. ¿Cuántos vocales de los cuerpos comunes son propuestos por la Dirección General de Personal para ser designados parte del OMI?",
+    "opciones": [
+      "1, siendo de la Escala de Oficiales o de la Escala de Suboficiales",
+      "2, siendo uno de la Escala de Oficiales y otro de la Escala de Suboficiales",
+      "2, siendo uno de la Escala de Suboficiales y otro de la Escala de Tropa",
+      "3, siendo uno de la Escala de Oficiales , otro de la Escala de Suboficiales y otro de la Escala de Tropa"
+    ],
+    "respuestaCorrecta": "2, siendo uno de la Escala de Oficiales y otro de la Escala de Suboficiales",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY 39/2015. PROCEDIMIENTO ADMINISTRATIVO COMÚN. Artículo 95. En los procedimientos iniciados a solicitud del interesado, cuando se produzca su paralización por causa imputable al mismo, la Administración le advertirá que se producirá la caducidad del procedimiento ¿Transcurrido que plazo?",
+    "opciones": [
+      "1 mes",
+      "2 meses",
+      "3 meses",
+      "6 meses"
+    ],
+    "respuestaCorrecta": "3 meses",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY 39/2015. PROCEDIMIENTO ADMINISTRATIVO COMÚN. Artículo 24. El certificado acreditativo del silencio administrativo producido se expedirá de oficio por el órgano competente para resolver, ¿En qué plazo?",
+    "opciones": [
+      "De diez días desde aquel en que la petición tuviese entrada en el registro electrónico de la Administración u Organismo competente para resolver.",
+      "Quince días desde que expire el plazo máximo para resolver el procedimiento.",
+      "Veinte días desde que expire el plazo máximo para resolver el procedimiento.",
+      "De quince días desde aquel en que la petición tuviese entrada en el registro electrónico de la Administración u Organismo competente para resolver."
+    ],
+    "respuestaCorrecta": "Quince días desde que expire el plazo máximo para resolver el procedimiento.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY 39/2015. PROCEDIMIENTO ADMINISTRATIVO COMÚN. Artículo 125. El recurso extraordinario de revisión se interpondrá, cuando al dictar los actos, se hubiera incurrido en error de hecho, que resulte de los propios documentos incorporados al expediente en el plazo de:",
+    "opciones": [
+      "1 mes siguientes a la fecha de la notificación de la resolución impugnada",
+      "2 meses siguientes a la fecha de la notificación de la resolución impugnada",
+      "3 meses siguientes a la fecha de la notificación de la resolución impugnada",
+      "4 años siguientes a la fecha de la notificación de la resolución impugnada"
+    ],
+    "respuestaCorrecta": "4 años siguientes a la fecha de la notificación de la resolución impugnada",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY 39/2015. PROCEDIMIENTO ADMINISTRATIVO COMÚN. Artículo 4. Se consideran interesados en el procedimiento administrativo (señala la falsa):",
+    "opciones": [
+      "Quienes lo promuevan como titulares de derechos o intereses legítimos individuales",
+      "Quienes lo promuevan como titulares de derechos o intereses legítimos colectivos",
+      "Los que, sin haber iniciado el procedimiento, tengan derechos que puedan resultar afectados por la decisión que en el mismo se adopte",
+      "Aquellos cuyos intereses legítimos, individuales o colectivos, puedan resultar afectados por la resolución siempre que se personen en el procedimiento durante el trámite de audiencia"
+    ],
+    "respuestaCorrecta": "Aquellos cuyos intereses legítimos, individuales o colectivos, puedan resultar afectados por la resolución siempre que se personen en el procedimiento durante el trámite de audiencia",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY 39/2015. PROCEDIMIENTO ADMINISTRATIVO COMÚN. Artículo 6. El apoderamiento \"apud acta\" se otorgará mediante comparecencia electrónica en la correspondiente sede electrónica haciendo uso de los sistemas de firma electrónica previstos en esta Ley, o bien mediante comparecencia personal en:",
+    "opciones": [
+      "Las oficinas de asistencia en materia de registros.",
+      "Las oficinas de correos.",
+      "La Administración competente.",
+      "Todas son correctas"
+    ],
+    "respuestaCorrecta": "Las oficinas de asistencia en materia de registros.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY 39/2015. PROCEDIMIENTO ADMINISTRATIVO COMÚN. Artículo 14. De los siguientes casos, ¿Quién no está obligado a relacionarse por medios electrónicos?",
+    "opciones": [
+      "Quienes representen a un interesado que esté obligado a relacionarse electrónicamente con la Administración.",
+      "Las entidades sin personalidad jurídica",
+      "Las personas jurídicas",
+      "Las personas físicas con capacidad de obrar"
+    ],
+    "respuestaCorrecta": "Las personas físicas con capacidad de obrar",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY 39/2015. PROCEDIMIENTO ADMINISTRATIVO COMÚN. Artículo 15. Si concurrieran varios interesados en el procedimiento, y existiera discrepancia en cuanto a la lengua, ¿En qué idioma se tramitará?",
+    "opciones": [
+      "Tanto el procedimiento como los documentos o testimonios que requieran los interesados se tramitarán en castellano.",
+      "Tanto el procedimiento como los documentos o testimonios que requieran los interesados se tramitarán en la lengua elegida por los mismos.",
+      "El procedimiento se tramitará en castellano, si bien los documentos o testimonios que requieran los interesados se expedirán en la lengua elegida por los mismos.",
+      "El procedimiento se tramitará en la lengua elegida por los mismos, si bien los documentos o testimonios que requieran los interesados se expedirán en castellano."
+    ],
+    "respuestaCorrecta": "El procedimiento se tramitará en castellano, si bien los documentos o testimonios que requieran los interesados se expedirán en la lengua elegida por los mismos.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY 39/2015. PROCEDIMIENTO ADMINISTRATIVO COMÚN. Artículo 30. Los plazos expresados por horas, ¿Qué duración podrán tener?",
+    "opciones": [
+      "No podrán tener una duración superior a 72 horas, en cuyo caso se expresarán en días.",
+      "No podrán tener una duración Inferior a 8 horas.",
+      "No podrán tener una duración superior a 24 horas, en cuyo caso se expresarán en días.",
+      "No podrán tener una duración superior a 48 horas, en cuyo caso se expresarán en días."
+    ],
+    "respuestaCorrecta": "No podrán tener una duración superior a 24 horas, en cuyo caso se expresarán en días.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY 39/2015. PROCEDIMIENTO ADMINISTRATIVO COMÚN. Artículo 48. ¿Qué afirmación es correcta respecto a la anulabilidad?",
+    "opciones": [
+      "Son anulables los actos de la Administración que incurran en cualquier infracción del ordenamiento jurídico, salvo la desviación de poder",
+      "El defecto de forma sólo determinará la anulabilidad cuando el acto carezca de los requisitos formales indispensables para alcanzar su fin o dé lugar a la indefensión de los interesados",
+      "La realización de actuaciones administrativas fuera del tiempo establecido para ellas implicará la anulabilidad del acto en cualquier caso",
+      "Todas son correctas"
+    ],
+    "respuestaCorrecta": "El defecto de forma sólo determinará la anulabilidad cuando el acto carezca de los requisitos formales indispensables para alcanzar su fin o dé lugar a la indefensión de los interesados",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY 36/2015, DE SEGURIDAD NACIONAL. Artículo 4. ¿Cuál no es uno de los principios básicos que orientan la política de seguridad nacional?",
+    "opciones": [
+      "Unidad de acción",
+      "Anticipación",
+      "Prevención",
+      "Eficacia"
+    ],
+    "respuestaCorrecta": "Eficacia",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY 36/2015, DE SEGURIDAD NACIONAL. Artículo 15. El presidente del gobierno:",
+    "opciones": [
+      "Establece y dirige la política de seguridad nacional y asegura su ejecución.",
+      "Declara la situación de interés para la seguridad nacional.",
+      "Aprueba la estrategia de seguridad nacional y sus revisiones mediante real decreto según la ley.",
+      "Establece declaración de recursos de interés para la seguridad en coordinación con las CCAA."
+    ],
+    "respuestaCorrecta": "Declara la situación de interés para la seguridad nacional.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LEY 36/2015, DE SEGURIDAD NACIONAL. Artículo 18. ¿Qué es el conjunto de órganos, organismos, recursos y procedimientos, que permite a los órganos competentes en materia de Seguridad Nacional ejercer sus funciones?",
+    "opciones": [
+      "El Sistema de Seguridad Nacional",
+      "La Estrategia de Seguridad Nacional",
+      "La política de Seguridad Nacional",
+      "La Seguridad Nacional"
+    ],
+    "respuestaCorrecta": "El Sistema de Seguridad Nacional",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "REAL DECRETO 1150/2021. ESTRATEGIA DE SEGURIDAD NACIONAL 2021. ¿Cuándo se aprobó la primera Estrategia Española de Seguridad?",
+    "opciones": [
+      "2013",
+      "2011",
+      "2017",
+      "2001"
+    ],
+    "respuestaCorrecta": "2011",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "REAL DECRETO 1150/2021. ESTRATEGIA DE SEGURIDAD NACIONAL 2021. CAPÍTULO 3. Dentro de los riesgos y amenazas. ¿Qué amenaza a la seguridad que se caracteriza por su finalidad esencialmente económica, su efecto horadador sobre la instituciones políticas y sociales, su carácter transnacional y su opacidad?",
+    "opciones": [
+      "El crimen organizado",
+      "Los ciberataques",
+      "Los grupos terroristas",
+      "Flujos migratorios irregulares"
+    ],
+    "respuestaCorrecta": "El crimen organizado",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "DOCTRINA. PDC-01 (B). CAPÍTULO 6: EL NIVEL TÁCTICO 492. ¿Qué se entiende por la aplicación de una capacidad militar en un momento y lugar concreto para producir los efectos deseados?",
+    "opciones": [
+      "Acción militar táctica.",
+      "Capacidad militar.",
+      "Combate.",
+      "Operación militar."
+    ],
+    "respuestaCorrecta": "Acción militar táctica.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "DOCTRINA. PDC-01 (B). CAPÍTULO 2: FUERZAS ARMADAS 72. ¿Quién dicta las normas para el Empleo de Las FAS?",
+    "opciones": [
+      "El JEMAD",
+      "El Ministro de Defensa",
+      "El Congreso de los Diputados",
+      "El Gobierno"
+    ],
+    "respuestaCorrecta": "El JEMAD",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "DOCTRINA. PDC-01 (B) CAPÍTULO 3: FUNDAMENTO DE LAS OPERACIONES 177. ¿Qué principio operativo se basa en el acertado ejercicio del liderazgo, en la determinación para imponer la propia voluntad, y en la capacidad de apoyo y de resiliencia y requiere una correcta estimación del factor tiempo y de los recursos disponibles?",
+    "opciones": [
+      "Voluntad de vencer",
+      "Iniciativa",
+      "Liderazgo operativo",
+      "Continuidad"
+    ],
+    "respuestaCorrecta": "Voluntad de vencer",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "DOCTRINA. PDC-01 (B) CAPÍTULO 3: FUNDAMENTO DE LAS OPERACIONES 273. ¿Qué tipo de planeamiento se lleva a cabo cuando ya se han producido unos acontecimientos que motivan la ejecución de una operación militar?",
+    "opciones": [
+      "Planeamiento de respuesta de crisis",
+      "Planeamiento de reacción",
+      "Planeamiento ejecutivo",
+      "Planeamiento no preventivo"
+    ],
+    "respuestaCorrecta": "Planeamiento de respuesta de crisis",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "DOCTRINA. PDC-01 (B) CAPÍTULO 3: FUNDAMENTO DE LAS OPERACIONES 303. De entre los elementos clave de las MDO, ¿Cuál permite obtener, analizar, interpretar y compartir toda la información para mejorar el conocimiento de la situación y conseguir la superioridad en la decisión en todos los niveles de mando?",
+    "opciones": [
+      "Conectividad",
+      "Interoperabilidad",
+      "Incorporación de tecnologías emergentes y disruptivas",
+      "Gestión de la información"
+    ],
+    "respuestaCorrecta": "Gestión de la información",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "DOCTRINA. PDC-01 (B). CAPÍTULO 3: FUNDAMENTOS DE LAS OPERACIONES ¿Qué afirmación es falsa respecto a las operaciones?",
+    "opciones": [
+      "Toda operación se orienta a lograr los objetivos estratégicos definidos por ser decisivos para lograr las condiciones de seguridad política, militar, económica o social.",
+      "Cuando el instrumento de poder militar, con la posible participación de otros instrumentos, se emplea en el ámbito de la defensa, se hace mediante el desarrollo de operaciones militares.",
+      "Las capacidades militares no son únicamente empleadas en el ámbito de la defensa sino también en otros ámbitos de la seguridad como la acción exterior y la seguridad pública.",
+      "Se denomina Operación Militar de Apoyo a la acción de otros instrumentos del Estado, al empleo del instrumento de poder militar bajo la dirección de la autoridad que corresponda para la consecución de objetivos militares."
+    ],
+    "respuestaCorrecta": "Se denomina Operación Militar de Apoyo a la acción de otros instrumentos del Estado, al empleo del instrumento de poder militar bajo la dirección de la autoridad que corresponda para la consecución de objetivos militares.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "DOCTRINA. PDC-01 (B). CAPÍTULO 2: LAS FUERZAS ARMADAS 120. Las unidades que aportan estas capacidades operativas, contribuyen a facilitar la visión integral, apropiada y actualizada del entorno operativo y de los potenciales adversarios. ¿A qué capacidades operativas nos referimos?",
+    "opciones": [
+      "Capacidades operativas Cognitivas",
+      "Capacidades operativas Ciberespaciales",
+      "Capacidades operativas CIS",
+      "Capacidades operativas de JISR"
+    ],
+    "respuestaCorrecta": "Capacidades operativas de JISR",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "DOCTRINA. PDC-01 (B) CAPÍTULO 3: FUNDAMENTO DE LAS OPERACIONES 189. ¿Qué dominio de las operaciones es el espacio no físico de las operaciones que, dentro del entorno de la información, abarca las acciones, procesos y efectos que afectan a las percepciones del ser humano, considerado de forma individual o grupal, y es consustancial a su capacidad de juicio, conciencia de grupo y toma de decisiones?",
+    "opciones": [
+      "Dominio social",
+      "Dominio espacial",
+      "Dominio ciberespacial",
+      "Dominio cognitivo"
+    ],
+    "respuestaCorrecta": "Dominio cognitivo",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "DOCTRINA. PDC-01 (B). CAPÍTULO 2: FUERZAS ARMADAS 88. ¿Qué añade mediante el conocimiento, valor a los medios, las organizaciones, los sistemas y los procedimientos?",
+    "opciones": [
+      "La Doctrina",
+      "La Innovación",
+      "La Enseñanza",
+      "La Transformación militar"
+    ],
+    "respuestaCorrecta": "La Innovación",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "DOCTRINA. PDC-01 (B). CAPÍTULO 3: FUNDAMENTOS DE LAS OPERACIONES. 145. Tomada la decisión política de emplear el instrumento militar en operaciones, es necesario tener presente que su actuación se ajusta a ciertos principios, ¿Cuáles son estos principios?",
+    "opciones": [
+      "Éticos, legales y doctrinales",
+      "Fundamentales y esenciales",
+      "Legales, doctrinales y fundamentales",
+      "Éticos, legales y operativos"
+    ],
+    "respuestaCorrecta": "Éticos, legales y doctrinales",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "DOCTRINA. PDC-01 (B) CAPÍTULO 7: MANDO Y CONTROL EN OPERACIONES. 521. ¿Cuáles son los pilares del ejercicio del mando y control?",
+    "opciones": [
+      "El mando orientado a la misión y el liderazgo militar.",
+      "El mando orientado a la misión y la iniciativa.",
+      "El mando operativo y la iniciativa.",
+      "El liderazgo militar y la iniciativa."
+    ],
+    "respuestaCorrecta": "El mando orientado a la misión y el liderazgo militar.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "DOCTRINA. PDC-01 (B) CAPÍTULO 3: FUNDAMENTO DE LAS OPERACIONES. 189. ¿Qué dominio de las operaciones tiene como principal vector de transmisión el ciberespacio?",
+    "opciones": [
+      "Dominio social",
+      "Dominio espacial",
+      "Dominio ciberespacial",
+      "Dominio cognitivo"
+    ],
+    "respuestaCorrecta": "Dominio cognitivo",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "DOCTRINA. PDC-01 (B). CAPÍTULO 1: SEGURIDAD Y DEFENSA. 37. ¿De qué depende en gran parte la capacidad de influencia de una nación u otro actor en un conflicto?",
+    "opciones": [
+      "De su capacidad de respuesta militar ante cualquier amenaza a la seguridad",
+      "De su capacidad para emplear de forma integrada todos sus instrumentos de poder y capacidades",
+      "De su capacidad económica, administrativa y militar",
+      "De su capacidad para emplear de forma conjunta todos sus instrumentos de poder"
+    ],
+    "respuestaCorrecta": "De su capacidad para emplear de forma integrada todos sus instrumentos de poder y capacidades",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "ONU. ¿En qué periodo fue España miembro de no permanente del consejo de seguridad por primera vez?",
+    "opciones": [
+      "1951-1952",
+      "1960-1961",
+      "1969-1970",
+      "2003-2004"
+    ],
+    "respuestaCorrecta": "1969-1970",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "ONU. La Asamblea General adoptó la Resolución 39, mediante la cual se excluía al gobierno español de organismos internacionales y conferencias establecidas por las Naciones Unidas. ¿En qué fecha se adoptó esta resolución?",
+    "opciones": [
+      "El 12 de diciembre de 1956",
+      "El 12 de diciembre de 1946",
+      "El 12 de diciembre de 1919",
+      "El 12 de diciembre de 1955"
+    ],
+    "respuestaCorrecta": "El 12 de diciembre de 1946",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "OTAN. España se adhirió al Protocolo de París que establece el estatuto de los cuarteles generales SOFA, ¿En qué año?",
+    "opciones": [
+      "1985",
+      "1995",
+      "1994",
+      "1984"
+    ],
+    "respuestaCorrecta": "1995",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "OTAN. ¿Cuál fue el Mando de la OTAN que se estableció su sede en España en 1997?",
+    "opciones": [
+      "El Centro Combinado de Operaciones Aéreas (CAOC) en Torrejón de Ardoz",
+      "El Mando Componente Terrestre (LCC) en Retamares",
+      "El Cuartel General Subregional Conjunto del Sudoeste en Retamares",
+      "El Mando de Transformación de la OTAN"
+    ],
+    "respuestaCorrecta": "El Cuartel General Subregional Conjunto del Sudoeste en Retamares",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "OTAN. ¿Cuándo se culminó la incorporación plena de España a la estructura militar integrada de la OTAN?",
+    "opciones": [
+      "1 de enero de 1999",
+      "1 de enero de 1996",
+      "1 de enero de 1992",
+      "1 de enero de 1900"
+    ],
+    "respuestaCorrecta": "1 de enero de 1999",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "OTAN. ¿Cuál es la autoridad militar superior en la OTAN y el cuerpo permanente más antiguo de la OTAN después del Consejo del Atlántico Norte, ambos formados pocos meses después de la creación de la Alianza?",
+    "opciones": [
+      "El Comité Militar.",
+      "El Estado Mayor Internacional.",
+      "El Mando Aliado de Operaciones.",
+      "La NATO Response Force."
+    ],
+    "respuestaCorrecta": "El Comité Militar.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "ORGANIZACIÓN PARA LA SEGURIDAD Y COOPERACIÓN EN EUROPA (OSCE). La Cumbre de Estambul de 1999 (TRAS EL Consejo Ministerial de Oslo de 1998) dio como fruto los siguientes documentos: (señala la falsa).",
+    "opciones": [
+      "Carta de Estambul, firmada por los 34 miembros",
+      "Adaptación FACE y acta final",
+      "Carta de seguridad para Europa",
+      "Documento de Viena 1999"
+    ],
+    "respuestaCorrecta": "Carta de Estambul, firmada por los 34 miembros",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "ORGANIZACIÓN PARA LA SEGURIDAD Y COOPERACIÓN EN EUROPA (OSCE). ¿Que se considera la piedra angular sobre la que se ha consolidado la seguridad europea desde principios de los 90?",
+    "opciones": [
+      "EL TRATADO DE FUERZAS ARMADAS CONVENCIONALES EN EUROPA",
+      "LA CARTA DE PARÍS",
+      "LA OSCE",
+      "EL TRATADO DE CIELOS ABIERTOS"
+    ],
+    "respuestaCorrecta": "EL TRATADO DE FUERZAS ARMADAS CONVENCIONALES EN EUROPA",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LA UNIÓN EUROPEA. ¿En qué tratado se crea la EURATOM?",
+    "opciones": [
+      "TRATADO DE LISBOA",
+      "TRATADO DE ROMA",
+      "TRATADO DE PARIS",
+      "ACTA UNICA"
+    ],
+    "respuestaCorrecta": "TRATADO DE ROMA",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "LA UNIÓN EUROPEA. ¿Qué organismo tiene la función de Representar a los Gobiernos de los Estados miembros, adoptar la legislación europea y coordinar las políticas de la UE?",
+    "opciones": [
+      "CONSEJO DE LA UNIÓN EUROPEA",
+      "CONSEJO DE EUROPA",
+      "PARLAMENTO EUROPEO",
+      "ASAMBLEA GENERAL"
+    ],
+    "respuestaCorrecta": "CONSEJO DE LA UNIÓN EUROPEA",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "ESPAÑA Y SU PARTICIPACIÓN EN MISIONES INTERNACIONALES. Sobre la Operación Libre Hidalgo, (señala la falsa)",
+    "opciones": [
+      "La Brigada Multinacional Este es liderada España, mandada por un general español, cuenta con 3500 efectivos.",
+      "El grueso del contingente español en la operación Libre Hidalgo se encuentra en la base Miguel de Cervantes.",
+      "Desde 2012 España mantiene en UNIFIL alrededor de 650 militares.",
+      "Desde el inicio de la misión, han fallecido en Líbano 50 militares españoles."
+    ],
+    "respuestaCorrecta": "Desde el inicio de la misión, han fallecido en Líbano 50 militares españoles.",
+    "examen": "simulacro2"
+  },
+  {
+    "pregunta": "ESPAÑA Y SU PARTICIPACIÓN EN MISIONES INTERNACIONALES. ¿En qué año se inició y finalizo la participación del contingente español en KFOR?",
+    "opciones": [
+      "De 2001 a 2010",
+      "De 1991 a 1999",
+      "De 1999 a 2009",
+      "De 1991 a 2009"
+    ],
+    "respuestaCorrecta": "De 1999 a 2009",
+    "examen": "simulacro2"
+  }
+]

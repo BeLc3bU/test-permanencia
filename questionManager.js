@@ -1,6 +1,7 @@
 import { storage } from './storage.js';
 
 let allQuestions = [];
+let questionIndexMap = new Map();
 let unseenQuestionIndices = [];
 
 async function loadQuestionFile(fileName) {
@@ -34,7 +35,7 @@ function shuffleArray(array) {
 
 export async function loadAllQuestions() {
     // Carga todos los archivos de preguntas al inicio para que estén disponibles para todos los modos.
-    const filesToLoad = ['preguntas.json', 'examen_2022.json', 'examen_2024.json', 'examen_2025ET.json'];
+    const filesToLoad = ['preguntas.json', 'examen_2022.json', 'examen_2024.json', 'examen_2025ET.json', 'simulacro_1.json', 'simulacro_2.json', 'simulacro_3.json'];
 
     const questionSets = await Promise.all(
         filesToLoad.map(file => loadQuestionFile(file))
@@ -42,6 +43,11 @@ export async function loadAllQuestions() {
 
     const unifiedQuestions = questionSets.flat();
     allQuestions = unifyAndDeduplicate(unifiedQuestions);
+
+    // Crear un mapa para búsqueda de índices O(1)
+    allQuestions.forEach((q, index) => {
+        questionIndexMap.set(q.pregunta, index);
+    });
 
     if (allQuestions.length === 0) {
         throw new Error("No se cargaron preguntas.");
@@ -59,6 +65,8 @@ export async function loadAllQuestions() {
 
 export const questionBank = {
     getAll: () => allQuestions,
+    getQuestionsByExam: (examId) => allQuestions.filter(p => p.examen === examId.toString()),
+    getIndex: (preguntaTexto) => questionIndexMap.get(preguntaTexto),
     getUnseenIndices: () => unseenQuestionIndices,
     setUnseenIndices: (indices) => {
         unseenQuestionIndices = indices;

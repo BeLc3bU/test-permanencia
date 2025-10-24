@@ -64,11 +64,19 @@ export function prepararTest(modo, opciones = {}) {
         examen2024: prepararTestPersonalizado,
         imprescindible: prepararTestPersonalizado,
         examen2025ET: prepararTestPersonalizado,
+        simulacro1: prepararTestPersonalizado,
+        simulacro2: prepararTestPersonalizado,
+        simulacro3: prepararTestPersonalizado,
         // Se pueden añadir más modos aquí fácilmente
     };
 
     const preparador = preparadoresDeTest[modo] || preparadoresDeTest.normal;
-    currentTestSession.preguntasDelTest = preparador(opciones);
+    const preguntasSeleccionadas = preparador(opciones);
+
+    currentTestSession.preguntasDelTest = preguntasSeleccionadas.map(p => ({
+        ...p,
+        indiceGlobal: questionBank.getIndex(p.pregunta)
+    }));
 
     // Barajamos las preguntas para los modos que no son 'normal', ya que vienen en orden.
     if (modo !== 'normal') {
@@ -88,13 +96,8 @@ export function procesarRespuesta(opcionSeleccionada, estadoActual) {
         return null;
     }
 
-    const esCorrecto = opcionSeleccionada === preguntaActual.respuestaCorrecta;
-    const indiceGlobal = questionBank.getAll().findIndex(p => p.pregunta === preguntaActual.pregunta);
-    
-    if (indiceGlobal === -1) {
-        console.warn('Pregunta no encontrada en el banco global');
-        return null;
-    }
+    const esCorrecto = opcionSeleccionada === preguntaActual.respuestaCorrecta;    
+    const { indiceGlobal } = preguntaActual;
 
     if (esCorrecto) {
         estadoActual.puntuacion++;

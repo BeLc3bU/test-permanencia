@@ -9,6 +9,9 @@ const KEYS = {
     SESSION_EXAMEN_2022: 'testExamen2022State',
     SESSION_EXAMEN_2024: 'testExamen2024State',
     SESSION_EXAMEN_2025ET: 'testExamen2025ETState',
+    SESSION_SIMULACRO_1: 'testSimulacro1State',
+    SESSION_SIMULACRO_2: 'testSimulacro2State',
+    SESSION_SIMULACRO_3: 'testSimulacro3State',
     SOUND_MUTED: 'testPermanenciaSoundMuted',
     NUM_PREGUNTAS: 'testPermanenciaNumPreguntas',
 };
@@ -16,12 +19,11 @@ const KEYS = {
 function getSessionKey(modo) {
     switch (modo) {
         case 'repaso': return KEYS.SESSION_REPASO;
-        case 'imprescindible': return KEYS.SESSION_IMPRESCINDIBLE;
         case 'normal': return KEYS.SESSION_NORMAL;
-        case 'examen2024': return KEYS.SESSION_EXAMEN_2024;
-        case 'examen2022': return KEYS.SESSION_EXAMEN_2022;
-        case 'examen2025ET': return KEYS.SESSION_EXAMEN_2025ET;
-        default: return `testPermanenciaState_${modo}`; // Clave dinámica para 'normal' y otros futuros modos
+        // Para todos los demás modos (imprescindible, exámenes, simulacros),
+        // usamos una clave dinámica para simplificar y dar soporte a futuros modos
+        // sin tener que modificar este switch.
+        default: return `testPermanenciaState_${modo}`;
     }
 }
 

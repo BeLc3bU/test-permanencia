@@ -11,6 +11,9 @@ const urlsToCache = [
   'examen_2022.json',
   'examen_2024.json',
   'examen_2025ET.json',
+  'simulacro_1.json',
+  'simulacro_2.json',
+  'simulacro_3.json',
   'icons/icon-192x192.png',
   'icons/icon-512x512.png',
   'sounds/correct.mp3',
@@ -113,7 +116,10 @@ self.addEventListener('periodicsync', event => {
           fetch(new Request('preguntas.json', { cache: 'no-store' })),
           fetch(new Request('examen_2022.json', { cache: 'no-store' })),
           fetch(new Request('examen_2024.json', { cache: 'no-store' })),
-          fetch(new Request('examen_2025ET.json', { cache: 'no-store' }))
+          fetch(new Request('examen_2025ET.json', { cache: 'no-store' })),
+          fetch(new Request('simulacro_1.json', { cache: 'no-store' })),
+          fetch(new Request('simulacro_2.json', { cache: 'no-store' })),
+          fetch(new Request('simulacro_3.json', { cache: 'no-store' }))
         ]);
       })
     );

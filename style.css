@@ -21,6 +21,10 @@
     --color-primario: #3182ce; /* Un azul más profundo y agradable */
     --color-primario-hover: #2b6cb0;
     --color-secundario: #718096;
+    --color-exam-grad-start: #4a5568;
+    --color-exam-grad-end: #2d3748;
+    --color-exam-hover-grad-start: #2d3748;
+    --color-exam-hover-grad-end: #1a202c;
     --color-secundario-fondo: #E2E8F0;
     --color-secundario-texto: #4A5568;
     --color-secundario-hover-fondo: #CBD5E0;
@@ -47,6 +51,11 @@
     --color-incorrecto-fondo: #c53030;
     --color-incorrecto-borde: #e53e3e;
     --color-incorrecto-texto: #fff5f5;
+
+    --color-exam-grad-start: #63b3ed;
+    --color-exam-grad-end: #4299e1;
+    --color-exam-hover-grad-start: #4299e1;
+    --color-exam-hover-grad-end: #3182ce;
 
     --color-secundario-fondo: #4A5568;
     --color-secundario-texto: #E2E8F0;
@@ -399,13 +408,6 @@ body {
     font-size: 1rem;
 }
 
-/* Botones terciarios (outline) */
-#iniciar-examen-2024-btn, #iniciar-examen-2022-btn, #iniciar-examen-2025ET-btn {
-    background-color: transparent;
-    color: var(--color-primario);
-    border: 1px solid var(--color-primario);
-}
-
 /* --- Modal de Confirmación --- */
 #modal-overlay {
     position: fixed;
@@ -500,6 +502,21 @@ body {
     margin-bottom: 2rem;
 }
 
+.test-section h2 {
+    color: var(--color-texto-principal);
+    margin-top: 1.5rem;
+    margin-bottom: 1.2rem;
+    font-size: 1.4rem;
+    border-bottom: 1px solid var(--color-opcion-borde);
+    padding-bottom: 0.6rem;
+}
+
+.start-menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
 /* Estilos para la revisión de fallos */
 #revision-fallos {
     margin-top: 2rem;
@@ -560,6 +577,20 @@ body {
     margin-left: 0.5rem; /* Alinea con el padding del div interior */
 }
 
+.btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+}
+
 #num-preguntas-select {
     padding: 0.5rem;
     border-radius: 6px;
@@ -567,6 +598,16 @@ body {
     background-color: var(--color-opcion-fondo);
     color: var(--color-texto-principal);
     font-size: 1rem;
+}
+.btn-exam {
+    color: white;
+    background-image: linear-gradient(45deg, var(--color-exam-grad-start), var(--color-exam-grad-end));
+    box-shadow: 0 4px 15px 0 rgba(49, 130, 206, 0.35);
+}
+
+.btn-exam:hover:not(:disabled) {
+    background-image: linear-gradient(45deg, var(--color-exam-hover-grad-start), var(--color-exam-hover-grad-end));
+    transform: translateY(-3px);
 }
 
 /* --- Banner de Actualización --- */
@@ -628,4 +669,50 @@ body {
         justify-content: space-between;
     }
 
+}
+/* --- Animación de carga para el menú --- */
+@keyframes slide-up-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.test-section h2,
+.test-section .btn {
+    opacity: 0; /* Inician ocultos */
+    animation: slide-up-fade-in 0.5s ease-out forwards;
+}
+
+/* --- Retrasos escalonados para la animación --- */
+.start-menu-grid .test-section:nth-of-type(1) h2 { animation-delay: 0.2s; }
+.start-menu-grid .test-section:nth-of-type(1) .btn { animation-delay: 0.3s; }
+
+.start-menu-grid .test-section:nth-of-type(2) h2 { animation-delay: 0.4s; }
+.start-menu-grid .test-section:nth-of-type(2) .btn { animation-delay: 0.5s; }
+
+.start-menu-grid .test-section:nth-of-type(3) h2 { animation-delay: 0.6s; }
+.start-menu-grid .test-section:nth-of-type(3) .btn { animation-delay: 0.7s; }
+.veredicto {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    animation: pop-in 0.6s ease-out;
+}
+
+.veredicto.apto {
+    color: var(--color-correcto-texto);
+    background-color: var(--color-correcto-fondo);
+}
+
+.veredicto.no-apto {
+    color: var(--color-incorrecto-texto);
+    background-color: var(--color-incorrecto-fondo);
 }

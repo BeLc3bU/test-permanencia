@@ -30,14 +30,28 @@
                     </select>
                 </div>
             </fieldset>
-            <div class="footer-botones">
-                <button id="iniciar-nuevo-test-btn" class="menu-btn btn-primario" data-action="nuevo-test">Nuevo Test</button>
-                <button id="iniciar-repaso-fallos-btn" class="menu-btn btn-secundario" data-action="repasar-fallos">Repasar Fallos <span id="contador-fallos"></span></button>
-                <button id="iniciar-test-imprescindible-btn" class="menu-btn" data-action="imprescindible">Test Imprescindible</button>
-                <button id="iniciar-examen-2025ET-btn" class="menu-btn" data-action="examen-2025ET">Examen 2025ET</button>
-                <button id="iniciar-examen-2024-btn" class="menu-btn" data-action="examen-2024">Examen 2024</button>
-                <button id="iniciar-examen-2022-btn" class="menu-btn" data-action="examen-2022">Examen 2022</button>
-                <button id="reiniciar-progreso-btn" class="menu-btn btn-terciario" data-action="reiniciar-progreso">Reiniciar Progreso</button>
+            <div class="start-menu-grid">
+                <div class="test-section">
+                    <h2>Modos de Práctica</h2>
+                    <button id="iniciar-nuevo-test-btn" class="btn btn-primary" data-action="nuevo-test">Test Normal</button>
+                    <button id="iniciar-repaso-fallos-btn" class="btn btn-secondary" data-action="repasar-fallos">Repasar Fallos <span id="contador-fallos"></span></button>
+                    <button id="iniciar-test-imprescindible-btn" class="btn btn-secondary" data-action="imprescindible">Test Imprescindible</button>
+                </div>
+                <div class="test-section">
+                    <h2>Exámenes Oficiales</h2>
+                    <button id="iniciar-examen-2024-btn" class="btn btn-exam" data-action="examen2024">Examen 2024</button>
+                    <button id="iniciar-examen-2022-btn" class="btn btn-exam" data-action="examen2022">Examen 2022</button>
+                    <button id="iniciar-examen-2025ET-btn" class="btn btn-exam" data-action="examen2025ET">Examen 2025 ET</button>
+                </div>
+                <div class="test-section">
+                    <h2>Simulacros</h2>
+                    <button id="iniciar-simulacro-1-btn" class="btn btn-exam" data-action="simulacro1">Simulacro 1</button>
+                    <button id="iniciar-simulacro-2-btn" class="btn btn-exam" data-action="simulacro2">Simulacro 2</button>
+                    <button id="iniciar-simulacro-3-btn" class="btn btn-exam" data-action="simulacro3">Simulacro 3</button>
+                </div>
+            </div>
+            <div class="start-menu-footer">
+                <button id="reiniciar-progreso-btn" class="btn btn-tertiary" data-action="reiniciar-progreso">Reiniciar Progreso</button>
             </div>
         </section>
 
@@ -59,6 +73,7 @@
                 <h2 id="pregunta-actual"></h2>
                 <div id="opciones-respuesta" class="opciones"></div>
             </div>
+            <div id="veredicto" class="oculto" aria-live="assertive"></div>
             <div id="feedback" aria-live="polite"></div>
             <div id="revision-fallos" class="oculto"></div>
             <div class="footer-botones">

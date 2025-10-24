@@ -54,6 +54,27 @@
       "description": "Iniciar un test con las preguntas falladas anteriormente",
       "url": "index.html?action=repasar-fallos",
       "icons": [{ "src": "icons/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Simulacro 1",
+      "short_name": "Simulacro 1",
+      "description": "Iniciar el primer simulacro de examen.",
+      "url": "index.html?action=simulacro1",
+      "icons": [{ "src": "icons/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Simulacro 2",
+      "short_name": "Simulacro 2",
+      "description": "Iniciar el segundo simulacro de examen.",
+      "url": "index.html?action=simulacro2",
+      "icons": [{ "src": "icons/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Simulacro 3",
+      "short_name": "Simulacro 3",
+      "description": "Iniciar el tercer simulacro de examen.",
+      "url": "index.html?action=simulacro3",
+      "icons": [{ "src": "icons/icon-192x192.png", "sizes": "192x192" }]
     }
   ],
   "screenshots": [

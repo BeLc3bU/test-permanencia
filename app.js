@@ -63,7 +63,10 @@ window.addEventListener('load', () => {
             { nombre: 'examen 2024', clave: 'examen2024' },
             { nombre: 'examen 2022', clave: 'examen2022' },
             { nombre: 'examen 2025ET', clave: 'examen2025ET' },
-            { nombre: 'imprescindible', clave: 'imprescindible' }
+            { nombre: 'imprescindible', clave: 'imprescindible' },
+            { nombre: 'simulacro 1', clave: 'simulacro1' },
+            { nombre: 'simulacro 2', clave: 'simulacro2' },
+            { nombre: 'simulacro 3', clave: 'simulacro3' }
         ];
 
         for (const modo of modosPosibles) {
@@ -139,15 +142,12 @@ window.addEventListener('load', () => {
 
     function iniciarRepasoFallos(preguntasFalladasTest) {
         let indicesFallos;
+        // Si se llama desde la pantalla de resultados, se pasan las preguntas falladas de esa sesión.
         if (preguntasFalladasTest) {
-            // Crear un Map para búsquedas O(1) en lugar de O(n)
-            const preguntaMap = new Map();
-            questionBank.getAll().forEach((p, index) => {
-                preguntaMap.set(p.pregunta, index);
-            });
-            
+            // Usamos el questionBank optimizado para obtener los índices globales de forma eficiente.
             indicesFallos = preguntasFalladasTest.map(item => {
-                const index = preguntaMap.get(item.preguntaData.pregunta);
+                // Usamos el índice global que ya guardamos en el estado del test.
+                const index = item.preguntaData.indiceGlobal;
                 return index !== undefined ? index : -1;
             }).filter(index => index !== -1);
         } else {
@@ -169,9 +169,9 @@ window.addEventListener('load', () => {
     }
 
     function iniciarTestExamen(examenId) {
-        const preguntasExamen = questionBank.getAll().filter(p => p.examen === examenId.toString());
+        const preguntasExamen = questionBank.getQuestionsByExam(examenId);
         if (preguntasExamen.length > 0) {
-            iniciarNuevoTest(`examen${examenId}`, { preguntasPersonalizadas: preguntasExamen });
+            iniciarNuevoTest(examenId.toString(), { preguntasPersonalizadas: preguntasExamen });
         } else {
             alert(`No se encontraron preguntas para el Examen ${examenId}. El archivo podría estar vacío o mal configurado.`);
         }
@@ -200,7 +200,7 @@ window.addEventListener('load', () => {
         setTimeout(() => {
             const { nuevoEstado, resultadoFinal } = avanzarPregunta(estadoActual);
             if (resultadoFinal) {
-                ui.showTestResults(resultadoFinal, iniciarRepasoFallos, () => { ui.showStartView(); });
+                ui.showTestResults(resultadoFinal, estadoActual.modo, iniciarRepasoFallos, () => { ui.showStartView(); });
                 actualizarContadoresUI();
             } else {
                 mostrarPreguntaActual(nuevoEstado);
@@ -223,6 +223,9 @@ window.addEventListener('load', () => {
         ui.elements.iniciarTestImprescindibleBtn.addEventListener('click', iniciarTestImprescindible);
         ui.elements.iniciarExamen2022Btn.addEventListener('click', () => iniciarTestExamen(2022));
         ui.elements.iniciarExamen2025ETBtn.addEventListener('click', () => iniciarTestExamen('2025ET'));
+        ui.elements.iniciarSimulacro1Btn.addEventListener('click', () => iniciarTestExamen('simulacro1'));
+        ui.elements.iniciarSimulacro2Btn.addEventListener('click', () => iniciarTestExamen('simulacro2'));
+        ui.elements.iniciarSimulacro3Btn.addEventListener('click', () => iniciarTestExamen('simulacro3'));
 
         ui.elements.numPreguntasSelect.addEventListener('change', (e) => {
             const num = e.target.value === 'Infinity' ? Infinity : parseInt(e.target.value, 10);
@@ -283,7 +286,7 @@ window.addEventListener('load', () => {
         isProcessing = true;
         const resultadoAvance = finalizarTestForzado();
         if (resultadoAvance) {
-            ui.showTestResults(resultadoAvance, iniciarRepasoFallos, () => { ui.showStartView(); });
+            ui.showTestResults(resultadoAvance, getTestState().modo, iniciarRepasoFallos, () => { ui.showStartView(); });
             actualizarContadoresUI();
         }
         isProcessing = false;

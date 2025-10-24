@@ -10,6 +10,9 @@ export class UI {
             iniciarExamen2024Btn: document.getElementById('iniciar-examen-2024-btn'),
             iniciarExamen2022Btn: document.getElementById('iniciar-examen-2022-btn'),
             iniciarExamen2025ETBtn: document.getElementById('iniciar-examen-2025ET-btn'),
+            iniciarSimulacro1Btn: document.getElementById('iniciar-simulacro-1-btn'),
+            iniciarSimulacro2Btn: document.getElementById('iniciar-simulacro-2-btn'),
+            iniciarSimulacro3Btn: document.getElementById('iniciar-simulacro-3-btn'),
             numPreguntasSelect: document.getElementById('num-preguntas-select'),
             configTestNormal: document.querySelector('.config-test-normal'),
             soundToggleBtn: document.getElementById('sound-toggle-btn'),
@@ -29,6 +32,7 @@ export class UI {
             preguntaWrapper: document.getElementById('pregunta-wrapper'),
             contenedorTest: document.getElementById('contenedor-test'),
             // Elementos del Modal
+            veredictoEl: document.getElementById('veredicto'),
             modalOverlay: document.getElementById('modal-overlay'),
             modalTitle: document.getElementById('modal-title'),
             modalMessage: document.getElementById('modal-message'),
@@ -191,18 +195,36 @@ export class UI {
         });
     }
 
-    showTestResults(resultado, onRepasarFallos, onVolverMenu) {
+    showTestResults(resultado, modo, onRepasarFallos, onVolverMenu) {
         this.elements.preguntaEl.innerText = '¡Has completado el test!';
         this.elements.opcionesEl.innerHTML = '';
         this.elements.progresoTextoEl.innerText = 'Test Finalizado';
         this.elements.feedbackEl.classList.remove('correcto', 'incorrecto');
+        this.elements.veredictoEl.classList.add('oculto'); // Ocultar por defecto
 
-        let mensajePuntuacion = `Tu puntuación final es: <strong>${resultado.puntuacionFinal} puntos</strong>.<br>Aciertos: ${resultado.aciertos} | Fallos: ${resultado.fallos}`;
-        if (resultado.nuevoRecord) {
-            mensajePuntuacion += `<br>¡Nuevo récord!`;
-            this.updateRecord(resultado.puntuacionFinal);
+        if (modo && modo.startsWith('simulacro')) {
+            const nota = parseFloat(resultado.puntuacionFinal);
+            const esApto = nota >= 50;
+            const totalPreguntas = resultado.aciertos + resultado.fallos; // Asumiendo que se responden todas
+            const noContestadas = 100 - totalPreguntas;
+
+            this.elements.veredictoEl.innerText = esApto ? 'APTO' : 'NO APTO';
+            this.elements.veredictoEl.className = esApto ? 'veredicto apto' : 'veredicto no-apto';
+            this.elements.veredictoEl.classList.remove('oculto');
+
+            let mensajePuntuacion = `Nota Final: <strong>${nota.toFixed(2)} / 100</strong><br>
+                                     Aciertos: ${resultado.aciertos} | Fallos: ${resultado.fallos} | No contestadas: ${noContestadas}`;
+            this.elements.feedbackEl.innerHTML = mensajePuntuacion;
+
+        } else {
+            let mensajePuntuacion = `Tu puntuación final es: <strong>${resultado.puntuacionFinal} puntos</strong>.<br>Aciertos: ${resultado.aciertos} | Fallos: ${resultado.fallos}`;
+            if (resultado.nuevoRecord) {
+                mensajePuntuacion += `<br>¡Nuevo récord!`;
+                this.updateRecord(resultado.puntuacionFinal);
+            }
+            this.elements.feedbackEl.innerHTML = mensajePuntuacion;
         }
-        this.elements.feedbackEl.innerHTML = mensajePuntuacion;
+
         this.elements.feedbackEl.className = 'feedback visible final';
         this.elements.feedbackEl.setAttribute('tabindex', '-1');
         this.elements.feedbackEl.focus();
@@ -267,7 +289,8 @@ export class UI {
         this.elements.reiniciarBtn.classList.add('oculto');
         this.elements.finalizarAhoraBtn.classList.remove('oculto');
         this.elements.revisionFallosEl.classList.add('oculto');
-        const esModoExamen = estadoActual.modo.startsWith('examen');
+        // Ocultar "Seguir más tarde" en modos de examen o simulacro para fomentar que se completen.
+        const esModoExamen = estadoActual.modo.startsWith('examen') || estadoActual.modo.startsWith('simulacro');
         this.elements.seguirMasTardeBtn.classList.toggle('oculto', esModoExamen);
         this.elements.soundToggleBtn.classList.remove('oculto');
     }
