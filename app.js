@@ -284,9 +284,11 @@ window.addEventListener('load', () => {
     function manejarFinalizarTestForzado() {
         if (isProcessing) return;
         isProcessing = true;
+        const modoActual = getTestState() ? getTestState().modo : null; // Guardar el modo antes de limpiar el estado
         const resultadoAvance = finalizarTestForzado();
         if (resultadoAvance) {
-            ui.showTestResults(resultadoAvance, getTestState().modo, iniciarRepasoFallos, () => { ui.showStartView(); });
+            // Usar la variable guardada en lugar de intentar acceder al estado ya limpiado
+            ui.showTestResults(resultadoAvance, modoActual, iniciarRepasoFallos, () => { ui.showStartView(); });
             actualizarContadoresUI();
         }
         isProcessing = false;

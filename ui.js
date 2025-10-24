@@ -202,29 +202,28 @@ export class UI {
         this.elements.feedbackEl.classList.remove('correcto', 'incorrecto');
         this.elements.veredictoEl.classList.add('oculto'); // Ocultar por defecto
 
+        let mensajePuntuacion = '';
+
         if (modo && modo.startsWith('simulacro')) {
             const nota = parseFloat(resultado.puntuacionFinal);
             const esApto = nota >= 50;
             const totalPreguntas = resultado.aciertos + resultado.fallos; // Asumiendo que se responden todas
             const noContestadas = 100 - totalPreguntas;
 
-            this.elements.veredictoEl.innerText = esApto ? 'APTO' : 'NO APTO';
-            this.elements.veredictoEl.className = esApto ? 'veredicto apto' : 'veredicto no-apto';
+            this.elements.veredictoEl.textContent = esApto ? 'APTO' : 'NO APTO';
+            this.elements.veredictoEl.className = `veredicto ${esApto ? 'apto' : 'no-apto'}`;
             this.elements.veredictoEl.classList.remove('oculto');
 
-            let mensajePuntuacion = `Nota Final: <strong>${nota.toFixed(2)} / 100</strong><br>
-                                     Aciertos: ${resultado.aciertos} | Fallos: ${resultado.fallos} | No contestadas: ${noContestadas}`;
-            this.elements.feedbackEl.innerHTML = mensajePuntuacion;
-
+            mensajePuntuacion = `Nota Final: <strong>${nota.toFixed(2)} / 100</strong><br>Aciertos: ${resultado.aciertos} | Fallos: ${resultado.fallos} | No contestadas: ${noContestadas}`;
         } else {
-            let mensajePuntuacion = `Tu puntuación final es: <strong>${resultado.puntuacionFinal} puntos</strong>.<br>Aciertos: ${resultado.aciertos} | Fallos: ${resultado.fallos}`;
+            mensajePuntuacion = `Tu puntuación final es: <strong>${resultado.puntuacionFinal} puntos</strong>.<br>Aciertos: ${resultado.aciertos} | Fallos: ${resultado.fallos}`;
             if (resultado.nuevoRecord) {
                 mensajePuntuacion += `<br>¡Nuevo récord!`;
                 this.updateRecord(resultado.puntuacionFinal);
             }
-            this.elements.feedbackEl.innerHTML = mensajePuntuacion;
         }
 
+        this.elements.feedbackEl.innerHTML = mensajePuntuacion;
         this.elements.feedbackEl.className = 'feedback visible final';
         this.elements.feedbackEl.setAttribute('tabindex', '-1');
         this.elements.feedbackEl.focus();
@@ -289,8 +288,8 @@ export class UI {
         this.elements.reiniciarBtn.classList.add('oculto');
         this.elements.finalizarAhoraBtn.classList.remove('oculto');
         this.elements.revisionFallosEl.classList.add('oculto');
-        // Ocultar "Seguir más tarde" en modos de examen o simulacro para fomentar que se completen.
-        const esModoExamen = estadoActual.modo.startsWith('examen') || estadoActual.modo.startsWith('simulacro');
+        // Ocultar "Seguir más tarde" solo en modos de examen para fomentar que se completen en una sesión.
+        const esModoExamen = estadoActual.modo.startsWith('examen');
         this.elements.seguirMasTardeBtn.classList.toggle('oculto', esModoExamen);
         this.elements.soundToggleBtn.classList.remove('oculto');
     }
