@@ -458,7 +458,7 @@
       "hasta 6 meses después de que concluya la misión.",
       "hasta 15 días después de que concluya la misión."
     ],
-    "respuestaCorrecta": "hasta 30 días después de que concluya la misión.",
+    "respuestaCorrecta": "hasta 15 días después de que concluya la misión.",
     "examen": "simulacro1"
   },
   {
@@ -590,7 +590,7 @@
       "48 horas",
       "14 días"
     ],
-    "respuestaCorrecta": "48 horas",
+    "respuestaCorrecta": "20 días",
     "examen": "simulacro1"
   },
   {
@@ -645,7 +645,7 @@
       "Un militar Hombre o Mujer",
       "Oficial, Suboficial o Personal de Tropa"
     ],
-    "respuestaCorrecta": "Un Militar en activo o en la reserva",
+    "respuestaCorrecta": "Civil o militar",
     "examen": "simulacro1"
   },
   {

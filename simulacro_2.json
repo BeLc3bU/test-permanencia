@@ -508,12 +508,12 @@
   {
     "pregunta": "REALES ORDENANZAS PARA LAS FUERZAS ARMADAS. Artículo 53. ¿Qué afirmación es falsa sobre el Estilo de mando?",
     "opciones": [
-      "El militar que ejerza mando se hará querer y respetar por sus subordinados.",
       "No disimulará jamás las faltas de disciplina.",
       "Infundirá amor al servicio y exactitud en el desempeño de sus obligaciones.",
-      "Será firme en el mando, graciable en lo que pueda y comedido en su actitud y palabras aun cuando amoneste o sancione."
+      "Será firme en el mando, graciable en lo que pueda y comedido en su actitud y palabras aun cuando amoneste o sancione.",
+      "El militar que ejerza mando se hará querer y respetar por sus subordinados."
     ],
-    "respuestaCorrecta": "El militar que ejerza mando se hará querer y respetar por sus subordinados.",
+    "respuestaCorrecta": "No disimulará jamás las faltas de disciplina.",
     "examen": "simulacro2"
   },
   {
