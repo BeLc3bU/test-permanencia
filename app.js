@@ -164,8 +164,16 @@ window.addEventListener('load', () => {
     }
     
     function iniciarTestImprescindible() {
-        const preguntasImprescindibles = questionBank.getAll().filter(p => p.imprescindible === true);
-        iniciarNuevoTest('imprescindible', { preguntasPersonalizadas: preguntasImprescindibles });
+        const numPreguntas = ui.elements.numPreguntasSelect.value === 'Infinity' ? Infinity : parseInt(ui.elements.numPreguntasSelect.value, 10);
+        let preguntasImprescindibles = questionBank.getAll().filter(p => p.imprescindible === true);
+
+        // Barajar las preguntas imprescindibles para que no salgan siempre las mismas
+        questionBank.shuffle(preguntasImprescindibles);
+
+        const numeroDePreguntasParaTest = Math.min(preguntasImprescindibles.length, numPreguntas);
+        const preguntasSeleccionadas = preguntasImprescindibles.slice(0, numeroDePreguntasParaTest);
+
+        iniciarNuevoTest('imprescindible', { preguntasPersonalizadas: preguntasSeleccionadas });
     }
 
     function iniciarTestExamen(examenId) {
