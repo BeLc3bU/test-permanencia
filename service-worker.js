@@ -55,43 +55,37 @@ self.addEventListener('activate', event => {
 // Evento 'fetch': se dispara cada vez que la página pide un recurso (CSS, JS, imagen, etc.).
 self.addEventListener('fetch', event => {
   const { request } = event;
-  const url = new URL(request.url);
 
-  // Estrategia "Stale-While-Revalidate" para el HTML, CSS, JS y los JSON de preguntas.
-  // Sirve desde la caché para velocidad, pero actualiza en segundo plano.
-  if (url.origin === self.location.origin && (url.pathname === '/' || url.pathname.endsWith('.html') || url.pathname.endsWith('.css') || url.pathname.endsWith('.js') || url.pathname.endsWith('.json'))) {
-    event.respondWith(
-      caches.open(CACHE_NAME).then(cache => {
-        return cache.match(request).then(cachedResponse => {
-          const fetchPromise = fetch(request).then(networkResponse => {
-            // Si la petición a la red tiene éxito, actualizamos la caché.
-            if (networkResponse.ok) {
-              cache.put(request, networkResponse.clone());
-            }
-            return networkResponse;
-          });
-
-          // Devolvemos la respuesta de la caché si existe, si no, esperamos a la red.
-          return cachedResponse || fetchPromise;
-        });
-      })
-    );
-  } else {
-    // Estrategia "Cache First" para otros recursos (imágenes, fuentes, etc.).
-    // Si está en caché, se sirve. Si no, se busca en la red y se cachea para la próxima vez.
-    event.respondWith(
-      caches.match(request).then(response => {
-        return response || fetch(request).then(networkResponse => {
-          return caches.open(CACHE_NAME).then(cache => {
-            if (networkResponse.ok) {
-              cache.put(request, networkResponse.clone());
-            }
-            return networkResponse;
-          });
-        });
-      })
-    );
+  // Solo procesar peticiones GET y que sean HTTP/HTTPS.
+  if (request.method !== 'GET' || !request.url.startsWith('http')) {
+    return;
   }
+
+  // Estrategia Stale-While-Revalidate para todos los recursos cacheados.
+  event.respondWith(
+    caches.open(CACHE_NAME).then(async (cache) => {
+      // 1. Devolver desde la caché si está disponible.
+      const cachedResponse = await cache.match(request);
+      
+      // 2. En paralelo, ir a la red para actualizar la caché.
+      const fetchPromise = fetch(request).then(networkResponse => {
+        // Solo cachear respuestas válidas y completas (status 200).
+        // Esto evita errores con respuestas parciales (206) o de otro tipo.
+        if (networkResponse && networkResponse.status === 200) {
+          cache.put(request, networkResponse.clone());
+        }
+        return networkResponse;
+      }).catch(err => {
+        // Si la red falla, no hacemos nada, el usuario seguirá viendo la versión en caché si existe.
+        console.warn(`La petición a la red para ${request.url} ha fallado.`, err);
+        // Si la red falla y no hay nada en caché, el error se propagará.
+        // Si hay algo en caché, ya se ha devuelto, por lo que este error no afecta al usuario.
+      });
+
+      // Devolver la respuesta de caché si existe; si no, esperar a la respuesta de red.
+      return cachedResponse || fetchPromise;
+    })
+  );
 });
 
 // Evento 'message': escucha mensajes desde el cliente (la página web).
