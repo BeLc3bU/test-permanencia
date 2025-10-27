@@ -226,6 +226,7 @@ export class UI {
         this.elements.feedbackEl.innerHTML = mensajePuntuacion;
         this.elements.feedbackEl.className = 'feedback visible final';
         this.elements.feedbackEl.setAttribute('tabindex', '-1');
+        // Mover el foco al feedback para que los lectores de pantalla lo anuncien.
         this.elements.feedbackEl.focus();
 
         // Ocultar botones de acción del test, ya que ha finalizado.

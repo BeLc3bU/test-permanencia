@@ -56,21 +56,16 @@ export function prepararTest(modo, opciones = {}) {
         modo: modo,
     };
 
-    // Estrategias de preparación de test según el modo
-    const preparadoresDeTest = {
-        normal: prepararTestNormal,
-        repaso: prepararTestPersonalizado,
-        examen2022: prepararTestPersonalizado,
-        examen2024: prepararTestPersonalizado,
-        imprescindible: prepararTestPersonalizado,
-        examen2025ET: prepararTestPersonalizado,
-        simulacro1: prepararTestPersonalizado,
-        simulacro2: prepararTestPersonalizado,
-        simulacro3: prepararTestPersonalizado,
-        // Se pueden añadir más modos aquí fácilmente
-    };
-
-    const preparador = preparadoresDeTest[modo] || preparadoresDeTest.normal;
+    // Estrategia de preparación de test según el modo.
+    // Esta lógica es clave para asegurar que los exámenes y otros modos usen todas sus preguntas.
+    let preparador;
+    if (modo === 'normal') {
+        preparador = prepararTestNormal;
+    } else {
+        // Para repaso, exámenes, imprescindibles y simulacros, usamos la lista completa de preguntas que nos pasan.
+        preparador = prepararTestPersonalizado;
+    }
+    
     const preguntasSeleccionadas = preparador(opciones);
 
     currentTestSession.preguntasDelTest = preguntasSeleccionadas.map(p => ({
@@ -78,7 +73,7 @@ export function prepararTest(modo, opciones = {}) {
         indiceGlobal: questionBank.getIndex(p.pregunta)
     }));
 
-    // Barajamos las preguntas para los modos que no son 'normal', ya que vienen en orden.
+    // Barajamos las preguntas para todos los modos que no son 'normal'. 'repaso' también se beneficia de esto.
     if (modo !== 'normal') {
         questionBank.shuffle(currentTestSession.preguntasDelTest);
     }

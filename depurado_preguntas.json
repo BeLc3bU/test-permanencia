@@ -8686,5 +8686,885 @@
     ],
     "respuestaCorrecta": "Todas son correctas",
     "examen": "2025"
+  },
+  {
+    "pregunta": "Con respecto al Congreso de los Diputados, es cierta la afirmación…",
+    "opciones": [
+      "Podrá estar constituido por más de 400 diputados.",
+      "Estará siempre constituido por 350 diputados.",
+      "Podrá estar constituido por menos de 300 diputados.",
+      "Podrá estar constituido por 381 diputados."
+    ],
+    "respuestaCorrecta": "Podrá estar constituido por 381 diputados.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "Los Reglamentos y su reforma que corresponda aprobar a las Cámaras, serán sometidos a una votación final sobre su totalidad, que requerirá… (Señale la respuesta correcta).",
+    "opciones": [
+      "Mayoría de dos tercios.",
+      "Mayoría simple.",
+      "Mayoría absoluta.",
+      "Mayoría de tres quintos."
+    ],
+    "respuestaCorrecta": "Mayoría absoluta.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿Quién ejercerá de Presidente de la Diputación Permanente del Senado?",
+    "opciones": [
+      "El Presidente del Congreso de los Diputados.",
+      "El Presidente del Senado.",
+      "El Portavoz del partido mayoritario en el Senado.",
+      "El Presidente del Gobierno."
+    ],
+    "respuestaCorrecta": "El Presidente del Senado.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "Con respecto a los proyectos de ley, estos… (Señale la respuesta correcta).",
+    "opciones": [
+      "Serán aprobados por el pleno del Senado.",
+      "Serán aprobados en Consejo de Ministros.",
+      "Serán sometidos al Congreso por parte del Grupo Parlamentario que lo haya promovido.",
+      "Serán aprobados por el pleno del Congreso de los Diputados."
+    ],
+    "respuestaCorrecta": "Serán aprobados en Consejo de Ministros.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿Cuales son las formas de funcionamiento de las Cámaras?",
+    "opciones": [
+      "En Pleno o por Comisiones.",
+      "Solamente en Pleno.",
+      "En Pleno o por Comités.",
+      "En Pleno o por Juntas."
+    ],
+    "respuestaCorrecta": "En Pleno o por Comisiones.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "Como órgano de trabajo permanente, el Consejo de Defensa Nacional contará con_________________ Interministerial de Defensa, adscrita al Ministerio de Defensa.",
+    "opciones": [
+      "el Comité",
+      "la Comisión",
+      "la Secretaría permanente",
+      "el Consejo"
+    ],
+    "respuestaCorrecta": "la Comisión",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "Con respecto al Jefe de Estado Mayor de la Defensa… (Señale la afirmación correcta).",
+    "opciones": [
+      "Forma parte del Consejo de Seguridad Nacional pero no forma parte del Consejo de Defensa Nacional.",
+      "No forma parte del Consejo de Seguridad Nacional ni tampoco forma parte del Consejo de Defensa Nacional.",
+      "Forma parte del Consejo de Seguridad Nacional y del Consejo de Defensa Nacional.",
+      "Forma parte del Consejo de Defensa Nacional pero no forma parte del Consejo de Seguridad Nacional."
+    ],
+    "respuestaCorrecta": "Forma parte del Consejo de Seguridad Nacional y del Consejo de Defensa Nacional.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿A qué órgano le corresponde otorgar las autorizaciones previas para prestar el consentimiento del Estado a obligarse por medio de los tratados y convenios internacionales?",
+    "opciones": [
+      "A las Cortes Generales.",
+      "Al Ministerio de Asuntos Exteriores, Unión Europea y Cooperación.",
+      "Al Gobierno.",
+      "A la Corona."
+    ],
+    "respuestaCorrecta": "A las Cortes Generales.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes autoridades forma parte del Consejo de Defensa Nacional cuando este se reúne en la modalidad de consejo ejecutivo?",
+    "opciones": [
+      "El Vicepresidente cuarto del Gobierno.",
+      "El Jefe de Estado Mayor del Ejército de Tierra.",
+      "El Ministro de Economía y Hacienda.",
+      "Ninguna de autoridades anteriores forma parte del Consejo Ejecutivo de Defensa Nacional."
+    ],
+    "respuestaCorrecta": "Ninguna de autoridades anteriores forma parte del Consejo Ejecutivo de Defensa Nacional.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes autoridades pertenece al pleno del Consejo de Defensa Nacional?",
+    "opciones": [
+      "El Secretario de Estado de Seguridad.",
+      "El Director del Gabinete de la Presidencia del Gobierno.",
+      "El Director del Departamento de Seguridad Nacional.",
+      "El Ministro de Justicia."
+    ],
+    "respuestaCorrecta": "El Director del Gabinete de la Presidencia del Gobierno.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿Cuáles de las siguientes autoridades son titulares de los órganos directivos encargados de la gestión de una o varias áreas funcionalmente homogéneas del Ministerio?",
+    "opciones": [
+      "Los Subdirectores Generales.",
+      "Los Secretarios de Estado.",
+      "Los Secretarios Generales Técnicos.",
+      "Los Directores Generales."
+    ],
+    "respuestaCorrecta": "Los Directores Generales.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿Quién deberá aprobar previamente la delegación de competencias en el caso de Entidades de derecho público vinculadas o dependientes de las Administraciones Públicas?",
+    "opciones": [
+      "El órgano máximo de dirección.",
+      "La Subsecretaría de Política Territorial y Función Pública.",
+      "La Subsecretaría del Ministerio de adscripción.",
+      "Todas las respuestas son falsas."
+    ],
+    "respuestaCorrecta": "El órgano máximo de dirección.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "El principio por el cual una Administración Pública tiene la obligación de garantizar la coherencia de sus actuaciones con otras Administraciones Públicas para la consecución de un resultado común, se denomina… (Señale la respuesta correcta).",
+    "opciones": [
+      "Colaboración.",
+      "Cooperación.",
+      "Coordinación.",
+      "Responsabilidad."
+    ],
+    "respuestaCorrecta": "Coordinación.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "Con respecto a la delegación de competencias regulada según el artículo 9 de la Ley 40/2015... (Señale la afirmación incorrecta).",
+    "opciones": [
+      "La adopción de disposiciones de carácter general es indelegable.",
+      "No se pueden delegar las competencias que procedan de una delegación.",
+      "La delegación de competencias debe publicarse en el boletín oficial que corresponda al ámbito de competencia territorial que se trate",
+      "Todas las afirmaciones son incorrectas."
+    ],
+    "respuestaCorrecta": "Todas las afirmaciones son incorrectas.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "Según la Ley 40/2015, de 1 de octubre, de Régimen Jurídico del Sector Público, no es supuesto de suplencia la...",
+    "opciones": [
+      "Vacante.",
+      "Ausencia.",
+      "Delegación.",
+      "Enfermedad."
+    ],
+    "respuestaCorrecta": "Delegación.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿Qué órgano del Ministerio de Defensa ejerce la dirección funcional del Sistema de Información y Gestión de la Infraestructura (SINFRADEF)?",
+    "opciones": [
+      "La Dirección General de Infraestructura.",
+      "La Dirección General de Armamento y Material.",
+      "La Dirección General de Asuntos Económicos.",
+      "La Vicesecretaría General Técnica."
+    ],
+    "respuestaCorrecta": "La Dirección General de Infraestructura.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿A qué órgano del Ministerio de Defensa le corresponde la dirigir, planificar, impulsar y gestionar la política de personal, de reclutamiento, de enseñanza, de desarrollo profesional, sanitaria y de patrimonio cultural?",
+    "opciones": [
+      "A la Secretaría General de Personal.",
+      "A la Dirección General de Personal, Enseñanza y de Sanidad.",
+      "A la Secretaria de Estado de Defensa.",
+      "A la Subsecretaría de Defensa."
+    ],
+    "respuestaCorrecta": "A la Subsecretaría de Defensa.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "(SEÑALA LA RESPUESTA FALSA). La Secretaría General Técnica está compuesta por los siguientes órganos…",
+    "opciones": [
+      "Subdirección General de Publicaciones y Patrimonio Cultural.",
+      "Subdirección General de Servicios Económicos y Pagadurías.",
+      "Subdirección General de Recursos e Información Administrativa.",
+      "Vicesecretaría General Técnica."
+    ],
+    "respuestaCorrecta": "Subdirección General de Servicios Económicos y Pagadurías.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿A qué órgano del Ministerio de Defensa le corresponde la gestión de las inversiones extranjeras en España relacionadas con la Defensa?",
+    "opciones": [
+      "Al Gabinete Técnico de la persona titular del Ministro de Defensa.",
+      "A la Dirección General de Asuntos Económicos.",
+      "A la Sección de Enlace Internacional y Derechos Arancelarios.",
+      "A la Dirección General de Estrategia e Innovación de la Industria de Defensa."
+    ],
+    "respuestaCorrecta": "A la Dirección General de Estrategia e Innovación de la Industria de Defensa.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿Qué órgano de Cuartel General del Ejército de Tierra ejercerá el control interno de la gestión económico-financiera, la Notaría Militar y el asesoramiento económico-fiscal?",
+    "opciones": [
+      "La Dirección de Asuntos Económicos.",
+      "La Intervención Delegada en el Cuartel General.",
+      "La Intervención General de la Defensa.",
+      "La Asesoría Jurídica."
+    ],
+    "respuestaCorrecta": "La Intervención Delegada en el Cuartel General.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿En qué órgano se integrarán las organizaciones operativas permanentes de las Fuerzas Armadas?",
+    "opciones": [
+      "En el Mando de Operaciones.",
+      "En el Centro Conjunto de Operaciones Permanentes.",
+      "En el Estado Mayor de la Defensa.",
+      "En el Cuartel General del Ejército de Tierra, Ejército del Aire, o Armada, según corresponda."
+    ],
+    "respuestaCorrecta": "En el Estado Mayor de la Defensa.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿Qué órgano del EMAD es centro de referencia de las Fuerzas Armadas en lo que respecta a la investigación en asuntos relacionados con la Seguridad y Defensa?",
+    "opciones": [
+      "El Centro Conjunto de Seguridad y Defensa.",
+      "El Centro Superior de Estudios de la Defensa Nacional.",
+      "El Centro Conjunto de Desarrollo de Conceptos.",
+      "El Centro de Inteligencia de las Fuerzas Armadas."
+    ],
+    "respuestaCorrecta": "El Centro Superior de Estudios de la Defensa Nacional.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes divisiones no forma parte del Estado Mayor Conjunto de la Defensa?",
+    "opciones": [
+      "La División de Operaciones.",
+      "La División de Desarrollo de la Fuerza.",
+      "La División de Estrategia.",
+      "La División de Planes."
+    ],
+    "respuestaCorrecta": "La División de Operaciones.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "La Comandancia General de Ceuta está encuadrada directamente en…",
+    "opciones": [
+      "El Mando de Canarias.",
+      "El Cuartel General del Mando de Apoyo a la Maniobra.",
+      "La Fuerza Terrestre.",
+      "La Fuerza de Maniobra."
+    ],
+    "respuestaCorrecta": "El Mando de Canarias.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿Cuántas subdirecciones posee la Dirección de Enseñanza Naval?",
+    "opciones": [
+      "No tiene ninguna subdirección.",
+      "1 subdirección.",
+      "2 subdirecciones.",
+      "3 subdirecciones."
+    ],
+    "respuestaCorrecta": "No tiene ninguna subdirección.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "El Estado Mayor del Cuartel General de la Armada se articula en varios órganos, ¿Cuál de los siguientes no está incluido entre ellos?",
+    "opciones": [
+      "Secretaría General del Estado Mayor.",
+      "División de Logística.",
+      "Jefatura de Servicios Generales y Asistencia Técnica.",
+      "División de Planes."
+    ],
+    "respuestaCorrecta": "Jefatura de Servicios Generales y Asistencia Técnica.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "EA. En el Mando de Apoyo Logístico del Ejército del Aire y del Espacio encontramos...",
+    "opciones": [
+      "La Jefatura y una dirección.",
+      "La Jefatura y dos direcciones.",
+      "La Jefatura y tres direcciones.",
+      "La Jefatura, dos direcciones y un centro."
+    ],
+    "respuestaCorrecta": "La Jefatura y tres direcciones.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "De acuerdo al texto de la Ley 39/2007, de la Carrera Militar, los militares de complemento son…",
+    "opciones": [
+      "Militares que mantiene una relación de servicios profesionales de carácter permanente.",
+      "Militares que constituyen la base de las Fuerzas Armadas.",
+      "Militares de carrera de la escala de oficiales.",
+      "Oficiales que establecen su relación de servicios profesionales mediante compromisos de carácter temporal para atender necesidades específicas de las Fuerzas Armadas."
+    ],
+    "respuestaCorrecta": "Oficiales que establecen su relación de servicios profesionales mediante compromisos de carácter temporal para atender necesidades específicas de las Fuerzas Armadas.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿Cuál es el objeto de la Ley 8/2006, de 24 de abril, de Tropa y Marinería?",
+    "opciones": [
+      "Regular el régimen del personal militar profesional.",
+      "Regular el régimen del personal de tropa y marinería.",
+      "Establecer medidas dirigidas a consolidar la plena profesionalización de la tropa y marinería de las Fuerzas Armadas.",
+      "Regular el régimen del personal reservista de especial disponibilidad."
+    ],
+    "respuestaCorrecta": "Establecer medidas dirigidas a consolidar la plena profesionalización de la tropa y marinería de las Fuerzas Armadas.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "Según determina el artículo 21 de las Reales Ordenanzas de las Fuerzas Armadas con respecto a la tradición militar en los ejércitos… (Señale la respuesta incorrecta).",
+    "opciones": [
+      "Los miembros de las Fuerzas Armadas están obligados a conservar y transmitir el historial, tradiciones y símbolos de su unidad con la finalidad de perpetuar su recuerdo para las generaciones futuras.",
+      "El homenaje a los héroes que la forjaron y a todos los que entregaron su vida por España es un deber de gratitud y un motivo de estímulo para la continuación de su obra.",
+      "Los miembros de las Fuerzas Armadas se sentirán herederos de la tradición militar española.",
+      "Los miembros de las Fuerzas Armadas se sentirán depositarios de la tradición militar española."
+    ],
+    "respuestaCorrecta": "Los miembros de las Fuerzas Armadas están obligados a conservar y transmitir el historial, tradiciones y símbolos de su unidad con la finalidad de perpetuar su recuerdo para las generaciones futuras.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "Con respecto a la objeción sobre las órdenes recibidas, las Reales Ordenanzas de las Fuerzas Armadas establecen que… (Señale la respuesta correcta).",
+    "opciones": [
+      "El militar no podrá presenta objeción alguna ante quien dio la orden.",
+      "El militar no estará obligado a obedecerlas. En todo caso asumirá la grave responsabilidad de su acción u omisión.",
+      "En el supuesto de que considere su deber presentar alguna objeción a la orden recibida, la formulará ante quien se la hubiera dado. Si su incumplimiento perjudicase a la misión encomendada, se reservará la objeción hasta haberla cumplido.",
+      "En el supuesto de que considere su deber presentar alguna objeción a la orden recibida, la formulará ante el Jefe de Unidad. Si su incumplimiento perjudicase a la misión encomendada, se retrasara la misión hasta la resolución de la objeción."
+    ],
+    "respuestaCorrecta": "En el supuesto de que considere su deber presentar alguna objeción a la orden recibida, la formulará ante quien se la hubiera dado. Si su incumplimiento perjudicase a la misión encomendada, se reservará la objeción hasta haberla cumplido.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "RROO FAS.¿De qué depende, en gran medida, la capacidad para el combate?",
+    "opciones": [
+      "Del liderazgo.",
+      "Del estilo de mando.",
+      "De la unidad de acción.",
+      "De la moral de victoria."
+    ],
+    "respuestaCorrecta": "De la moral de victoria.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿En qué norma se recogen los principios éticos y reglas de comportamiento del militar español, conformando su código deontológico?",
+    "opciones": [
+      "En el RD 96/2009 de las Reales Ordenanzas de las Fuerzas Armadas.",
+      "En la Ley Orgánica 9/2011, de derechos y deberes de los miembros de las Fuerzas Armadas.",
+      "En la Ley 39/2007, de la Carrera Militar.",
+      "En la Ley Orgánica 8/2014, de Régimen Disciplinario de las Fuerzas Armadas."
+    ],
+    "respuestaCorrecta": "En el RD 96/2009 de las Reales Ordenanzas de las Fuerzas Armadas.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes atribuciones que caracterizan al Observatorio de la Vida Militar es incorrecta?",
+    "opciones": [
+      "Es un órgano de carácter asesor.",
+      "Es un órgano colegiado.",
+      "Es un órgano  adscrito al Congreso de los Diputados.",
+      "Es un órgano de carácter consultivo."
+    ],
+    "respuestaCorrecta": "Es un órgano  adscrito al Congreso de los Diputados.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "El Observatorio de la vida militar estará compuesto por diversos miembros elegidos entre personalidades de reconocido prestigio en el ámbito de la defensa o en el de recursos humanos o en el de derechos fundamentales y libertades públicas, siendo elegidos cinco de estos miembros por...",
+    "opciones": [
+      "El Congreso de los Diputados.",
+      "El Senado.",
+      "Las Cortes Generales.",
+      "El Ministro de Defensa."
+    ],
+    "respuestaCorrecta": "El Congreso de los Diputados.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "Entre los derechos y deberes de todo mando, se encuentran… (Señale la respuesta correcta).",
+    "opciones": [
+      "El derecho de exigir obediencia a sus subordinados y el deber a que se respete su autoridad.",
+      "El deber de exigir obediencia a sus subordinados y el deber a que se respete su autoridad.",
+      "El derecho de exigir obediencia a sus subordinados y el derecho a que se respete su autoridad.",
+      "El deber de exigir obediencia a sus subordinados y el derecho a que se respete su autoridad."
+    ],
+    "respuestaCorrecta": "El deber de exigir obediencia a sus subordinados y el derecho a que se respete su autoridad.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿Pueden los militares retirados mantener su afiliación a las asociaciones profesionales de miembros de las Fuerzas Armadas?",
+    "opciones": [
+      "Sí, siempre que lo permitan los estatutos de la asociación.",
+      "Sí, siempre.",
+      "No, nunca.",
+      "Sí, siempre que el día que pase a retiro lleve afiliado a la asociación como mínimo 5 años."
+    ],
+    "respuestaCorrecta": "Sí, siempre que lo permitan los estatutos de la asociación.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "LO 8/2014. Las acciones y omisiones, dolosas o imprudentes, recogidas en la Ley Orgánica 8/2014, de 4 de diciembre, tienen la consideración de...",
+    "opciones": [
+      "Faltas administrativas.",
+      "Faltas disciplinarias.",
+      "Faltas penales.",
+      "Delitos."
+    ],
+    "respuestaCorrecta": "Faltas disciplinarias.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "LO 8/2014. La falta de “No incorporarse o ausentarse, injustificadamente, del destino o puesto desempeñado, o del centro docente militar de formación en el que curse sus estudios, por un plazo inferior a veinticuatro horas, que se computará de momento a momento, siendo el inicial aquél en que el interesado debía estar presente en el destino, puesto o centro docente militar de formación” está considerada como...",
+    "opciones": [
+      "Falta leve.",
+      "Falta grave.",
+      "Falta muy grave.",
+      "Delito."
+    ],
+    "respuestaCorrecta": "Falta leve.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "LO 8/2014. Contra las resoluciones sancionadores, los interesados podrán interponer recurso de alzada, que en los casos en que la sanción sea adoptada por el Jefe del Cuarto Militar de la Casa de S. M. el Rey, el recurso se interpondrá ante...",
+    "opciones": [
+      "S. M. el Rey.",
+      "El Jefe del Estado Mayor de la Defensa.",
+      "El Ministro de Defensa.",
+      "El Jefe del cuarto Militar de la Casa de S. M. el Rey."
+    ],
+    "respuestaCorrecta": "El Ministro de Defensa.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "Los acuerdos que resuelvan iniciativas relativas al régimen de personal y las condiciones de vida, deberán comunicarse...",
+    "opciones": [
+      "Al interesado.",
+      "Al jefe de unidad.",
+      "A la autoridad que remitió el expediente.",
+      "Todas son correctas."
+    ],
+    "respuestaCorrecta": "Al interesado.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿Qué norma de las siguientes fue modificada por las disposiciones finales del Real Decreto 176/2014, de regulación del procedimiento para la tramitación de iniciativas y quejas?",
+    "opciones": [
+      "El Real Decreto 1111/2015, de 11 de diciembre, por el que se aprueba el Reglamento de adquisición y pérdida de la condición de militar y situaciones administrativas de los militares profesionales.",
+      "Real Decreto 456/2011, de 1 de abril, por el que se aprueba el Reglamento de destinos del personal militar profesional.",
+      "El Real Decreto 35/2010, de 15 de enero, por el que se aprueba el Reglamento de ingreso y promoción y de ordenación de la enseñanza de formación en las Fuerzas Armadas.",
+      "El Real Decreto 168/2009, de 13 de febrero, por el que se aprueba el Reglamento de evaluaciones y ascensos en las Fuerzas Armadas y sobre el acceso a la condición de militar de carrera de militares de tropa y marinería."
+    ],
+    "respuestaCorrecta": "El Real Decreto 168/2009, de 13 de febrero, por el que se aprueba el Reglamento de evaluaciones y ascensos en las Fuerzas Armadas y sobre el acceso a la condición de militar de carrera de militares de tropa y marinería.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "La Ley Orgánica 3/2007, para la igualdad efectiva de mujeres y hombres contempla como principio informador del ordenamiento jurídico y, que como tal, se integrará y observará en la interpretación y aplicación de las normas jurídicas el principio de...",
+    "opciones": [
+      "Discriminación igualitaria.",
+      "Igualdad de trato.",
+      "Discriminación positiva.",
+      "Responsabilidad de los poderes públicos."
+    ],
+    "respuestaCorrecta": "Igualdad de trato.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "Con respecto al ámbito de aplicación del Protocolo de actuación frente al acoso sexual y por razón de sexo en las Fuerzas Armadas, este aplicará a… (Señale la opción correcta).",
+    "opciones": [
+      "Exclusivamente al personal militar, siempre y cuando la víctima sea también militar.",
+      "Exclusivamente al personal militar, siempre que no tenga la condición militar en suspenso, tanto si la víctima es civil, como si es militar.",
+      "Todo el personal perteneciente al Ministerio de Defensa, tanto si es personal civil como si es personal militar.",
+      "A todo el personal militar, incluido el que tenga la condición militar en suspenso."
+    ],
+    "respuestaCorrecta": "Exclusivamente al personal militar, siempre que no tenga la condición militar en suspenso, tanto si la víctima es civil, como si es militar.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "La actuación de aquellos que en el ámbito laboral y prevaliéndose de su relación de superioridad, realicen contra otro de forma reiterada actos hostiles o humillantes que, sin llegar a constituir trato degradante, supongan grave acoso contra la víctima, se define como...",
+    "opciones": [
+      "Acoso sexual.",
+      "Discriminación directa o indirecta por razón de sexo.",
+      "Acoso laboral o profesional.",
+      "Acoso por razón de sexo."
+    ],
+    "respuestaCorrecta": "Acoso laboral o profesional.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "La finalidad de las medidas preventivas recogidas en el Protocolo de actuación frente al acoso sexual y por razón de sexo en las Fuerzas Armadas son las siguientes... (Señale la respuesta incorrecta).",
+    "opciones": [
+      "Sensibilización.",
+      "Protección.",
+      "Información.",
+      "Formación."
+    ],
+    "respuestaCorrecta": "Protección.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "Según lo establecido en el artículo 21 de la Ley 39/2015, del Procedimiento Administrativo Común de las Administraciones Públicas, cuando las normas reguladores de los procedimientos no fijen le plazo máximo para su resolución, este será de… (Señale la respuesta correcta).",
+    "opciones": [
+      "6 meses desde la fecha del acuerdo de iniciación en los procedimientos iniciados de oficio.",
+      "4 meses desde la fecha en que la solicitud haya tenido entrada en el registro electrónico en los procedimientos iniciados a solicitud del interesado.",
+      "3 meses desde la fecha del acuerdo de iniciación en los procedimientos iniciados de oficio.",
+      "2 meses desde la fecha en que la solicitud haya tenido entrada en el registro electrónico en los procedimientos iniciados a solicitud del interesado."
+    ],
+    "respuestaCorrecta": "3 meses desde la fecha del acuerdo de iniciación en los procedimientos iniciados de oficio.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "Según el artículo 33 de la Ley 39/2015,  y cuando razones de interés público lo aconsejen, se podrá acordar, de oficio o a petición del interesado, la aplicación al procedimiento de la tramitación de urgencia, por la cual se reducirán… (Señale la respuesta correcta).",
+    "opciones": [
+      "A la mitad los plazos establecidos para el procedimiento ordinario, salvo los relativos a la presentación de solicitudes y recursos.",
+      "A un mes los plazos establecidos para el procedimiento ordinario, salvo los relativos a la presentación de solicitudes y recursos.",
+      "A un tercio los plazos establecidos para el procedimiento ordinario, salvo los relativos a la presentación de solicitudes y recursos.",
+      "A tres meses los plazos establecidos para el procedimiento ordinario, salvo los relativos a la presentación de solicitudes y recursos."
+    ],
+    "respuestaCorrecta": "A la mitad los plazos establecidos para el procedimiento ordinario, salvo los relativos a la presentación de solicitudes y recursos.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "De conformidad con lo establecido en el artículo 5 de La Ley 39/2015 de Procedimiento Administrativo Común de las Administraciones Públicas, los interesados con capacidad de obrar ante las Administraciones Públicas podrán actuar por medio de representante. Se deberá acreditar la representación… (Señale la respuesta incorrecta).",
+    "opciones": [
+      "Para interponer recursos.",
+      "Para desistir de acciones.",
+      "Para formular solicitudes.",
+      "Para cualquier trámite con las Administraciones Públicas."
+    ],
+    "respuestaCorrecta": "Para cualquier trámite con las Administraciones Públicas.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "De acuerdo a la composición del Consejo de Seguridad Nacional, forman parte de dicho Consejo… (Señala la respuesta incorrecta)",
+    "opciones": [
+      "El Director del Gabinete de la Presidencia del Gobierno.",
+      "El Ministro de Asuntos Exteriores y Cooperación.",
+      "El Secretario de Estado de Asuntos Exteriores.",
+      "El Secretario de Estado de Defensa."
+    ],
+    "respuestaCorrecta": "El Secretario de Estado de Defensa.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes órganos o autoridades, que aun no siendo miembro nato del Consejo de Seguridad Nacional, deberá ser convocado siempre a sus reuniones?",
+    "opciones": [
+      "El Subsecretario de Defensa.",
+      "El Secretario de Estado de Defensa.",
+      "El Director del Departamento de Seguridad Nacional.",
+      "El Secretario General de Política de Defensa."
+    ],
+    "respuestaCorrecta": "El Director del Departamento de Seguridad Nacional.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "De acuerdo a lo establecido en la Ley 36/2015, de Seguridad Nacional, los instrumentos a través de los cuales se desarrollará la gestión de crisis son… (Señale la respuesta incorrecta).",
+    "opciones": [
+      "El Retorno a la normalidad.",
+      "La Organización.",
+      "La Prevención.",
+      "La Respuesta."
+    ],
+    "respuestaCorrecta": "La Organización.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "El conjunto de órganos, organismos, recursos y procedimientos, que permite a los órganos competentes en materia de Seguridad Nacional ejercer sus funciones, se denomina…",
+    "opciones": [
+      "Departamento de Seguridad Nacional.",
+      "Sistema de Seguridad Nacional.",
+      "Consejo de Seguridad Nacional.",
+      "Consejo de Defensa Nacional."
+    ],
+    "respuestaCorrecta": "Sistema de Seguridad Nacional.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "De acuerdo con lo establecido en la Ley 36/2015, de Seguridad Nacional, la organización de la contribución de recursos, tanto públicos como privados, a la Seguridad Nacional corresponde… (Señale la respuesta correcta).",
+    "opciones": [
+      "Al Consejo de Defensa Nacional, en coordinación con las Comunidades Autónomas.",
+      "Al Consejo de Defensa Nacional, en coordinación con el Gobierno.",
+      "Al Consejo de Seguridad Nacional, en coordinación con las Comunidades Autónomas.",
+      "Al Gobierno, en coordinación con las Comunidades Autónomas."
+    ],
+    "respuestaCorrecta": "Al Consejo de Seguridad Nacional, en coordinación con las Comunidades Autónomas.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "PDC-01 (B). Toda operación militar debe estar dirigida a conseguir uno o varios objetivos, requisito indispensable para la consecución de una situación deseada, y que se caracterizan por… (Señale la opción correcta).",
+    "opciones": [
+      "Ser alcanzable.",
+      "Ser manejable.",
+      "Ser restringido.",
+      "Estar fundamentado."
+    ],
+    "respuestaCorrecta": "Ser alcanzable.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "PDC-01 (B). La porción de los dominios de operación en los que operan los instrumentos de poder, se ejecutan las acciones, tienen lugar los enfrentamientos y se producen los efectos, se denomina…",
+    "opciones": [
+      "Zona de ofensiva.",
+      "Terreno de Misión.",
+      "Área de Campaña.",
+      "Espacio de las operaciones."
+    ],
+    "respuestaCorrecta": "Espacio de las operaciones.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "PDC-01 (B). (SEÑALAR LA FALSA). Las tres formas de actuar que tendrán las Fuerzas Armadas, según lo estipulado en la Doctrina para el empleo de las FAS, son las siguientes...",
+    "opciones": [
+      "Acción interoperable.",
+      "Acción integrada.",
+      "Acción conjunta.",
+      "Acción combinada."
+    ],
+    "respuestaCorrecta": "Acción interoperable.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "PDC-01 (B). La acción en la que fuerzas de varios países operan bajo una misma estructura de mando para cumplir una misión determinada, se denomina…",
+    "opciones": [
+      "Acción integrada.",
+      "Acción combinada.",
+      "Acción interoperable.",
+      "Acción conjunta."
+    ],
+    "respuestaCorrecta": "Acción combinada.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿Qué dos declaraciones previas a la creación de las Naciones Unidas se firmaron en 1943?",
+    "opciones": [
+      "La de Dumbarton Oaks y la de Yalta.",
+      "La de las Naciones Unidas y la del Atlántico.",
+      "La de St. James y la de Londres.",
+      "La de Moscú y la de Teherán."
+    ],
+    "respuestaCorrecta": "La de Moscú y la de Teherán.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿Cuántos Estados firmaron la “Declaración de las Naciones Unidas” en apoyo a la Carta del Atlántico?",
+    "opciones": [
+      "Dos.",
+      "Cuatro.",
+      "Cincuenta y uno.",
+      "Veintiséis."
+    ],
+    "respuestaCorrecta": "Veintiséis.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "Con respecto al procedimiento de admisión de nuevos miembros  a las Naciones Unidas, esta admisión se llevara a cabo por ______________ de la Asamblea General y por _______________ del Consejo de Seguridad.",
+    "opciones": [
+      "recomendación/decisión.",
+      "concesión/resolución.",
+      "encomienda/encargo.",
+      "decisión/recomendación."
+    ],
+    "respuestaCorrecta": "decisión/recomendación.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿En qué país tiene su sede el programa de las ONU Mujeres y Derechos Humanos, programa entre cuyos objetivos esta facilitar la igualdad de género?",
+    "opciones": [
+      "En Francia.",
+      "En Etiopía.",
+      "En Holanda.",
+      "En Estados Unidos."
+    ],
+    "respuestaCorrecta": "En Estados Unidos.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿Quién es el Oficial Administrativo Jefe de la Organización de las Naciones Unidas?",
+    "opciones": [
+      "El Presidente del Consejo de Seguridad.",
+      "El Director General de la Asamblea General.",
+      "El Secretario General.",
+      "El Presidente de la Asamblea General."
+    ],
+    "respuestaCorrecta": "El Secretario General.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿En qué artículo del Tratado de Washington se detalla lo que se entiende por área del Atlántico Norte?",
+    "opciones": [
+      "En el artículo 2.",
+      "En el artículo 6.",
+      "En el artículo 8.",
+      "En el artículo 10."
+    ],
+    "respuestaCorrecta": "En el artículo 6.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿Qué dos países ingresaron en la OTAN en el año 1952?",
+    "opciones": [
+      "Dinamarca y Noruega.",
+      "Grecia y Turquía.",
+      "Italia y Noruega.",
+      "Dinamarca y Portugal."
+    ],
+    "respuestaCorrecta": "Grecia y Turquía.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿Qué organismo de la OTAN tiene como cometido ser un foro para el diálogo y la cooperación con los antiguos adversarios del Pacto de Varsovia?",
+    "opciones": [
+      "Dicho organismo no existe.",
+      "El Consejo de Cooperación del Atlántico Norte.",
+      "La Comisión de Cooperación del Atlántico Norte.",
+      "La Asamblea de Cooperación del Atlántico Norte."
+    ],
+    "respuestaCorrecta": "El Consejo de Cooperación del Atlántico Norte.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿Cómo de denomina el tratado firmado entre Francia e Inglaterra por el que forjaron una alianza donde la URSS se confirmaba como enemigo de las democracias y economías de mercado?",
+    "opciones": [
+      "Tratado de Potsdam.",
+      "Tratado de Dumbarton Oaks.",
+      "Tratado de Versalles.",
+      "Tratado de Dunquerque."
+    ],
+    "respuestaCorrecta": "Tratado de Dunquerque.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "En la Organización para la Seguridad y Cooperación en Europa existen unos principios fundamentales que rigen el comportamiento y las relaciones entre los Estados participantes. Estos principios se encuentran recogidos en...",
+    "opciones": [
+      "Una Política de intenciones.",
+      "Tres Dimensiones.",
+      "Tres Cestas.",
+      "Un Decálogo."
+    ],
+    "respuestaCorrecta": "Un Decálogo.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "En el seno de la Conferencia de Seguridad y Cooperación en Europa, el 19 de noviembre de ______________ se firmó el Tratado sobre Fuerzas Armadas Convencionales en Europa (FACE), entrando en vigor el 9 de noviembre de ____________.",
+    "opciones": [
+      "1992 / 2002",
+      "1990 / 1992",
+      "1994 / 1996",
+      "1995 / 2002"
+    ],
+    "respuestaCorrecta": "1990 / 1992",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "El Tratado sobre Fuerzas Armadas Convencionales en Europa (FACE), estableció un sistema de control de armamento convencional que limita, para cada una de las partes del Tratado, el número máximo de piezas de artillería a  _____________  unidades y el número máximo de aviones de combate a  ______________ unidades.",
+    "opciones": [
+      "20.000 / 6.800",
+      "30.000 / 2.000",
+      "20.000 / 2.000",
+      "30.000 / 6.800"
+    ],
+    "respuestaCorrecta": "20.000 / 6.800",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "Entre los países que pertenecen a la OSCE se encuentran los siguientes… (Señale la respuesta correcta).",
+    "opciones": [
+      "Andorra.",
+      "Alemania.",
+      "Turkmenistán.",
+      "Todas las respuestas son correctas."
+    ],
+    "respuestaCorrecta": "Todas las respuestas son correctas.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "La OSCE estableció un Grupo de Contacto con los Socios para la Cooperación en el Mediterráneo entre los que se encuentran los siguientes países… (Señale la respuesta incorrecta).",
+    "opciones": [
+      "Libia.",
+      "Túnez.",
+      "Argelia.",
+      "Jordania."
+    ],
+    "respuestaCorrecta": "Libia.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿A qué órgano de la Unión Europea le corresponde la función de representar a los Gobiernos de los Estados miembros y adoptar la legislación europea?",
+    "opciones": [
+      "Al Consejo de la Unión Europea.",
+      "Al Parlamento Europeo.",
+      "Al Consejo Europeo.",
+      "A la Comisión Europea."
+    ],
+    "respuestaCorrecta": "Al Consejo de la Unión Europea.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "¿Qué órgano de la Unión Europea ejerce el control político y la dirección estratégica de las operaciones?",
+    "opciones": [
+      "El Comité Militar de la Unión Europea.",
+      "La Agencia Europea de Defensa.",
+      "El Comité Político y de Seguridad.",
+      "El Estado Mayor de la Unión Europea."
+    ],
+    "respuestaCorrecta": "El Comité Político y de Seguridad.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "En el año 2007 se produjo el ingreso en la Unión Europea de…",
+    "opciones": [
+      "Bulgaria.",
+      "República Checa.",
+      "Malta.",
+      "Chipre."
+    ],
+    "respuestaCorrecta": "Bulgaria.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "La Comunidad Económica Europea (CEE) y la Comunidad Europea de la Energía Atómica (EUROATOM), se constituyeron con la firma del Tratado de ______________ y entraron en vigor en el año__________________.",
+    "opciones": [
+      "Roma / 1958",
+      "Roma / 1957",
+      "París / 1958",
+      "París / 1957"
+    ],
+    "respuestaCorrecta": "Roma / 1958",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "Entre las misiones principales del Destacamento Aerotáctico “________________” se encontrabael apoyo, mediante transporte aéreo, a las operaciones de Francia y de la Unión Europea en ____________.",
+    "opciones": [
+      "Mamba / Senegal.",
+      "Marfil / Malí.",
+      "Mamba / República Democrática del Congo.",
+      "Orión / Malí."
+    ],
+    "respuestaCorrecta": "Marfil / Malí.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "(SEÑALAR LA RESPUESTA FALSA). España realiza actividades de Seguridad Cooperativa con…",
+    "opciones": [
+      "Senegal.",
+      "Malí.",
+      "Mauritania.",
+      "Túnez."
+    ],
+    "respuestaCorrecta": "Malí.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "Entre los grupos que encuadran las diferentes Agrupaciones Navales Permanentes de la OTAN se encuentran los siguientes… (Señale la respuesta correcta).",
+    "opciones": [
+      "Grupos de asalto anfibio.",
+      "Grupos de escoltas.",
+      "Grupos de Seguridad Cooperativa.",
+      "Todas las respuestas son correctas."
+    ],
+    "respuestaCorrecta": "Grupos de escoltas.",
+    "examen": "simulacro3"
+  },
+  {
+    "pregunta": "La misión “Fuerza Interina de las Naciones Unidas para el Líbano” comenzó en el año…",
+    "opciones": [
+      "2012.",
+      "2015.",
+      "1978.",
+      "2006."
+    ],
+    "respuestaCorrecta": "1978.",
+    "examen": "simulacro3"
   }
 ]
